@@ -1,0 +1,10 @@
+pandas
+openpyxl
+numpy
+rapidfuzz
+requests
+matplotlib
+seaborn
+rdkit
+PyTDC
+jupyter
