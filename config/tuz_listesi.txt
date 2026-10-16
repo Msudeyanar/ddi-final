@@ -9,6 +9,10 @@ anhidrat
 anhidr
 # ör. glukoz anhidrus
 anhidrus
+# ör. kalsiyum klorür anhidroz
+anhidroz
+# ör. kalsiyum sülfat anhidrit
+anhidrit
 # ör. susuz sitrik asit
 susuz
 # ör. azitromisin monohidrat, potasyum sitrat monohidrat
@@ -25,6 +29,8 @@ pentahidrat
 hekzahidrat
 # ör. dibazik sodyum fosfat heptahidrat
 heptahidrat
+# ör. baryum sülfat oktahidrat
+oktahidrat
 # ör. azitromisin seskihidrat
 seskihidrat
 # ör. lisinopril hemihidrat
@@ -53,14 +59,18 @@ bromhidrat
 bromür
 # ör. potasyum iyodür
 iyodür
-# ör. setilpridinyum klorür
+# ör. setilpiridinyum klorür
 klorür
 
-# --- Katyonlar (Gerektiğinde atılır, inorganiklerde korunur) ---
+# --- Katyonlar, Bazlar ve Aminler ---
+# ör. seftriakson trisodyum
+trisodyum
 # ör. pemetrekset disodyum
 disodyum
 # ör. sodyum valproat, ampisilin sodyum
 sodyum
+# ör. klorazepat dipotasyum
+dipotasyum
 # ör. potasyum klavulanat
 potasyum
 # ör. atorvastatin kalsiyum
@@ -69,6 +79,14 @@ kalsiyum
 magnezyum
 # ör. fosfomisin trometamol
 trometamol
+# ör. ketorolak trometamin
+trometamin
+# ör. perindopril erbumin
+erbumin
+# ör. perindopril tert-butilamin
+tert-butilamin
+# ör. sodyum iyotalamat meglumin
+meglumin
 
 # --- Asit Tuzları ve Esterler ---
 # ör. kodein fosfat
@@ -95,7 +113,7 @@ malat
 besilat
 # ör. betahistin mezilat
 mezilat
-# ör. metilprednizolon mesilat
+# ör. imatinib mesilat, metilprednizolon mesilat
 mesilat
 # ör. sultamisilin tosilat, edoksaban tosilat
 tosilat
@@ -109,11 +127,13 @@ bitartarat
 oksalat
 # ör. metoprolol suksinat
 suksinat
-# ör. alogliptin benzoat
+# ör. metoprolol süksinat (Türkçe yazım)
+süksinat
+# ör. alogliptin benzoat, metronidazol benzoat
 benzoat
 # ör. klorheksidin diglukonat
 diglukonat
-# ör. kalsiyum glukonat
+# ör. çinko glukonat, kalsiyum glukonat
 glukonat
 # ör. sodyum laktat
 laktat
@@ -149,3 +169,28 @@ proksetil
 ksinafoat
 # ör. mometazon furoat
 furoat
+# ör. vilanterol trifenatat
+trifenatat
+# ör. paliperidon palmitat, retinol palmitat
+palmitat
+# ör. metilprednizolon aseponat
+aseponat
+# ör. hidrokortizon butirat
+butirat
+# ör. loteprednol etabonat
+etabonat
+# ör. kolin salisilat, metil salisilat
+salisilat
+# ör. inositol nikotinat
+nikotinat
+# ör. magnezyum aspartat
+aspartat
+# ör. magnezyum orotat
+orotat
+# ör. amlodipin kamsilat
+kamsilat
+
+# ör. salmeterol ksinofoat (yazım varyantı)
+ksinofoat
+# ör. perindopril tertbutilamin (bitişik yazım)
+tertbutilamin
