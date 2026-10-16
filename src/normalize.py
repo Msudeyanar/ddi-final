@@ -112,29 +112,31 @@ def gtin_gecerli(barkod) -> bool:
 
 
 # ══════════════════════════════════════════════════════════════════
-# 3. tuz_at
+# 3. tuz_at ve bilesenlere_ayir
 # ══════════════════════════════════════════════════════════════════
 
 _VARSAYILAN_TUZLAR = [
     # hidratlar
     "pentahidrat", "tetrahidrat", "trihidrat", "dihidrat", "hemihidrat",
-    "monohidrat", "seskihidrat", "hekzahidrat", "heptahidrat", "hidrat",
-    "anhidrat", "anhidrus", "anhidr", "susuz",
+    "monohidrat", "seskihidrat", "hekzahidrat", "heptahidrat", "oktahidrat",
+    "hidrat", "anhidrat", "anhidrus", "anhidroz", "anhidrit", "anhidr", "susuz",
     # halojenürler ve kısaltmalar (hcl, hci: büyük I/OCR hatası, hbr)
     "dihidroklorür", "monohidroklorür", "hidroklorür", "hidrobromür",
     "bromhidrat", "bromür", "iyodür", "klorür", "hcl", "hci", "hbr",
-    # katyonlar
+    # katyonlar, bazlar ve aminler
     "trisodyum", "disodyum", "sodyum", "dipotasyum", "potasyum",
-    "kalsiyum", "magnezyum",
+    "kalsiyum", "magnezyum", "trometamol", "trometamin", "erbumin",
+    "tert-butilamin", "meglumin",
     # asit tuzları ve yaygın esterler
     "hemisülfat", "disülfat", "sülfat", "fosfat", "asetat", "sitrat",
     "fumarat", "hemifumarat", "maleat", "malat", "mezilat", "mesilat",
     "besilat", "tosilat", "tartrat", "tartarat", "bitartarat", "oksalat",
-    "suksinat", "benzoat", "glukonat", "diglukonat", "laktat",
+    "suksinat", "süksinat", "benzoat", "glukonat", "diglukonat", "laktat",
     "propiyonat", "dipropiyonat", "valerat", "nitrat", "stearat",
     "pamoat", "dekanoat", "enantat", "bikarbonat", "karbonat",
-    "trometamol", "medoksomil", "sileksetil", "aksetil", "proksetil",
-    "ksinafoat", "furoat",
+    "medoksomil", "sileksetil", "aksetil", "proksetil", "ksinafoat", "ksinofoat", "furoat",
+    "trifenatat", "palmitat", "aseponat", "butirat", "etabonat",
+    "salisilat", "nikotinat", "aspartat", "orotat", "kamsilat", "tertbutilamin",
 ]
 
 _KATYONLAR = frozenset({"sodyum", "potasyum", "kalsiyum", "magnezyum", "disodyum", "trisodyum", "dipotasyum"})
@@ -146,6 +148,8 @@ _INORGANIK_BILESIKLER = frozenset({
     "sodyum bikarbonat", "potasyum bikarbonat", "kalsiyum karbonat", "magnezyum karbonat",
     "magnezyum sulfat", "sodyum laktat", "sodyum asetat", "sodyum sitrat",
     "kalsiyum glukonat", "disodyum fosfat", "sodyum fosfat", "potasyum fosfat",
+    "magnezyum oksit", "magnezyum hidroksit", "aluminyum hidroksit", "cinko oksit",
+    "cinko sulfat", "sodyum florur", "baryum sulfat",
 })
 
 # Katyon önde / tuz formu farklı olanlar → baz (etkin) form
@@ -154,20 +158,28 @@ _ESDEGER = {
     "valproat": "valproik asit",
     "fusidat": "fusidik asit",
     "aljinat": "aljinik asit",
+    "folinat": "folinik asit",
+    "levofolinat": "levofolinik asit",
+    "dobesilat": "dobesilik asit",
+    "pikosulfat": "pikosulfurik asit",
+    "sennosid": "sennozit",
 }
 
-_GECERSIZ_KALINTILAR = frozenset({"hidrojen", "disodyum", "trisodyum", "monobazik", "dibazik", "bi", "baz"})
+_GECERSIZ_KALINTILAR = frozenset({
+    "hidrojen", "disodyum", "trisodyum", "monobazik", "dibazik", "bi", "baz",
+    "oksit", "hidroksit", "florur"
+})
 _PARANTEZ = re.compile(r"\([^)]*\)")
 
 
 def _tuz_listesi_oku(dosya_yolu: Optional[str] = None) -> list[str]:
     """Dosya formatı: satır başına bir tuz adı, # ile başlayanlar yorum."""
     if dosya_yolu is None:
-        varsayilan_yol = Path("config/tuz_listesi.txt")
-        if varsayilan_yol.exists():
-            yol = varsayilan_yol
-        else:
-            return list(_VARSAYILAN_TUZLAR)
+        proje_koku = Path(__file__).resolve().parent.parent
+        varsayilan_yol = proje_koku / "config" / "tuz_listesi.txt"
+        if not varsayilan_yol.exists():
+            varsayilan_yol = Path("config/tuz_listesi.txt")
+        yol = varsayilan_yol
     else:
         yol = Path(dosya_yolu)
 
@@ -200,6 +212,8 @@ def _bilesen_temizle(parca: str, rx, tuz_kume: frozenset) -> str:
     orijinal = parca
 
     def on_ek_at(p: str) -> str:
+        if p in _INORGANIK_BILESIKLER:
+            return p
         w = p.split(" ")
         if len(w) >= 2 and w[0] in _ON_EKLER:
             return " ".join(w[1:])
@@ -248,7 +262,7 @@ def tuz_at(etkin_madde, tuz_listesi_yolu: Optional[str] = None) -> Optional[str]
     rx = _tuz_regex(tuz_listesi_yolu)
     tuz_kume = _tuz_kume(tuz_listesi_yolu)
 
-    # Virgül kuralı: 69,19 gibi sayısal virgüller ayrılmaz, iki tarafında harf olan virgüller ayrılır
+    # Sayısal olmayan virgülleri ayır (ondalık sayıları koru: 69,19 ayrılmaz)
     temiz = re.sub(r"(?<=\D)\s*,\s*(?=\D)", "|", temiz)
     temiz = re.sub(r"\s*(?:\+|/|;|\bve\b|\band\b)\s*", "|", temiz)
 
@@ -258,9 +272,115 @@ def tuz_at(etkin_madde, tuz_listesi_yolu: Optional[str] = None) -> Optional[str]
         if not parca:
             continue
         parca = _bilesen_temizle(parca, rx, tuz_kume)
+        parca = parca.strip(" \t\n\r,.-;/")
         if parca and parca not in sonuc:  # tekrarları at, sırayı koru
             sonuc.append(parca)
     return ", ".join(sonuc) or None
+
+
+def bilesenlere_ayir(
+    etkin_madde_ham: Optional[str],
+    tuz_listesi_yolu: Optional[str] = None,
+    kaynak: Optional[str] = None,
+) -> list[tuple[int, str, str]]:
+    """Adım 2 kuralına göre etkin madde metnini bileşenlerine ayırır.
+
+    Dönüş formatı: [(sira, bilesen_ham, bilesen_tr), ...]
+    Örnek:
+      'amlodipin besilat + valsartan'
+      → [(1, 'amlodipin besilat', 'amlodipin'), (2, 'valsartan', 'valsartan')]
+    """
+    if _bos_mu(etkin_madde_ham):
+        return []
+
+    ham_str = str(etkin_madde_ham).strip()
+    if not ham_str:
+        return []
+
+    # Sabit Kural 5: SKRS'te aktif olup ruhsatlıda olmayan ürünler:
+    # Bu metin zaten İngilizce olduğu için Adım 2'deki Türkçe temizlikten geçmez:
+    # bileşenleri ATC adından " and " ile bölünerek alınır
+    if kaynak == "SKRS":
+        parts = [p.strip() for p in re.split(r"\s+and\s+", ham_str, flags=re.IGNORECASE) if p.strip()]
+        bilesenler: list[tuple[int, str, str]] = []
+        for i, p in enumerate(parts, 1):
+            norm = ad_normalize(p) or p.lower().strip()
+            norm = norm.strip(" \t\n\r,.-;/")
+            bilesenler.append((i, p, norm))
+        return bilesenler
+
+    # Türkçe küçük harfe indirgeme
+    t = tr_lower(ham_str)
+    if not t:
+        return []
+
+    # Sennozit a+b gibi kısaltmaları açık yazıma çevir (sennozit / sennosid)
+    t = re.sub(r"\b(senno[zs]i[td])\s+([a-d])\s*\+\s*([a-d])\b", r"\1 \2 + \1 \3", t)
+
+    # Parantez içi stereoizomerleri temizle: (s)-laktat → laktat
+    t = re.sub(r"\(\s*[sSrdRD]\s*\)\s*-\s*", "", t)
+    # Parantez içi genel açıklamaları sil
+    t = _PARANTEZ.sub(" ", t)
+
+    # Sırayla ayırıcılar: +, ;, ve, and
+    t = re.sub(r"\s*(?:\+|;|\bve\b|\band\b)\s*", "|", t)
+
+    # Slash (/): Yalnızca iki tarafında en az 3 harfli sözcük varsa ayırır
+    # (Virüs suşları A/Victoria/4897/2022 veya d/l-laktat gibi yapıları bozmaz)
+    t = re.sub(r"(?<=[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})\s*/\s*(?=[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})", "|", t)
+
+    # Virgül kuralı: İki tarafında da harfle başlayan ve en az 4 harfli bir sözcük varsa ayırıcı sayılır
+    # Sol parçada en az 4 harfli bir sözcük, sağ parçanın başında ise (l-, d- gibi önekler hariç) en az 4 harfli sözcük aranır
+    tokens = t.split(",")
+    parts = []
+    current = []
+    for i in range(len(tokens) - 1):
+        left_chunk = tokens[i].strip()
+        right_chunk = tokens[i + 1].strip()
+
+        left_words = re.findall(r"[a-zA-ZçğıöşüÇĞİÖŞÜ]{4,}", left_chunk)
+        clean_right = re.sub(r"^(%\d+\s*|[ldLD]\-)", "", right_chunk)
+        right_first_word = re.findall(r"^[a-zA-ZçğıöşüÇĞİÖŞÜ]+", clean_right)
+
+        is_split = False
+        if left_words and right_first_word and len(right_first_word[0]) >= 4:
+            is_split = True
+
+        current.append(tokens[i])
+        if is_split:
+            parts.append(",".join(current).strip())
+            current = []
+    current.append(tokens[-1])
+    parts.append(",".join(current).strip())
+
+    final_pieces = []
+    for p in parts:
+        for sub_p in p.split("|"):
+            sub_p = re.sub(r"\s+", " ", sub_p).strip()
+            if sub_p:
+                final_pieces.append(sub_p)
+
+    rx = _tuz_regex(tuz_listesi_yolu)
+    tuz_kume = _tuz_kume(tuz_listesi_yolu)
+
+    bilesenler: list[tuple[int, str, str]] = []
+    gorulen_tr: set[str] = set()
+    sira = 1
+
+    for parca in final_pieces:
+        p_ascii = eslesme_anahtari(parca)
+        if not p_ascii:
+            continue
+        b_tr = _bilesen_temizle(p_ascii, rx, tuz_kume)
+        b_tr = b_tr.strip(" \t\n\r,.-;/")
+        if not re.search(r"[a-zA-ZçğıöşüÇĞİÖŞÜ]", b_tr) or len(b_tr) <= 1:
+            continue
+        if b_tr and b_tr not in gorulen_tr:
+            gorulen_tr.add(b_tr)
+            bilesenler.append((sira, parca, b_tr))
+            sira += 1
+
+    return bilesenler
 
 
 # ══════════════════════════════════════════════════════════════════
