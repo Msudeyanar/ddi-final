@@ -1,0 +1,196 @@
+# config/tuz_listesi.txt
+# Tuz ve hidrat adları listesi
+# Format: Satır başına bir tuz adı, # ile başlayanlar örnek/açıklama yorumudur.
+
+# --- Hidratlar ---
+# ör. ampisilin anhidrat
+anhidrat
+# ör. dekstroz anhidr
+anhidr
+# ör. glukoz anhidrus
+anhidrus
+# ör. kalsiyum klorür anhidroz
+anhidroz
+# ör. kalsiyum sülfat anhidrit
+anhidrit
+# ör. susuz sitrik asit
+susuz
+# ör. azitromisin monohidrat, potasyum sitrat monohidrat
+monohidrat
+# ör. azitromisin dihidrat, kalsiyum klorür dihidrat
+dihidrat
+# ör. amoksisilin trihidrat, atorvastatin kalsiyum trihidrat
+trihidrat
+# ör. magnezyum asetat tetrahidrat
+tetrahidrat
+# ör. sodyum sitrat pentahidrat
+pentahidrat
+# ör. piperazin hekzahidrat, magnezyum klorür hekzahidrat
+hekzahidrat
+# ör. dibazik sodyum fosfat heptahidrat
+heptahidrat
+# ör. baryum sülfat oktahidrat
+oktahidrat
+# ör. azitromisin seskihidrat
+seskihidrat
+# ör. lisinopril hemihidrat
+hemihidrat
+# ör. sodyum gliserofosfat hidrat
+hidrat
+
+# --- Halojenürler ve Kısaltmalar ---
+# ör. doksorubisin hcl, psödoefedrin hcl
+hcl
+# ör. benidipin hci, besifloksasin hci (büyük I / OCR hatası)
+hci
+# ör. dekstrometorfan hbr
+hbr
+# ör. lidokain hidroklorür, fingolimod hidroklorür
+hidroklorür
+# ör. setirizin dihidroklorür
+dihidroklorür
+# ör. flunarizin monohidroklorür
+monohidroklorür
+# ör. fenoterol hidrobromür
+hidrobromür
+# ör. skopolamin bromhidrat
+bromhidrat
+# ör. ipratropium bromür, piridostigmin bromür
+bromür
+# ör. potasyum iyodür
+iyodür
+# ör. setilpiridinyum klorür
+klorür
+
+# --- Katyonlar, Bazlar ve Aminler ---
+# ör. seftriakson trisodyum
+trisodyum
+# ör. pemetrekset disodyum
+disodyum
+# ör. sodyum valproat, ampisilin sodyum
+sodyum
+# ör. klorazepat dipotasyum
+dipotasyum
+# ör. potasyum klavulanat
+potasyum
+# ör. atorvastatin kalsiyum
+kalsiyum
+# ör. esomeprazol magnezyum
+magnezyum
+# ör. fosfomisin trometamol
+trometamol
+# ör. ketorolak trometamin
+trometamin
+# ör. perindopril erbumin
+erbumin
+# ör. perindopril tert-butilamin
+tert-butilamin
+# ör. sodyum iyotalamat meglumin
+meglumin
+
+# --- Asit Tuzları ve Esterler ---
+# ör. kodein fosfat
+fosfat
+# ör. morfin sülfat
+sülfat
+# ör. salbutamol hemisülfat
+hemisülfat
+# ör. amikasin disülfat
+disülfat
+# ör. lizin asetat
+asetat
+# ör. sildenafil sitrat
+sitrat
+# ör. formoterol fumarat
+fumarat
+# ör. ketiapin hemifumarat
+hemifumarat
+# ör. klorfeniramin maleat
+maleat
+# ör. pizotifen malat
+malat
+# ör. amlodipin besilat
+besilat
+# ör. betahistin mezilat
+mezilat
+# ör. imatinib mesilat, metilprednizolon mesilat
+mesilat
+# ör. sultamisilin tosilat, edoksaban tosilat
+tosilat
+# ör. metoprolol tartrat
+tartrat
+# ör. zolpidem tartarat
+tartarat
+# ör. epinefrin bitartarat
+bitartarat
+# ör. essitalopram oksalat
+oksalat
+# ör. metoprolol suksinat
+suksinat
+# ör. metoprolol süksinat (Türkçe yazım)
+süksinat
+# ör. alogliptin benzoat, metronidazol benzoat
+benzoat
+# ör. klorheksidin diglukonat
+diglukonat
+# ör. çinko glukonat, kalsiyum glukonat
+glukonat
+# ör. sodyum laktat
+laktat
+# ör. flutikazon propiyonat
+propiyonat
+# ör. beklometazon dipropiyonat
+dipropiyonat
+# ör. estradiol valerat
+valerat
+# ör. mikonazol nitrat
+nitrat
+# ör. eritromisin stearat
+stearat
+# ör. hidroksizin pamoat
+pamoat
+# ör. haloperidol dekanoat
+dekanoat
+# ör. testosteron enantat
+enantat
+# ör. sodyum bikarbonat
+bikarbonat
+# ör. kalsiyum karbonat
+karbonat
+# ör. olmesartan medoksomil
+medoksomil
+# ör. kandesartan sileksetil
+sileksetil
+# ör. sefuroksim aksetil
+aksetil
+# ör. sefpodoksim proksetil
+proksetil
+# ör. salmeterol ksinafoat
+ksinafoat
+# ör. mometazon furoat
+furoat
+# ör. vilanterol trifenatat
+trifenatat
+# ör. paliperidon palmitat, retinol palmitat
+palmitat
+# ör. metilprednizolon aseponat
+aseponat
+# ör. hidrokortizon butirat
+butirat
+# ör. loteprednol etabonat
+etabonat
+# ör. kolin salisilat, metil salisilat
+salisilat
+# ör. inositol nikotinat
+nikotinat
+# ör. magnezyum aspartat
+aspartat
+# ör. magnezyum orotat
+orotat
+# ör. amlodipin kamsilat
+kamsilat
+
+# ör. salmeterol ksinofoat (yazım varyantı)
+ksinofoat
+# ör. perindopril tertbutilamin (bitişik yazım)
+tertbutilamin
