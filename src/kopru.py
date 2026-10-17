@@ -138,14 +138,13 @@ def ddinter_ilac_tablosu_olustur(ddinter_dosyalari: list[Union[str, Path]]) -> p
 # 3. YOL A: TEK BİLEŞENLİ ÜRÜNLER
 # ══════════════════════════════════════════════════════════════════
 
-_KOMBINASYON_REGEX = re.compile(r"\bcombinations\b|\bexcl\.?|\bvarious\b", re.IGNORECASE)
+_KOMBINASYON_REGEX = re.compile(r"\bcombinations\b|excl\.|\bvarious\b", re.IGNORECASE)
 
 
 def atc_kombinasyon_mu(atc_adi: Optional[str]) -> bool:
     """ATC adının 'combinations', 'excl.' veya 'various' içerip içermediğini kontrol eder.
     
-    Not: Regex word-boundary (\b) hatası düzeltilmiştir; 'excl.' sonundaki nokta
-    karakterinden sonra \b aranmaz.
+    Not: 'excl.' doğrudan nokta ile aranır; 'excluding' gibi sözcüklerle karışmaz.
     """
     if not atc_adi:
         return False
