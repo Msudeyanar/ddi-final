@@ -1,0 +1,4 @@
+kural_tipi,eski,yeni,ornek
+suffix_replace,isin$,icin,gentamisin → gentamicin
+suffix_replace,(?<!c)in$,ine,amlodipin → amlodipine
+char_replace,f,ph,morfin → morphine
