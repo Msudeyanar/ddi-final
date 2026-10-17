@@ -125,11 +125,9 @@ def ddinter_ilac_tablosu_olustur(ddinter_dosyalari: list[Union[str, Path]]) -> p
         records.append(part_a)
         records.append(part_b)
 
-    if not records:
-        raise ValueError("Hiçbir DDInter dosyası okunamadı.")
-
-    df_all = pd.concat(records, ignore_index=True).drop_duplicates()
+    df_all = pd.concat(records, ignore_index=True)
     df_all["ad_norm"] = df_all["drug_name"].apply(ad_normalize)
+    df_all = df_all.drop_duplicates(subset=["ddinter_id", "ad_norm"])
     df_all = df_all.sort_values("ddinter_id").reset_index(drop=True)
     return df_all[["ddinter_id", "drug_name", "ad_norm"]]
 
@@ -338,7 +336,7 @@ def skrs_esle(
         )
         skrs_dict[b_tr] = {
             "bilesen_tr": b_tr,
-            "ad_en": b_tr,
+            "ad_en": ad_normalize(b_tr) or b_tr,
             "atc": atc_mode,
             "yol": "SKRS",
         }
