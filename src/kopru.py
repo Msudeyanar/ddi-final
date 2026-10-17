@@ -51,15 +51,18 @@ from src.normalize import ad_normalize, eslesme_anahtari
 # ══════════════════════════════════════════════════════════════════
 
 def _temizle_atc_adi(atc_adi: Optional[str]) -> Optional[str]:
-    """ATC adından görünmez karakterleri ve parantez içi ekleri temizler."""
+    """ATC adından görünmez karakterleri ve gereksiz boşlukları temizler.
+    
+    Not: PDF sabit kuralları gereği parantez içi ifadeler (vit c, human vb.)
+    keyfi olarak silinmez, resmi SKRS ATC adı korunur. Şüpheli durumlar
+    docs/acik_sorular.md dosyasına yazılır.
+    """
     if pd.isna(atc_adi):
         return None
     s = str(atc_adi).strip()
     if not s or s.lower() == "nan":
         return None
-    # Parantez içi açıklamaları temizle: (vit c), (human), (horse) vb.
-    s = re.sub(r"\s*\([^)]*\)\s*", " ", s).strip()
-    s = re.sub(r"\s+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
     return s or None
 
 
@@ -135,11 +138,15 @@ def ddinter_ilac_tablosu_olustur(ddinter_dosyalari: list[Union[str, Path]]) -> p
 # 3. YOL A: TEK BİLEŞENLİ ÜRÜNLER
 # ══════════════════════════════════════════════════════════════════
 
-_KOMBINASYON_REGEX = re.compile(r"\b(?:combinations|excl\.|various)\b", re.IGNORECASE)
+_KOMBINASYON_REGEX = re.compile(r"\bcombinations\b|\bexcl\.?|\bvarious\b", re.IGNORECASE)
 
 
 def atc_kombinasyon_mu(atc_adi: Optional[str]) -> bool:
-    """ATC adının 'combinations', 'excl.' veya 'various' içerip içermediğini kontrol eder."""
+    """ATC adının 'combinations', 'excl.' veya 'various' içerip içermediğini kontrol eder.
+    
+    Not: Regex word-boundary (\b) hatası düzeltilmiştir; 'excl.' sonundaki nokta
+    karakterinden sonra \b aranmaz.
+    """
     if not atc_adi:
         return False
     return bool(_KOMBINASYON_REGEX.search(str(atc_adi)))
@@ -152,7 +159,9 @@ def yol_a_esle(
 ) -> pd.DataFrame:
     """Yol A eşleştirmesi: Tek bileşenli, 7 haneli ATC'li, atc_celiski=0 olan ürünler.
 
-    ATC adı SKRS sözlüğünden alınır ve doğrudan İngilizce karşılık olarak kullanılır.
+    PDF Sayfa 4 Kuralı: ATC adı doğrudan İngilizce addır (deksketoprofen → dexketoprofen).
+    Tek bileşenli ürünlerde doğrudan atama yapılır, bulanık eşleme (rapidfuzz) KULLANILMAZ.
+    Birden fazla üründe geçen bileşenler için en sık geçen (mode) ATC/ad çifti seçilir.
     """
     # Barkod bazında bileşen sayıları
     bilesen_sayisi = df_urun_etken.groupby("barkod")["bilesen_tr"].count().to_dict()
@@ -181,27 +190,16 @@ def yol_a_esle(
     )
     m["ad_en"] = m["atc_adi"].apply(ad_normalize)
 
-    # Her benzersiz bilesen_tr için en sık geçen (ad_en, atc) çiftini belirle
+    # Her benzersiz bilesen_tr için en sık geçen (mode) (ad_en, atc) çiftini belirle
     sonuclar = []
     for b_tr, grp in m.groupby("bilesen_tr"):
-        best_cand = None
-        best_votes = -1
-        best_score = -1
-        for (ad_en, atc), count in Counter(zip(grp["ad_en"], grp["atc_final"])).items():
-            score = fuzz.token_sort_ratio(eslesme_anahtari(b_tr), ad_en)
-            if (count > best_votes) or (count == best_votes and score > best_score):
-                best_cand = (ad_en, atc)
-                best_votes = count
-                best_score = score
-
-        if best_cand:
-            sonuclar.append({
-                "bilesen_tr": b_tr,
-                "ad_en": best_cand[0],
-                "atc": best_cand[1],
-                "yol": "A",
-                "eslesme_skoru": best_score,
-            })
+        most_common_pair = Counter(zip(grp["ad_en"], grp["atc_final"])).most_common(1)[0][0]
+        sonuclar.append({
+            "bilesen_tr": b_tr,
+            "ad_en": most_common_pair[0],
+            "atc": most_common_pair[1],
+            "yol": "A",
+        })
 
     return pd.DataFrame(sonuclar)
 
@@ -328,15 +326,22 @@ def skrs_esle(
     for b_tr in skrs_ue["bilesen_tr"].unique():
         if b_tr in onceki:
             continue
-        # Ürünün ATC kodunu bul
+        # İlgili SKRS ürünlerinin en sık geçen (mode) ATC kodunu al
         iliskili_barkodlar = set(skrs_ue[skrs_ue["bilesen_tr"] == b_tr]["barkod"])
-        skrs_urun = df_urun[df_urun["barkod"].isin(iliskili_barkodlar) & (df_urun["kaynak"] == "SKRS")].iloc[0]
+        iliskili_urunler = df_urun[
+            df_urun["barkod"].isin(iliskili_barkodlar)
+            & (df_urun["kaynak"] == "SKRS")
+        ]
+        atc_mode = (
+            iliskili_urunler["atc_final"].mode().iloc[0]
+            if not iliskili_urunler.empty
+            else None
+        )
         skrs_dict[b_tr] = {
             "bilesen_tr": b_tr,
             "ad_en": b_tr,
-            "atc": skrs_urun.get("atc_final"),
+            "atc": atc_mode,
             "yol": "SKRS",
-            "eslesme_skoru": 100.0,
         }
 
     return pd.DataFrame(list(skrs_dict.values()))
