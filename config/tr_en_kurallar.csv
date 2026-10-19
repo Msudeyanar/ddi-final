@@ -1,4 +1,10 @@
 kural_tipi,eski,yeni,ornek
+suffix_replace,misin$,mycin,vankomisin → vancomycin
 suffix_replace,isin$,icin,gentamisin → gentamicin
+suffix_replace,zol$,zole,flukonazol → fluconazole
+suffix_replace,id$,ide,budesonid → budesonide
+suffix_replace,ak$,ac,diklofenak → diclofenac
 suffix_replace,(?<!c)in$,ine,amlodipin → amlodipine
 char_replace,f,ph,morfin → morphine
+char_replace,ks,x,fluoksetin → fluoxetine
+char_replace,k,c,klindamisin → clindamycin

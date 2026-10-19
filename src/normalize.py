@@ -472,4 +472,4 @@ if __name__ == "__main__":
         durum = "✓" if sonuc == beklenen else "✗"
         print(f"  {durum} {repr(girdi):55s} → {repr(sonuc)}")
         if sonuc != beklenen:
-            print(f"      BEKLENEN: {repr(beklenen)}")
+            print(f"      BEKLENEN: {repr(beklenen)}")          

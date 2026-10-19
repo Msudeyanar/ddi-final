@@ -43,8 +43,8 @@ def ad_normalize(name: str) -> str:
     """
     if not isinstance(name, str):
         return ""
-    name = name.replace("İ", "i").replace("I", "ı").strip().lower().replace("\u0307", "")
-    name = re.sub(r"[\-_—–]+", " ", name)
+    name = name.strip().lower()
+    name = re.sub(r"[\-_—–\u2010\u2011\u2012\u2013\u2014]+", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
     return name
 
@@ -76,7 +76,7 @@ def read_all_raw_data(raw_dir: Path = RAW_DIR) -> pd.DataFrame:
     I/O Optimizasyonu: 8 ham CSV dosyasını DİSKTEN SADECE 1 KEZ okur.
     Hem ddinter_ilac hem de etkilesim tablosu bu tek veri kümesinden türetilir.
     """
-    files = sorted(raw_dir.glob("ddinter_downloads_code_*.csv"))
+    files = sorted(raw_dir.glob("ddinter_code_*.csv")) or sorted(raw_dir.glob("ddinter*code_*.csv"))
     if not files:
         raise FileNotFoundError(f"Ham DDInter dosyaları bulunamadı: {raw_dir}")
 

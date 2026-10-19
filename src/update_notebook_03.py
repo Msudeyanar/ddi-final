@@ -1,891 +1,783 @@
 """
-Production-Grade Notebook 03 Üretici ve Çıktı Oluşturucu
-
-Tüm kıdemli veri mühendisi eleştirilerini çözer:
-1. PubChem Cache Poisoning Koruması: Sadece HTTP 200 ve 404 cache'lenir; ağ hatalarında ASLA boş liste diske yazılmaz.
-2. 3 denemeli Exponential Backoff Retry mekanizması.
-3. Yol C Kural Motorunda Regex Sıralama Bağımlılığı Çözümü (suffix_specificity: uzundan kısaya / spesifikten genele).
-4. Bellek (RAM) Optimizasyonu: 444 bin satırlık ara DataFrame listeleri kaldırıldı, akışkan tekil sözlük kullanıldı.
-5. Savunmacı Merge (Defensive Join): urun_etken.csv ve etken_madde.csv birleştirilirken
-   bilesen_tr anahtar sütunları zorla .astype(str).str.strip().str.lower() ile temizlenir;
-   böylece boşluk ve büyük/küçük harf uyumsuzluğundan kaynaklı sessiz eşleşmeme (NaN) ve
-   ürün eşleşme oranının (%Y) hatalı düşük çıkma riski sıfırlanır.
-6. Çalıştırılmış hücre çıktıları doğrudan .ipynb dosyasına gömülü üretilir.
+src/update_notebook_03.py
+═══════════════════════════════════════════════════════════════════════════════
+İP3: İngilizce Ad Köprüsü ve DDInter Eşlemesi (Kişi A & Kişi B İş Birliği)
+═══════════════════════════════════════════════════════════════════════════════
+Bu script:
+1. Kişi A'nın `notebooks/03_kopru_ddinter.ipynb` içindeki Yol A, Yol B ve SKRS
+   adımlarını (Hücre 0-16) %100 koruyarak temel alır.
+2. Kişi B'nin SKRS adımı (Kural 5/6), Yol C (tr_en_kurallar.csv kural motoru),
+   DDInter eşleme (ddinter_id & ad_en_ham), PubChem API kontrolü,
+   Kişi C için ruhsatli_esleme_taslagi.csv ve 4 zorunlu tablo içeren
+   docs/esleme_raporu.md hücrelerini A'nın devamına ekler.
+3. Tüm notebook'u baştan sona çalıştırarak çıktıları pre-render eder ve
+   notebooks/03_kopru_ddinter.ipynb dosyasını günceller.
 """
 
-import sys
 import io
-import re
-import ast
 import json
-import uuid
+import sys
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
+from typing import Any, Dict, List
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 NOTEBOOKS_DIR = BASE_DIR / "notebooks"
+DATA_DIR = BASE_DIR / "data"
+RAW_DIR = DATA_DIR / "raw"
+INTERIM_DIR = DATA_DIR / "interim"
+CONFIG_DIR = BASE_DIR / "config"
+DOCS_DIR = BASE_DIR / "docs"
 
 
-def gen_id():
-    return uuid.uuid4().hex[:8]
-
-
-def run_code_cell(code_str: str, global_env: dict, exec_count: int):
-    outputs = []
-    old_stdout = sys.stdout
-    old_stderr = sys.stderr
-    captured_stdout = io.StringIO()
-    sys.stdout = captured_stdout
-    sys.stderr = captured_stdout
-
-    last_val = None
-    try:
-        tree = ast.parse(code_str)
-        if tree.body and isinstance(tree.body[-1], ast.Expr):
-            last_expr = tree.body.pop()
-            if tree.body:
-                exec(compile(tree, filename="<cell>", mode="exec"), global_env)
-            last_val = eval(compile(ast.Expression(last_expr.value), filename="<cell>", mode="eval"), global_env)
-        else:
-            exec(compile(tree, filename="<cell>", mode="exec"), global_env)
-    finally:
-        sys.stdout = old_stdout
-        sys.stderr = old_stderr
-
-    stdout_text = captured_stdout.getvalue()
-    if stdout_text:
-        outputs.append({
-            "name": "stdout",
-            "output_type": "stream",
-            "text": [line + "\n" for line in stdout_text.splitlines()]
-        })
-
-    if last_val is not None:
-        data_dict = {}
-        if hasattr(last_val, "to_html"):
-            data_dict["text/html"] = [last_val.to_html()]
-            data_dict["text/plain"] = [repr(last_val)]
-        else:
-            data_dict["text/plain"] = [repr(last_val)]
-        outputs.append({
-            "data": data_dict,
-            "execution_count": exec_count,
-            "metadata": {},
-            "output_type": "execute_result"
-        })
-
-    return outputs
-
-
-def generate():
+def create_kisi_b_cells() -> List[Dict[str, Any]]:
+    """Kişi B'nin sorumluluğundaki hücreleri üretir."""
     cells = []
-    global_env = {"__file__": str(NOTEBOOKS_DIR / "03_kopru_ddinter.ipynb"), "__name__": "__main__"}
-    exec_counter = 1
 
-    def add_md(source_lines):
-        cells.append({
-            "cell_type": "markdown",
-            "id": gen_id(),
-            "metadata": {},
-            "source": source_lines
-        })
+    # Hücre 17: Kişi B Giriş Markdown
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "---\n",
+            "# ════════════════════════════════════════════════════════════════\n",
+            "# İP3 — Kişi B: Yol C, DDInter Eşleme, PubChem ve Raporlama (Gün 5–6)\n",
+            "# ════════════════════════════════════════════════════════════════\n",
+            "\n",
+            "**Kişi B Sorumluluk Alanı ve İş Akışı:**\n",
+            "1. **Adım 3 — SKRS ve Yol C:** Kişi A'nın Yol A ve Yol B sonrasında bıraktığı bileşenlere SKRS (Kural 5/6) ve `config/tr_en_kurallar.csv` kural motorunu uygulama.\n",
+            "2. **Adım 4 — DDInter Eşlemesi:** DDInter `ad_norm` fihristi ile birebir eşleştirme, `ad_en_ham` izlenebilirliği ve `ddinter_id` atama.\n",
+            "3. **Adım 4 — PubChem En Sık 100 Kontrolü:** Kapsam içi en sık 100 eşleşmeyen bileşen için PubChem API ile kurtarma denemesi.\n",
+            "4. **Kişi C Taslağı:** Eşleşmeyen bileşenleri sıklık sırasına, `atc_ipucu` ve `urun_ornegi` bağlamıyla `data/interim/ruhsatli_esleme_taslagi.csv` olarak hazırlama.\n",
+            "5. **Teslimatlar:** `data/interim/etken_madde.csv` ve 4 zorunlu tabloyu içeren `docs/esleme_raporu.md` raporu.\n"
+        ]
+    })
 
-    def add_code(source_lines):
-        nonlocal exec_counter
-        code_str = "".join(source_lines)
-        outs = run_code_cell(code_str, global_env, exec_counter)
-        cells.append({
-            "cell_type": "code",
-            "execution_count": exec_counter,
-            "id": gen_id(),
-            "metadata": {},
-            "outputs": outs,
-            "source": source_lines
-        })
-        exec_counter += 1
+    # Hücre 18: Yol C Kural Motoru
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 8. Yol C: Kural Tabanlı Eşleme Motoru (tr_en_kurallar.csv) ────────────\n",
+            "import re\n",
+            "\n",
+            "def suffix_specificity(pattern: str) -> int:\n",
+            "    \"\"\"Sonek kuralının özgüllüğünü hesaplar (harf sayısı).\"\"\"\n",
+            "    return len(re.sub(r'[^a-zA-Z]', '', str(pattern)))\n",
+            "\n",
+            "def kural_adaylari(bilesen_tr: str, kurallar_df: pd.DataFrame) -> list:\n",
+            "    \"\"\"Türkçe etken madde adı için kurallardan öncelik sıralı İngilizce aday listesi üretir.\"\"\"\n",
+            "    if not isinstance(bilesen_tr, str) or not bilesen_tr.strip():\n",
+            "        return []\n",
+            "    ham = bilesen_tr.lower().strip()\n",
+            "    df_rules = kurallar_df.dropna(subset=['kural_tipi', 'eski', 'yeni']).copy()\n",
+            "    suffix_rules = df_rules[df_rules['kural_tipi'] == 'suffix_replace'].copy()\n",
+            "    suffix_rules['_spec'] = suffix_rules['eski'].apply(suffix_specificity)\n",
+            "    suffix_rules = suffix_rules.sort_values('_spec', ascending=False)\n",
+            "    char_rules = df_rules[df_rules['kural_tipi'] == 'char_replace']\n",
+            "\n",
+            "    # 1. Sonek kurallarına uyan adaylar\n",
+            "    sonek_adaylar = []\n",
+            "    for _, kural in suffix_rules.iterrows():\n",
+            "        eski, yeni = str(kural['eski']), str(kural['yeni'])\n",
+            "        if re.search(eski, ham):\n",
+            "            sonek_adaylar.append(re.sub(eski, yeni, ham))\n",
+            "\n",
+            "    base_forms = sonek_adaylar + [ham]\n",
+            "    adaylar = []\n",
+            "\n",
+            "    # 2. Tüm karakter kuralları birlikte uygulandığında\n",
+            "    for base in base_forms:\n",
+            "        all_char = base\n",
+            "        for _, kural in char_rules.iterrows():\n",
+            "            all_char = all_char.replace(str(kural['eski']), str(kural['yeni']))\n",
+            "        if all_char not in adaylar:\n",
+            "            adaylar.append(all_char)\n",
+            "\n",
+            "    # 3. Tek tek karakter kuralları uygulandığında\n",
+            "    for base in base_forms:\n",
+            "        for _, kural in char_rules.iterrows():\n",
+            "            c_cand = base.replace(str(kural['eski']), str(kural['yeni']))\n",
+            "            if c_cand not in adaylar:\n",
+            "                adaylar.append(c_cand)\n",
+            "\n",
+            "    # 4. Doğrudan baz formlar (sadece sonek veya ham)\n",
+            "    for base in base_forms:\n",
+            "        if base not in adaylar:\n",
+            "            adaylar.append(base)\n",
+            "\n",
+            "    return adaylar\n",
+            "\n",
+            "def yol_c_esle(bilesen_tr: str, ddinter_norm_set: set, kurallar_df: pd.DataFrame):\n",
+            "    \"\"\"Kural adaylarından DDInter'da bulunan ilk ad_norm değerini döner, yoksa None döner.\"\"\"\n",
+            "    for aday in kural_adaylari(bilesen_tr, kurallar_df):\n",
+            "        norm = ad_normalize(aday)\n",
+            "        if norm in ddinter_norm_set:\n",
+            "            return norm\n",
+            "    return None\n",
+            "\n",
+            "def yol_a_olcum(yol_a_df: pd.DataFrame, kurallar_df: pd.DataFrame):\n",
+            "    \"\"\"Kuralların Yol A test çiftleri (1.922 çift) üzerindeki tahmin başarısını ölçer.\"\"\"\n",
+            "    df = yol_a_df[['bilesen_tr', 'ad_en']].dropna().copy()\n",
+            "    ok = df.apply(\n",
+            "        lambda r: ad_normalize(r['ad_en']) in [\n",
+            "            ad_normalize(a) for a in kural_adaylari(r['bilesen_tr'], kurallar_df)\n",
+            "        ],\n",
+            "        axis=1\n",
+            "    )\n",
+            "    basari_orani = float(ok.mean() * 100)\n",
+            "    tutmayanlar = df[~ok].copy()\n",
+            "    return basari_orani, tutmayanlar\n",
+            "\n",
+            "kurallar_yol = kok / 'config' / 'tr_en_kurallar.csv'\n",
+            "df_kurallar = pd.read_csv(kurallar_yol)\n",
+            "ddinter_norm_set = set(df_ddinter_ilac['ad_norm'].dropna().tolist())\n",
+            "\n",
+            "# Yol A test seti (1.922 çift) üzerinde kural başarı ölçümü\n",
+            "basari_orani, _ = yol_a_olcum(df_etken_madde[df_etken_madde['yol'] == 'A'], df_kurallar)\n",
+            "\n",
+            "print(f\"✓ Yol C kural motoru yüklendi ({len(df_kurallar)} kural).\")\n",
+            "print(f\"✓ Yol A test çiftleri üzerindeki kural başarı oranı: %{basari_orani:.1f}\")\n",
+            "print()\n",
+            "print(\"Örnek Kural Testleri:\")\n",
+            "for test_tr in [\"amlodipin\", \"gentamisin\", \"morfin\", \"parasetamol\", \"fluoksetin\", \"levodopa\", \"omeprazol\", \"diklofenak\", \"indapamid\", \"budesonid\"]:\n",
+            "    eslesti = yol_c_esle(test_tr, ddinter_norm_set, df_kurallar)\n",
+            "    durum = f\"DDInter Eşleşti: {eslesti}\" if eslesti else \"DDInter'da Yok\"\n",
+            "    print(f\"  {test_tr:<15} -> {durum}\")\n",
+            "\n",
+            "# Regresyon Koruma Testi (Amlodipin, Gentamisin, Morfin, Fluoksetin)\n",
+            "for tr, en in [('amlodipin', 'amlodipine'), ('gentamisin', 'gentamicin'), ('morfin', 'morphine'), ('fluoksetin', 'fluoxetine')]:\n",
+            "    assert yol_c_esle(tr, ddinter_norm_set, df_kurallar) == en, f'Yol C regresyon: {tr}'\n",
+            "print(\"✓ Tüm Yol C regresyon testleri başarıyla doğrulandı.\")\n"
+        ]
+    })
 
-    # 1. Başlık
-    add_md([
-        "# 03_kopru_ddinter: DDInter İlaç Eşleme Köprüsü (Kişi B)\n",
-        "\n",
-        "**İş Paketi:** İP3 (Gün 2–4, Bağımsız başlar; Gün 5–6'da A ve C kişileriyle birleşir)\n",
-        "\n",
-        "| Adım | Açıklama | Gün | Bağımlılık | Durum |\n",
-        "|------|----------|-----|------------|-------|\n",
-        "| A1 – `ddinter_ilac.csv` | 8 DDInter dosyasından tekil ilaç listesi (1.939 satır) | 2–3 | Bağımsız | Tamamlandı |\n",
-        "| A2 – Kural dosyası | `config/tr_en_kurallar.csv` (isin$→icin, in$→ine, f→ph) | 2–3 | Bağımsız | Tamamlandı |\n",
-        "| A3 – PubChem eş anlamlı fonksiyonu | Rate Limiter (5 req/s) + Cache (Poisoning korumalı) + Exponential Backoff | 2–4 | Bağımsız | Tamamlandı |\n",
-        "| A4 – Yol C'yi kalanlara uygula | A kişisinin çıktısına Yol C + PubChem uygulama | 5–6 | A kişisi (`etken_madde.csv`) | Hazır (Bekliyor) |\n",
-        "| A5 – `ruhsatli_esleme_taslagi.csv` | C kişisine Yol D için taslak teslim | 5–6 | A kişisi | Hazır (Bekliyor) |\n",
-        "| A6 – `docs/esleme_raporu.md` | Nihai eşleme raporu (4 zorunlu tablo) | 6 | A + C kişileri | Hazır (Bekliyor) |"
-    ])
+    # Hücre 19: SKRS ve Yol C Uygulanması
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 9. SKRS (Kural 5/6) ve Yol C Uygulanması ────────────────────────────\n",
+            "# 1. Kapsam İçi / Kapsam Dışı Bayrağının Hesaplanması (Kural 11)\n",
+            "kd = df_ue.merge(df_urun[['barkod', 'kapsam_disi']], on='barkod')\n",
+            "kd['kapsam_disi'] = pd.to_numeric(kd['kapsam_disi'], errors='coerce').fillna(0).astype(int)\n",
+            "kapsam_ici_kumesi = set(kd.loc[kd['kapsam_disi'] == 0, 'bilesen_tr'])\n",
+            "df_etken_madde['kapsam_ici'] = df_etken_madde['bilesen_tr'].isin(kapsam_ici_kumesi).astype(int)\n",
+            "\n",
+            "# 2. SKRS Ürünlerinin Bileşenleri (Sabit Kural 5 ve Kural 6):\n",
+            "# SKRS'te aktif olup ruhsatlıda olmayan ürünlerin bileşenleri zaten İngilizcedir (ATC adından bölünmüştür).\n",
+            "# Bu nedenle Türkçe çeviri motoruna sokulmadan doğrudan İngilizce ad olarak atanır ve yol='SKRS' olur.\n",
+            "# İngilizce adda Türkçe noktasız 'ı' hatası temizlenir (örn: combınatıon -> combination)\n",
+            "skrs_bar = set(df_urun.loc[df_urun['kaynak'] == 'SKRS', 'barkod'])\n",
+            "skrs_bilesenler = set(df_ue[df_ue['barkod'].isin(skrs_bar)]['bilesen_tr'])\n",
+            "mask_skrs = (df_etken_madde['yol'] == 'eslesmedi') & (df_etken_madde['bilesen_tr'].isin(skrs_bilesenler))\n",
+            "df_etken_madde.loc[mask_skrs, 'ad_en'] = (\n",
+            "    df_etken_madde.loc[mask_skrs, 'bilesen_tr']\n",
+            "    .str.replace('ı', 'i', regex=False)\n",
+            "    .apply(ad_normalize)\n",
+            ")\n",
+            "df_etken_madde.loc[mask_skrs, 'yol'] = 'SKRS'\n",
+            "skrs_sayisi = int(mask_skrs.sum())\n",
+            "\n",
+            "# 3. Yol C: Kalan Eşleşmemiş Bileşenlere Çoklu Adaylı Kural Motoru\n",
+            "mask_eslesmedi = df_etken_madde['yol'] == 'eslesmedi'\n",
+            "yol_c_adaylar = df_etken_madde.loc[mask_eslesmedi, 'bilesen_tr'].apply(\n",
+            "    lambda b: yol_c_esle(b, ddinter_norm_set, df_kurallar)\n",
+            ")\n",
+            "basarili = yol_c_adaylar.dropna()\n",
+            "df_etken_madde.loc[basarili.index, 'ad_en'] = basarili\n",
+            "df_etken_madde.loc[basarili.index, 'yol'] = 'C'\n",
+            "yol_c_sayisi = len(basarili)\n",
+            "\n",
+            "print(f\"✓ SKRS adımı tamamlandı: {skrs_sayisi} bileşen (yol='SKRS')\")\n",
+            "print(f\"✓ Yol C eşleştirmesi tamamlandı: {yol_c_sayisi} yeni bileşen DDInter'a bağlandı (yol='C')\")\n",
+            "print()\n",
+            "print(\"Yol Dağılımı (SKRS ve Yol C Sonrası):\")\n",
+            "print(df_etken_madde['yol'].value_counts())\n"
+        ]
+    })
 
-    # 2. Kurulum ve Ortam
-    add_code([
-        "# ─── Kurulum ve import'lar ────────────────────────────────────────\n",
-        "import os\n",
-        "import re\n",
-        "import json\n",
-        "import time\n",
-        "import hashlib\n",
-        "import urllib.parse\n",
-        "from pathlib import Path\n",
-        "import pandas as pd\n",
-        "import numpy as np\n",
-        "import requests\n",
-        "\n",
-        "# Proje kök dizini (hem proje kökünden hem notebooks/ içinden çalışmaya uyumlu)\n",
-        "cwd = Path().resolve()\n",
-        "ROOT = cwd.parent if cwd.name == 'notebooks' else cwd\n",
-        "RAW     = ROOT / 'data' / 'raw'\n",
-        "INTERIM = ROOT / 'data' / 'interim'\n",
-        "CACHE   = ROOT / 'data' / 'cache' / 'pubchem'\n",
-        "CONFIG  = ROOT / 'config'\n",
-        "DOCS    = ROOT / 'docs'\n",
-        "\n",
-        "# Dizinleri oluştur\n",
-        "for d in [INTERIM, CACHE, CONFIG, DOCS]:\n",
-        "    d.mkdir(parents=True, exist_ok=True)\n",
-        "\n",
-        "print(f'Kök dizin : {ROOT}')\n",
-        "print(f'Ham veri  : {RAW}')\n",
-        "print(f'Ara çıktı : {INTERIM}')\n",
-        "print(f'Cache     : {CACHE}')"
-    ])
+    # Hücre 20: DDInter ID Ataması
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 10. DDInter ID Ataması (`ddinter_id`) ve İzlenebilirlik (`ad_en_ham`) ──\n",
+            "df_etken_madde['ad_en_ham'] = df_etken_madde['ad_en'].copy()  # Yol A/B/C/SKRS orijinal adı korunur\n",
+            "df_etken_madde['ad_norm'] = df_etken_madde['ad_en'].apply(\n",
+            "    lambda x: ad_normalize(str(x)) if pd.notna(x) and str(x).strip() else None\n",
+            ")\n",
+            "df_etken_madde['ddinter_id'] = df_etken_madde['ad_norm'].map(ddinter_dict)\n",
+            "df_etken_madde['eslesme_kaynagi'] = np.where(df_etken_madde['ddinter_id'].notna(), 'tam_ad', None)\n",
+            "\n",
+            "print(\"✓ DDInter ID eşleştirmesi tamamlandı:\")\n",
+            "for y in ['A', 'B', 'C', 'SKRS', 'eslesmedi']:\n",
+            "    sub = df_etken_madde[df_etken_madde['yol'] == y]\n",
+            "    matched = sub['ddinter_id'].notna().sum()\n",
+            "    toplam = len(sub)\n",
+            "    oran = (matched / toplam * 100) if toplam > 0 else 0\n",
+            "    print(f\"  Yol {y:<9}: Toplam = {toplam:>4}, DDInter Eşleşen = {matched:>4} (%{oran:5.1f})\")\n",
+            "\n",
+            "toplam_eslesen = df_etken_madde['ddinter_id'].notna().sum()\n",
+            "print()\n",
+            "print(f\"Toplam DDInter ile Eşleşen Etken Madde: {toplam_eslesen:,} / {len(df_etken_madde):,} (%{toplam_eslesen/len(df_etken_madde)*100:.2f})\")\n"
+        ]
+    })
 
-    # 3. Yardımcı Fonksiyonlar Markdown
-    add_md([
-        "---\n",
-        "## Yardımcı Fonksiyonlar\n",
-        "\n",
-        "Tüm adımlarda kullanılacak ortak fonksiyonlar:\n",
-        "1. **`ddinter_num`**: Sayısal ID sıralaması (`DDInter1263` -> 1263).\n",
-        "2. **`normalize_drug_name`** (`ad_normalize`): Küçük harf, boşluk ve tire temizliği."
-    ])
+    # Hücre 21: PubChem Eş Anlamlı Kontrolü
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 11. PubChem Eş Anlamlı Kontrolü (En Sık 100 Kapsam İçi Eşleşmemiş) ───\n",
+            "import hashlib\n",
+            "import json\n",
+            "import time\n",
+            "import urllib.parse\n",
+            "import requests\n",
+            "\n",
+            "CACHE_DIR = kok / 'data' / 'cache' / 'pubchem'\n",
+            "CACHE_DIR.mkdir(parents=True, exist_ok=True)\n",
+            "\n",
+            "LAST_PUBCHEM_TIME = 0.0\n",
+            "PUBCHEM_HEADERS = {'User-Agent': 'DDInter_Pipeline/1.0 (academic-research; ddi-project)'}\n",
+            "\n",
+            "def pubchem_synonyms_guvenli(ad: str, cache_dir: Path = CACHE_DIR, max_retries: int = 3) -> list:\n",
+            "    \"\"\"PubChem REST API'den güvenle eş anlamlı listesi çeker.\n",
+            "    \n",
+            "    Özellikler:\n",
+            "    - Rate Limit: İstekler arası >= 0.20 sn bekler (en fazla 5 istek/sn).\n",
+            "    - Cache: data/cache/pubchem/<md5>.json altında saklar.\n",
+            "    - 404 Koruması: Bulunamayan bileşikler boş liste [] olarak önbelleğe yazılır, mükerrer ağ istekleri önlenir.\n",
+            "    \"\"\"\n",
+            "    global LAST_PUBCHEM_TIME\n",
+            "    if not ad or pd.isna(ad):\n",
+            "        return []\n",
+            "    clean = ad_normalize(str(ad))\n",
+            "    if not clean:\n",
+            "        return []\n",
+            "    h = hashlib.md5(clean.encode('utf-8')).hexdigest()\n",
+            "    f = cache_dir / f\"{h}.json\"\n",
+            "    if f.exists():\n",
+            "        try:\n",
+            "            if f.stat().st_size > 0:\n",
+            "                with open(f, 'r', encoding='utf-8') as fp:\n",
+            "                    d = json.load(fp)\n",
+            "                    return d if isinstance(d, list) else d.get('synonyms', [])\n",
+            "        except Exception:\n",
+            "            pass\n",
+            "    encoded_name = urllib.parse.quote(clean)\n",
+            "    url = f\"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{encoded_name}/synonyms/JSON\"\n",
+            "    synonyms = []\n",
+            "    should_cache = False\n",
+            "    for attempt in range(1, max_retries + 1):\n",
+            "        elapsed = time.time() - LAST_PUBCHEM_TIME\n",
+            "        if elapsed < 0.20:\n",
+            "            time.sleep(0.20 - elapsed)\n",
+            "        LAST_PUBCHEM_TIME = time.time()\n",
+            "        try:\n",
+            "            resp = requests.get(url, headers=PUBCHEM_HEADERS, timeout=10)\n",
+            "            if resp.status_code == 200:\n",
+            "                data = resp.json()\n",
+            "                info = data.get('InformationList', {}).get('Information', [])\n",
+            "                if info:\n",
+            "                    synonyms = info[0].get('Synonym', [])\n",
+            "                should_cache = True\n",
+            "                break\n",
+            "            elif resp.status_code == 404:\n",
+            "                synonyms = []\n",
+            "                should_cache = True\n",
+            "                break\n",
+            "            elif resp.status_code in (429, 500, 502, 503, 504):\n",
+            "                time.sleep(attempt * 1.0)\n",
+            "                continue\n",
+            "            else:\n",
+            "                return []\n",
+            "        except requests.RequestException:\n",
+            "            time.sleep(attempt * 1.0)\n",
+            "            continue\n",
+            "    if should_cache:\n",
+            "        try:\n",
+            "            f.write_text(json.dumps(synonyms, ensure_ascii=False), encoding='utf-8')\n",
+            "        except Exception:\n",
+            "            pass\n",
+            "    return synonyms\n",
+            "\n",
+            "# DDInter'da eşleşmeyen en sık 100 kapsam içi bileşen\n",
+            "df_eslesmeyen_top100 = (\n",
+            "    df_etken_madde[df_etken_madde['ddinter_id'].isna() & (df_etken_madde['kapsam_ici'] == 1)]\n",
+            "    .sort_values(by=['urun_sayisi', 'bilesen_tr'], ascending=[False, True])\n",
+            "    .head(100).copy()\n",
+            ")\n",
+            "\n",
+            "pubchem_kurtarilan = 0\n",
+            "kurtarilan_detaylar = []\n",
+            "for row in df_eslesmeyen_top100.itertuples():\n",
+            "    idx = row.Index\n",
+            "    aday_adlar = []\n",
+            "    if pd.notna(row.ad_en) and str(row.ad_en).strip():\n",
+            "        aday_adlar.append(str(row.ad_en))\n",
+            "    if pd.notna(row.bilesen_tr) and str(row.bilesen_tr).strip():\n",
+            "        aday_adlar.append(str(row.bilesen_tr))\n",
+            "        \n",
+            "    eslesti = False\n",
+            "    for ad in aday_adlar:\n",
+            "        if eslesti:\n",
+            "            break\n",
+            "        syns = pubchem_synonyms_guvenli(ad, cache_dir=CACHE_DIR)\n",
+            "        for syn in syns:\n",
+            "            norm_syn = ad_normalize(syn)\n",
+            "            if norm_syn in ddinter_dict:\n",
+            "                matched_id = ddinter_dict[norm_syn]\n",
+            "                df_etken_madde.at[idx, 'ddinter_id'] = matched_id\n",
+            "                df_etken_madde.at[idx, 'ad_norm'] = norm_syn\n",
+            "                df_etken_madde.at[idx, 'ad_en'] = norm_syn\n",
+            "                df_etken_madde.at[idx, 'eslesme_kaynagi'] = 'pubchem'\n",
+            "                pubchem_kurtarilan += 1\n",
+            "                kurtarilan_detaylar.append((row.bilesen_tr, norm_syn, matched_id))\n",
+            "                eslesti = True\n",
+            "                break\n",
+            "\n",
+            "# Kurtarılan PubChem eşleşmelerinin aynı ham İngilizce ada sahip diğer satırlara yayılması\n",
+            "# (Örn: parasetamol -> acetaminophen kurtarılınca, SKRS'ten gelen paracetamol satırı da acetaminophen'e bağlanır)\n",
+            "recovered_syn_map = {}\n",
+            "for idx in df_etken_madde[df_etken_madde['eslesme_kaynagi'] == 'pubchem'].index:\n",
+            "    norm_ham = ad_normalize(str(df_etken_madde.at[idx, 'ad_en_ham'])) if pd.notna(df_etken_madde.at[idx, 'ad_en_ham']) else ''\n",
+            "    norm_tr = ad_normalize(str(df_etken_madde.at[idx, 'bilesen_tr']))\n",
+            "    target_syn = df_etken_madde.at[idx, 'ad_en']\n",
+            "    target_id = df_etken_madde.at[idx, 'ddinter_id']\n",
+            "    if norm_ham:\n",
+            "        recovered_syn_map[norm_ham] = (target_syn, target_id)\n",
+            "    if norm_tr:\n",
+            "        recovered_syn_map[norm_tr] = (target_syn, target_id)\n",
+            "\n",
+            "yayilim_sayisi = 0\n",
+            "for idx in df_etken_madde[df_etken_madde['ddinter_id'].isna()].index:\n",
+            "    norm_ham = ad_normalize(str(df_etken_madde.at[idx, 'ad_en_ham'])) if pd.notna(df_etken_madde.at[idx, 'ad_en_ham']) else ''\n",
+            "    norm_tr = ad_normalize(str(df_etken_madde.at[idx, 'bilesen_tr']))\n",
+            "    matched = None\n",
+            "    if norm_ham and norm_ham in recovered_syn_map:\n",
+            "        matched = recovered_syn_map[norm_ham]\n",
+            "    elif norm_tr and norm_tr in recovered_syn_map:\n",
+            "        matched = recovered_syn_map[norm_tr]\n",
+            "    if matched:\n",
+            "        df_etken_madde.at[idx, 'ddinter_id'] = matched[1]\n",
+            "        df_etken_madde.at[idx, 'ad_norm'] = matched[0]\n",
+            "        df_etken_madde.at[idx, 'ad_en'] = matched[0]\n",
+            "        df_etken_madde.at[idx, 'eslesme_kaynagi'] = 'pubchem_yayilim'\n",
+            "        yayilim_sayisi += 1\n",
+            "\n",
+            "print(f\"✓ PubChem taraması tamamlandı: En sık 100 kapsam içi eşleşmeyenden {pubchem_kurtarilan} ek etken madde DDInter'a bağlandı.\")\n",
+            "if yayilim_sayisi > 0:\n",
+            "    print(f\"✓ Kurtarılan eşleşmeler aynı ham ada sahip {yayilim_sayisi} ek bileşene uygulandı (örn. SKRS paracetamol -> acetaminophen).\")\n",
+            "print(\"Gözle Kontrol (Kurtarılan Eşleşmeler):\")\n",
+            "for b_tr, syn_ad, did in kurtarilan_detaylar:\n",
+            "    print(f\"  {b_tr:<20} -> {syn_ad:<22} ({did})\")\n"
+        ]
+    })
 
-    # 4. Yardımcı Fonksiyonlar Kod
-    add_code([
-        "def ddinter_num(ddinter_id: str) -> int:\n",
-        "    \"\"\"\n",
-        "    DDInterID'nin sayısal kısmını döndürür.\n",
-        "    'DDInter1263' → 1263\n",
-        "    Metin sıralaması 'DDInter10' < 'DDInter2' hatasını önlemek için int kullanılır.\n",
-        "    \"\"\"\n",
-        "    if not isinstance(ddinter_id, str):\n",
-        "        return 0\n",
-        "    m = re.search(r'(\\d+)$', ddinter_id.strip())\n",
-        "    return int(m.group(1)) if m else 0\n",
-        "\n",
-        "\n",
-        "def normalize_drug_name(name: str) -> str:\n",
-        "    \"\"\"\n",
-        "    İlaç adı normalizasyonu (PDF Adım 4'teki kurala uygun):\n",
-        "    - Küçük harf\n",
-        "    - Baştaki/sondaki boşlukları sil\n",
-        "    - Farklı tire/alt tire karakterlerini tek boşluğa çevir\n",
-        "    - Birden fazla boşluğu teke indir\n",
-        "    \"\"\"\n",
-        "    if not isinstance(name, str):\n",
-        "        return ''\n",
-        "    name = name.replace('İ', 'i').replace('I', 'ı').strip().lower().replace('\\u0307', '')\n",
-        "    name = re.sub(r'[\\-_—–\\u2010\\u2011\\u2012\\u2013\\u2014]+', ' ', name)\n",
-        "    name = re.sub(r'\\s+', ' ', name).strip()\n",
-        "    return name\n",
-        "\n",
-        "ad_normalize = normalize_drug_name\n",
-        "\n",
-        "# Hızlı testler\n",
-        "assert ddinter_num('DDInter1263') == 1263\n",
-        "assert ddinter_num('DDInter58') == 58\n",
-        "assert ddinter_num('DDInter1') < ddinter_num('DDInter582') < ddinter_num('DDInter1263')\n",
-        "assert normalize_drug_name('  Aluminum  Hydroxide ') == 'aluminum hydroxide'\n",
-        "assert normalize_drug_name('Dexketoprofen') == 'dexketoprofen'\n",
-        "assert normalize_drug_name(' İBUPROFEN ') == 'ibuprofen'\n",
-        "print('✅ Yardımcı fonksiyon testleri başarıyla geçti.')"
-    ])
+    # Hücre 22: Kişi C İçin Yol D Taslağı
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 12. Kişi C İçin Yol D Taslağı (ruhsatli_esleme_taslagi.csv) ───────────\n",
+            "# DDInter ile eşleşmeyen tüm bileşenler; kapsam_ici=1 olanlar öne alınarak sıralanır.\n",
+            "# Kişi C'nin elle eşlemesini kolaylaştırmak için 'atc_ipucu' ve 'urun_ornegi' eklenir.\n",
+            "taslak_c = df_etken_madde[df_etken_madde['ddinter_id'].isna()].copy()\n",
+            "taslak_c['durum'] = np.where(\n",
+            "    taslak_c['ad_en'].notna() & (taslak_c['ad_en'].astype(str).str.strip() != ''),\n",
+            "    'ingilizce_var_ddinter_yok',\n",
+            "    'ceviri_yok'\n",
+            ")\n",
+            "\n",
+            "_ua = df_ue.merge(df_urun[['barkod', 'atc_final', 'urun_adi']], on='barkod')\n",
+            "atc_ornek = _ua.dropna(subset=['atc_final']).groupby('bilesen_tr')['atc_final'].agg(\n",
+            "    lambda s: s.mode().iloc[0] if not s.empty and not s.mode().empty else None\n",
+            ")\n",
+            "urun_ornek = _ua.groupby('bilesen_tr')['urun_adi'].first()\n",
+            "taslak_c['atc_ipucu'] = taslak_c['bilesen_tr'].map(atc_ornek)\n",
+            "taslak_c['urun_ornegi'] = taslak_c['bilesen_tr'].map(urun_ornek)\n",
+            "taslak_c = taslak_c.sort_values(\n",
+            "    by=['kapsam_ici', 'urun_sayisi', 'bilesen_tr'],\n",
+            "    ascending=[False, False, True]\n",
+            ").reset_index(drop=True)\n",
+            "\n",
+            "taslak_c_yol = kok / 'data' / 'interim' / 'ruhsatli_esleme_taslagi.csv'\n",
+            "sutunlar_taslak = ['bilesen_tr', 'ad_en', 'atc', 'atc_ipucu', 'yol', 'urun_sayisi', 'kapsam_ici', 'durum', 'urun_ornegi']\n",
+            "taslak_c[sutunlar_taslak].to_csv(taslak_c_yol, index=False)\n",
+            "\n",
+            "print(f\"✓ Kişi C için ruhsatli_esleme_taslagi.csv kaydedildi: {taslak_c_yol}\")\n",
+            "print(f\"  Eşleşmeyen toplam bileşen sayısı: {len(taslak_c):,}\")\n",
+            "print(f\"  Bunlardan kapsam içi olanlar     : {(taslak_c['kapsam_ici'] == 1).sum():,}\")\n",
+            "print()\n",
+            "print(\"En Sık Eşleşmeyen İlk 10 Kapsam İçi Bileşen (Kişi C Öncelikli & İpuçlu):\")\n",
+            "print(taslak_c[['bilesen_tr', 'urun_sayisi', 'atc_ipucu', 'durum', 'urun_ornegi']].head(10))\n"
+        ]
+    })
 
-    # 5. Adım A1 Markdown
-    add_md([
-        "---\n",
-        "# Adım A1 — `ddinter_ilac.csv` Çıkar (Bellek Dostu ve Savunmacı Okuma)\n",
-        "\n",
-        "8 DDInter CSV dosyasındaki tüm ilaç adlarını toplayıp tekilleştirir.\n",
-        "- **Bellek Optimizasyonu (RAM-Friendly):** Yüzbinlerce kopyayı bellekte tutan devasa listeler yerine `safe_read_csv` ile akışkan ve tekil sözlük yaklaşımı kullanılır.\n",
-        "- Hedef: Tam **1.939 benzersiz ilaç**."
-    ])
+    # Hücre 23: Nihai etken_madde.csv Kaydedilmesi
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 13. Nihai etken_madde.csv Tablosunun Kaydedilmesi ────────────────────\n",
+            "# ATC Ana Grubu Hesaplanması (Mode esasına göre ilk harf A-V; D05 ve E09 için zorunlu)\n",
+            "ue_atc = df_ue.merge(df_urun[['barkod', 'atc_final']], on='barkod').dropna(subset=['atc_final'])\n",
+            "ue_atc = ue_atc[ue_atc['atc_final'].astype(str).str.len() >= 1]\n",
+            "atc_grup = ue_atc.groupby('bilesen_tr')['atc_final'].agg(\n",
+            "    lambda s: s.astype(str).str[:1].str.upper().mode().iloc[0] if not s.empty and not s.mode().empty else None\n",
+            ")\n",
+            "df_etken_madde['atc_ana'] = df_etken_madde['bilesen_tr'].map(atc_grup)\n",
+            "\n",
+            "# Plandaki standart sütunlar ve ek izleme sütunları (ad_en_ham, atc_ana, kapsam_ici, eslesme_kaynagi)\n",
+            "sutunlar = ['bilesen_tr', 'ad_en', 'ad_en_ham', 'atc', 'atc_ana', 'yol', 'urun_sayisi', 'ddinter_id', 'kapsam_ici', 'eslesme_kaynagi']\n",
+            "df_etken_madde_nihai = df_etken_madde[sutunlar].sort_values(\n",
+            "    by=['urun_sayisi', 'bilesen_tr'], ascending=[False, True]\n",
+            ").reset_index(drop=True)\n",
+            "\n",
+            "etken_cikti_yol = kok / 'data' / 'interim' / 'etken_madde.csv'\n",
+            "df_etken_madde_nihai.to_csv(etken_cikti_yol, index=False)\n",
+            "\n",
+            "print(f\"✓ Nihai etken_madde.csv başarıyla kaydedildi: {etken_cikti_yol}\")\n",
+            "print(f\"  Toplam satır sayısı          : {len(df_etken_madde_nihai):,}\")\n",
+            "print(f\"  DDInter ID içeren satır sayısı: {df_etken_madde_nihai['ddinter_id'].notna().sum():,}\")\n",
+            "print(f\"  Kapsam içi satır sayısı       : {(df_etken_madde_nihai['kapsam_ici'] == 1).sum():,}\")\n"
+        ]
+    })
 
-    # 6. Adım A1 Kod
-    add_code([
-        "# ─── 8 CSV dosyasını bul ve oku ──────────────────────────────────\n",
-        "def safe_read_csv(fpath: Path, required_cols: list[str]) -> pd.DataFrame:\n",
-        "    \"\"\"Savunmacı okuyucu: Farklı encoding'leri dener ve zorunlu sütunları denetler.\"\"\"\n",
-        "    for enc in ['utf-8', 'utf-8-sig', 'latin1']:\n",
-        "        try:\n",
-        "            df = pd.read_csv(fpath, encoding=enc)\n",
-        "            if set(required_cols).issubset(df.columns):\n",
-        "                return df\n",
-        "        except Exception:\n",
-        "            continue\n",
-        "    raise ValueError(f'Bozuk veya eksik sütunlu dosya: {fpath.name}')\n",
-        "\n",
-        "csv_files = sorted(RAW.glob('ddinter_downloads_code_*.csv'))\n",
-        "print(f'{len(csv_files)} DDInter dosyası bulundu:\\n')\n",
-        "\n",
-        "# Bellek dostu tekilleştirme: RAM'i 444 bin satırla şişirmeden tekil sözlükte topla\n",
-        "unique_drugs = {}  # ddinter_id -> drug_name\n",
-        "required_cols = ['DDInterID_A', 'Drug_A', 'DDInterID_B', 'Drug_B']\n",
-        "\n",
-        "toplam_ham_satir = 0\n",
-        "for fpath in csv_files:\n",
-        "    df_tmp = safe_read_csv(fpath, required_cols)\n",
-        "    satir = len(df_tmp)\n",
-        "    toplam_ham_satir += satir\n",
-        "    clean_a = df_tmp[['DDInterID_A', 'Drug_A']].dropna()\n",
-        "    clean_b = df_tmp[['DDInterID_B', 'Drug_B']].dropna()\n",
-        "    unique_drugs.update(dict(zip(clean_a['DDInterID_A'], clean_a['Drug_A'])))\n",
-        "    unique_drugs.update(dict(zip(clean_b['DDInterID_B'], clean_b['Drug_B'])))\n",
-        "    print(f'  {fpath.name:30s}: {satir:>6,} satır')\n",
-        "\n",
-        "print(f'\\nToplam okunan satır: {toplam_ham_satir:,}')\n",
-        "print(f'Bellekte çıkarılan tekil ilaç sayısı: {len(unique_drugs):,}')"
-    ])
+    # Hücre 24: Eşleşme Raporunun Üretilmesi (4 Zorunlu Tablo)
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ─── 14. Eşleşme Raporu ve 4 Zorunlu Tablo (docs/esleme_raporu.md) ─────────\n",
+            "total_etken = len(df_etken_madde_nihai)\n",
+            "matched_etken = int(df_etken_madde_nihai['ddinter_id'].notna().sum())\n",
+            "matched_etken_pct = (matched_etken / total_etken * 100) if total_etken > 0 else 0\n",
+            "\n",
+            "# Kapsam içi etken madde metrikleri\n",
+            "kapsam_ici_etken = df_etken_madde_nihai[df_etken_madde_nihai['kapsam_ici'] == 1]\n",
+            "total_kapsam_ici_etken = len(kapsam_ici_etken)\n",
+            "matched_kapsam_ici_etken = int(kapsam_ici_etken['ddinter_id'].notna().sum())\n",
+            "matched_kapsam_ici_etken_pct = (matched_kapsam_ici_etken / total_kapsam_ici_etken * 100) if total_kapsam_ici_etken > 0 else 0\n",
+            "\n",
+            "# 1. Ürün Kapsama Oranı (Ruhsatlı ürünler) - Doğrudan bilesen_tr ile Temiz Birleştirme\n",
+            "ruhsatli_barkodlar = set(df_urun.loc[df_urun['kaynak'] == 'Ruhsatlı', 'barkod'])\n",
+            "df_ue_ruhsatli = df_ue[df_ue['barkod'].isin(ruhsatli_barkodlar)].copy()\n",
+            "\n",
+            "ddinter_bilesen_kumesi = set(df_etken_madde_nihai.loc[df_etken_madde_nihai['ddinter_id'].notna(), 'bilesen_tr'])\n",
+            "kapsanan_barkodlar = set(df_ue_ruhsatli[df_ue_ruhsatli['bilesen_tr'].isin(ddinter_bilesen_kumesi)]['barkod'])\n",
+            "\n",
+            "total_urun = len(ruhsatli_barkodlar)\n",
+            "matched_urun = len(kapsanan_barkodlar)\n",
+            "matched_urun_pct = (matched_urun / total_urun * 100) if total_urun > 0 else 0\n",
+            "\n",
+            "# Kapsam içi ürün metrikleri (kapsam_disi == 0)\n",
+            "kapsam_ici_barkodlar = set(df_urun.loc[(df_urun['kaynak'] == 'Ruhsatlı') & (df_urun['kapsam_disi'] == 0), 'barkod'])\n",
+            "kapsanan_kapsam_ici_barkodlar = kapsanan_barkodlar & kapsam_ici_barkodlar\n",
+            "total_kapsam_ici_urun = len(kapsam_ici_barkodlar)\n",
+            "matched_kapsam_ici_urun = len(kapsanan_kapsam_ici_barkodlar)\n",
+            "matched_kapsam_ici_urun_pct = (matched_kapsam_ici_urun / total_kapsam_ici_urun * 100) if total_kapsam_ici_urun > 0 else 0\n",
+            "\n",
+            "# Tablo 1: Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Oranı\n",
+            "yol_tanimlari = [\n",
+            "    ('A', 'Yol A (Tek Bileşenli ATC)', 'Tek bileşenli ürünlerin SKRS ATC sözlüğünden İngilizce adı'),\n",
+            "    ('B', 'Yol B (Kombine Bölme & RapidFuzz)', 'Kombine ürünlerin ATC adından ayrıştırılan bileşenler'),\n",
+            "    ('C', 'Yol C (Kural Tabanlı - tr_en_kurallar)', 'Türkçe kural tabanlı çeviri motoru ile eşleşenler'),\n",
+            "    ('SKRS', 'SKRS (Kural 5/6)', 'SKRS\\'ten doğrudan İngilizce gelen ürünler'),\n",
+            "    ('eslesmedi', 'Eşleşmedi (Kişi C - Yol D Adayları)', 'Kural motoru ve PubChem ile eşleşmeyip Kişi C uzman incelemesine kalanlar'),\n",
+            "]\n",
+            "tablo_1_satirlar = []\n",
+            "for y_kod, y_ad, aciklama in yol_tanimlari:\n",
+            "    sub = df_etken_madde_nihai[df_etken_madde_nihai['yol'] == y_kod]\n",
+            "    tot = len(sub)\n",
+            "    esl = int(sub['ddinter_id'].notna().sum())\n",
+            "    oran = (esl / tot * 100) if tot > 0 else 0\n",
+            "    tablo_1_satirlar.append((y_ad, tot, esl, oran, aciklama))\n",
+            "\n",
+            "# Tablo 3: ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi Filtreli)\n",
+            "valid_atc_em = df_etken_madde_nihai[\n",
+            "    (df_etken_madde_nihai['kapsam_ici'] == 1) & df_etken_madde_nihai['atc_ana'].isin(list('ABCDGHJLMNPRSV'))\n",
+            "]\n",
+            "\n",
+            "atc_gruplari = []\n",
+            "for g in sorted(list('ABCDGHJLMNPRSV')):\n",
+            "    sub = valid_atc_em[valid_atc_em['atc_ana'] == g]\n",
+            "    tot = len(sub)\n",
+            "    esl = int(sub['ddinter_id'].notna().sum())\n",
+            "    oran = (esl / tot * 100) if tot > 0 else 0\n",
+            "    atc_gruplari.append((g, tot, esl, oran))\n",
+            "\n",
+            "# Tablo 4: Eşleşmeyen En Sık 30 Bileşen (Kapsam İçi Filtreli Öncelik Listesi)\n",
+            "eslesmeyen_top30 = df_etken_madde_nihai[\n",
+            "    df_etken_madde_nihai['ddinter_id'].isna() & (df_etken_madde_nihai['kapsam_ici'] == 1)\n",
+            "].head(30)\n",
+            "\n",
+            "# Parasetamol ve PubChem metrikleri (dinamik ve güvenli)\n",
+            "pubchem_dogrudan = int((df_etken_madde_nihai['eslesme_kaynagi'] == 'pubchem').sum())\n",
+            "pubchem_yayilim_cnt = int((df_etken_madde_nihai['eslesme_kaynagi'] == 'pubchem_yayilim').sum())\n",
+            "parasetamol_info = \"\"\n",
+            "p = df_etken_madde_nihai[\n",
+            "    (df_etken_madde_nihai['bilesen_tr'] == 'parasetamol')\n",
+            "    & (df_etken_madde_nihai['eslesme_kaynagi'].isin(['pubchem', 'pubchem_yayilim']))\n",
+            "]\n",
+            "if not p.empty:\n",
+            "    r = p.iloc[0]\n",
+            "    parasetamol_info = f\" Örneğin {int(r['urun_sayisi'])} ürünlü parasetamol → {r['ddinter_id']} ({r['ad_en']}).\"\n",
+            "\n",
+            "# Markdown Rapor Metni Oluştur\n",
+            "rapor_lines = [\n",
+            "    \"# İP3: DDInter İlaç Eşleşme Raporu\",\n",
+            "    \"\",\n",
+            "    f\"> **Özet:** Türkiye'deki kapsam içi etken maddelerin %{matched_kapsam_ici_etken_pct:.1f}'i ({matched_kapsam_ici_etken:,} / {total_kapsam_ici_etken:,}), kapsam içi ruhsatlı ürünlerin %{matched_kapsam_ici_urun_pct:.1f}'inin ({matched_kapsam_ici_urun:,} / {total_kapsam_ici_urun:,}) en az bir bileşeni DDInter'da bulunuyor.\",\n",
+            "    f\"> *(Tüm Bileşenler Bazında: %{matched_etken_pct:.1f} ({matched_etken:,} / {total_etken:,}) — Tüm Ruhsatlı Ürünler Bazında: %{matched_urun_pct:.1f} ({matched_urun:,} / {total_urun:,}))*\",\n",
+            "    \"\",\n",
+            "    \"## 1. Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Dağılımı\",\n",
+            "    \"| Eşleşme Yolu | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) | Açıklama |\",\n",
+            "    \"| :--- | :---: | :---: | :---: | :--- |\",\n",
+            "]\n",
+            "for yol_adi, tot, esl, pct, aciklama in tablo_1_satirlar:\n",
+            "    rapor_lines.append(f\"| **{yol_adi}** | {tot:,} | {esl:,} | %{pct:.1f} | {aciklama} |\")\n",
+            "rapor_lines.append(f\"| **TOPLAM** | **{total_etken:,}** | **{matched_etken:,}** | **%{matched_etken_pct:.1f}** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |\")\n",
+            "rapor_lines.append(\"\")\n",
+            "rapor_lines.append(f\"> **Not (PubChem Doğrulaması ve Dağılımı):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden {pubchem_dogrudan} tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve {pubchem_yayilim_cnt} satıra yayılmıştır.{parasetamol_info} Kurtarılan bu bileşikler resmi ATC adı ile DDInter adı farklılaşan Yol A ve Yol B satırlarıdır (bu nedenle Yol A/B altında DDInter kimliği kazanmışlardır). Kural motoruna girmeyip `eslesmedi` yolunda kalan 955 bileşenin en sık olanları (dekstroz, kalsiyum klorur, sodyum laktat, magnezyum klorur, tiyokolsikosid vb.) DDInter kütüphanesinde hiç yer almadığından bu gruptan yeni DDInter eşleşmesi çıkmamış ve tümü Kişi C'nin Yol D taslağına devredilmiştir.\")\n",
+            "\n",
+            "rapor_lines.extend([\n",
+            "    \"\",\n",
+            "    \"## 2. DDInter Eşleşme Oranı Özeti\",\n",
+            "    \"| Metrik Düzeyi | Toplam Büyüklük | DDInter'da Bulunan | Kapsama Oranı (%) |\",\n",
+            "    \"| :--- | :---: | :---: | :--- |\",\n",
+            "    f\"| **Kapsam İçi Etken Madde Bazında** | {total_kapsam_ici_etken:,} | {matched_kapsam_ici_etken:,} | %{matched_kapsam_ici_etken_pct:.1f} |\",\n",
+            "    f\"| **Kapsam İçi Ruhsatlı Ürün Bazında (En Az 1 Bileşen)** | {total_kapsam_ici_urun:,} | {matched_kapsam_ici_urun:,} | %{matched_kapsam_ici_urun_pct:.1f} |\",\n",
+            "    f\"| **Tüm Etken Maddeler Bazında** | {total_etken:,} | {matched_etken:,} | %{matched_etken_pct:.1f} |\",\n",
+            "    f\"| **Tüm Ruhsatlı Ürünler Bazında (En Az 1 Bileşen)** | {total_urun:,} | {matched_urun:,} | %{matched_urun_pct:.1f} |\",\n",
+            "    \"\",\n",
+            "    f\"> **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen {matched_etken:,} etken madde kaydı, toplam **{int(df_etken_madde_nihai['ddinter_id'].nunique()):,} benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).\",\n",
+            "    \"\",\n",
+            "    \"## 3. ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)\",\n",
+            "    \"| ATC Ana Grubu | Grup Açıklaması | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) |\",\n",
+            "    \"| :---: | :--- | :---: | :--- | :---: |\",\n",
+            "])\n",
+            "\n",
+            "atc_isimleri = {\n",
+            "    'A': 'Sindirim Sistemi ve Metabolizma',\n",
+            "    'B': 'Kan ve Kan Yapıcı Organlar',\n",
+            "    'C': 'Kardiyovasküler Sistem',\n",
+            "    'D': 'Dermatolojik İlaçlar',\n",
+            "    'G': 'Genito-Üriner Sistem ve Cinsiyet Hormonları',\n",
+            "    'H': 'Sistemik Hormonal Preparatlar',\n",
+            "    'J': 'Sistemik Antiinfektifler (Antibiyotikler vb.)',\n",
+            "    'L': 'Antineoplastik ve İmmünomodülatör Ajanlar',\n",
+            "    'M': 'Kas-İskelet Sistemi',\n",
+            "    'N': 'Sinir Sistemi',\n",
+            "    'P': 'Antiparaziter Ürünler',\n",
+            "    'R': 'Solunum Sistemi',\n",
+            "    'S': 'Duyu Organları',\n",
+            "    'V': 'Çeşitli (Various)',\n",
+            "}\n",
+            "\n",
+            "for g, tot, esl, oran in atc_gruplari:\n",
+            "    g_ad = atc_isimleri.get(g, '-')\n",
+            "    rapor_lines.append(f\"| **{g}** | {g_ad} | {tot:,} | {esl:,} | %{oran:.1f} |\")\n",
+            "\n",
+            "atc_disinda_kalan = total_etken - len(valid_atc_em)\n",
+            "rapor_lines.append(\"\")\n",
+            "rapor_lines.append(f\"> **Not (ATC Dağılımı):** Tablo kapsam içi {len(valid_atc_em):,} etken maddeyi içerir. Kapsam dışı veya ATC atanmamış {atc_disinda_kalan:,} bileşen tablodan hariç tutulmuştur; toplam etken madde {total_etken:,}'dir.\")\n",
+            "rapor_lines.append(\"\")\n",
+            "n_oran = next((oran for g, _, _, oran in atc_gruplari if g == 'N'), 69.8)\n",
+            "rapor_lines.append(f\"> **Önemli Not (Eşleşme Oranı vs. Etkileşim Kapsamı):** Tablodaki yüksek eşleşme oranları (örn. Sinir Sistemi %{n_oran:.1f}), bu ilaçların DDInter kütüphanesinde kimlik olarak geçtiğini gösterir. Ancak DDInter indirme paketlerinde C, G, J, M, N, S gibi ana grupların bağımsız etkileşim dosyaları bulunmamaktadır. Dolayısıyla bu gruptaki ilaçlar yalnızca diğer mevcut gruplarla (A, B, D, H, L, P, R, V) olan etkileşimlerde yer alabilir; iki N grubu ilacının kendi arasındaki etkileşim DDInter dosyalarında bulunamaz.\")\n",
+            "\n",
+            "rapor_lines.extend([\n",
+            "    \"\",\n",
+            "    \"## 4. Eşleşmeyen En Sık 30 Bileşen Tablosu (Kişi C Öncelik Listesi - Kapsam İçi)\",\n",
+            "    \"| Sıra | Türkçe Bileşen Adı | Ürün Sayısı | Önerilen İngilizce / ATC | Durum |\",\n",
+            "    \"| :---: | :--- | :---: | :--- | :--- |\",\n",
+            "])\n",
+            "\n",
+            "for rank, (_, row) in enumerate(eslesmeyen_top30.iterrows(), 1):\n",
+            "    b_tr = row['bilesen_tr']\n",
+            "    u_cnt = row['urun_sayisi']\n",
+            "    atc_val = row['atc'] if pd.notna(row['atc']) else '-'\n",
+            "    ad_val = row['ad_en'] if pd.notna(row['ad_en']) else '-'\n",
+            "    rapor_lines.append(f\"| {rank} | `{b_tr}` | {u_cnt:,} | {ad_val} ({atc_val}) | Yol D Adayı |\")\n",
+            "\n",
+            "# Bütünlük Doğrulama Kontrolleri (Assertions - Dosya yazılmadan önce doğrulanır)\n",
+            "assert df_etken_madde_nihai['bilesen_tr'].is_unique, 'HATA: bilesen_tr benzersiz değil!'\n",
+            "assert df_etken_madde_nihai['yol'].value_counts().sum() == total_etken, f'HATA: Yol toplamı total_etken ({total_etken}) ile uyuşmuyor!'\n",
+            "assert (df_etken_madde_nihai['ddinter_id'].notna() == df_etken_madde_nihai['eslesme_kaynagi'].notna()).all(), 'HATA: ddinter_id ile eslesme_kaynagi tutarsız!'\n",
+            "assert 'atc_ana' in df_etken_madde_nihai.columns, 'HATA: atc_ana sütunu eksik!'\n",
+            "\n",
+            "rapor_metni = \"\\n\".join(rapor_lines) + \"\\n\"\n",
+            "rapor_yol = kok / 'docs' / 'esleme_raporu.md'\n",
+            "rapor_yol.write_text(rapor_metni, encoding='utf-8')\n",
+            "\n",
+            "print(f\"✓ docs/esleme_raporu.md başarıyla oluşturuldu: {rapor_yol}\")\n",
+            "print(\"✓ Tüm bütünlük assertion kontrolleri başarıyla geçti.\")\n",
+            "print()\n",
+            "print(\"Rapor Başlığı ve Özet Cümle:\")\n",
+            "print(rapor_lines[2])\n",
+            "print(rapor_lines[3])\n"
+        ]
+    })
 
-    # 7. Adım A1 Dedup Kod
-    add_code([
-        "# ─── İlaç tablosu oluştur ve normalize et ────────────────────────\n",
-        "df_ilac = pd.DataFrame([\n",
-        "    {'ddinter_id': k, 'drug_name': v}\n",
-        "    for k, v in unique_drugs.items()\n",
-        "])\n",
-        "\n",
-        "# Ad normalizasyonu (hem ad_norm hem drug_norm)\n",
-        "norm_col = df_ilac['drug_name'].apply(normalize_drug_name)\n",
-        "df_ilac['ad_norm'] = norm_col\n",
-        "df_ilac['drug_norm'] = norm_col\n",
-        "\n",
-        "# Sayısal sıralama (DDInter1 < DDInter582 < DDInter1263)\n",
-        "df_ilac['_id_num'] = df_ilac['ddinter_id'].apply(ddinter_num)\n",
-        "df_ilac = df_ilac.sort_values('_id_num').reset_index(drop=True)\n",
-        "df_ilac = df_ilac.drop(columns=['_id_num'])\n",
-        "\n",
-        "print(f'Benzersiz ilaç sayısı: {len(df_ilac):,}')\n",
-        "print(f'\\nİlk 5 ilaç:')\n",
-        "df_ilac.head(5)"
-    ])
+    # Hücre 25: Özet Markdown ve Teknik Değerlendirme
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "---\n",
+            "## 15. İP3 Teslimat Özeti, Kritik Bulgular ve Teknik Değerlendirme\n",
+            "\n",
+            "Bu çalışma kitabı ile İP3 (İngilizce Ad Köprüsü ve DDInter Eşlemesi) adımları uygulanmış ve sayısal hedeflere ulaşılmıştır:\n",
+            "- **Kapsam İçi Etken Madde DDInter Eşleşme Oranı:** %46.1 (1,378 / 2,988)\n",
+            "- **Kapsam İçi Ruhsatlı Ürün Kapsama Oranı (en az 1 bileşeni DDInter'da olan):** %76.5 (17,180 / 22,470) — *Hedeflenen %70 eşiği aşılmıştır.*\n",
+            "- **Tüm Bileşenler Bazında:** %44.3 (1,378 / 3,111)\n",
+            "- **Tüm Ruhsatlı Ürünler Bazında:** %76.7 (17,578 / 22,927)\n",
+            "\n",
+            "### ⚠️ Rapor ve Sonraki İş Paketleri (İP4 / D05 / E09) İçin Kritik Teknik Kısıtlar\n",
+            "\n",
+            "Sayısal başarı oranlarının arkasında, veri kümesinin doğasından ve upstream adımlardan kaynaklanan ve koşulsuz başarı iddiasını sınırlandıran 5 temel gerçek bulunmaktadır:\n",
+            "\n",
+            "1. **Eşleşme Oranı $\\neq$ Etkileşim Verisi Kapsamı (DDInter Grup Asimetrisi):**\n",
+            "   DDInter indirme paketlerinde yalnızca 8 ana grup (A, B, D, H, L, P, R, V) mevcuttur; Türkiye'de en yaygın reçetelenen **C (Kardiyovasküler), G (Üro-genital), J (Antibiyotikler), M (Kas-İskelet), N (Sinir Sistemi) ve S (Duyu)** gruplarının müstakil etkileşim dosyaları bulunmamaktadır. Dolayısıyla N grubunda %69.8 eşleşme sağlanmış olması, N ilaçlarının etkileşim verisinin tam olduğu anlamına **gelmez**. Bu ilaçlar yalnızca mevcut 8 gruptaki partnerleriyle olan etkileşimlerde yer alabilir; iki N veya iki C ilacının kendi arasındaki etkileşimi DDInter'da tespit edilemez. E09 grafiği ve final raporunda bu kısıt açıkça vurgulanmalıdır.\n",
+            "\n",
+            "2. **1.378 Eşleşen Kayıt $\\rightarrow$ 852 Benzersiz İlaç (Molekül Büyüklüğü):**\n",
+            "   Eşleşen 1.378 bileşen satırı, DDInter kütüphanesinde yalnızca **852 benzersiz ilaç kimliğine** (`ddinter_id`) karşılık gelmektedir. Aradaki 526 satırlık fark; Türkçe yazım varyantlarından (`insulin lispro` formları, aşı adları), tuz/ester ayrımlarından ve ayrıştırma farklılıklarından kaynaklanmaktadır.\n",
+            "\n",
+            "3. **Yanlış Birleşme Tespiti ve İP2 Kaynağı (Kişi A Geri Bildirimi):**\n",
+            "   Tekil kimlik denetimlerinde, `ketokonazol` (antifungal) bileşeninin, TEKNAZOL tabletlerin `urun.csv` dosyasında hatalı olarak `M01AE03` (ketoprofen) kodlanması sebebiyle Yol A'da ketoprofen ATC'sine bağlanarak `DDInter1009` (ketoprofen) kimliğiyle yanlış birleştiği tespit edilmiştir. Bu ve benzeri yazım çeşitlilikleri Kişi A'nın İP2 ayrıştırma ve veri temizliği tarafına iletilmiştir.\n",
+            "\n",
+            "4. **Yol C'nin Katkısı ve DDInter Kapsam Sınırı:**\n",
+            "   Yol C kural motorunun %52.8'lik doğruluğu Yol A çiftleri (eğitim kümesi) üzerinde ölçüldüğü için iyimserdir. Kalan ~1.000 bileşenden yalnızca 78'i DDInter'a bağlanabilmiştir. Buradaki temel darboğaz çeviri kuralı eksikliği değil, DDInter'ın 1.939 bileşiklik genel kapsamıdır. Eşleşmeyenlerin başında gelen `dekstroz`, `kalsiyum klorur`, `sodyum laktat`, `magnezyum klorur`, `tiyokolsikosid` ve `deksketoprofen` gibi bileşikler DDInter veritabanında hiç yer almamaktadır; dolayısıyla ek çeviri kuralları bu sayıyı artırmayacaktır.\n",
+            "\n",
+            "5. **SKRS Karakter Düzeltmeleri ve Kural 6:**\n",
+            "   SKRS adlarındaki noktasız `ı` karakter hataları (`combınatıon` $\\rightarrow$ `combination`) düzeltilmiş, `paracetamol` PubChem yayılımı ile `acetaminophen`'e bağlanmıştır. Ancak `allergen extracts`, `peritoneal dialytics` gibi ATC sınıf adları ile Kural 6 ürünlerinin takibi için Kişi A ve Kişi C ile koordinasyon sürmektedir.\n",
+            "\n",
+            "**Tamamlanan Altyapı Adımları:**\n",
+            "- [x] **SKRS ATC Sözlüğü:** Resmi sözlük aktif+pasif sekmelerinden çıkarıldı.\n",
+            "- [x] **DDInter İlaç Tablosu:** `ddinter_ilac.csv` sayısal ID sıralamasıyla oluşturuldu (1.939 bileşik).\n",
+            "- [x] **Yol A:** Tek bileşenli, 7 haneli ATC'li bileşenler doğrudan ATC sözlüğünden eşleştirildi (1.922 bileşen, Kişi A).\n",
+            "- [x] **Yol B:** Kombine ürünlerde ATC adından ayrıştırılan bileşenler RapidFuzz ile eşleştirildi (66 bileşen, Kişi A).\n",
+            "- [x] **SKRS Adımı:** SKRS kaynaklı ürünlerin bileşenleri `ı` temizliğiyle İngilizce olarak işlendi (90 bileşen, Kişi B).\n",
+            "- [x] **Yol C:** `config/tr_en_kurallar.csv` 9 ölçülmüş kural motoruyla kalan bileşenler bağlandı (78 bileşen, Kişi B).\n",
+            "- [x] **PubChem Kontrolü:** Rate limit, disk cache ve `ad_en_ham` izlenebilirliği ile en sık 100 eşleşmeyenden 16 bileşen kurtarıldı ve 24 satıra yayıldı (Kişi B).\n",
+            "- [x] **Yol D Taslağı:** Kişi C için `atc_ipucu`, `urun_ornegi` ve `kapsam_ici` öncelikli `data/interim/ruhsatli_esleme_taslagi.csv` çıkarıldı (Kişi B).\n",
+            "- [x] **Nihai Tablo:** `atc_ana` sütunu eklenmiş `data/interim/etken_madde.csv` kaydedildi (3.111 satır, Kişi B).\n",
+            "- [x] **Eşleşme Raporu:** 4 zorunlu tablo, bütünlük assertion'ları ve kısıt notlarıyla `docs/esleme_raporu.md` üretildi (Kişi B).\n"
+        ]
+    })
 
-    # 8. Adım A1 Kaydet Kod
-    add_code([
-        "# ─── Kaydet ──────────────────────────────────────────────────────\n",
-        "out_ilac = INTERIM / 'ddinter_ilac.csv'\n",
-        "df_ilac.to_csv(out_ilac, index=False, encoding='utf-8')\n",
-        "\n",
-        "print(f'✅ Kaydedildi: {out_ilac}')\n",
-        "print(f'   Satır sayısı : {len(df_ilac):,}')\n",
-        "print(f'   Sütunlar     : {df_ilac.columns.tolist()}')"
-    ])
+    return cells
 
-    # 9. Adım A1 Doğrulama Kod
-    add_code([
-        "# ─── Doğrulama kontrolleri ───────────────────────────────────────\n",
-        "assert df_ilac['ddinter_id'].isna().sum() == 0, 'Boş ddinter_id var!'\n",
-        "assert df_ilac['drug_name'].isna().sum() == 0, 'Boş drug_name var!'\n",
-        "assert df_ilac['ddinter_id'].is_unique, 'Tekrarlı ddinter_id var!'\n",
-        "nums = df_ilac['ddinter_id'].apply(ddinter_num).tolist()\n",
-        "assert nums == sorted(nums), 'Sayısal sıralama bozuk!'\n",
-        "assert (df_ilac['drug_norm'] == '').sum() == 0, 'Boş drug_norm var!'\n",
-        "assert len(df_ilac) == 1939, f'Beklenen 1.939, bulunan: {len(df_ilac)}'\n",
-        "\n",
-        "print('✅ Tüm doğrulama kontrolleri geçti.')\n",
-        "print(f'   1.939 beklenen → Gerçek: {len(df_ilac):,} benzersiz ilaç')"
-    ])
 
-    # 10. Adım A2 Markdown
-    add_md([
-        "---\n",
-        "# Adım A2 — `config/tr_en_kurallar.csv` Oluştur ve Yol C Kural Motoru\n",
-        "\n",
-        "Türkçe bileşen adlarını İngilizce ilaç adlarına dönüştürmek için kural tablosu oluşturulur.\n",
-        "- **Regex Sıralama Bağımlılığı Çözümü (`suffix_specificity`):** Sonek kuralları, regex sözdizimi yerine eşleşen gerçek sonek harf uzunluğuna (`isin$` -> 4 harf, `in$` -> 2 harf) göre **uzundan kısaya (spesifikten genele)** sıralanır. Böylece genel kuralların spesifik kuralları ezmesi kesin olarak önlenir."
-    ])
+def build_and_run_notebook_03():
+    """Kişi A ve Kişi B hücrelerini birleştirir, çalıştırır ve pre-render eder."""
+    a_cells = []
+    kisi_a_nb_path = NOTEBOOKS_DIR / "03_kopru_ddinter_kisi_a.ipynb"
+    existing_nb_path = NOTEBOOKS_DIR / "03_kopru_ddinter.ipynb"
 
-    # 11. Adım A2 Kural Dosyası Kod
-    add_code([
-        "# ─── Kural dosyasını oluştur ─────────────────────────────────────\n",
-        "kurallar = [\n",
-        "    {'kural_tipi': 'suffix_replace', 'eski': 'isin$',  'yeni': 'icin',  'ornek': 'gentamisin → gentamicin'},\n",
-        "    {'kural_tipi': 'suffix_replace', 'eski': '(?<!c)in$',    'yeni': 'ine',   'ornek': 'amlodipin → amlodipine'},\n",
-        "    {'kural_tipi': 'char_replace',   'eski': 'f',      'yeni': 'ph',    'ornek': 'morfin → morphine'},\n",
-        "]\n",
-        "\n",
-        "df_kurallar = pd.DataFrame(kurallar)\n",
-        "kural_path = CONFIG / 'tr_en_kurallar.csv'\n",
-        "df_kurallar.to_csv(kural_path, index=False, encoding='utf-8')\n",
-        "\n",
-        "print(f'✅ Kaydedildi: {kural_path}')\n",
-        "df_kurallar"
-    ])
+    if kisi_a_nb_path.exists():
+        with open(kisi_a_nb_path, "r", encoding="utf-8") as f:
+            a_cells = json.load(f)["cells"][:17]
+    elif existing_nb_path.exists():
+        with open(existing_nb_path, "r", encoding="utf-8") as f:
+            a_cells = json.load(f)["cells"][:17]
+    else:
+        raise FileNotFoundError(f"Notebook dosyası bulunamadı: {existing_nb_path}")
 
-    # 12. Adım A2 Kural Motoru Kod
-    add_code([
-        "# ─── Yol C kural motoru (Öncelik ve Sıralama Garantili) ──────────\n",
-        "def suffix_specificity(eski: str) -> int:\n",
-        "    \"\"\"Regex içindeki gerçek harf sonek uzunluğunu çıkarır (isin$ -> 4, in$ -> 2).\"\"\"\n",
-        "    m = re.search(r'([a-zA-ZçğıöşüÇĞİÖŞÜ]+)[$]', str(eski))\n",
-        "    return len(m.group(1)) if m else len(str(eski))\n",
-        "\n",
-        "\n",
-        "def kural_uygula(bilesen_tr: str, kurallar_df: pd.DataFrame) -> str:\n",
-        "    \"\"\"\n",
-        "    Türkçe bileşen adına kuralları deterministik sırayla uygular.\n",
-        "    1. Sonek kuralları spesifiklik derecesine göre azalan (uzundan kısaya) sıralanır.\n",
-        "       'isin$' her zaman 'in$' gibi genel kurallardan önce çalışır.\n",
-        "    2. Bir sonek kuralı eşleştiğinde ek sonek uygulanmaz.\n",
-        "    3. Karakter kuralları güvenle uygulanır.\n",
-        "    \"\"\"\n",
-        "    if not isinstance(bilesen_tr, str) or not bilesen_tr.strip():\n",
-        "        return \"\"\n",
-        "    aday = bilesen_tr.lower().strip()\n",
-        "    \n",
-        "    df_rules = kurallar_df.dropna(subset=[\"kural_tipi\", \"eski\", \"yeni\"]).copy()\n",
-        "    suffix_rules = df_rules[df_rules[\"kural_tipi\"] == \"suffix_replace\"].copy()\n",
-        "    suffix_rules[\"_spec\"] = suffix_rules[\"eski\"].apply(suffix_specificity)\n",
-        "    suffix_rules = suffix_rules.sort_values(\"_spec\", ascending=False)\n",
-        "    \n",
-        "    char_rules = df_rules[df_rules[\"kural_tipi\"] == \"char_replace\"]\n",
-        "    \n",
-        "    suffix_applied = False\n",
-        "    for _, kural in suffix_rules.iterrows():\n",
-        "        eski = str(kural[\"eski\"])\n",
-        "        yeni = str(kural[\"yeni\"])\n",
-        "        if not suffix_applied and re.search(eski, aday):\n",
-        "            aday = re.sub(eski, yeni, aday)\n",
-        "            suffix_applied = True\n",
-        "            break\n",
-        "            \n",
-        "    for _, kural in char_rules.iterrows():\n",
-        "        eski = str(kural[\"eski\"])\n",
-        "        yeni = str(kural[\"yeni\"])\n",
-        "        aday = aday.replace(eski, yeni)\n",
-        "        \n",
-        "    return aday\n",
-        "\n",
-        "\n",
-        "def yol_c_esle(bilesen_tr: str, ddinter_norm_set: set, kurallar_df: pd.DataFrame) -> str | None:\n",
-        "    \"\"\"\n",
-        "    Yol C Mantığı (PDF Adım 3):\n",
-        "    Türkçe ada kuralları uygula, DDInter listesinde ara.\n",
-        "    Bulunursa normalize edilmiş adı döndürür, bulunmazsa None (→ Yol D'ye düşer).\n",
-        "    \"\"\"\n",
-        "    aday = kural_uygula(bilesen_tr, kurallar_df)\n",
-        "    norm = normalize_drug_name(aday)\n",
-        "    if norm in ddinter_norm_set:\n",
-        "        return norm\n",
-        "    return None\n",
-        "\n",
-        "# Savunmacı ilac yükleme (bağımsız çalışma desteği)\n",
-        "if 'df_ilac' not in globals():\n",
-        "    df_ilac = pd.read_csv(INTERIM / 'ddinter_ilac.csv')\n",
-        "if 'df_kurallar' not in globals():\n",
-        "    df_kurallar = pd.read_csv(CONFIG / 'tr_en_kurallar.csv')\n",
-        "\n",
-        "col = 'drug_norm' if 'drug_norm' in df_ilac.columns else 'ad_norm'\n",
-        "ddinter_norm_set = set(df_ilac[col].dropna().tolist())\n",
-        "\n",
-        "test_cases = [\n",
-        "    (\"amlodipin\",       \"amlodipine\",       \"Yol C ile DDInter'da bulunur\"),\n",
-        "    (\"gentamisin\",      \"gentamicin\",       \"Yol C ile DDInter'da bulunur\"),\n",
-        "    (\"morfin\",          \"morphine\",         \"Yol C ile DDInter'da bulunur\"),\n",
-        "    (\"deksketoprofen\",  \"deksketoprophen\",  \"DDInter'da yok → Yol D'ye düşer\"),\n",
-        "    (\"parasetamol\",     \"parasetamol\",      \"DDInter'da yok → Yol D / PubChem'e düşer\"),\n",
-        "]\n",
-        "\n",
-        "print(\"Yol C kural testleri:\")\n",
-        "print(\"─\" * 75)\n",
-        "for tr_ad, beklenen, aciklama in test_cases:\n",
-        "    sonuc = kural_uygula(tr_ad, df_kurallar)\n",
-        "    eslesti = yol_c_esle(tr_ad, ddinter_norm_set, df_kurallar)\n",
-        "    durum = f\"✅ DDInter: {eslesti}\" if eslesti else \"❌ DDInter'da yok → Yol D'ye Düşer\"\n",
-        "    print(f\"  {tr_ad:16s} → {sonuc:18s} │ {durum:32s}\")"
-    ])
+    print(f"Kişi A hücreleri yüklendi: {len(a_cells)} hücre")
 
-    # 13. Adım A3 Markdown
-    add_md([
-        "---\n",
-        "# Adım A3 — PubChem Eş Anlamlı Fonksiyonu (Production-Grade & Güvenli Mimari)\n",
+    # Başlık hücresini ortak çalışma başlığına dönüştür
+    a_cells[0]["source"] = [
+        "# 03 — İngilizce Ad Köprüsü ve DDInter Eşlemesi (İP3 - Kişi A & Kişi B)\n",
         "\n",
-        "**API:** `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{AD}/synonyms/JSON`\n",
-        "\n",
-        "### Güvenlik ve Dayanıklılık Standartları:\n",
-        "1. **Cache Poisoning Koruması:** Geçici sunucu/ağ hatalarında (5xx, timeout, kopma) ASLA boş liste diske yazılmaz. Sadece kesin 200 veya 404 durumları cache'lenir.\n",
-        "2. **Exponential Backoff Retry:** PubChem 429 veya 5xx döndüğünde 3 denemeye kadar artan aralıklarla yeniden dener.\n",
-        "3. **Rate Limiting:** PubChem sınırlarına uyarak saniyede en fazla 5 istek (en az 0.20 sn aralık) gönderilir.\n",
-        "4. **Bozuk Cache Dosyası Kurtarma:** Boş (0 bayt) veya hatalı JSON cache dosyaları otomatik ayıklanır."
-    ])
+        "Bu çalışma kitabı, 2. Hafta Görev Dağılımı ve Veri Birleştirme Planı uyarınca iki bölümden oluşmaktadır:\n",
+        "- **Bölüm 1 (Hücre 0 – 16 — Kişi A):** SKRS ATC Sözlüğü, DDInter İlaç Kataloğu (`ddinter_ilac.csv`), Yol A (Tek bileşenli ürünler) ve Yol B (Kombine ürünler).\n",
+        "- **Bölüm 2 (Hücre 17 – 25 — Kişi B):** SKRS Adımı (Kural 5/6), Yol C (Kural tabanlı çeviri), DDInter eşleme (`ddinter_id`), PubChem kontrolü, Kişi C için `ruhsatli_esleme_taslagi.csv`, nihai `etken_madde.csv` ve 4 zorunlu tablodan oluşan `docs/esleme_raporu.md`.\n"
+    ]
 
-    # 14. Adım A3 Kod
-    add_code([
-        "LAST_PUBCHEM_REQUEST_TIME = 0.0\n",
-        "\n",
-        "def pubchem_synonyms(drug_name: str, cache_dir: Path = CACHE, max_retries: int = 3) -> list[str]:\n",
-        "    \"\"\"\n",
-        "    PubChem'den ilacın eş anlamlı adlarını güvenle çeker.\n",
-        "    - Rate limiter: Saniyede maks 5 istek (>= 0.20s).\n",
-        "    - Retry & Backoff: 429 veya 5xx yanıtlarında 3 denemeye kadar bekler.\n",
-        "    - Cache Poisoning Koruması: Sadece 200 (bulundu) veya 404 (kesin yok) cache'lenir. Ağ hatasında boş liste diske YAZILMAZ.\n",
-        "    \"\"\"\n",
-        "    global LAST_PUBCHEM_REQUEST_TIME\n",
-        "    if not drug_name or not str(drug_name).strip():\n",
-        "        return []\n",
-        "        \n",
-        "    ad = drug_name.strip().lower()\n",
-        "    cache_key  = hashlib.md5(ad.encode(\"utf-8\")).hexdigest()\n",
-        "    cache_file = cache_dir / f\"{cache_key}.json\"\n",
-        "    \n",
-        "    # 1. Cache kontrolü (Bozuk veya sıfır baytlık dosya korumalı)\n",
-        "    if cache_file.exists():\n",
-        "        try:\n",
-        "            if cache_file.stat().st_size > 0:\n",
-        "                return json.loads(cache_file.read_text(encoding=\"utf-8\"))\n",
-        "        except Exception:\n",
-        "            try:\n",
-        "                cache_file.unlink()\n",
-        "            except Exception:\n",
-        "                pass\n",
-        "    \n",
-        "    # 2. Güvenli URL encode\n",
-        "    encoded_name = urllib.parse.quote(ad)\n",
-        "    url = f\"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{encoded_name}/synonyms/JSON\"\n",
-        "    \n",
-        "    synonyms = []\n",
-        "    should_cache = False\n",
-        "    \n",
-        "    for attempt in range(1, max_retries + 1):\n",
-        "        elapsed = time.time() - LAST_PUBCHEM_REQUEST_TIME\n",
-        "        if elapsed < 0.20:\n",
-        "            time.sleep(0.20 - elapsed)\n",
-        "        LAST_PUBCHEM_REQUEST_TIME = time.time()\n",
-        "        \n",
-        "        try:\n",
-        "            resp = requests.get(url, timeout=12)\n",
-        "            if resp.status_code == 200:\n",
-        "                data = resp.json()\n",
-        "                info_list = data.get(\"InformationList\", {}).get(\"Information\", [])\n",
-        "                if info_list:\n",
-        "                    synonyms = info_list[0].get(\"Synonym\", [])\n",
-        "                should_cache = True\n",
-        "                break\n",
-        "            elif resp.status_code == 404:\n",
-        "                synonyms = []\n",
-        "                should_cache = True\n",
-        "                break\n",
-        "            elif resp.status_code in (429, 500, 502, 503, 504):\n",
-        "                if attempt < max_retries:\n",
-        "                    time.sleep(attempt * 1.0)\n",
-        "                    continue\n",
-        "                else:\n",
-        "                    print(f\"  ⚠️ PubChem sunucu hatası (HTTP {resp.status_code}) [{drug_name}], denemeler tükendi.\")\n",
-        "                    return []\n",
-        "            else:\n",
-        "                return []\n",
-        "        except Exception as e:\n",
-        "            if attempt < max_retries:\n",
-        "                time.sleep(attempt * 1.0)\n",
-        "                continue\n",
-        "            else:\n",
-        "                print(f\"  ⚠️ PubChem ağ/bağlantı hatası ({drug_name}): {e}\")\n",
-        "                return []\n",
-        "    \n",
-        "    # 3. Yalnızca geçerli sonuçları cache'e yaz\n",
-        "    if should_cache:\n",
-        "        try:\n",
-        "            cache_file.write_text(json.dumps(synonyms, ensure_ascii=False), encoding=\"utf-8\")\n",
-        "        except Exception as e:\n",
-        "            print(f\"  ⚠️ Cache yazma hatası ({drug_name}): {e}\")\n",
-        "            \n",
-        "    return synonyms\n",
-        "\n",
-        "\n",
-        "def pubchem_ddinter_esle(drug_name: str, ddinter_norm_set: set) -> str | None:\n",
-        "    \"\"\"\n",
-        "    PubChem eş anlamlılarını DDInter ilaç listesinde arar.\n",
-        "    Bulunursa eşleşen normalize adı döndürür, bulunmazsa None.\n",
-        "    \"\"\"\n",
-        "    synonyms = pubchem_synonyms(drug_name)\n",
-        "    for syn in synonyms:\n",
-        "        norm = normalize_drug_name(syn)\n",
-        "        if norm in ddinter_norm_set:\n",
-        "            return norm\n",
-        "    return None\n",
-        "\n",
-        "print(\"✅ PubChem fonksiyonları (Rate Limiter, Retry & Cache Poisoning Koruması) tanımlandı.\")\n",
-        "print(f\"   Cache dizini: {CACHE}\")\n",
-        "print(f\"   Mevcut cache dosyası: {len(list(CACHE.glob('*.json')))} adet\")"
-    ])
+    # Kişi B hücreleri
+    b_cells = create_kisi_b_cells()
+    print(f"Kişi B hücreleri oluşturuldu: {len(b_cells)} hücre")
 
-    # 15. Adım A3 Test Kod
-    add_code([
-        "# ─── PubChem fonksiyon testi (3 örnek ilaç) ─────────────────────\n",
-        "if 'df_ilac' not in globals():\n",
-        "    df_ilac = pd.read_csv(INTERIM / 'ddinter_ilac.csv')\n",
-        "if 'ddinter_norm_set' not in globals():\n",
-        "    col = 'drug_norm' if 'drug_norm' in df_ilac.columns else 'ad_norm'\n",
-        "    ddinter_norm_set = set(df_ilac[col].dropna().tolist())\n",
-        "\n",
-        "test_drugs = ['paracetamol', 'dexketoprofen', 'warfarin']\n",
-        "\n",
-        "print('PubChem eş anlamlı testleri:')\n",
-        "print('=' * 70)\n",
-        "for drug in test_drugs:\n",
-        "    syns = pubchem_synonyms(drug)\n",
-        "    eslesen = pubchem_ddinter_esle(drug, ddinter_norm_set)\n",
-        "    print(f'\\n{drug}:')\n",
-        "    print(f'  Eş anlamlı sayısı: {len(syns)}')\n",
-        "    if syns:\n",
-        "        print(f'  İlk 5 eş anlamlı: {syns[:5]}')\n",
-        "    if eslesen:\n",
-        "        ddinter_match = df_ilac[df_ilac['drug_norm'] == eslesen]\n",
-        "        if len(ddinter_match) > 0:\n",
-        "            ddid = ddinter_match.iloc[0]['ddinter_id']\n",
-        "            print(f'  ✅ DDInter eşleşmesi: {eslesen} ({ddid})')\n",
-        "    else:\n",
-        "        print(f'  ❌ DDInter\\'da bulunamadı')"
-    ])
+    # Birleşik hücre listesi
+    all_cells = a_cells + b_cells
+    print(f"Toplam birleşik hücre sayısı: {len(all_cells)}")
 
-    # 16. Adım A4 Markdown
-    add_md([
-        "---\n",
-        "# Adım A4 — Yol C'yi Kalanlara Uygula\n",
-        "\n",
-        "⚠️ **Bu hücre A kişisinin çıktısına (`data/interim/etken_madde.csv`) bağımlıdır.**\n",
-        "Dosya mevcut değilse kontrollü olarak bekler, mevcut olduğunda Yol C ve PubChem eşlemesini gerçekleştirir."
-    ])
+    # Çalıştırma ortamı
+    global_env = {"__name__": "__main__"}
+    sys.path.insert(0, str(BASE_DIR))
 
-    # 17. Adım A4 Kontrol Kod
-    add_code([
-        "# ─── A kişisinin çıktısını kontrol et ────────────────────────────\n",
-        "etken_madde_path = INTERIM / 'etken_madde.csv'\n",
-        "\n",
-        "if not etken_madde_path.exists():\n",
-        "    print('⏳ etken_madde.csv henüz hazır değil.')\n",
-        "    print('   A kişisinin Yol A/B çıktısı bekleniyor.')\n",
-        "    print('   Bu hücreyi A kişisi teslim ettikten sonra yeniden çalıştırın.')\n",
-        "else:\n",
-        "    df_etken = pd.read_csv(etken_madde_path)\n",
-        "    print(f'✅ etken_madde.csv yüklendi: {len(df_etken):,} etken madde')\n",
-        "    print(f'   Sütunlar: {df_etken.columns.tolist()}')\n",
-        "    if 'yol' in df_etken.columns:\n",
-        "        print('\\nYol dağılımı:')\n",
-        "        print(df_etken['yol'].value_counts().to_string())\n",
-        "        eslesmemis = df_etken[df_etken['yol'].isna() | (df_etken['yol'] == '')]\n",
-        "        print(f'\\nEşleşmemiş (Yol C/D adayı): {len(eslesmemis):,} bileşen')\n",
-        "    else:\n",
-        "        print('⚠️ \"yol\" sütunu yok — A kişisinden kontrol edin.')"
-    ])
+    for idx, cell in enumerate(all_cells):
+        if cell["cell_type"] == "code":
+            code = "".join(cell["source"])
+            print(f"Hücre {idx:02d} çalıştırılıyor...")
+            buf_out = io.StringIO()
+            buf_err = io.StringIO()
+            try:
+                with redirect_stdout(buf_out), redirect_stderr(buf_err):
+                    exec(code, global_env)
+                stdout_val = buf_out.getvalue()
+                stderr_val = buf_err.getvalue()
 
-    # 18. Adım A4 Çalıştır Kod
-    add_code([
-        "# ─── Yol C uygulama (etken_madde.csv hazır olunca) ──────────────\n",
-        "if etken_madde_path.exists():\n",
-        "    df_etken = pd.read_csv(etken_madde_path)\n",
-        "    bilesen_col = 'bilesen_tr' if 'bilesen_tr' in df_etken.columns else 'etken_madde'\n",
-        "    yol_col = 'yol'\n",
-        "    \n",
-        "    if bilesen_col not in df_etken.columns:\n",
-        "        print(f'⚠️ \"{bilesen_col}\" sütunu bulunamadı. Sütunlar: {df_etken.columns.tolist()}')\n",
-        "    else:\n",
-        "        if 'df_ilac' not in globals():\n",
-        "            df_ilac = pd.read_csv(INTERIM / 'ddinter_ilac.csv')\n",
-        "        if 'df_kurallar' not in globals():\n",
-        "            df_kurallar = pd.read_csv(CONFIG / 'tr_en_kurallar.csv')\n",
-        "            \n",
-        "        col = 'drug_norm' if 'drug_norm' in df_ilac.columns else 'ad_norm'\n",
-        "        ddinter_norm_set = set(df_ilac[col].dropna().tolist())\n",
-        "        ddinter_norm_to_id = dict(zip(df_ilac[col], df_ilac['ddinter_id']))\n",
-        "        \n",
-        "        # Yol C adayları: yol sütunu boş olanlar\n",
-        "        mask_c = df_etken[yol_col].isna() | (df_etken[yol_col] == '')\n",
-        "        adaylar = df_etken[mask_c].copy()\n",
-        "        print(f'Yol C adayı: {len(adaylar):,} bileşen')\n",
-        "        \n",
-        "        # 1) Kural motoru ile dene\n",
-        "        c_eslesti = 0\n",
-        "        for idx, row in adaylar.iterrows():\n",
-        "            tr_ad = str(row[bilesen_col])\n",
-        "            sonuc = yol_c_esle(tr_ad, ddinter_norm_set, df_kurallar)\n",
-        "            if sonuc:\n",
-        "                df_etken.at[idx, yol_col] = 'C'\n",
-        "                df_etken.at[idx, 'ad_en'] = sonuc\n",
-        "                df_etken.at[idx, 'ddinter_id'] = ddinter_norm_to_id.get(sonuc, '')\n",
-        "                c_eslesti += 1\n",
-        "        print(f'Yol C (kural motoru) ile eşleşen: {c_eslesti:,}')\n",
-        "        \n",
-        "        # 2) Kalan eşleşmeyenler için DDInter doğrudan tam ad eşleşmesi\n",
-        "        mask_hala = df_etken[yol_col].isna() | (df_etken[yol_col] == '')\n",
-        "        kalanlar = df_etken[mask_hala].copy()\n",
-        "        dogrudan = 0\n",
-        "        for idx, row in kalanlar.iterrows():\n",
-        "            ad_en_aday = row.get('ad_en', '')\n",
-        "            if isinstance(ad_en_aday, str) and ad_en_aday.strip():\n",
-        "                norm = normalize_drug_name(ad_en_aday)\n",
-        "                if norm in ddinter_norm_set:\n",
-        "                    df_etken.at[idx, 'ddinter_id'] = ddinter_norm_to_id.get(norm, '')\n",
-        "                    df_etken.at[idx, 'ad_en'] = norm\n",
-        "                    df_etken.at[idx, yol_col] = 'B' if pd.notna(row.get('ad_en')) else 'C'\n",
-        "                    dogrudan += 1\n",
-        "        print(f'DDInter doğrudan tam ad eşleşmesi: {dogrudan:,}')\n",
-        "        \n",
-        "        # 3) En sık 100 eşleşmeyen için PubChem kontrolü\n",
-        "        mask_hala = df_etken['ddinter_id'].isna() | (df_etken['ddinter_id'] == '')\n",
-        "        kalanlar = df_etken[mask_hala].copy()\n",
-        "        if 'urun_sayisi' in kalanlar.columns:\n",
-        "            kalanlar = kalanlar.sort_values('urun_sayisi', ascending=False)\n",
-        "            \n",
-        "        pubchem_adaylar = kalanlar.head(100)\n",
-        "        print(f'\\nPubChem kontrolü yapılacak aday sayısı: {len(pubchem_adaylar):,}')\n",
-        "        pubchem_eslesti = 0\n",
-        "        for idx, row in pubchem_adaylar.iterrows():\n",
-        "            ad = row.get('ad_en', row.get(bilesen_col, ''))\n",
-        "            if not isinstance(ad, str) or not ad.strip():\n",
-        "                continue\n",
-        "            sonuc = pubchem_ddinter_esle(ad, ddinter_norm_set)\n",
-        "            if sonuc:\n",
-        "                df_etken.at[idx, 'ddinter_id'] = ddinter_norm_to_id.get(sonuc, '')\n",
-        "                df_etken.at[idx, 'ad_en'] = sonuc\n",
-        "                if pd.isna(df_etken.at[idx, yol_col]) or df_etken.at[idx, yol_col] == '':\n",
-        "                    df_etken.at[idx, yol_col] = 'C'\n",
-        "                pubchem_eslesti += 1\n",
-        "                print(f'  ✅ {ad} → {sonuc} ({ddinter_norm_to_id.get(sonuc, \"?\")})')\n",
-        "        \n",
-        "        print(f'\\nPubChem ile eşleşen: {pubchem_eslesti:,}')\n",
-        "        \n",
-        "        # Kalanları eslesmedi olarak işaretle\n",
-        "        mask_final = df_etken[yol_col].isna() | (df_etken[yol_col] == '')\n",
-        "        df_etken.loc[mask_final, yol_col] = 'eslesmedi'\n",
-        "        \n",
-        "        print(f'\\n=== YOL DAĞILIMI ===')\n",
-        "        print(df_etken[yol_col].value_counts().to_string())\n",
-        "else:\n",
-        "    print('⏳ etken_madde.csv bekleniyor...')\n"
-    ])
+                outputs = []
+                if stdout_val:
+                    outputs.append({
+                        "name": "stdout",
+                        "output_type": "stream",
+                        "text": stdout_val.splitlines(keepends=True),
+                    })
+                if stderr_val:
+                    outputs.append({
+                        "name": "stderr",
+                        "output_type": "stream",
+                        "text": stderr_val.splitlines(keepends=True),
+                    })
+                cell["outputs"] = outputs
+                cell["execution_count"] = idx
+            except Exception as e:
+                print(f"HATA! Hücre {idx} çalıştırılırken hata oluştu: {e}")
+                raise e
 
-    # 19. Adım A5 Markdown
-    add_md([
-        "---\n",
-        "# Adım A5 — `ruhsatli_esleme_taslagi.csv` Üret + `etken_madde.csv` Güncelle\n",
-        "\n",
-        "- Eşleşmeyen bileşenler `data/interim/ruhsatli_esleme_taslagi.csv` olarak C kişisine (Yol D - Manuel Araştırma) verilir.\n",
-        "- C kişisinin eşlemeleri tamamlandıktan sonra `etken_madde.csv` nihai olarak güncellenir."
-    ])
-
-    # 20. Adım A5 Dışa Aktar Kod
-    add_code([
-        "# ─── Ruhsatlı eşleme taslağını üret (C kişisine) ────────────────\n",
-        "if etken_madde_path.exists():\n",
-        "    df_etken = pd.read_csv(etken_madde_path)\n",
-        "    mask_yok = (\n",
-        "        df_etken['ddinter_id'].isna() | \n",
-        "        (df_etken['ddinter_id'].astype(str).str.strip() == '') |\n",
-        "        (df_etken.get('yol', '') == 'eslesmedi')\n",
-        "    )\n",
-        "    eslesmemis = df_etken[mask_yok].copy()\n",
-        "    if 'urun_sayisi' in eslesmemis.columns:\n",
-        "        eslesmemis = eslesmemis.sort_values('urun_sayisi', ascending=False)\n",
-        "        \n",
-        "    taslak_path = INTERIM / 'ruhsatli_esleme_taslagi.csv'\n",
-        "    eslesmemis.to_csv(taslak_path, index=False, encoding='utf-8')\n",
-        "    print(f'✅ Kaydedildi: {taslak_path}')\n",
-        "    print(f'   Eşleşmemiş bileşen: {len(eslesmemis):,}')\n",
-        "    print('   → C kişisine Yol D için verilecek.')\n",
-        "else:\n",
-        "    print('⏳ etken_madde.csv bekleniyor...')\n"
-    ])
-
-    # 21. Adım A5 Birleştir Kod
-    add_code([
-        "# ─── C kişisinin Yol D sonuçlarını birleştir ────────────────────\n",
-        "yol_d_path = INTERIM / 'ruhsatli_esleme_taslagi.csv'\n",
-        "\n",
-        "if etken_madde_path.exists() and yol_d_path.exists():\n",
-        "    df_etken = pd.read_csv(etken_madde_path)\n",
-        "    df_yol_d = pd.read_csv(yol_d_path)\n",
-        "    \n",
-        "    if 'ad_en' in df_yol_d.columns and 'ddinter_id' in df_yol_d.columns:\n",
-        "        guncellenen = 0\n",
-        "        for _, row_d in df_yol_d.iterrows():\n",
-        "            dd_val = row_d.get('ddinter_id')\n",
-        "            if pd.notna(dd_val) and str(dd_val).strip():\n",
-        "                bilesen = row_d.get('bilesen_tr', row_d.get('etken_madde', ''))\n",
-        "                col_match = 'bilesen_tr' if 'bilesen_tr' in df_etken.columns else 'etken_madde'\n",
-        "                b_clean = str(bilesen).strip().lower()\n",
-        "                mask = df_etken[col_match].astype(str).str.strip().str.lower() == b_clean\n",
-        "                if mask.any():\n",
-        "                    df_etken.loc[mask, 'ad_en'] = row_d['ad_en']\n",
-        "                    df_etken.loc[mask, 'ddinter_id'] = str(dd_val).strip()\n",
-        "                    df_etken.loc[mask, 'yol'] = 'D'\n",
-        "                    guncellenen += 1\n",
-        "        print(f'Yol D ile güncellenen: {guncellenen:,}')\n",
-        "        \n",
-        "    df_etken.to_csv(etken_madde_path, index=False, encoding='utf-8')\n",
-        "    print(f'✅ etken_madde.csv güncellendi: {etken_madde_path}')\n",
-        "    if 'yol' in df_etken.columns:\n",
-        "        print(f'\\n=== NİHAİ YOL DAĞILIMI ===')\n",
-        "        print(df_etken['yol'].value_counts().to_string())\n",
-        "else:\n",
-        "    print('⏳ Dosyalar bekleniyor...')\n"
-    ])
-
-    # 22. Adım A6 Markdown
-    add_md([
-        "---\n",
-        "# Adım A6 — `docs/esleme_raporu.md` Yaz\n",
-        "\n",
-        "**Zorunlu 4 Tablo:**\n",
-        "1. Yol bazında bileşen sayısı ve oranları (`A, B, C, D, SKRS, eslesmedi`)\n",
-        "2. DDInter eşleşme oranı (Etken madde bazında %X, Ürün bazında %Y)\n",
-        "3. ATC ana grubuna göre eşleşme oranı (14 satır: `A, B, C, D, G, H, J, L, M, N, P, R, S, V`)\n",
-        "4. Eşleşmeyen en sık 30 bileşen\n",
-        "\n",
-        "> **🛡️ Savunmacı Merge (Defensive Join):** `urun_etken.csv` ve `etken_madde.csv` tabloları `bilesen_tr` üzerinden birleştirilmeden önce her iki taraftaki anahtar sütunlar `.astype(str).str.strip().str.lower()` ile normalize edilir. Bu sayede A kişisinin verisindeki gizli boşluklar veya harf uyumsuzlukları nedeniyle Tablo 2'deki ürün eşleşme oranı (%Y) asla yapay olarak düşük çıkmaz."
-    ])
-
-    # 23. Adım A6 Rapor Kod
-    add_code([
-        "# ─── Eşleme raporu üret (Savunmacı ve Doğrulanmış Veri Hattı) ────\n",
-        "if etken_madde_path.exists():\n",
-        "    df_etken = pd.read_csv(etken_madde_path)\n",
-        "    \n",
-        "    # Tablo 1: Yol Dağılımı\n",
-        "    yol_col = 'yol' if 'yol' in df_etken.columns else None\n",
-        "    if yol_col:\n",
-        "        yol_dag = df_etken[yol_col].value_counts()\n",
-        "        yol_toplam = len(df_etken)\n",
-        "        t1_rows = []\n",
-        "        for y_name in ['A', 'B', 'C', 'D', 'SKRS', 'eslesmedi']:\n",
-        "            cnt = yol_dag.get(y_name, 0)\n",
-        "            pct = 100 * cnt / yol_toplam if yol_toplam > 0 else 0\n",
-        "            t1_rows.append(f'| {y_name} | {cnt:,} | %{pct:.1f} |')\n",
-        "        tablo1 = '| Yol | Bileşen Sayısı | Oran |\\n|-----|---------------|------|\\n' + '\\n'.join(t1_rows)\n",
-        "    else:\n",
-        "        tablo1 = '⚠️ yol sütunu bulunamadı.'\n",
-        "        \n",
-        "    # Tablo 2: DDInter Eşleşme Oranı\n",
-        "    ddinter_var = df_etken['ddinter_id'].notna() & (df_etken['ddinter_id'].astype(str).str.strip() != '')\n",
-        "    X = 100 * ddinter_var.sum() / len(df_etken) if len(df_etken) > 0 else 0\n",
-        "    \n",
-        "    urun_etken_path = INTERIM / 'urun_etken.csv'\n",
-        "    b_col = 'bilesen_tr' if 'bilesen_tr' in df_etken.columns else 'etken_madde'\n",
-        "    if urun_etken_path.exists():\n",
-        "        df_ue = pd.read_csv(urun_etken_path)\n",
-        "        ue_b_col = 'bilesen_tr' if 'bilesen_tr' in df_ue.columns else 'etken_madde'\n",
-        "        # Savunmacı Temizlik: NaN ve duplike barkod-bileşen çiftlerini temizle\n",
-        "        df_ue = df_ue.dropna(subset=['barkod', ue_b_col]).drop_duplicates(subset=['barkod', ue_b_col]).copy()\n",
-        "        \n",
-        "        # Savunmacı Merge (Defensive Join): Metin sütunlarını zorla strip ve lower yap\n",
-        "        # A kişisi 'parasetamol ' veya 'Parasetamol' kaydetmiş olsa dahi eşleşme asla bozulmaz\n",
-        "        df_ue['_join_key'] = df_ue[ue_b_col].astype(str).str.replace('İ', 'i').str.replace('I', 'ı').str.strip().str.lower().str.replace('\\u0307', '')\n",
-        "        df_etken_match = df_etken[[b_col, 'ddinter_id']].dropna(subset=[b_col]).copy()\n",
-        "        df_etken_match['_join_key'] = df_etken_match[b_col].astype(str).str.replace('İ', 'i').str.replace('I', 'ı').str.strip().str.lower().str.replace('\\u0307', '')\n",
-        "        \n",
-        "        # etken_madde içinde aynı temiz isimden çoklu kayıt varsa DDInterID dolu olanı öne alıp tekilleştir\n",
-        "        df_etken_match['_has_dd'] = df_etken_match['ddinter_id'].notna() & (df_etken_match['ddinter_id'].astype(str).str.strip() != '')\n",
-        "        df_etken_match = df_etken_match.sort_values('_has_dd', ascending=False).drop_duplicates(subset=['_join_key'])\n",
-        "        \n",
-        "        df_ue_merged = df_ue.merge(\n",
-        "            df_etken_match[['_join_key', 'ddinter_id']],\n",
-        "            on='_join_key', how='left'\n",
-        "        )\n",
-        "        urun_ddinter = df_ue_merged.groupby('barkod')['ddinter_id'].apply(\n",
-        "            lambda x: x.notna().any() and (x.astype(str).str.strip() != '').any()\n",
-        "        )\n",
-        "        Y = 100 * urun_ddinter.sum() / len(urun_ddinter) if len(urun_ddinter) > 0 else 0\n",
-        "        tablo2 = f\"\"\"- **Etken madde bazında:** Türkiye'deki etken maddelerin **%{X:.1f}**'i DDInter'da bulunuyor ({ddinter_var.sum():,} / {len(df_etken):,})\n",
-        "- **Ürün bazında:** Ruhsatlı ürünlerin **%{Y:.1f}**'sinin en az bir bileşeni DDInter'da bulunuyor ({urun_ddinter.sum():,} / {len(urun_ddinter):,})\"\"\"\n",
-        "    else:\n",
-        "        tablo2 = f\"\"\"- **Etken madde bazında:** Türkiye'deki etken maddelerin **%{X:.1f}**'i DDInter'da bulunuyor ({ddinter_var.sum():,} / {len(df_etken):,})\n",
-        "- **Ürün bazında:** ⚠️ `urun_etken.csv` henüz hazır değil.\"\"\"\n",
-        "        \n",
-        "    # Tablo 3: ATC Grubu Dağılımı\n",
-        "    atc_col = 'atc_kodu' if 'atc_kodu' in df_etken.columns else ('atc' if 'atc' in df_etken.columns else None)\n",
-        "    if atc_col:\n",
-        "        df_etken['atc_ana_grup'] = df_etken[atc_col].astype(str).str.strip().str[0].str.upper()\n",
-        "        tum_gruplar = ['A', 'B', 'C', 'D', 'G', 'H', 'J', 'L', 'M', 'N', 'P', 'R', 'S', 'V']\n",
-        "        t3_rows = []\n",
-        "        for g in tum_gruplar:\n",
-        "            mask = df_etken['atc_ana_grup'] == g\n",
-        "            toplam = mask.sum()\n",
-        "            eslesen = (mask & ddinter_var).sum()\n",
-        "            oran = 100 * eslesen / toplam if toplam > 0 else 0\n",
-        "            t3_rows.append(f'| {g} | {eslesen:,} | {toplam:,} | %{oran:.1f} |')\n",
-        "        tablo3 = '| ATC Grubu | DDInter Var | Toplam | Oran |\\n|-----------|------------|--------|------|\\n' + '\\n'.join(t3_rows)\n",
-        "    else:\n",
-        "        tablo3 = '⚠️ ATC sütunu bulunamadı.'\n",
-        "        \n",
-        "    # Tablo 4: Eşleşmeyen En Sık 30 Bileşen\n",
-        "    eslesmemis = df_etken[~ddinter_var].copy()\n",
-        "    if 'urun_sayisi' in eslesmemis.columns:\n",
-        "        eslesmemis = eslesmemis.sort_values('urun_sayisi', ascending=False)\n",
-        "    t4_data = eslesmemis.head(30)\n",
-        "    cols_to_show = [c for c in [b_col, 'urun_sayisi'] if c in t4_data.columns]\n",
-        "    tablo4 = t4_data[cols_to_show].to_markdown(index=False) if not t4_data.empty else 'Eşleşmeyen bileşen kalmadı.'\n",
-        "    \n",
-        "    rapor = f\"\"\"# Eşleme Raporu\n",
-        "\n",
-        "**Oluşturulma Tarihi:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')}\n",
-        "\n",
-        "## 1. Yol Bazında Bileşen Sayısı\n",
-        "\n",
-        "{tablo1}\n",
-        "\n",
-        "## 2. DDInter Eşleşme Oranı\n",
-        "\n",
-        "{tablo2}\n",
-        "\n",
-        "## 3. ATC Ana Grubuna Göre Eşleşme Oranı (14 Satır)\n",
-        "\n",
-        "{tablo3}\n",
-        "\n",
-        "## 4. Eşleşmeyen En Sık 30 Bileşen\n",
-        "\n",
-        "{tablo4}\n",
-        "\"\"\"\n",
-        "    rapor_path = DOCS / 'esleme_raporu.md'\n",
-        "    rapor_path.write_text(rapor, encoding='utf-8')\n",
-        "    print(f'✅ Rapor oluşturuldu: {rapor_path}')\n",
-        "    print(rapor[:1200])\n",
-        "else:\n",
-        "    print('⏳ etken_madde.csv bekleniyor...')\n"
-    ])
-
-    # 24. Özet Markdown
-    add_md([
-        "---\n",
-        "## Özet\n",
-        "\n",
-        "### Bağımsız adımlar (Gün 2–4) — Başarıyla Tamamlandı:\n",
-        "- ✅ `data/interim/ddinter_ilac.csv` üretildi ve doğrulandı (1.939 satır, sayısal sıralı).\n",
-        "- ✅ `config/tr_en_kurallar.csv` oluşturuldu ve Yol C kural motoru (spesifiklik öncelikli) kuruldu.\n",
-        "- ✅ PubChem fonksiyonu; rate limiter, cache poisoning koruması ve retry desteğiyle tamamlandı.\n",
-        "\n",
-        "### Bağımlı adımlar (Gün 5–6) — Çalıştırmaya Hazır:\n",
-        "- ⏳ A kişisinden `data/interim/etken_madde.csv` bekleniyor.\n",
-        "- ⏳ C kişisine `ruhsatli_esleme_taslagi.csv` teslim edilecek.\n",
-        "- ⏳ `docs/esleme_raporu.md` üretilecek."
-    ])
-
-    nb = {
-        "cells": cells,
+    # Birleşik notebook dosyasını kaydet
+    out_nb = {
+        "cells": all_cells,
         "metadata": {
-            "kernelspec": {"display_name": "Python 3 (.venv)", "language": "python", "name": "python3"},
-            "language_info": {"name": "python", "version": "3.11"}
+            "kernelspec": {
+                "display_name": "Python 3 (.venv)",
+                "language": "python",
+                "name": "python3"
+            },
+            "language_info": {
+                "name": "python",
+                "version": sys.version.split()[0]
+            }
         },
         "nbformat": 4,
         "nbformat_minor": 5
     }
 
-    out_path = NOTEBOOKS_DIR / "03_kopru_ddinter.ipynb"
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(nb, f, indent=1, ensure_ascii=False)
-    print(f"🎉 03_kopru_ddinter.ipynb başarıyla üretildi ve güncellendi: {out_path}")
+    final_nb_path = NOTEBOOKS_DIR / "03_kopru_ddinter.ipynb"
+    with open(final_nb_path, "w", encoding="utf-8") as f:
+        json.dump(out_nb, f, indent=1, ensure_ascii=False)
+
+    print(f"🎉 03_kopru_ddinter.ipynb başarıyla üretildi ve güncellendi: {final_nb_path}")
 
 
 if __name__ == "__main__":
-    generate()
+    build_and_run_notebook_03()
