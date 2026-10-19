@@ -102,9 +102,9 @@ def barkod_temizle(barkod) -> Optional[str]:
 
 
 def gtin_gecerli(barkod) -> bool:
-    """GTIN-8/12/13/14 kontrol hanesi doğrulaması."""
+    """EAN-13 kontrol hanesi doğrulaması (PDF Kural 2: 13 haneli ve EAN-13 uyumlu)."""
     b = barkod_temizle(barkod)
-    if not b or len(b) not in (8, 12, 13, 14):
+    if not b or len(b) != 13:
         return False
     d = [int(c) for c in b[::-1]]
     toplam = sum(x * (3 if i % 2 == 0 else 1) for i, x in enumerate(d[1:]))
@@ -127,7 +127,7 @@ _VARSAYILAN_TUZLAR = [
     "trisodyum", "disodyum", "sodyum", "dipotasyum", "potasyum",
     "kalsiyum", "magnezyum", "trometamol", "trometamin", "erbumin",
     "tert-butilamin", "meglumin",
-    # asit tuzları ve yaygın esterler
+    # asit tuzları ve yaygın esterler / formlar
     "hemisülfat", "disülfat", "sülfat", "fosfat", "asetat", "sitrat",
     "fumarat", "hemifumarat", "maleat", "malat", "mezilat", "mesilat",
     "besilat", "tosilat", "tartrat", "tartarat", "bitartarat", "oksalat",
@@ -137,6 +137,7 @@ _VARSAYILAN_TUZLAR = [
     "medoksomil", "sileksetil", "aksetil", "proksetil", "ksinafoat", "ksinofoat", "furoat",
     "trifenatat", "palmitat", "aseponat", "butirat", "etabonat",
     "salisilat", "nikotinat", "aspartat", "orotat", "kamsilat", "tertbutilamin",
+    "hidroklorid", "mikropelle", "mikropellet", "pellet", "pelletleri", "pelletler",
 ]
 
 _KATYONLAR = frozenset({"sodyum", "potasyum", "kalsiyum", "magnezyum", "disodyum", "trisodyum", "dipotasyum"})
@@ -240,6 +241,11 @@ def _bilesen_temizle(parca: str, rx, tuz_kume: frozenset) -> str:
     return " ".join(_ESDEGER.get(w, w) for w in parca.split(" "))
 
 
+_RX_PERCENT = re.compile(r"^%\s*\d+(?:[\.,]\d+)?(?:\s*['’]?(?:l[ıiuü]k))?\s*")
+_RX_PERCENT_TRAIL = re.compile(r"\s+%\s*\d+(?:[\.,]\d+)?(?:\s*['’]?(?:l[ıiuü]k))?\s*$")
+_RX_HYDRATE = re.compile(r"[\.\s]*\b\d*h2o\b", re.IGNORECASE)
+
+
 def tuz_at(etkin_madde, tuz_listesi_yolu: Optional[str] = None) -> Optional[str]:
     """Tuz sözcüklerinin tam sözcük olarak atılması ve geriye bir şey kalmazsa orijinalin korunması.
 
@@ -264,15 +270,21 @@ def tuz_at(etkin_madde, tuz_listesi_yolu: Optional[str] = None) -> Optional[str]
 
     # Sayısal olmayan virgülleri ayır (ondalık sayıları koru: 69,19 ayrılmaz)
     temiz = re.sub(r"(?<=\D)\s*,\s*(?=\D)", "|", temiz)
-    temiz = re.sub(r"\s*(?:\+|/|;|\bve\b|\band\b)\s*", "|", temiz)
+    temiz = re.sub(r"\s*(?:\+|;|\bve\b|\band\b)\s*", "|", temiz)
+    temiz = re.sub(r"(?<=[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})\s*/\s*(?=[%0-9\s]*[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})", "|", temiz)
 
     sonuc: list[str] = []
     for parca in temiz.split("|"):
         parca = re.sub(r"\s+", " ", parca).strip()
+        parca = _RX_PERCENT.sub("", parca).strip()
+        parca = _RX_PERCENT_TRAIL.sub("", parca).strip()
+        parca = _RX_HYDRATE.sub("", parca).strip(" \t\n\r,.-;/")
         if not parca:
             continue
         parca = _bilesen_temizle(parca, rx, tuz_kume)
-        parca = parca.strip(" \t\n\r,.-;/")
+        parca = _RX_PERCENT.sub("", parca)
+        parca = _RX_PERCENT_TRAIL.sub("", parca)
+        parca = _RX_HYDRATE.sub("", parca).strip(" \t\n\r,.-;/")
         if parca and parca not in sonuc:  # tekrarları at, sırayı koru
             sonuc.append(parca)
     return ", ".join(sonuc) or None
@@ -325,9 +337,9 @@ def bilesenlere_ayir(
     # Sırayla ayırıcılar: +, ;, ve, and
     t = re.sub(r"\s*(?:\+|;|\bve\b|\band\b)\s*", "|", t)
 
-    # Slash (/): Yalnızca iki tarafında en az 3 harfli sözcük varsa ayırır
-    # (Virüs suşları A/Victoria/4897/2022 veya d/l-laktat gibi yapıları bozmaz)
-    t = re.sub(r"(?<=[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})\s*/\s*(?=[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})", "|", t)
+    # Slash (/): İki tarafında en az 3 harfli sözcük varsa ayırır
+    # (Virüs suşları A/Victoria/4897/2022 veya 27/3 gibi yapıları bozmaz; %25 insulin / %75 insulin gibi yüzdeli kombinasyonları ayırır)
+    t = re.sub(r"(?<=[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})\s*/\s*(?=[%0-9\s]*[a-zA-ZçğıöşüÇĞİÖŞÜ]{3})", "|", t)
 
     # Virgül kuralı: İki tarafında da harfle başlayan ve en az 4 harfli bir sözcük varsa ayırıcı sayılır
     # Sol parçada en az 4 harfli bir sözcük, sağ parçanın başında ise (l-, d- gibi önekler hariç) en az 4 harfli sözcük aranır
@@ -339,7 +351,7 @@ def bilesenlere_ayir(
         right_chunk = tokens[i + 1].strip()
 
         left_words = re.findall(r"[a-zA-ZçğıöşüÇĞİÖŞÜ]{4,}", left_chunk)
-        clean_right = re.sub(r"^(%\d+\s*|[ldLD]\-)", "", right_chunk)
+        clean_right = re.sub(r"^(%\s*\d+\s*|[ldLD]\-)", "", right_chunk)
         right_first_word = re.findall(r"^[a-zA-ZçğıöşüÇĞİÖŞÜ]+", clean_right)
 
         is_split = False
@@ -368,11 +380,16 @@ def bilesenlere_ayir(
     sira = 1
 
     for parca in final_pieces:
-        p_ascii = eslesme_anahtari(parca)
+        parca_temiz = _RX_PERCENT.sub("", parca).strip()
+        parca_temiz = _RX_PERCENT_TRAIL.sub("", parca_temiz).strip()
+        parca_temiz = _RX_HYDRATE.sub("", parca_temiz).strip(" \t\n\r,.-;/")
+        p_ascii = eslesme_anahtari(parca_temiz)
         if not p_ascii:
             continue
         b_tr = _bilesen_temizle(p_ascii, rx, tuz_kume)
-        b_tr = b_tr.strip(" \t\n\r,.-;/")
+        b_tr = _RX_PERCENT.sub("", b_tr)
+        b_tr = _RX_PERCENT_TRAIL.sub("", b_tr)
+        b_tr = _RX_HYDRATE.sub("", b_tr).strip(" \t\n\r,.-;/")
         if not re.search(r"[a-zA-ZçğıöşüÇĞİÖŞÜ]", b_tr) or len(b_tr) <= 1:
             continue
         if b_tr and b_tr not in gorulen_tr:
