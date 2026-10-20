@@ -8,3 +8,6 @@ seaborn
 rdkit
 PyTDC
 jupyter
+ipykernel
+tabulate
+pypdf
