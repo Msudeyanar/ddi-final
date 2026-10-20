@@ -554,8 +554,8 @@ def create_kisi_b_cells() -> List[Dict[str, Any]]:
             "for yol_adi, tot, esl, pct, aciklama in tablo_1_satirlar:\n",
             "    rapor_lines.append(f\"| **{yol_adi}** | {tot:,} | {esl:,} | %{pct:.1f} | {aciklama} |\")\n",
             "rapor_lines.append(f\"| **TOPLAM** | **{total_etken:,}** | **{matched_etken:,}** | **%{matched_etken_pct:.1f}** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |\")\n",
-            "rapor_lines.append(\"\")\n",
-            "rapor_lines.append(f\"> **Not (PubChem Doğrulaması ve Dağılımı):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden {pubchem_dogrudan} tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve {pubchem_yayilim_cnt} satıra yayılmıştır.{parasetamol_info} Kurtarılan bu bileşikler resmi ATC adı ile DDInter adı farklılaşan Yol A ve Yol B satırlarıdır (bu nedenle Yol A/B altında DDInter kimliği kazanmışlardır). Kural motoruna girmeyip `eslesmedi` yolunda kalan 955 bileşenin en sık olanları (dekstroz, kalsiyum klorur, sodyum laktat, magnezyum klorur, tiyokolsikosid vb.) DDInter kütüphanesinde hiç yer almadığından bu gruptan yeni DDInter eşleşmesi çıkmamış ve tümü Kişi C'nin Yol D taslağına devredilmiştir.\")\n",
+            "eslesmedi_sayisi = int((df_etken_madde_nihai['yol'] == 'eslesmedi').sum())\n",
+            "rapor_lines.append(f\"> **Not (PubChem Doğrulaması ve Dağılımı):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden {pubchem_dogrudan} tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve {pubchem_yayilim_cnt} satıra yayılmıştır.{parasetamol_info} Kurtarılan bu bileşikler resmi ATC adı ile DDInter adı farklılaşan Yol A ve Yol B satırlarıdır (bu nedenle Yol A/B altında DDInter kimliği kazanmışlardır). Kural motoruna girmeyip `eslesmedi` yolunda kalan {eslesmedi_sayisi:,} bileşenin en sık olanları (dekstroz, kalsiyum klorur, sodyum laktat, magnezyum klorur, tiyokolsikosid vb.) DDInter kütüphanesinde hiç yer almadığından bu gruptan yeni DDInter eşleşmesi çıkmamış ve tümü Kişi C'nin Yol D taslağına devredilmiştir.\")\n",
             "\n",
             "rapor_lines.extend([\n",
             "    \"\",\n",
@@ -644,40 +644,40 @@ def create_kisi_b_cells() -> List[Dict[str, Any]]:
             "## 15. İP3 Teslimat Özeti, Kritik Bulgular ve Teknik Değerlendirme\n",
             "\n",
             "Bu çalışma kitabı ile İP3 (İngilizce Ad Köprüsü ve DDInter Eşlemesi) adımları uygulanmış ve sayısal hedeflere ulaşılmıştır:\n",
-            "- **Kapsam İçi Etken Madde DDInter Eşleşme Oranı:** %46.1 (1,378 / 2,988)\n",
-            "- **Kapsam İçi Ruhsatlı Ürün Kapsama Oranı (en az 1 bileşeni DDInter'da olan):** %76.5 (17,180 / 22,470) — *Hedeflenen %70 eşiği aşılmıştır.*\n",
-            "- **Tüm Bileşenler Bazında:** %44.3 (1,378 / 3,111)\n",
-            "- **Tüm Ruhsatlı Ürünler Bazında:** %76.7 (17,578 / 22,927)\n",
+            "- **Kapsam İçi Etken Madde DDInter Eşleşme Oranı:** %46.1 (1,365 / 2,958)\n",
+            "- **Kapsam İçi Ruhsatlı Ürün Kapsama Oranı (en az 1 bileşeni DDInter'da olan):** %76.5 (17,188 / 22,470) — *Hedeflenen %70 eşiği aşılmıştır.*\n",
+            "- **Tüm Bileşenler Bazında:** %44.4 (1,365 / 3,073)\n",
+            "- **Tüm Ruhsatlı Ürünler Bazında:** %76.7 (17,586 / 22,927)\n",
             "\n",
             "### ⚠️ Rapor ve Sonraki İş Paketleri (İP4 / D05 / E09) İçin Kritik Teknik Kısıtlar\n",
             "\n",
             "Sayısal başarı oranlarının arkasında, veri kümesinin doğasından ve upstream adımlardan kaynaklanan ve koşulsuz başarı iddiasını sınırlandıran 5 temel gerçek bulunmaktadır:\n",
             "\n",
             "1. **Eşleşme Oranı $\\neq$ Etkileşim Verisi Kapsamı (DDInter Grup Asimetrisi):**\n",
-            "   DDInter indirme paketlerinde yalnızca 8 ana grup (A, B, D, H, L, P, R, V) mevcuttur; Türkiye'de en yaygın reçetelenen **C (Kardiyovasküler), G (Üro-genital), J (Antibiyotikler), M (Kas-İskelet), N (Sinir Sistemi) ve S (Duyu)** gruplarının müstakil etkileşim dosyaları bulunmamaktadır. Dolayısıyla N grubunda %69.8 eşleşme sağlanmış olması, N ilaçlarının etkileşim verisinin tam olduğu anlamına **gelmez**. Bu ilaçlar yalnızca mevcut 8 gruptaki partnerleriyle olan etkileşimlerde yer alabilir; iki N veya iki C ilacının kendi arasındaki etkileşimi DDInter'da tespit edilemez. E09 grafiği ve final raporunda bu kısıt açıkça vurgulanmalıdır.\n",
+            "   DDInter indirme paketlerinde yalnızca 8 ana grup (A, B, D, H, L, P, R, V) mevcuttur; Türkiye'de en yaygın reçetelenen **C (Kardiyovasküler), G (Üro-genital), J (Antibiyotikler), M (Kas-İskelet), N (Sinir Sistemi) ve S (Duyu)** gruplarının müstakil etkileşim dosyaları bulunmamaktadır. Dolayısıyla N grubunda %69.5 eşleşme sağlanmış olması, N ilaçlarının etkileşim verisinin tam olduğu anlamına **gelmez**. Bu ilaçlar yalnızca mevcut 8 gruptaki partnerleriyle olan etkileşimlerde yer alabilir; iki N veya iki C ilacının kendi arasındaki etkileşimi DDInter'da tespit edilemez. E09 grafiği ve final raporunda bu kısıt açıkça vurgulanmalıdır.\n",
             "\n",
-            "2. **1.378 Eşleşen Kayıt $\\rightarrow$ 852 Benzersiz İlaç (Molekül Büyüklüğü):**\n",
-            "   Eşleşen 1.378 bileşen satırı, DDInter kütüphanesinde yalnızca **852 benzersiz ilaç kimliğine** (`ddinter_id`) karşılık gelmektedir. Aradaki 526 satırlık fark; Türkçe yazım varyantlarından (`insulin lispro` formları, aşı adları), tuz/ester ayrımlarından ve ayrıştırma farklılıklarından kaynaklanmaktadır.\n",
+            "2. **1.365 Eşleşen Kayıt $\\rightarrow$ 852 Benzersiz İlaç (Molekül Büyüklüğü):**\n",
+            "   Eşleşen 1.365 bileşen satırı, DDInter kütüphanesinde yalnızca **852 benzersiz ilaç kimliğine** (`ddinter_id`) karşılık gelmektedir. Aradaki 513 satırlık fark; Türkçe yazım varyantlarından (`insulin lispro` formları, aşı adları), tuz/ester ayrımlarından ve ayrıştırma farklılıklarından kaynaklanmaktadır.\n",
             "\n",
-            "3. **Yanlış Birleşme Tespiti ve İP2 Kaynağı (Kişi A Geri Bildirimi):**\n",
-            "   Tekil kimlik denetimlerinde, `ketokonazol` (antifungal) bileşeninin, TEKNAZOL tabletlerin `urun.csv` dosyasında hatalı olarak `M01AE03` (ketoprofen) kodlanması sebebiyle Yol A'da ketoprofen ATC'sine bağlanarak `DDInter1009` (ketoprofen) kimliğiyle yanlış birleştiği tespit edilmiştir. Bu ve benzeri yazım çeşitlilikleri Kişi A'nın İP2 ayrıştırma ve veri temizliği tarafına iletilmiştir.\n",
+            "3. **Doğrulanan Düzeltmeler ve Upstream Temizlik (Kişi A Entegrasyonu):**\n",
+            "   TEKNAZOL tabletlerin ATC kodu J02AB02 olarak düzeltilmiş ve `atc_kaynak_hatasi_duzeltildi = 1` bayrağı ile doğrulanmıştır. Kural 6 kapsamında 14 ürün bayraklandırılmıştır. İnsülin lispro/protamin ayrılarak doz/pellet ve hidrat temizlikleri tamamlanmış, böylece tekil bileşen sayısı 3.073 kaliteli kayda konsolide edilmiştir.\n",
             "\n",
             "4. **Yol C'nin Katkısı ve DDInter Kapsam Sınırı:**\n",
             "   Yol C kural motorunun %52.8'lik doğruluğu Yol A çiftleri (eğitim kümesi) üzerinde ölçüldüğü için iyimserdir. Kalan ~1.000 bileşenden yalnızca 78'i DDInter'a bağlanabilmiştir. Buradaki temel darboğaz çeviri kuralı eksikliği değil, DDInter'ın 1.939 bileşiklik genel kapsamıdır. Eşleşmeyenlerin başında gelen `dekstroz`, `kalsiyum klorur`, `sodyum laktat`, `magnezyum klorur`, `tiyokolsikosid` ve `deksketoprofen` gibi bileşikler DDInter veritabanında hiç yer almamaktadır; dolayısıyla ek çeviri kuralları bu sayıyı artırmayacaktır.\n",
             "\n",
             "5. **SKRS Karakter Düzeltmeleri ve Kural 6:**\n",
-            "   SKRS adlarındaki noktasız `ı` karakter hataları (`combınatıon` $\\rightarrow$ `combination`) düzeltilmiş, `paracetamol` PubChem yayılımı ile `acetaminophen`'e bağlanmıştır. Ancak `allergen extracts`, `peritoneal dialytics` gibi ATC sınıf adları ile Kural 6 ürünlerinin takibi için Kişi A ve Kişi C ile koordinasyon sürmektedir.\n",
+            "   SKRS adlarındaki noktasız `ı` karakter hataları (`combınatıon` $\\rightarrow$ `combination`) düzeltilmiş, `paracetamol` PubChem yayılımı ile `acetaminophen`'e bağlanmıştır. Kural 6 kapsamındaki 14 ürün bayraklanmış ve izlenebilirliği sağlanmıştır.\n",
             "\n",
             "**Tamamlanan Altyapı Adımları:**\n",
             "- [x] **SKRS ATC Sözlüğü:** Resmi sözlük aktif+pasif sekmelerinden çıkarıldı.\n",
             "- [x] **DDInter İlaç Tablosu:** `ddinter_ilac.csv` sayısal ID sıralamasıyla oluşturuldu (1.939 bileşik).\n",
-            "- [x] **Yol A:** Tek bileşenli, 7 haneli ATC'li bileşenler doğrudan ATC sözlüğünden eşleştirildi (1.922 bileşen, Kişi A).\n",
+            "- [x] **Yol A:** Tek bileşenli, 7 haneli ATC'li bileşenler doğrudan ATC sözlüğünden eşleştirildi (1.906 bileşen, Kişi A).\n",
             "- [x] **Yol B:** Kombine ürünlerde ATC adından ayrıştırılan bileşenler RapidFuzz ile eşleştirildi (66 bileşen, Kişi A).\n",
             "- [x] **SKRS Adımı:** SKRS kaynaklı ürünlerin bileşenleri `ı` temizliğiyle İngilizce olarak işlendi (90 bileşen, Kişi B).\n",
             "- [x] **Yol C:** `config/tr_en_kurallar.csv` 9 ölçülmüş kural motoruyla kalan bileşenler bağlandı (78 bileşen, Kişi B).\n",
             "- [x] **PubChem Kontrolü:** Rate limit, disk cache ve `ad_en_ham` izlenebilirliği ile en sık 100 eşleşmeyenden 16 bileşen kurtarıldı ve 24 satıra yayıldı (Kişi B).\n",
             "- [x] **Yol D Taslağı:** Kişi C için `atc_ipucu`, `urun_ornegi` ve `kapsam_ici` öncelikli `data/interim/ruhsatli_esleme_taslagi.csv` çıkarıldı (Kişi B).\n",
-            "- [x] **Nihai Tablo:** `atc_ana` sütunu eklenmiş `data/interim/etken_madde.csv` kaydedildi (3.111 satır, Kişi B).\n",
+            "- [x] **Nihai Tablo:** `atc_ana` sütunu eklenmiş `data/interim/etken_madde.csv` kaydedildi (3.073 satır, Kişi B).\n",
             "- [x] **Eşleşme Raporu:** 4 zorunlu tablo, bütünlük assertion'ları ve kısıt notlarıyla `docs/esleme_raporu.md` üretildi (Kişi B).\n"
         ]
     })
@@ -710,6 +710,23 @@ def build_and_run_notebook_03():
         "- **Bölüm 1 (Hücre 0 – 16 — Kişi A):** SKRS ATC Sözlüğü, DDInter İlaç Kataloğu (`ddinter_ilac.csv`), Yol A (Tek bileşenli ürünler) ve Yol B (Kombine ürünler).\n",
         "- **Bölüm 2 (Hücre 17 – 25 — Kişi B):** SKRS Adımı (Kural 5/6), Yol C (Kural tabanlı çeviri), DDInter eşleme (`ddinter_id`), PubChem kontrolü, Kişi C için `ruhsatli_esleme_taslagi.csv`, nihai `etken_madde.csv` ve 4 zorunlu tablodan oluşan `docs/esleme_raporu.md`.\n"
     ]
+
+    # Cell 6'da ddinter_ilac tablosunun sayısal sıralanmasını sağla (PDF Adım 1 & Adım 5 Kuralı)
+    if len(a_cells) > 6 and a_cells[6].get("source"):
+        c6_src = "".join(a_cells[6]["source"])
+        if 'df_all = df_all.sort_values("ddinter_id").reset_index(drop=True)' in c6_src:
+            c6_src_fixed = c6_src.replace(
+                'df_all = df_all.sort_values("ddinter_id").reset_index(drop=True)',
+                'df_all["_num"] = df_all["ddinter_id"].str.replace("DDInter", "", regex=False).astype(int)\n    df_all = df_all.sort_values("_num").drop(columns=["_num"]).reset_index(drop=True)'
+            )
+            a_cells[6]["source"] = [line + "\n" for line in c6_src_fixed.splitlines()]
+
+    # Cell 11, 12, 16'da eski 3.111 kalıntılarını yeni 3.073 ile güncelle
+    for c_idx in [11, 12, 16]:
+        if len(a_cells) > c_idx and a_cells[c_idx].get("source"):
+            c_src = "".join(a_cells[c_idx]["source"])
+            c_src_fixed = c_src.replace("3.111", "3.073").replace("~3.111", "~3.073")
+            a_cells[c_idx]["source"] = [line + "\n" for line in c_src_fixed.splitlines()]
 
     # Kişi B hücreleri
     b_cells = create_kisi_b_cells()

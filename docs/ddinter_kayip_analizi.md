@@ -1,6 +1,6 @@
 # DDInter Veri Dağılımı, Birleştirme ve Kayıp Analizi Raporu
 
-**Tarih:** 2026-10-15  
+**Tarih:** 2026-10-20  
 **İlgili İş Paketi:** İP4 (DDInter Birleştirme ve Kayıp Analizi)  
 **Notebook:** `notebooks/04_ddinter_birlestirme.ipynb`  
 **Üretilen Veriler:** `data/interim/ddinter_ilac.csv`, `data/interim/etkilesim.csv`  
@@ -52,7 +52,7 @@ Farklı dosyalarda farklı şiddet etiketine sahip olan kayıtlar için `siddet_
 
 ## 3. En Çok Etkileşen 20 İlaç Tablosu
 
-Veritabanında en yüksek dereceye (en fazla partner/eş sayısına) sahip ilk 20 ilaç aşağıda listelenmiştir. Bu ilaçlar klinik pratikte sıklıkla polifarmasi hastalarında yer alan kortikosteroidler, immünsüpresanlar ve dar terapötik indeksli ajanlardır:
+Veritabanında en yüksek dereceye (en fazla partner/eş sayısına) sahip ilk 20 ilaç aşağıda listelenmiştir:
 
 | Sıra | DDInter ID | İlaç Adı (*Drug Name*) | Eş (Partner) Sayısı | Birincil Klinik Kullanım Alanı |
 | :---: | :---: | :--- | :---: | :--- |
@@ -81,22 +81,22 @@ Veritabanında en yüksek dereceye (en fazla partner/eş sayısına) sahip ilk 2
 
 ## 4. 10 Çiftlik Web Kontrolü ve Dosya Karşılaştırması
 
-DDInter web platformu (`http://ddinter.scbdd.com/`) ve indirilen 8 dosyanın kapsamını test etmek amacıyla belirlenen 10 kritik klinik çift incelenmiştir.
+DDInter web platformu (`http://ddinter.scbdd.com/`) ve indirilen 8 dosyanın kapsamını test etmek amacıyla belirlenen 10 kritik klinik çift incelenmiştir:
 
 ### Karşılaştırma Tablosu
 
 | # | İlaç 1 | İlaç 2 | ATC Sınıfları | İlaç 1 ID | İlaç 2 ID | İndirilen Dosyalarda Durum | Şiddet | Kaynak Dosya(lar) | Web Kontrolü / Nedeni |
 | :---: | :---| :---| :---: | :---: | :---: | :---: | :---: | :---: | :---|
-| 1 | **dexketoprofen** | **clarithromycin** | M + J | *YOK* | DDInter393 | **HAYIR** | — | — | **DDInter'da Yok:** Dexketoprofen etken maddesi DDInter veritabanında kayıtlı değildir (yalnızca rasemik *ketoprofen* mevcuttur). Sitede "No record found". |
-| 2 | **simvastatin** | **clarithromycin** | C + J | DDInter1675 | DDInter393 | **EVET** | Major | `A` | **Dosyada Bulundu:** Her iki ilaç da eksik dosya grubunda (C ve J) olmasına rağmen simvastatin A grubundaki ilaçlarla paylaşıldığı için `code_A.csv` içine girmiştir. |
-| 3 | **amlodipine** | **simvastatin** | C + C | DDInter79 | DDInter1675 | **EVET** | Major | `A` | **Dosyada Bulundu:** İki kardiyovasküler ilaç (C+C). Simvastatin'in A dosyasında yer alması sayesinde çift `code_A.csv` dosyasında korunmuştur. |
-| 4 | **ibuprofen** | **sertraline** | M + N | DDInter900 | DDInter1662 | **EVET** | Moderate | `R` | **Dosyada Bulundu:** İkisi de eksik grupta (M+N). İbuprofen'in solunum grubu dosyasında (`code_R.csv`) listelenmesi sayesinde etkileşim yakalanmıştır. |
-| 5 | **digoxin** | **amiodarone** | C + C | DDInter554 | DDInter76 | **HAYIR** | — | — | **Eksik Grup Kaybı:** İki ilaç da DDInter'da mevcuttur ancak ikisi de C sınıfındadır ve mevcut 8 dosyadaki hiçbir ilaçla köprü kuramadığı için 8 CSV'de yer almamaktadır. Web motorunda da indirme havuzuyla aynı kısıt geçerlidir. |
-| 6 | **warfarin** | **clarithromycin** | B + J | DDInter1951 | DDInter393 | **EVET** | Major | `A, B` | **Dosyada Bulundu:** Warfarin B grubunda yer aldığı için hem B hem de A dosyalarında Major şiddetle yer almaktadır. |
-| 7 | **warfarin** | **dexketoprofen** | B + M | DDInter1951 | *YOK* | **HAYIR** | — | — | **İlaç Eksikliği:** Warfarin mevcuttur ancak Dexketoprofen DDInter fihristinde tanımlı değildir. |
-| 8 | **ciprofloxacin** | **tizanidine** | J + M | DDInter384 | DDInter1821 | **HAYIR** | — | — | **Eksik Grup Kaybı:** Ciprofloxacin (J) ve Tizanidine (M) veritabanında bağımsız ilaç olarak vardır ancak ikisi de eksik grupta kaldığı için ikili etkileşimleri 8 dosyaya girmemiştir. |
-| 9 | **tramadol** | **sertraline** | N + N | DDInter1841 | DDInter1662 | **HAYIR** | — | — | **Eksik Grup Kaybı:** İki merkezi sinir sistemi ilacı (N+N). İndirme dosyalarında N grubu bulunmadığı için serotonin sendromu riski taşıyan bu kritik çift dosyalarda eksiktir. |
-| 10 | **metformin** | **furosemide** | A + C | DDInter1164 | DDInter790 | **EVET** | Moderate | `A` | **Dosyada Bulundu:** Metformin A sınıfı indirme dosyasında (`code_A.csv`) Furosemide (C) ile birlikte yer almaktadır. |
+| 1 | **dexketoprofen** | **clarithromycin** | M + J | *YOK* | DDInter393 | **HAYIR** | — | — | DDInter'da dexketoprofen tanımlı değildir (yalnızca ketoprofen vardır). |
+| 2 | **simvastatin** | **clarithromycin** | C + J | DDInter1675 | DDInter393 | **EVET** | Major | `A` | C ve J eksik gruptur; Simvastatin A dosyasında partner olduğu için yakalanmıştır. |
+| 3 | **amlodipine** | **simvastatin** | C + C | DDInter79 | DDInter1675 | **EVET** | Major | `A` | İkisi de C grubudur; Simvastatin A dosyasında partner olduğu için yakalanmıştır. |
+| 4 | **ibuprofen** | **sertraline** | M + N | DDInter900 | DDInter1662 | **EVET** | Moderate | `R` | M ve N eksik gruptur; İbuprofen Solunum (R) dosyasında yer aldığı için yakalanmıştır. |
+| 5 | **digoxin** | **amiodarone** | C + C | DDInter554 | DDInter76 | **HAYIR** | — | — | İki kalp ilacı da DDInter'da vardır fakat C indirme dosyası olmadığı için çift kayıptır. |
+| 6 | **warfarin** | **clarithromycin** | B + J | DDInter1951 | DDInter393 | **EVET** | Major | `A, B` | Warfarin B grubundadır; bu kritik çift hem A hem de B dosyalarında mevcuttur. |
+| 7 | **warfarin** | **dexketoprofen** | B + M | DDInter1951 | *YOK* | **HAYIR** | — | — | Warfarin mevcuttur ancak Dexketoprofen DDInter fihristinde yer almaz. |
+| 8 | **ciprofloxacin** | **tizanidine** | J + M | DDInter384 | DDInter1821 | **HAYIR** | — | — | İki ilaç da vardır fakat J+M eksik gruplardadır, 8 CSV dosyasında yer almaz. |
+| 9 | **tramadol** | **sertraline** | N + N | DDInter1841 | DDInter1662 | **HAYIR** | — | — | İki ilaç da vardır fakat N+N eksik sinir grubundadır, 8 CSV dosyasında yer almaz. |
+| 10 | **metformin** | **furosemide** | A + C | DDInter1164 | DDInter790 | **EVET** | Moderate | `A` | Metformin A sınıfı dosyasında (code_A.csv) Furosemide (C) ile birlikte yer alır. |
 
 ### Web Kontrolü Çıkarımları
 1. **İlaç Varlığı Sorunu (2/10):** Dexketoprofen gibi bazı yaygın Türkiye/Avrupa molekülleri DDInter'da enantiomer bazında yer almamakta, sadece ana molekül (Ketoprofen) bulunmaktadır.
@@ -123,11 +123,11 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
 
 | Parametre / Metrik | Değer | Açıklama |
 | :--- | :---: | :--- |
-| **DDInter ile Eşleşen Türk Etken Maddesi ($N$)** | **1.237** | ATC kodu tanımlı tekil etken maddeler (PubChem eşleşmeleri dahil) |
-| **Eksik Gruptaki Etken Maddeler ($K$)** | **614** | ATC ana grubu $C, G, J, M, N$ veya $S$ olanlar (%49,64) |
-| **Olası Tüm İkili Çift Kombinasyonu** | **764.466** | $\binom{1237}{2} = \frac{1237 \times 1236}{2}$ |
-| **Kapsam Dışı / Kayıp Çift Sayısı** | **188.191** | $\binom{614}{2} = \frac{614 \times 613}{2}$ (İki tarafı da eksik grupta olanlar) |
-| **Ampirik Gerçek Kayıp Oranı** | **%24,62** | $188.191 / 764.466 \times 100$ |
+| **DDInter ile Eşleşen Türk Etken Maddesi ($N$)** | **1.365** | DDInter ile eşleşen tüm tekil etken maddeler (Yol A, B, C, SKRS ve PubChem dahil) |
+| **Eksik Gruptaki Etken Maddeler ($K$)** | **659** | ATC ana grubu $C, G, J, M, N$ veya $S$ olanlar (%48,28) |
+| **Olası Tüm İkili Çift Kombinasyonu** | **930.930** | $\binom{1.365}{2} = \frac{1.365 \times (1.365 - 1)}{2}$ |
+| **Kapsam Dışı / Kayıp Çift Sayısı** | **216.811** | $\binom{659}{2} = \frac{659 \times (659 - 1)}{2}$ (İki tarafı da eksik grupta olanlar) |
+| **Ampirik Gerçek Kayıp Oranı** | **%23,29** | 216.811 / 930.930 \times 100 |
 
 ### C. Teorik Model ile Ampirik Sonuçların Karşılaştırması
 1. **Eşit Dağılım Varsayımı (Teorik):**  
@@ -140,7 +140,7 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
    $$P(\text{Klinik Kayıp}) \approx (0,50)^2 \approx \mathbf{\%25,0}$$
 
 3. **Ampirik Doğrulama:**  
-   Gerçek Türkiye verisinde eksik gruptaki etken madde oranı tam olarak **%49,64** çıkmış ve ikili çift kaybı **%24,62** olarak gerçekleşmiştir. Bu sonuç, klinik ağırlıklı teorik modelimizle (%25,0) mükemmel bir uyum göstermektedir. Ayrıca 10 çiftlik klinik test örneğimizde de 10 çiftten 3 tanesi (%30,0) doğrudan eksik grup kombinasyonu nedeniyle indirilen dosyalarda bulunamamıştır.
+   Gerçek Türkiye verisinde eksik gruptaki etken madde oranı **%48,28** (659 / 1.365) çıkmış ve ikili çift kaybı **%23,29** olarak gerçekleşmiştir. Bu sonuç, klinik ağırlıklı teorik modelimizle (%25,0) mükemmel bir uyum göstermektedir. Ayrıca 10 çiftlik klinik test örneğimizde de 10 çiftten 3 tanesi (%30,0) doğrudan eksik grup kombinasyonu nedeniyle indirilen dosyalarda bulunamamıştır.
 
 ---
 

@@ -35,7 +35,7 @@
 
 | Sorumlu Olduğun Notebook'lar | Sorumlu Olduğun Veri & Config Dosyaları | Sorumlu Olduğun Dokümanlar |
 |:---|:---|:---|
-| • `notebooks/03_kopru_ddinter.ipynb`<br/>• `notebooks/04_ddinter_birlestirme.ipynb`<br/>• `notebooks/06_eda_ddinter.ipynb`<br/>• `notebooks/07_uctan_uca_test.ipynb` | • `data/interim/etkilesim.csv`<br/>• `data/interim/ddinter_ilac.csv`<br/>• `data/interim/etken_madde.csv` (Nihai)<br/>• `config/tr_en_kurallar.csv`<br/>• `data/cache/pubchem/*.json` | • `docs/ddinter_kayip_analizi.md`<br/>• `docs/esleme_raporu.md`<br/>• `docs/uctan_uca_test.md`<br/>• `docs/eda_raporu.md` (D ve E bölümü) |
+| • `notebooks/03_kopru_ddinter.ipynb`<br/>• `notebooks/04_ddinter_birlestirme.ipynb`<br/>• `notebooks/06_eda_ddinter.ipynb` | • `data/interim/etkilesim.csv`<br/>• `data/interim/ddinter_ilac.csv`<br/>• `data/interim/etken_madde.csv` (Nihai)<br/>• `config/tr_en_kurallar.csv`<br/>• `data/cache/pubchem/*.json` | • `docs/ddinter_kayip_analizi.md`<br/>• `docs/esleme_raporu.md`<br/>• `docs/uctan_uca_test.md`<br/>• `docs/eda_raporu.md` (D ve E bölümü) |
 
 ### 1.3. El Değiştirme (Handoff) Tablosu
 
@@ -100,7 +100,7 @@
 9. [ ] ⏳ Kayıp analizi oranının olası ikili çiftler üzerinden hesaplanması (Gün 6).
 10. [ ] ⏳ `docs/esleme_raporu.md` belgesinin 4 zorunlu tablo ile üretilmesi (Gün 6).
 11. [ ] ⏳ `06_eda_ddinter.ipynb` notebook'unda D01–D06 ve E05, E08–E10 grafiklerinin çizilmesi (Gün 6–7).
-12. [ ] ⏳ `07_uctan_uca_test.ipynb` notebook'unda 3 senaryonun test edilip `docs/uctan_uca_test.md` raporunun yazılması (Gün 7).
+12. [ ] ⏳ `src/etkilesim_kontrol.py` motoru ile 3 senaryonun test edilip `docs/uctan_uca_test.md` raporunun yazılması (Gün 7).
 
 ---
 
@@ -224,7 +224,7 @@ flowchart TD
 ---
 
 ## 7. İP7: Uçtan Uca Etkileşim Testi (Gün 6–7)
-> **Notebook:** `notebooks/07_uctan_uca_test.ipynb`  
+> **Kod:** `src/etkilesim_kontrol.py` (ve `notebooks/06_eda_ddinter.ipynb` içinde test)  
 > **Çıktı Belgesi:** `docs/uctan_uca_test.md`
 
 ### 7.1. Fonksiyon İmzası ve Arama Kuralı
