@@ -57,3 +57,13 @@
 * **Kök Neden:** `urun.csv` dosyasında 19719-19721 indeksli TEKNAZOL 200 MG TABLET ürünlerinin ATC kodunun `M01AE03` (ketoprofen) girilmiş olmasıdır. Bu ürünler en sık frekansı oluşturduğu için Kişi A'nın Yol A adımında `ketokonazol` bileşenine `M01AE03` atanmış ve SKRS ATC sözlüğünden `ketoprofen` çekilmiştir.
 * **Öneri:** Bu durum Kişi A'ya bildirilmelidir; `urun.csv` / TİTCK kaynak temizliğinde TEKNAZOL ürünlerinin ATC kodu `J02AB02` olarak düzeltilmelidir.
 
+## 14. TİTCK Ham Verisindeki Sözde Etken Maddeler (`combinations`, `various`, `other cold preparations`)
+* **Gözlem (Kişi A):** TİTCK Ruhsatlı listesinde bazı kombine veya çoklu bileşenli ürünlerde `etkin_madde_ham` sütununa kimyasal madde adı yerine doğrudan WHO ATC kategori açıklamaları yazılmıştır (örneğin `"tiyokolşikosid, combinations"` → 62 ürün, `"antiseptics, various"` → 14 ürün, `"other cold preparations"` → 47 ürün). Adım 2'deki standart virgül ayrıştırma kuralı gereği bu terimler ayrılarak `urun_etken.csv` içinde bağımsız birer etken madde gibi yer almıştır.
+* **Yarattığı Sorun:** `03_kopru_ddinter.ipynb` Yol A'da en sık geçen ATC modu alındığında, bu sözde maddeler rastgele birer 7 haneli ATC kapmaktadır (örneğin `combinations` → `D01AC20` mantar/kortizon kombinasyonu). Bu durum downstream etkileşim analizinde yanıltıcı etkileşim üretme riski taşır.
+* **Karar / Soru:** Bu sözde etken maddeler `src/normalize.py` Adım 2 aşamasında bir kara liste (stop-words) ile ayrıştırma dışı mı bırakılmalıdır, yoksa `urun_etken.csv`'de korunup yalnızca Adım 3 Yol A/B'ye girmesi engellenerek `eslesmedi` (kapsam dışı) statüsüne mi çekilmelidir?
+
+## 15. Dozaj ve Birim Kalıntıları İçeren Bileşenler ve Yol D Kapsamı
+* **Gözlem (Kişi A):** TİTCK ham tablosunda çok az sayıda (yaklaşık 6 ürün) etken madde metninin içine rakamsal doz ve birim yazılmıştır (örneğin `"vitamin a palmitat 20.000 iu/ml"`, `"kolistimetat sodyum 4.500.000 iu"`, `"etinilestradiol 0.02 mg"`).
+* **Uygulanan Prensip:** `vitamin b1`, `interferon beta-1a` gibi meşru rakam veya tire içeren kimyasal/biyolojik adları bozmamak adına kontrolsüz bir sayı/birim silme regex'i uygulanmamıştır.
+* **Karar / Soru:** Bu tür az sayıdaki uç vaka (6 adet) şartname Sayfa 5'te tanımlandığı üzere Gün 5–6'daki **Yol D (Elle Eşleme)** sürecine mi bırakılmalıdır, yoksa `src/normalize.py` içine sadece bilinen farmasötik birimleri (`iu`, `iu/ml`, `mg`, `mcg`) hedef alan kontrollü bir dozaj temizleme kuralı mı eklenmelidir?
+
