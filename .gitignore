@@ -6,3 +6,4 @@ __pycache__/
 scratch/
 *.pdf
 notebooks/titck_skrs_birlestirme.ipynb
+test_eda.py

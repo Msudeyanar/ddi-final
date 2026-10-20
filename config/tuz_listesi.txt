@@ -37,6 +37,13 @@ seskihidrat
 hemihidrat
 # ör. sodyum gliserofosfat hidrat
 hidrat
+7h2o
+6h2o
+5h2o
+4h2o
+3h2o
+2h2o
+h2o
 
 # --- Halojenürler ve Kısaltmalar ---
 # ör. doksorubisin hcl, psödoefedrin hcl
@@ -194,3 +201,12 @@ kamsilat
 ksinofoat
 # ör. perindopril tertbutilamin (bitişik yazım)
 tertbutilamin
+# ör. apomorfin hidroklorid (yazım varyantı)
+hidroklorid
+# ör. ketoprofen mikropelle, dekslansoprazol pellet, mebeverin mikropellet, duloksetin pelletleri (farmasötik form ekleri)
+mikropelle
+mikropellet
+pellet
+pelletleri
+pelletler
+
