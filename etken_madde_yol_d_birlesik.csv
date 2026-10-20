@@ -1,0 +1,3074 @@
+bilesen_tr,ad_en,ad_en_ham,atc,atc_ana,yol,urun_sayisi,ddinter_id,kapsam_ici,eslesme_kaynagi
+sodyum klorur,sodium chloride,sodium chloride,B05XA03,B,A,1059,DDInter1685,1,tam_ad
+dekstroz,carbohydrates,carbohydrates,B05BA03,B,D,720,DDInter529,1,yol_d_elle
+kalsiyum klorur,,,,B,D,409,DDInter272,1,yol_d_elle
+potasyum klorur,potassium chloride,potassium chloride,B05XA01,B,A,387,DDInter1497,1,tam_ad
+hidroklorotiyazid,,,,C,D,379,DDInter883,1,yol_d_elle
+parasetamol,acetaminophen,paracetamol,N02BE01,N,A,377,DDInter14,1,pubchem
+metformin,metformin,metformin,A10BA02,A,A,319,DDInter1164,1,tam_ad
+sodyum laktat,,,,B,eslesmedi,315,,1,
+magnezyum klorur,,,,B,D,300,DDInter1114,1,yol_d_elle
+amlodipin,amlodipine,amlodipine,C08CA01,C,A,278,DDInter79,1,tam_ad
+other non therapeutic auxiliary products,other non therapeutic auxiliary products,other non therapeutic auxiliary products,,V,SKRS,258,,0,
+rosuvastatin,rosuvastatin,rosuvastatin,C10AA07,C,A,249,DDInter1622,1,tam_ad
+ketiapin,quetiapine,quetiapine,N05AH04,N,A,228,DDInter1553,1,tam_ad
+ibuprofen,ibuprofen,ibuprofen,M01AE01,M,A,214,DDInter900,1,tam_ad
+valsartan,valsartan,valsartan,C09CA03,C,A,208,DDInter1915,1,tam_ad
+pregabalin,pregabalin,pregabalin,N02BF02,N,A,201,DDInter1516,1,tam_ad
+memantin,memantine,memantine,N06DX01,N,A,187,DDInter1146,1,tam_ad
+olmesartan,olmesartan,olmesartan medoxomil,C09CA08,C,A,187,DDInter1330,1,pubchem
+glukoz,carbohydrates,carbohydrates,B05BA03,B,D,180,DDInter529,1,yol_d_elle
+atorvastatin,atorvastatin,atorvastatin,C10AA05,C,A,174,DDInter133,1,tam_ad
+asetilsistein,acetylcysteine,acetylcysteine,R05CB01,R,A,166,DDInter19,1,tam_ad
+flutikazon,fluticasone,fluticasone,R03BA05,R,A,156,DDInter766,1,tam_ad
+tiyokolsikosid,thiocolchicoside,thiocolchicoside,M03BX05,M,A,155,,1,
+olanzapin,olanzapine,olanzapine,N05AH03,N,A,154,DDInter1326,1,tam_ad
+montelukast,montelukast,montelukast,R03DC03,R,A,153,DDInter1242,1,tam_ad
+donepezil,donepezil,donepezil,N06DA02,N,A,150,DDInter583,1,tam_ad
+tadalafil,tadalafil,tadalafil,G04BE08,G,A,144,DDInter1736,1,tam_ad
+sodyum asetat,,,,B,eslesmedi,140,,0,
+deksketoprofen,dexketoprofen,dexketoprofen,M01AE17,M,A,131,,1,
+lidokain,lidocaine,lidocaine,N01BB02,N,A,130,DDInter1066,1,tam_ad
+kalsiyum karbonat,calcium carbonate,calcium carbonate,A12AA04,A,A,128,DDInter271,1,tam_ad
+budesonid,budesonide,budesonide,R03BA02,R,A,127,DDInter246,1,tam_ad
+levetirasetam,levetiracetam,levetiracetam,N03AX14,N,A,126,DDInter1046,1,tam_ad
+naproksen,naproxen,naproxen,M01AE02,M,A,124,DDInter1266,1,tam_ad
+amoksisilin,amoxicillin,amoxicillin,J01CA04,J,A,117,DDInter83,1,tam_ad
+irbesartan,irbesartan,irbesartan,C09CA04,C,A,115,DDInter972,1,tam_ad
+vitamin d3,cholecalciferol,colecalciferol,A11CC05,A,A,115,DDInter367,1,pubchem
+"fat/carbohydrates/proteins/minerals/vitamins, combinations","fat/carbohydrates/proteins/minerals/vitamins, combinations","fat/carbohydrates/proteins/minerals/vitamins, combinations",,V,SKRS,114,,0,
+formoterol,formoterol,formoterol,R03AC13,R,A,114,DDInter776,1,tam_ad
+psodoefedrin,pseudoephedrine,pseudoephedrine,R01BA02,R,A,111,DDInter1545,1,tam_ad
+klavulanik asit,,,,J,D,105,DDInter394,1,yol_d_elle
+kandesartan,candesartan,candesartan,C09CA06,C,A,103,,1,
+aripiprazol,aripiprazole,aripiprazole,N05AX12,N,A,102,DDInter118,1,tam_ad
+sefdinir,cefdinir,cefdinir,J01DD15,J,A,102,DDInter315,1,tam_ad
+diklofenak,diclofenac,diclofenac,M01AB05,M,A,101,DDInter537,1,tam_ad
+sildenafil,sildenafil,sildenafil,G04BE03,G,A,101,DDInter1666,1,tam_ad
+glisin,glycine,glycine,B05CX03,B,A,100,,1,
+pioglitazon,pioglitazone,pioglitazone,A10BG03,A,A,99,DDInter1472,1,tam_ad
+sefuroksim,cefuroxime,cefuroxime,J01DC02,J,A,99,DDInter335,1,tam_ad
+asetilsalisilik asit,acetylsalicylic acid,acetylsalicylic acid,B01AC06,N,A,96,DDInter20,1,tam_ad
+sodyum bikarbonat,sodium bicarbonate,sodium bicarbonate,B05XA02,B,A,96,DDInter1683,1,tam_ad
+klorfeniramin,chlorpheniramine,chlorphenamine,R06AB04,R,A,92,DDInter362,1,pubchem
+kolekalsiferol,cholecalciferol,colecalciferol,A11CC05,A,A,92,DDInter367,1,pubchem
+essitalopram,escitalopram,escitalopram,N06AB10,N,A,90,DDInter672,1,tam_ad
+flurbiprofen,flurbiprofen,flurbiprofen,M01AE09,M,A,89,DDInter763,1,tam_ad
+siprofloksasin,ciprofloxacin,ciprofloxacin,J01MA02,J,A,88,DDInter384,1,tam_ad
+vildagliptin,vildagliptin,vildagliptin,A10BH02,A,A,87,,1,
+ampisilin,ampicillin,ampicillin,J01CA01,J,A,83,DDInter89,1,tam_ad
+mannitol,mannitol,mannitol,B05BC01,B,A,83,DDInter1123,1,tam_ad
+salmeterol,salmeterol,salmeterol,R03AC12,R,A,83,DDInter1635,1,tam_ad
+askorbik asit,ascorbic acid,ascorbic acid (vit c),A11GA01,R,A,77,DDInter124,1,pubchem
+l-losin,,,,B,eslesmedi,76,,1,
+seftriakson,ceftriaxone,ceftriaxone,J01DD04,J,A,75,DDInter334,1,tam_ad
+amlodipine,amlodipine,amlodipine,C08CA01,C,A,73,DDInter79,1,tam_ad
+flukonazol,fluconazole,fluconazole,J02AC01,J,A,73,DDInter743,1,tam_ad
+l-histidin,,,,B,eslesmedi,71,,0,
+perindopril,perindopril,perindopril,C09AA04,C,A,71,DDInter1431,1,tam_ad
+l-triptofan,,,,B,eslesmedi,69,,0,
+l-valin,,,,B,eslesmedi,69,,0,
+l-izolosin,,,,B,eslesmedi,67,,0,
+l-prolin,,,,B,eslesmedi,67,,0,
+telmisartan,telmisartan,telmisartan,C09CA07,C,A,67,DDInter1759,1,tam_ad
+deferasiroks,deferasirox,deferasirox,V03AC03,V,A,66,DDInter488,1,tam_ad
+l-fenilalanin,,,,B,eslesmedi,66,,0,
+pramipeksol,pramipexole,pramipexole,N04BC05,N,A,66,DDInter1505,1,tam_ad
+metotreksat,methotrexate,methotrexate,L04AX03,L,A,65,DDInter1174,1,tam_ad
+apiksaban,apixaban,apixaban,B01AF02,B,A,64,DDInter108,1,tam_ad
+nebivolol,nebivolol,nebivolol,C07AB12,C,A,64,DDInter1271,1,tam_ad
+simetikon,silicones,silicones,A03AX13,A,D,63,DDInter1674,1,yol_d_elle
+combinations,imidazoles/triazoles in combination with corticosteroids,imidazoles/triazoles in combination with corticosteroids,D01AC20,B,A,62,,1,
+pantoprazol,pantoprazole,pantoprazole,A02BC02,A,A,62,DDInter1388,1,tam_ad
+sulbaktam,sulbactam,sulbactam,J01CG01,J,A,62,,1,
+terbinafin,terbinafine,terbinafine,D01AE15,D,A,62,DDInter1768,1,tam_ad
+l-alanin,,,,B,eslesmedi,61,,0,
+losartan,losartan,losartan,C09CA01,C,A,61,DDInter1095,1,tam_ad
+alfa lipoik asit,lipoic acid,thioctic acid,A16AX01,A,A,60,DDInter1076,1,pubchem
+benzidamin,benzydamine,benzydamine,A01AD02,A,A,60,,1,
+dibazik potasyum fosfat,,,,B,eslesmedi,60,,0,
+l-treonin,,,,B,eslesmedi,60,,0,
+sefpodoksim,cefpodoxime,cefpodoxime,J01DD13,J,A,60,DDInter326,1,tam_ad
+etodolak,etodolac,etodolac,M01AB08,M,A,59,DDInter699,1,tam_ad
+lansoprazol,lansoprazole,lansoprazole,A02BC03,A,A,58,DDInter1022,1,tam_ad
+ondansetron,ondansetron,ondansetron,A04AA01,A,A,58,DDInter1342,1,tam_ad
+esomeprazol,esomeprazole,esomeprazole,A02BC05,A,A,57,DDInter676,1,tam_ad
+famotidin,famotidine,famotidine,A02BA03,A,A,57,DDInter712,1,tam_ad
+klorheksidin,,,,A,D,57,DDInter356,1,yol_d_elle
+l-serin,,,,B,eslesmedi,57,,0,
+sefiksim,cefixime,cefixime,J01DD08,J,A,57,DDInter319,1,tam_ad
+desloratadin,desloratadine,desloratadine,R06AX27,R,A,56,DDInter506,1,tam_ad
+empagliflozin,empagliflozin,empagliflozin,A10BK03,A,A,56,DDInter636,1,tam_ad
+metamizol,metamizole sodium,metamizole sodium,N02BB02,N,A,55,,1,
+gliklazid,gliclazide,gliclazide,A10BB09,A,A,54,,1,
+kafein,caffeine,caffeine,N06BC01,N,A,54,DDInter263,1,tam_ad
+levotiroksin,levothyroxine sodium,levothyroxine sodium,H03AA01,H,D,54,DDInter1064,1,yol_d_elle
+allergen extracts,allergen extracts,allergen extracts,,V,SKRS,53,,1,
+gentamisin,gentamicin,gentamicin,J01GB03,J,A,53,DDInter815,1,tam_ad
+sodyum iyodur,,,,V,D,53,DDInter1689,1,yol_d_elle
+l-arjinin,,,,B,eslesmedi,52,,0,
+l-metiyonin,,,,B,eslesmedi,52,,0,
+levofloksasin,levofloxacin,levofloxacin,J01MA12,J,A,52,DDInter1055,1,tam_ad
+risperidon,risperidone,risperidone,N05AX08,N,A,52,DDInter1605,1,tam_ad
+diuretics,diuretics,diuretics,C09BA04,C,B,51,,1,
+indapamid,indapamide,indapamide,C03BA11,C,A,51,DDInter916,1,tam_ad
+dapagliflozin,dapagliflozin,dapagliflozin,A10BK01,A,A,50,DDInter474,1,tam_ad
+ezetimib,ezetimibe,ezetimibe,C10AX09,C,A,50,DDInter707,1,tam_ad
+salbutamol,salbutamol,salbutamol,R03CC02,R,A,50,DDInter1632,1,tam_ad
+deksametazon,dexamethasone,dexamethasone,H02AB02,S,A,49,DDInter513,1,tam_ad
+gabapentin,gabapentin,gabapentin,N02BF01,N,A,49,DDInter791,1,tam_ad
+cefazolin,cefazolin,cefazolin,J01DB04,J,A,48,DDInter314,1,tam_ad
+glikoz,,,,B,D,48,DDInter529,1,yol_d_elle
+peritoneal dialytics,peritoneal dialytics,peritoneal dialytics,,B,SKRS,48,,1,
+ramipril,ramipril,ramipril,C09AA05,C,A,48,DDInter1565,1,tam_ad
+dapoksetin,dapoxetine,dapoxetine,G04BX14,G,A,47,,1,
+mometazon,mometasone,mometasone,R01AD09,R,A,47,,1,
+other cold preparations,codeine and paracetamol,codeine and paracetamol,N02AJ06,R,A,47,,1,
+sitagliptin,sitagliptin,sitagliptin,A10BH01,A,A,47,DDInter1679,1,tam_ad
+tiotropium,tiotropium,tiotropium bromide,R03BB04,R,A,47,DDInter1815,1,pubchem
+amoxicillin,amoxicillin,amoxicillin,J01CA04,J,A,46,DDInter83,1,tam_ad
+betametazon,betamethasone,betamethasone,D07AC01,D,A,46,DDInter195,1,tam_ad
+klaritromisin,clarithromycin,clarithromycin,J01FA09,J,A,46,DDInter393,1,tam_ad
+l-lizin,,,,B,eslesmedi,45,,0,
+moksifloksasin,moxifloxacin,moxifloxacin,J01MA14,J,A,45,DDInter1247,1,tam_ad
+rivaroksaban,rivaroxaban,rivaroxaban,B01AF01,B,A,45,DDInter1609,1,tam_ad
+carbohydrates,carbohydrates,carbohydrates,B05BA03,B,A,44,,1,
+granisetron,granisetron,granisetron,A04AA02,A,A,44,DDInter840,1,tam_ad
+mesalazin,mesalazine,mesalazine,A07EC02,A,A,43,DDInter1158,1,tam_ad
+metoprolol,metoprolol,metoprolol,C07AB02,C,A,43,DDInter1200,1,tam_ad
+nimesulid,nimesulide,nimesulide,M02AA26,M,A,43,,1,
+mirabegron,mirabegron,mirabegron,G04BD12,G,A,42,DDInter1229,1,tam_ad
+aljinik asit,alginic acid,alginic acid,A02BX13,A,A,41,,1,
+enzyme inhibitor,enzyme inhibitor,enzyme inhibitor,J01CR02,J,B,41,,1,
+fusidik asit,fusidic acid,fusidic acid,D06AX01,D,A,41,,1,
+magnezyum karbonat,,,,A,D,41,DDInter1113,1,yol_d_elle
+metilfenidat,methylphenidate,methylphenidate,N06BA04,N,A,41,DDInter1189,1,tam_ad
+acetylcysteine,acetylcysteine,acetylcysteine,R05CB01,R,A,40,DDInter19,1,tam_ad
+beklometazon,beclometasone,beclometasone,R01AD01,R,D,40,DDInter168,1,yol_d_elle
+clarithromycin,clarithromycin,clarithromycin,J01FA09,J,A,40,DDInter393,1,tam_ad
+electrolytes with carbohydrates,electrolytes with carbohydrates,electrolytes with carbohydrates,B05BB02,B,A,40,,1,
+fenilefrin,phenylephrine,phenylephrine,S01FB01,R,A,40,DDInter1453,1,tam_ad
+levosetirizin,levocetirizine,levocetirizine,R06AE09,R,A,40,DDInter1053,1,tam_ad
+s-amlodipin,amlodipine,amlodipine,C08CA01,C,A,40,DDInter79,1,tam_ad
+ursodeoksikolik asit,ursodeoxycholic acid,ursodeoxycholic acid,A05AA02,A,A,40,DDInter1906,1,tam_ad
+levetiracetam,levetiracetam,levetiracetam,N03AX14,N,A,39,DDInter1046,1,tam_ad
+lizin,,,,B,eslesmedi,39,,0,
+sefprozil,cefprozil,cefprozil,J01DC10,J,A,39,DDInter327,1,tam_ad
+ampicillin,ampicillin,ampicillin,J01CA01,J,A,38,DDInter89,1,tam_ad
+metronidazol,metronidazole,metronidazole,J01XD01,G,A,38,DDInter1202,1,tam_ad
+takrolimus,tacrolimus,tacrolimus,L04AD02,L,A,38,DDInter1735,1,tam_ad
+tenofovir disoproksil,tenofovir disoproxil,tenofovir disoproxil,J05AF07,J,A,38,,1,
+folik asit,folic acid,folic acid,B03BB01,B,A,37,DDInter771,1,tam_ad
+l-tirozin,,,,B,eslesmedi,37,,0,
+nicotine,nicotine,nicotine,N07BA01,N,A,37,DDInter1290,1,tam_ad
+escitalopram,escitalopram,escitalopram,N06AB10,N,A,36,DDInter672,1,tam_ad
+imatinib,imatinib,imatinib,L01EA01,L,A,36,DDInter909,1,tam_ad
+timolol,timolol,timolol,S01ED01,S,A,36,DDInter1809,1,tam_ad
+levodopa,levodopa,levodopa,,N,C,35,DDInter1054,1,tam_ad
+pravastatin,pravastatin,pravastatin,C10AA03,C,A,35,DDInter1509,1,tam_ad
+sodyum sitrat,,,,B,D,35,DDInter1686,1,yol_d_elle
+sultamicillin,sultamicillin,sultamicillin,J01CR04,J,A,35,,1,
+azitromisin,azithromycin,azithromycin,J01FA10,J,A,34,DDInter157,1,tam_ad
+diazepam,diazepam,diazepam,N05BA01,N,A,34,DDInter534,1,tam_ad
+enalapril,enalapril,enalapril,C09AA02,C,A,34,DDInter638,1,tam_ad
+lenalidomid,lenalidomide,lenalidomide,L04AX04,L,A,34,DDInter1035,1,tam_ad
+solifenasin,solifenacin,solifenacin,G04BD08,G,A,34,DDInter1696,1,tam_ad
+vankomisin,vancomycin,vancomycin,J01XA01,J,A,34,DDInter1916,1,tam_ad
+vorikonazol,voriconazole,voriconazole,J02AC03,J,A,34,DDInter1946,1,tam_ad
+amikasin,amikacin,amikacin,J01GB06,J,A,33,DDInter66,1,tam_ad
+dasatinib,dasatinib,dasatinib,L01EA02,L,A,33,DDInter484,1,tam_ad
+filgrastim,filgrastim,filgrastim,L03AA02,L,A,33,DDInter735,1,tam_ad
+gliserofosfat,sodium glycerophosphate,sodium glycerophosphate,B05XA14,B,A,33,DDInter1688,1,tam_ad
+meloksikam,meloxicam,meloxicam,M01AC06,M,A,33,DDInter1143,1,tam_ad
+memantine,memantine,memantine,N06DX01,N,A,33,DDInter1146,1,tam_ad
+piridoksin,pyridoxine,pyridoxine (vit b6),A11HA02,A,A,33,DDInter1549,1,pubchem
+atropin,atropine,atropine,A03BA01,A,A,32,DDInter136,1,tam_ad
+butamirat,butamirate,butamirate,R05DB13,R,A,32,,1,
+cinko sulfat,zinc sulfate,zinc sulfate,A12CB01,A,A,32,DDInter1966,1,tam_ad
+duloksetin,duloxetine,duloxetine,N06AX21,N,A,32,DDInter608,1,tam_ad
+paklitaksel,paclitaxel,paclitaxel,L01CD01,L,A,32,DDInter1377,1,tam_ad
+pinaveryum,pinaverium,pinaverium,A03AX04,A,A,32,,1,
+rafine zeytinyagi,,,,B,eslesmedi,32,,1,
+rifampisin,rifampicin,rifampicin,J04AB02,J,A,32,DDInter1590,1,tam_ad
+diltiazem,diltiazem,diltiazem,C08DB01,C,A,31,DDInter561,1,tam_ad
+feksofenadin,fexofenadine,fexofenadine,R06AX26,R,A,31,DDInter732,1,tam_ad
+ketoprofen,ketoprofen,ketoprofen,M01AE03,M,A,31,DDInter1009,1,tam_ad
+tobramisin,tobramycin,tobramycin,J01GB01,S,A,31,DDInter1822,1,tam_ad
+ceftriaxone,ceftriaxone,ceftriaxone,J01DD04,J,A,30,DDInter334,1,tam_ad
+entekavir,entecavir,entecavir,J05AF10,J,A,30,DDInter647,1,tam_ad
+epinefrin,epinephrine,epinephrine,C01CA24,C,A,30,DDInter652,1,tam_ad
+gemsitabin,gemcitabine,gemcitabine,L01BC05,L,A,30,DDInter811,1,tam_ad
+ivermektin,ivermectin,ivermectin,P02CF01,P,A,30,DDInter998,1,tam_ad
+linagliptin,linagliptin,linagliptin,A10BH05,A,A,30,DDInter1070,1,tam_ad
+midazolam,midazolam,midazolam,N05CD08,N,A,30,DDInter1212,1,tam_ad
+rafine soya fasulyesi yagi,,,,B,eslesmedi,30,,1,
+serin,,,,B,eslesmedi,30,,0,
+sunitinib,sunitinib,sunitinib,L01EX01,L,A,30,DDInter1731,1,tam_ad
+tirozin,,,,B,eslesmedi,30,,0,
+zoledronik asit,zoledronic acid,zoledronic acid,M05BA08,M,A,30,DDInter1968,1,tam_ad
+alendronat,alendronic acid,alendronic acid,M05BA04,M,A,29,DDInter42,1,tam_ad
+enoksaparin,enoxaparin,enoxaparin,B01AB05,B,A,29,DDInter645,1,tam_ad
+glutamik asit,,,,B,D,29,DDInter830,1,yol_d_elle
+hypertonic solutions,,,,B,eslesmedi,29,,1,
+oseltamivir,oseltamivir,oseltamivir,J05AH02,J,A,29,DDInter1350,1,tam_ad
+s-etodolak,etodolac,etodolac,M01AB08,M,A,29,DDInter699,1,tam_ad
+tamsulosin,tamsulosin,tamsulosin,G04CA02,G,A,29,DDInter1745,1,tam_ad
+aspartik asit,,,,B,eslesmedi,28,,0,
+dekspantenol,dexpanthenol,dexpanthenol,D03AX03,D,A,28,,1,
+karbidopa,,,,N,eslesmedi,28,,1,
+klindamisin,clindamycin,clindamycin,J01FF01,D,A,28,DDInter398,1,tam_ad
+linezolid,linezolid,linezolid,J01XX08,J,A,28,DDInter1073,1,tam_ad
+mirtazapin,mirtazapine,mirtazapine,N06AX11,N,A,28,DDInter1230,1,tam_ad
+ornidazol,ornidazole,ornidazole,P01AB03,J,A,28,,1,
+pioglitazone,pioglitazone,pioglitazone,A10BG03,A,A,28,DDInter1472,1,tam_ad
+risperidone,risperidone,risperidone,N05AX08,N,A,28,DDInter1605,1,tam_ad
+temozolomid,temozolomide,temozolomide,L01AX03,L,A,28,DDInter1762,1,tam_ad
+topiramat,topiramate,topiramate,N03AX11,N,A,28,DDInter1834,1,tam_ad
+venlafaksin,venlafaxine,venlafaxine,N06AX16,N,A,28,DDInter1927,1,tam_ad
+haloperidol,haloperidol,haloperidol,N05AD01,N,A,27,DDInter853,1,tam_ad
+izokonazol,isoconazole,isoconazole,D01AC05,D,A,27,,1,
+kloramfenikol,chloramphenicol,chloramphenicol,J01BA01,J,A,27,DDInter351,1,tam_ad
+metilprednizolon,methylprednisolone,methylprednisolone,H02AB04,H,A,27,DDInter1191,1,tam_ad
+naftifin,naftifine,naftifine,D01AE22,D,A,27,,1,
+omeprazol,omeprazole,omeprazole,A02BC01,A,A,27,DDInter1340,1,tam_ad
+risedronat,risedronic acid,risedronic acid,M05BA07,M,A,27,DDInter1604,1,tam_ad
+seleksipag,selexipag,selexipag,B01AC27,B,A,27,DDInter1656,1,tam_ad
+trimebutin,trimebutine,trimebutine,A03AA05,A,A,27,,1,
+alanin,,,,B,eslesmedi,26,,0,
+arjinin,,,,B,eslesmedi,26,,0,
+dosetaksel,docetaxel,docetaxel,L01CD02,L,A,26,DDInter578,1,tam_ad
+etodolac,etodolac,etodolac,M01AB08,M,A,26,DDInter699,1,tam_ad
+fenilalanin,,,,B,eslesmedi,26,,0,
+furosemid,furosemide,furosemide,C03CA01,C,A,26,DDInter790,1,tam_ad
+heparin,heparin,heparin,B01AB01,B,A,26,DDInter856,1,tam_ad
+histidin,,,,B,eslesmedi,26,,0,
+izolosin,,,,B,eslesmedi,26,,0,
+losin,,,,B,eslesmedi,26,,0,
+lurasidon,lurasidone,lurasidone,N05AE05,N,A,26,DDInter1104,1,tam_ad
+parikalsitol,paricalcitol,paricalcitol,H05BX02,H,A,26,DDInter1394,1,tam_ad
+prolin,,,,B,eslesmedi,26,,0,
+rabeprazol,rabeprazole,rabeprazole,A02BC04,A,A,26,DDInter1559,1,tam_ad
+setirizin,cetirizine,cetirizine,R06AE07,R,A,26,DDInter343,1,tam_ad
+siklosporin,cyclosporine,ciclosporin,S01XA18,S,A,26,DDInter458,1,pubchem
+teikoplanin,teicoplanin,teicoplanin,J01XA02,J,A,26,,1,
+tiamin,,,,A,eslesmedi,26,,1,
+treonin,,,,B,eslesmedi,26,,0,
+triptofan,,,,B,eslesmedi,26,,0,
+valin,,,,B,eslesmedi,26,,0,
+asiklovir,acyclovir,aciclovir,J05AB01,J,A,25,DDInter25,1,pubchem
+fluconazole,fluconazole,fluconazole,J02AC01,J,A,25,DDInter743,1,tam_ad
+glimepirid,glimepiride,glimepiride,A10BB12,A,A,25,DDInter825,1,tam_ad
+insulin glarjin,insulin glargine,insulin glargine,A10AE04,A,A,25,DDInter932,1,tam_ad
+levodropropizin,levodropropizine,levodropropizine,R05DB27,R,A,25,,1,
+levofloxacin,levofloxacin,levofloxacin,J01MA12,J,A,25,DDInter1055,1,tam_ad
+lidocaine,lidocaine,lidocaine,C01BB01,C,A,25,DDInter1066,1,tam_ad
+lisinopril,lisinopril,lisinopril,C09AA03,C,A,25,DDInter1079,1,tam_ad
+repaglinid,repaglinide,repaglinide,A10BX02,A,A,25,DDInter1581,1,tam_ad
+spironolakton,spironolactone,spironolactone,C03DA01,C,A,25,DDInter1707,1,tam_ad
+tramadol,tramadol,tramadol,N02AX02,N,A,25,DDInter1841,1,tam_ad
+akarboz,acarbose,acarbose,A10BF01,A,A,24,DDInter11,1,tam_ad
+ambroksol,ambroxol,ambroxol,R05CB06,R,A,24,,1,
+atomoksetin,atomoxetine,atomoxetine,N06BA09,N,A,24,DDInter132,1,tam_ad
+bisoprolol,bisoprolol,bisoprolol,C07AB07,C,A,24,DDInter216,1,tam_ad
+cefuroxime,cefuroxime,cefuroxime,J01DC02,J,A,24,DDInter335,1,tam_ad
+dibazik sodyum fosfat heptahidrat,,,,B,eslesmedi,24,,1,
+erlotinib,erlotinib,erlotinib,L01EB02,L,A,24,DDInter667,1,tam_ad
+etofenamat,etofenamate,etofenamate,M02AA06,M,A,24,,1,
+fingolimod,fingolimod,fingolimod,L04AE01,L,A,24,DDInter737,1,tam_ad
+gentamicin,gentamicin,gentamicin,J01GB03,J,A,24,DDInter815,1,tam_ad
+lerkanidipin,lercanidipine,lercanidipine,C08CA13,C,A,24,,1,
+otilonyum,otilonium bromide,otilonium bromide,A03AB06,A,A,24,,1,
+prilokain,prilocaine,prilocaine,N01BB04,N,A,24,DDInter1518,1,tam_ad
+siyanokobalamin,cyanocobalamin,cyanocobalamin,B03BA01,B,A,24,DDInter451,1,tam_ad
+tirzepatid,tirzepadite,tirzepadite,A10BX16,A,A,24,,1,
+adrenalin,epinephrine,epinephrine,C01CA24,C,A,23,DDInter652,1,tam_ad
+diflukortolon,,,,D,eslesmedi,23,,1,
+etinilestradiol,ethinylestradiol,ethinylestradiol,G03AA12,G,B,23,DDInter692,1,tam_ad
+fluoksetin,fluoxetine,fluoxetine,N06AB03,N,A,23,DDInter758,1,tam_ad
+glibenklamid,glyburide,glibenclamide,A10BB01,A,A,23,DDInter831,1,pubchem
+ipratropium,ipratropium,ipratropium bromide,R03BB01,R,A,23,DDInter970,1,pubchem
+karboplatin,carboplatin,carboplatin,L01XA02,L,A,23,DDInter298,1,tam_ad
+laktuloz,lactulose,lactulose,A06AD11,A,A,23,DDInter1018,1,tam_ad
+nateglinid,nateglinide,nateglinide,A10BX03,A,A,23,DDInter1269,1,tam_ad
+paliperidon,paliperidone,paliperidone,N05AX13,N,A,23,DDInter1381,1,tam_ad
+paroksetin,paroxetine,paroxetine,N06AB05,N,A,23,DDInter1397,1,tam_ad
+ranitidine,ranitidine,ranitidine,A02BA02,A,A,23,DDInter1568,1,tam_ad
+rasajilin,rasagiline,rasagiline,N04BD02,N,A,23,DDInter1572,1,tam_ad
+rivastigmin hidrojen,rivastigmine,rivastigmine,N06DA03,N,A,23,DDInter1610,1,tam_ad
+tenoksikam,tenoxicam,tenoxicam,M01AC02,M,A,23,,1,
+demir iii hidroksit polimaltoz kompleksi,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,22,,1,
+dimetil,dimethyl fumarat,dimethyl fumarat,L04AX07,L,D,22,DDInter564,1,yol_d_elle
+eltrombopag olamin,eltrombopag,eltrombopag,B02BX05,B,A,22,DDInter631,1,tam_ad
+entakapon,,,,N,D,22,DDInter646,1,yol_d_elle
+gadobutrol,gadobutrol,gadobutrol,V08CA09,V,A,22,DDInter793,1,tam_ad
+insan normal immunoglobulini,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,D,22,DDInter873,1,yol_d_elle
+kaspofungin,caspofungin,caspofungin,J02AX04,J,A,22,DDInter306,1,tam_ad
+ketorolak,ketorolac,ketorolac,M01AB15,M,A,22,DDInter1010,1,tam_ad
+melatonin,melatonin,melatonin,N05CH01,N,A,22,DDInter1142,1,tam_ad
+metiyonin,,,,B,eslesmedi,22,,0,
+valproik asit,valproic acid,valproic acid,N03AG01,N,A,22,DDInter1913,1,tam_ad
+adalimumab,adalimumab,adalimumab,L04AB04,L,A,21,DDInter27,1,tam_ad
+benzoil peroksit,,,,D,D,21,DDInter186,1,yol_d_elle
+ciprofloxacin,ciprofloxacin,ciprofloxacin,J01MA02,J,A,21,DDInter384,1,tam_ad
+dekstran,dextran,dextran,B05AA05,B,A,21,,1,
+fenofibrat,fenofibrate,fenofibrate,C10AB05,C,A,21,DDInter718,1,tam_ad
+glikopironyum,glycopyrronium bromide,glycopyrronium bromide,R03BB06,R,D,21,DDInter834,1,yol_d_elle
+hemofiltrates,,,,B,eslesmedi,21,,1,
+kodein,codeine,codeine,,R,C,21,DDInter429,1,tam_ad
+magnezyum oksit,magnesium oxide,magnesium oxide,A12CC10,A,A,21,DDInter1119,1,tam_ad
+minoksidil,minoxidil,minoxidil,D11AX01,D,A,21,DDInter1226,1,tam_ad
+pitavastatin,pitavastatin,pitavastatin,C10AA08,C,A,21,DDInter1479,1,tam_ad
+somatropin,somatropin,somatropin,H01AC01,H,D,21,DDInter1699,1,yol_d_elle
+sultamisilin,sultamicillin,sultamicillin,J01CR04,J,A,21,,1,
+tikagrelor,ticagrelor,ticagrelor,B01AC24,B,A,21,DDInter1802,1,tam_ad
+ure,urea,carbamide,D02AE01,D,A,21,DDInter1903,1,pubchem
+amino acids,amino acids,amino acids,B05BA01,B,A,20,,1,
+azelastin,azelastine,azelastine,R01AC03,R,A,20,DDInter153,1,tam_ad
+cefpodoxime,cefpodoxime,cefpodoxime,J01DD13,J,A,20,DDInter326,1,tam_ad
+eritromisin,erythromycin,erythromycin,D10AF02,D,A,20,DDInter670,1,tam_ad
+etanersept,etanercept,etanercept,L04AB01,L,A,20,DDInter687,1,tam_ad
+glimepiride,glimepiride,glimepiride,A10BB12,A,A,20,DDInter825,1,tam_ad
+insan albumini,albumin,albumin,B05AA01,B,A,20,,1,
+insulin lispro,insulin lispro,insulin lispro,A10AB04,A,A,20,DDInter940,1,tam_ad
+iopromid,iopromide,iopromide,V08AB05,V,A,20,DDInter964,1,tam_ad
+karvedilol,carvedilol,carvedilol,C07AG02,C,A,20,DDInter305,1,tam_ad
+metilprednisolon,methylprednisolone,methylprednisolone,H02AB04,H,A,20,DDInter1191,1,tam_ad
+monobazik potasyum fosfat,,,,B,eslesmedi,20,,0,
+palbosiklib,palbociclib,palbociclib,L01EF01,L,A,20,DDInter1379,1,tam_ad
+polistiren sulfonat,polystyrene sulfonate,polystyrene sulfonate,V03AE01,V,A,20,,1,
+propofol,propofol,propofol,N01AX10,N,A,20,DDInter1538,1,tam_ad
+riociguat,riociguat,riociguat,C02KX05,C,A,20,DDInter1600,1,tam_ad
+semaglutid,semaglutide,semaglutide,A10BJ06,A,A,20,DDInter1660,1,tam_ad
+sodyum glukonat,,,,B,eslesmedi,20,,0,
+tolvaptan,tolvaptan,tolvaptan,C03XA01,C,A,20,DDInter1833,1,tam_ad
+desmopressin,desmopressin,desmopressin,H01BA02,H,A,19,DDInter507,1,tam_ad
+drospirenon,drospirenone,drospirenone,G03AC10,G,A,19,DDInter604,1,tam_ad
+efedrin,ephedrine,ephedrine,R03CA02,R,A,19,DDInter650,1,tam_ad
+emtrisitabin,emtricitabine,emtricitabine,J05AR20,J,B,19,DDInter637,1,tam_ad
+insulin degludek,insulin degludec,insulin degludec,A10AD06,A,B,19,DDInter930,1,tam_ad
+iomeprol,iomeprol,iomeprol,V08AB10,V,A,19,,1,
+mikonazol,miconazole,miconazole,G01AF04,G,A,19,DDInter1209,1,tam_ad
+okzaliplatin,oxaliplatin,oxaliplatin,L01XA03,L,A,19,DDInter1355,1,tam_ad
+sefaklor,cefaclor,cefaclor,J01DC04,J,A,19,DDInter309,1,tam_ad
+sertralin,sertraline,sertraline,N06AB06,N,A,19,DDInter1662,1,tam_ad
+siklesonid,ciclesonide,ciclesonide,R03BA08,R,A,19,DDInter375,1,tam_ad
+sugammadeks,sugammadex,sugammadex,V03AB35,V,A,19,DDInter1719,1,tam_ad
+sulfamethoxazole,sulfamethoxazole,sulfamethoxazole,J01EE01,J,B,19,DDInter1724,1,tam_ad
+tiokonazol,tioconazole,tioconazole,D01AC07,D,A,19,DDInter1813,1,tam_ad
+trimethoprim,trimethoprim,trimethoprim,J01EE01,J,B,19,DDInter1874,1,tam_ad
+abirateron,abiraterone,abiraterone,L02BX03,L,A,18,DDInter8,1,tam_ad
+aciclovir,acyclovir,aciclovir,J05AB01,J,A,18,DDInter25,1,pubchem
+bosentan,bosentan,bosentan,C02KX01,C,A,18,DDInter223,1,tam_ad
+cefdinir,cefdinir,cefdinir,J01DD15,J,A,18,DDInter315,1,tam_ad
+fentanil,fentanyl,fentanyl,N02AB03,N,A,18,DDInter722,1,tam_ad
+gadoterat,gadoteric acid,gadoteric acid,V08CA02,V,A,18,DDInter797,1,tam_ad
+ginkgo biloba kuru ekstresi,ginkgo folium,ginkgo folium,N06DX02,N,D,18,DDInter819,1,yol_d_elle
+iohexol,iohexol,iohexol,V08AB02,V,A,18,DDInter960,1,tam_ad
+lantanyum,lanthanum carbonate,lanthanum carbonate,V03AE03,V,A,18,DDInter1023,1,tam_ad
+lornoksikam,lornoxicam,lornoxicam,M01AC05,M,A,18,,1,
+meloxicam,meloxicam,meloxicam,M01AC06,M,A,18,DDInter1143,1,tam_ad
+miglitol,miglitol,miglitol,A10BF02,A,A,18,DDInter1217,1,tam_ad
+molibdat,,,,V,eslesmedi,18,,1,
+oksikodon,oxycodone,oxycodone,N02AA05,N,A,18,DDInter1366,1,tam_ad
+sevelamer,sevelamer,sevelamer,V03AE02,V,A,18,DDInter1663,1,tam_ad
+simvastatin,simvastatin,simvastatin,C10AA01,C,A,18,DDInter1675,1,tam_ad
+sinakalset,cinacalcet,cinacalcet,H05BX01,H,A,18,DDInter381,1,tam_ad
+theophylline,theophylline,theophylline,R03DA04,R,A,18,DDInter1791,1,tam_ad
+verapamil,verapamil,verapamil,C08DA01,C,A,18,DDInter1928,1,tam_ad
+vilanterol,vilanterol,vilanterol,,R,C,18,DDInter1934,1,tam_ad
+vitamin b12,mecobalamin,vitamin b12,B03AE01,N,B,18,DDInter1136,1,pubchem
+"amino acids/carbohydrates/minerals/vitamins, combinations","amino acids/carbohydrates/minerals/vitamins, combinations","amino acids/carbohydrates/minerals/vitamins, combinations",,V,SKRS,17,,0,
+brimonidin,brimonidine,brimonidine,S01EA05,S,A,17,DDInter234,1,tam_ad
+brivarasetam,,,,N,D,17,DDInter239,1,yol_d_elle
+cefotaxime,cefotaxime,cefotaxime,J01DD01,J,A,17,DDInter323,1,tam_ad
+desloratadine,desloratadine,desloratadine,R06AX27,R,A,17,DDInter506,1,tam_ad
+folinik asit,calcium folinate,calcium folinate,V03AF03,V,D,17,DDInter1041,1,yol_d_elle
+ketotifen,ketotifen,ketotifen,R06AX17,R,A,17,DDInter1012,1,tam_ad
+ksilometazolin,xylometazoline,xylometazoline,R01AA07,R,D,17,DDInter1952,1,yol_d_elle
+lakozamid,lacosamide,lacosamide,N03AX18,N,A,17,DDInter1014,1,tam_ad
+levokarnitin,levocarnitine,levocarnitine,A16AA01,A,A,17,DDInter1052,1,tam_ad
+nutrients without phenylalanine,nutrients without phenylalanine,nutrients without phenylalanine,,V,SKRS,17,,0,
+palonosetron,palonosetron,palonosetron,A04AA05,A,A,17,DDInter1382,1,tam_ad
+papaverin,papaverine,papaverine,A03AD01,A,A,17,DDInter1389,1,tam_ad
+ranitidin,ranitidine,ranitidine,A02BA02,A,A,17,DDInter1568,1,tam_ad
+sefotaksim,cefotaxime,cefotaxime,J01DD01,J,A,17,DDInter323,1,tam_ad
+sistein,,,,B,eslesmedi,17,,0,
+sitalopram,citalopram,citalopram,N06AB04,N,A,17,DDInter388,1,tam_ad
+trimetazidin,trimetazidine,trimetazidine,C01EB15,C,A,17,,1,
+vitamin b1,,,,A,eslesmedi,17,,1,
+apomorfin,apomorphine,apomorphine,N04BC07,N,A,16,DDInter109,1,tam_ad
+apremilast,apremilast,apremilast,L04AA32,L,A,16,DDInter111,1,tam_ad
+aspartam,,,,A,eslesmedi,16,,1,
+betahistin,betahistine,betahistine,N07CA01,N,A,16,,1,
+citalopram,citalopram,citalopram,N06AB04,N,A,16,DDInter388,1,tam_ad
+clindamycin,clindamycin,clindamycin,J01FF01,J,A,16,DDInter398,1,tam_ad
+combinations excl. psycholeptics,,,,N,eslesmedi,16,,1,
+dexketoprofen,dexketoprofen,dexketoprofen,M01AE17,M,A,16,,1,
+dobesilik asit,calcium dobesilate,calcium dobesilate,C05BX01,C,A,16,,1,
+electrolytes,electrolytes,electrolytes,B05BB01,B,A,16,,1,
+epoetin alfa,erythropoietin,erythropoietin,B03XA01,B,A,16,DDInter671,1,tam_ad
+epoetin zeta,erythropoietin,erythropoietin,B03XA01,B,A,16,DDInter671,1,tam_ad
+erdostein,erdosteine,erdosteine,R05CB15,R,A,16,,1,
+fentikonazol,fenticonazole,fenticonazole,G01AF12,G,A,16,,1,
+hemodialytics,,,,B,eslesmedi,16,,1,
+hidroklorotiazid,hydrochlorothiazide,hydrochlorothiazide,C09DX01,C,B,16,DDInter883,1,tam_ad
+iloprost,iloprost,iloprost,B01AC11,B,A,16,DDInter908,1,tam_ad
+insulin aspart,insulin aspart,insulin aspart,A10AB05,A,D,16,DDInter929,1,yol_d_elle
+klopidogrel bisulfat,clopidogrel,clopidogrel,B01AC04,B,A,16,DDInter413,1,tam_ad
+l-glutamik asit,,,,B,eslesmedi,16,,0,
+lamivudin,lamivudine,lamivudine,J05AF05,J,A,16,DDInter1019,1,tam_ad
+nilotinib,nilotinib,nilotinib,L01EA03,L,A,16,DDInter1293,1,tam_ad
+nistatin,nystatin,nystatin,A07AA02,G,A,16,DDInter1318,1,tam_ad
+olanzapine,olanzapine,olanzapine,N05AH03,N,A,16,DDInter1326,1,tam_ad
+other combinations of nutrients,other combinations of nutrients,other combinations of nutrients,,V,SKRS,16,,0,
+pertetnetat,,,,V,eslesmedi,16,,1,
+pirasetam,piracetam,piracetam,N06BX03,N,A,16,,1,
+posakonazol,posaconazole,posaconazole,J02AC04,J,A,16,DDInter1494,1,tam_ad
+teofilin,theophylline,theophylline,R03DA04,R,A,16,DDInter1791,1,tam_ad
+tolterodin,tolterodine,tolterodine,G04BD07,G,A,16,DDInter1832,1,tam_ad
+torasemid,torasemide,torasemide,C03CA04,C,A,16,DDInter1836,1,tam_ad
+vitamin c,ascorbic acid,ascorbic acid (vit c),A11GA01,A,A,16,DDInter124,1,pubchem_yayilim
+amikacin,amikacin,amikacin,J01GB06,J,A,15,DDInter66,1,tam_ad
+artikain,articaine,articaine,,N,C,15,DDInter123,1,tam_ad
+daptomisin,daptomycin,daptomycin,J01XX09,J,A,15,DDInter477,1,tam_ad
+difenhidramin,diphenhydramine,diphenhydramine,R06AA02,R,A,15,DDInter569,1,tam_ad
+gliclazide,gliclazide,gliclazide,A10BB09,A,A,15,,1,
+hidrokortizon,hydrocortisone,hydrocortisone,D07AA02,D,A,15,DDInter885,1,tam_ad
+infliximab,infliximab,infliximab,L04AB02,L,A,15,DDInter923,1,tam_ad
+ioheksol,iohexol,iohexol,V08AB02,V,A,15,DDInter960,1,tam_ad
+iopamidol,iopamidol,iopamidol,V08AB04,V,A,15,DDInter961,1,tam_ad
+iyoheksol,iohexol,iohexol,V08AB02,V,A,15,DDInter960,1,tam_ad
+l-aspartik asit,,,,B,eslesmedi,15,,0,
+magnezyum sulfat,magnesium sulfate,magnesium sulfate,A12CC02,A,A,15,DDInter1120,1,tam_ad
+mentol,,,,R,eslesmedi,15,,1,
+meropenem,meropenem,meropenem,J01DH02,J,A,15,DDInter1157,1,tam_ad
+ofloksasin,ofloxacin,ofloxacin,J01MA01,J,A,15,DDInter1325,1,tam_ad
+piperasilin,,,,J,D,15,DDInter1474,1,yol_d_elle
+rafine soya yagi,,,,B,eslesmedi,15,,1,
+rokuronyum,rocuronium bromide,rocuronium bromide,M03AC09,M,A,15,,1,
+sefazolin,cefazolin,cefazolin,J01DB04,J,A,15,DDInter314,1,tam_ad
+sulpiride,sulpiride,sulpiride,N05AL01,N,A,15,,1,
+vardenafil,vardenafil,vardenafil,G04BE09,G,A,15,DDInter1918,1,tam_ad
+diklofenak dietilamonyum,diclofenac,diclofenac,M02AA15,M,A,14,DDInter537,1,tam_ad
+dolutegravir,dolutegravir,dolutegravir,J05AJ03,J,A,14,DDInter582,1,tam_ad
+estradiol,estradiol,estradiol,G03CA03,G,A,14,DDInter679,1,tam_ad
+florodeoksiglukoz,,,,V,eslesmedi,14,,1,
+guanfasin,guanfacine,guanfacine,C02AC02,C,A,14,DDInter847,1,tam_ad
+ibandronat,ibandronic acid,ibandronic acid,M05BA06,M,A,14,,1,
+indakaterol,indacaterol,indacaterol,R03AC18,R,A,14,DDInter915,1,tam_ad
+kalsitriol,calcitriol,calcitriol,A11CC04,A,A,14,DDInter268,1,tam_ad
+klobetazol 17-propiyonat,clobetasol,clobetasol,D07AD01,D,A,14,DDInter402,1,tam_ad
+lamotrijin,lamotrigine,lamotrigine,N03AX09,N,A,14,DDInter1020,1,tam_ad
+latanoprost,latanoprost,latanoprost,S01EE01,S,A,14,DDInter1028,1,tam_ad
+leflunomid,leflunomide,leflunomide,,L,C,14,DDInter1033,1,tam_ad
+magnezyum hidroksit,magnesium hydroxide,magnesium hydroxide,A02AA04,A,A,14,DDInter1118,1,tam_ad
+mikafungin,micafungin,micafungin,J02AX05,J,A,14,DDInter1208,1,tam_ad
+oksolamin,oxolamine,oxolamine,R05DB07,R,A,14,,1,
+olopatadin,olopatadine,olopatadine,S01GX09,S,A,14,DDInter1332,1,tam_ad
+sennozit b,senna glycosides,senna glycosides,A06AB06,A,A,14,,1,
+spiramisin,spiramycin,spiramycin,J01FA02,J,A,14,,1,
+tazobaktam,,,,J,eslesmedi,14,,1,
+tetrasiklin,tetracycline,tetracycline,D06AA04,D,A,14,DDInter1783,1,tam_ad
+trimetoprim,trimethoprim,trimethoprim,J01EE01,J,B,14,DDInter1874,1,tam_ad
+various,povidone iodine,povidone iodine,R02AA15,A,A,14,,1,
+vortioksetin,vortioxetine,vortioxetine,N06AX26,N,A,14,DDInter1948,1,tam_ad
+baklofen,baclofen,baclofen,M03BX01,M,A,13,DDInter162,1,tam_ad
+betahistine,betahistine,betahistine,N07CA01,N,A,13,,1,
+biotin,biotin,biotin,A11HA05,A,A,13,,1,
+butenafin,butenafine,butenafine,D01AE23,D,A,13,,1,
+dekstrometorfan,,,,R,eslesmedi,13,,1,
+dibazik sodyum fosfat,,,,A,eslesmedi,13,,1,
+docetaxel,docetaxel,docetaxel,L01CD02,L,A,13,DDInter578,1,tam_ad
+feniramidol,fenyramidol,fenyramidol,M03BX30,M,A,13,,1,
+glimeprid,glimepiride,glimepiride,A10BB12,A,A,13,DDInter825,1,tam_ad
+ibandronik asit monosodyum tuzu,ibandronic acid,ibandronic acid,M05BA06,M,A,13,,1,
+kalsiyum asetat,calcium acetate,calcium acetate,V03AE07,V,A,13,DDInter270,1,tam_ad
+klopidogrel,clopidogrel,clopidogrel,B01AC04,B,A,13,DDInter413,1,tam_ad
+l-sistein,,,,B,eslesmedi,13,,0,
+nifuratel,,,,G,eslesmedi,13,,1,
+permetrin,permethrin,permethrin,P03AC04,P,A,13,,1,
+progesteron,progesterone,progesterone,G03DA04,G,A,13,DDInter1529,1,tam_ad
+propifenazon,,,,N,eslesmedi,13,,1,
+rafine z.yagi,,,,B,eslesmedi,13,,0,
+sefaleksin,cefalexin,cefalexin,J01DB01,J,A,13,,1,
+sulfametoksazol,sulfamethoxazole,sulfamethoxazole,J01EE01,J,B,13,DDInter1724,1,tam_ad
+sumatriptan,sumatriptan,sumatriptan,N02CC01,N,A,13,DDInter1730,1,tam_ad
+traneksamik asit,tranexamic acid,tranexamic acid,B02AA02,B,A,13,DDInter1844,1,tam_ad
+zinc sulfate,zinc sulfate,zinc sulfate,A12CB01,A,A,13,DDInter1966,1,tam_ad
+acarbose,acarbose,acarbose,A10BF01,A,A,12,DDInter11,1,tam_ad
+aklidinyum,,,,R,eslesmedi,12,,1,
+ambrisentan,ambrisentan,ambrisentan,C02KX02,C,A,12,DDInter62,1,tam_ad
+anidulafungin,anidulafungin,anidulafungin,J02AX06,J,A,12,DDInter97,1,tam_ad
+arformoterol,formoterol,formoterol,R03AC13,R,A,12,DDInter776,1,tam_ad
+atenolol,atenolol,atenolol,C07AB03,C,A,12,DDInter130,1,tam_ad
+barisitinib,,,,L,eslesmedi,12,,1,
+bimatoprost,bimatoprost,bimatoprost,S01EE03,S,A,12,DDInter207,1,tam_ad
+buspiron,buspirone,buspirone,N05BE01,N,A,12,DDInter254,1,tam_ad
+cefalexin,cefalexin,cefalexin,J01DB01,J,A,12,,1,
+cinko oksit,,,,D,eslesmedi,12,,1,
+clobetasol,clobetasol,clobetasol,D07AD01,D,A,12,DDInter402,1,tam_ad
+dapagliflozin propandiol,dapagliflozin,dapagliflozin,A10BK01,A,A,12,DDInter474,1,tam_ad
+diclofenac,diclofenac,diclofenac,M01AB05,M,A,12,DDInter537,1,tam_ad
+doksofilin,doxofylline,doxofylline,R03DA11,R,A,12,,1,
+domperidon,domperidone,domperidone,A03FA03,A,A,12,,1,
+dupilumab,dupilumab,dupilumab,D11AH05,D,A,12,DDInter609,1,tam_ad
+esmolol,esmolol,esmolol,C07AB09,C,A,12,DDInter675,1,tam_ad
+everolimus,everolimus,everolimus,L01EG02,L,A,12,DDInter704,1,tam_ad
+fampiridin,fampridine,fampridine,N07XX07,N,A,12,,1,
+fesoterodin,fesoterodine,fesoterodine,G04BD11,G,A,12,DDInter731,1,tam_ad
+flumazenil,flumazenil,flumazenil,V03AB25,V,A,12,DDInter748,1,tam_ad
+furosemide,furosemide,furosemide,C03CA01,C,A,12,DDInter790,1,tam_ad
+gadodiamid,gadodiamide,gadodiamide,V08CA03,V,A,12,DDInter794,1,tam_ad
+guaifenesin,guaifenesin,guaifenesin,R05CA03,R,A,12,,1,
+ikodekstrin,,,,B,eslesmedi,12,,0,
+isosorbide dinitrate,isosorbide dinitrate,isosorbide dinitrate,C01DA08,C,A,12,DDInter989,1,tam_ad
+itrakonazol,itraconazole,itraconazole,J02AC02,J,A,12,DDInter995,1,tam_ad
+karbamazepin,carbamazepine,carbamazepine,N03AF01,N,A,12,DDInter293,1,tam_ad
+karglumik asit,carglumic acid,carglumic acid,A16AA05,A,A,12,,1,
+klortalidon,,,,C,eslesmedi,12,,1,
+kolesevelam,colesevelam,colesevelam,C10AC04,C,A,12,DDInter432,1,tam_ad
+kolistimetat,colistin,colistin,J01XB01,J,A,12,,1,
+levonorgestrel,levonorgestrel,levonorgestrel,G03AD01,G,A,12,DDInter1061,1,tam_ad
+mavakamten,mavacamten,mavacamten,C01EB24,C,A,12,,1,
+metamizole sodium,metamizole sodium,metamizole sodium,N02BB02,N,A,12,,1,
+methotrexate,methotrexate,methotrexate,L01BA01,L,A,12,DDInter1174,1,tam_ad
+mikofenolat mofetil,mycophenolic acid,mycophenolic acid,L04AA06,L,A,12,DDInter1252,1,tam_ad
+modafinil,modafinil,modafinil,N06BA07,N,A,12,DDInter1236,1,tam_ad
+pasireotid,pasireotide,pasireotide,H01CB05,H,A,12,DDInter1398,1,tam_ad
+perindopril arjinin,perindopril,perindopril,C09AA04,C,A,12,DDInter1431,1,tam_ad
+pirfenidon,pirfenidone,pirfenidone,L04AX05,L,A,12,DDInter1477,1,tam_ad
+pomalidomid,pomalidomide,pomalidomide,L04AX06,L,A,12,DDInter1491,1,tam_ad
+potasyum fosfat dibazik,,,,B,eslesmedi,12,,0,
+pramipexole,pramipexole,pramipexole,N04BC05,N,A,12,DDInter1505,1,tam_ad
+remifentanil,remifentanil,remifentanil,N01AH06,N,A,12,DDInter1579,1,tam_ad
+saflastirilmis hepatit b yuzey antijeni,"hepatitis b, purified antigen","hepatitis b, purified antigen",J07BC01,J,A,12,,1,
+sakubitril,sacubitril,sacubitril,C09DX04,C,B,12,DDInter1630,1,tam_ad
+seftibuten,ceftibuten,ceftibuten,J01DD14,J,A,12,DDInter331,1,tam_ad
+sennozit a,,,,A,eslesmedi,12,,1,
+tamoksifen,tamoxifen,tamoxifen,L02BA01,L,A,12,DDInter1744,1,tam_ad
+tetanoz toksoidi,tetanus toxoid,tetanus toxoid,J07AM01,J,A,12,,1,
+tigesiklin,tigecycline,tigecycline,J01AA12,J,A,12,DDInter1805,1,tam_ad
+tofasitinib,tofacitinib,tofacitinib,L04AF01,L,A,12,DDInter1825,1,tam_ad
+adapalen,adapalene,adapalene,D10AD03,D,A,11,DDInter28,1,tam_ad
+adenozin,adenosine,adenosine,C01EB10,C,A,11,DDInter31,1,tam_ad
+albumin,albumin,albumin,B05AA01,B,A,11,,1,
+allantoin,,,,D,eslesmedi,11,,1,
+b12,,,,A,eslesmedi,11,,1,
+betamethasone,betamethasone,betamethasone,D07AC01,D,A,11,DDInter195,1,tam_ad
+diclofenak,diclofenac,diclofenac,M01AB05,M,A,11,DDInter537,1,tam_ad
+difteri toksoidi,,,,J,eslesmedi,11,,1,
+feniramin hidrojen,pheniramine,pheniramine,R06AB05,R,A,11,,1,
+fosfomisin,fosfomycin,fosfomycin,J01XX01,J,A,11,DDInter780,1,tam_ad
+galantamin,galantamine,galantamine,N06DA04,N,A,11,DDInter802,1,tam_ad
+ginkgo biloba yapraklari kuru ekstresi,ginkgo folium,ginkgo folium,N06DX02,N,A,11,,1,
+human menopausal gonadotrophin,human menopausal gonadotrophin,human menopausal gonadotrophin,G03GA02,G,A,11,,1,
+irinotecan,irinotecan,irinotecan,L01CE02,L,A,11,DDInter973,1,tam_ad
+kalsiyum,,,,A,eslesmedi,11,,1,
+masitentan,macitentan,macitentan,C02KX04,C,A,11,DDInter1111,1,tam_ad
+metronidazole,metronidazole,metronidazole,P01AB01,P,A,11,DDInter1202,1,tam_ad
+morfin,morphine,morphine,N02AA01,N,A,11,DDInter1244,1,tam_ad
+or vitamin b12,,,,A,eslesmedi,11,,1,
+pankreatin,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,11,,1,
+progesterone,progesterone,progesterone,G03DA04,G,A,11,DDInter1529,1,tam_ad
+ribavirin,ribavirin,ribavirin,J05AP01,J,A,11,DDInter1587,1,tam_ad
+ruksolitinib,ruxolitinib,ruxolitinib,L01EJ01,L,A,11,DDInter1628,1,tam_ad
+rupatadin,rupatadine,rupatadine,R06AX28,R,A,11,,1,
+salisilik asit,,,,D,eslesmedi,11,,1,
+sefoperazon,cefoperazone,cefoperazone,J01DD12,J,A,11,DDInter322,1,tam_ad
+sodyum hidrojen karbonat,,,,B,eslesmedi,11,,1,
+sogan ekstresi,,,,D,eslesmedi,11,,1,
+taurin,,,,B,eslesmedi,11,,0,
+tenofovir alafenamid,tenofovir alafenamide,tenofovir alafenamide,J05AF13,J,A,11,,1,
+teriflunomid,teriflunomide,teriflunomide,L04AK02,L,A,11,DDInter1771,1,tam_ad
+tests for allergic diseases,tests for allergic diseases,tests for allergic diseases,,V,SKRS,11,,1,
+trazodon,trazodone,trazodone,N06AX05,N,A,11,DDInter1851,1,tam_ad
+vitamin a,vitamin a,vitamin a,,A,C,11,DDInter1941,1,tam_ad
+vitamin b1 in combination with vitamin b6,,,,A,eslesmedi,11,,1,
+"vitamin b1, b6",,,,A,eslesmedi,11,,1,
+azasitidin,azacitidine,azacitidine,L01BC07,L,A,10,DDInter148,1,tam_ad
+bempedoik asit,,,,C,eslesmedi,10,,1,
+brekspiprazol,brexpiprazole,brexpiprazole,N05AX16,N,A,10,DDInter231,1,tam_ad
+bupivakain,bupivacaine,bupivacaine,N01BB01,N,A,10,DDInter249,1,tam_ad
+calcium,calcium (different salts in combination),calcium (different salts in combination),A12AA20,A,A,10,,1,
+deksmedetomidin,dexmedetomidine,dexmedetomidine,N05CM18,N,A,10,DDInter520,1,tam_ad
+doxazosin,doxazosin,doxazosin,C02CA04,C,A,10,DDInter592,1,tam_ad
+epoetin beta,,,,B,eslesmedi,10,,1,
+erythropoietin,erythropoietin,erythropoietin,B03XA01,B,A,10,DDInter671,1,tam_ad
+ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,10,,1,
+hidroklorotiyazit,,,,C,eslesmedi,10,,1,
+idebenon,idebenone,idebenone,N06BX13,N,A,10,,1,
+infant formulas,infant formulas,infant formulas,,V,SKRS,10,,0,
+influenza virusu suslari,,,,J,eslesmedi,10,,1,
+iobitridol,iobitridol,iobitridol,V08AB11,V,A,10,,1,
+irinotekan,irinotecan,irinotecan,L01CE02,L,A,10,DDInter973,1,tam_ad
+lasmiditan hemisuksinat,lasmiditan,lasmiditan,N02CC08,N,A,10,DDInter1027,1,tam_ad
+lenalidomide,lenalidomide,lenalidomide,L04AX04,L,A,10,DDInter1035,1,tam_ad
+leuprorelin,leuprorelin,leuprorelin,L02AE02,L,A,10,,1,
+loratadin,loratadine,loratadine,R06AX13,R,A,10,DDInter1091,1,tam_ad
+loteprednol,loteprednol,loteprednol,S01BA14,S,A,10,,1,
+methylergometrine,methylergometrine,methylergometrine,G02AB01,G,A,10,DDInter1187,1,tam_ad
+metimazol,thiamazole,thiamazole,H03BB02,H,A,10,,1,
+metoclopramide,metoclopramide,metoclopramide,A03FA01,A,A,10,DDInter1197,1,tam_ad
+metoksi polietilen glikol,,,,B,eslesmedi,10,,1,
+mometasone,mometasone,mometasone,R01AD09,R,A,10,,1,
+nimesulide,nimesulide,nimesulide,M02AA26,M,A,10,,1,
+oksikonazol,oxiconazole,oxiconazole,D01AC11,D,A,10,,1,
+oksimetazolin,oxymetazoline,oxymetazoline,R01AA05,R,A,10,,1,
+orlistat,orlistat,orlistat,A08AB01,A,A,10,DDInter1348,1,tam_ad
+otilonium bromide,otilonium bromide,otilonium bromide,A03AB06,A,A,10,,1,
+paricalcitol,paricalcitol,paricalcitol,H05BX02,H,A,10,DDInter1394,1,tam_ad
+pazopanib,pazopanib,pazopanib,L01EX03,L,A,10,DDInter1400,1,tam_ad
+pemetrekset,pemetrexed,pemetrexed,L01BA04,L,A,10,DDInter1414,1,tam_ad
+protamin,protamine,protamine,V03AB14,V,A,10,,1,
+rifamisin,rifamycin,rifamycin,J04AB03,J,A,10,DDInter1591,1,tam_ad
+riosiguat,riociguat,riociguat,C02KX05,C,A,10,DDInter1600,1,tam_ad
+rituximab,rituximab,rituximab,L01FA01,L,A,10,DDInter1608,1,tam_ad
+roksadustat,roxadustat,roxadustat,B03XA05,B,A,10,,1,
+sefditoren pivoksil,cefditoren,cefditoren,J01DD16,J,A,10,DDInter316,1,tam_ad
+sertraline,sertraline,sertraline,N06AB06,N,A,10,DDInter1662,1,tam_ad
+sitarabin,cytarabine,cytarabine,L01BC01,L,A,10,DDInter460,1,tam_ad
+stronsiyum ranelat,strontium ranelate,strontium ranelate,M05BX03,M,A,10,,1,
+talyum,,,,V,eslesmedi,10,,1,
+triamsinolon asetonid,triamcinolone,triamcinolone,H02AB08,D,A,10,DDInter1855,1,tam_ad
+5-fluorourasil,fluorouracil,fluorouracil,L01BC02,L,A,9,DDInter757,1,tam_ad
+"a/victoria/4897/2022 pdm09 benzeri sus , a/thailand/8/2022 benzeri sus , b/austria/1359417/2021 benzeri sus",,,,J,eslesmedi,9,,1,
+abemasiklib,abemaciclib,abemaciclib,L01EF03,L,A,9,DDInter7,1,tam_ad
+aksitinib,axitinib,axitinib,L01EK01,L,A,9,DDInter147,1,tam_ad
+albendazole,albendazole,albendazole,P02CA03,P,A,9,DDInter35,1,tam_ad
+asetil salisilik asit,acetylsalicylic acid,acetylsalicylic acid,N02BA01,N,A,9,DDInter20,1,tam_ad
+b6 vitamini,pyridoxine,pyridoxine (vit b6),A11HA02,A,A,9,DDInter1549,1,pubchem_yayilim
+bikalutamid,bicalutamide,bicalutamide,L02BB03,L,A,9,DDInter204,1,tam_ad
+bisakodil,bisacodyl,bisacodyl,A06AB02,A,A,9,DDInter212,1,tam_ad
+brigatinib,brigatinib,brigatinib,L01ED04,L,A,9,DDInter233,1,tam_ad
+bupropion,bupropion,bupropion,N06AX12,N,A,9,DDInter252,1,tam_ad
+cetirizine,cetirizine,cetirizine,R06AE07,R,A,9,DDInter343,1,tam_ad
+darbepoetin alfa,darbepoetin alfa,darbepoetin alfa,B03XA02,B,A,9,DDInter479,1,tam_ad
+doksorubisin,doxorubicin,doxorubicin,L01DB01,L,A,9,DDInter596,1,tam_ad
+eletriptan,eletriptan,eletriptan,N02CC06,N,A,9,DDInter627,1,tam_ad
+epirubisin,epirubicin,epirubicin,L01DB03,L,A,9,DDInter655,1,tam_ad
+eritromisin estolat,erythromycin,erythromycin,J01FA01,J,A,9,DDInter670,1,tam_ad
+essitalopram okzalat,escitalopram,escitalopram,N06AB10,N,A,9,DDInter672,1,tam_ad
+etelkalsetid,,,,H,eslesmedi,9,,1,
+fulvestrant,fulvestrant,fulvestrant,L02BA03,L,A,9,DDInter789,1,tam_ad
+gliserofosfat 5h20,,,,B,eslesmedi,9,,0,
+hiyosin n-butil-bromur,butylscopolamine,butylscopolamine,A03BB01,A,A,9,,1,
+idarubisin,idarubicin,idarubicin,L01DB06,L,A,9,DDInter904,1,tam_ad
+imidapril,,,,C,eslesmedi,9,,1,
+indometazin,indometacin,indometacin,M01AB01,M,A,9,,1,
+kapsaisin,capsaicin,capsaicin,N01BX04,M,A,9,,1,
+kaptopril,captopril,captopril,C09AA01,C,A,9,DDInter292,1,tam_ad
+ketoconazole,ketoconazole,ketoconazole,D01AC08,D,A,9,DDInter1008,1,tam_ad
+l-arginin,,,,B,eslesmedi,9,,0,
+lacosamide,lacosamide,lacosamide,N03AX18,N,A,9,DDInter1014,1,tam_ad
+levosetrizin,levocetirizine,levocetirizine,R06AE09,R,A,9,DDInter1053,1,tam_ad
+mirtazapine,mirtazapine,mirtazapine,N06AX11,N,A,9,DDInter1230,1,tam_ad
+mupirosin,mupirocin,mupirocin,D06AX09,D,A,9,DDInter1249,1,tam_ad
+netilmisin,netilmicin,netilmicin,S01AA23,S,A,9,DDInter1283,1,tam_ad
+nikotinamid,nicotinamide,nicotinamide,,A,C,9,DDInter1289,1,tam_ad
+noradrenalin,norepinephrine,norepinephrine,C01CA03,C,A,9,DDInter1311,1,tam_ad
+piroksikam,piroxicam,piroxicam,M02AA07,M,A,9,DDInter1478,1,tam_ad
+plain,,,,A,eslesmedi,9,,1,
+polimiksin b,polymyxin b,polymyxin b,J01XB02,D,A,9,DDInter1489,1,tam_ad
+ranolazin,ranolazine,ranolazine,C01EB18,C,A,9,DDInter1570,1,tam_ad
+ritonavir,ritonavir,ritonavir,J05AE03,J,A,9,DDInter1607,1,tam_ad
+rivastigmine,rivastigmine,rivastigmine,N06DA03,N,A,9,DDInter1610,1,tam_ad
+roksitromisin,roxithromycin,roxithromycin,J01FA06,J,A,9,,1,
+setrimid,,,,D,eslesmedi,9,,1,
+tazaroten,tazarotene,tazarotene,D05AX05,D,A,9,DDInter1748,1,tam_ad
+tolperison,tolperisone,tolperisone,M03BX04,M,A,9,,1,
+trandolapril,trandolapril,trandolapril,C09AA10,C,A,9,DDInter1843,1,tam_ad
+treprostinil,treprostinil,treprostinil,B01AC21,B,A,9,DDInter1852,1,tam_ad
+trimebutine,trimebutine,trimebutine,A03AA05,A,A,9,,1,
+valetamat,valethamate,valethamate,A03AX14,A,A,9,,1,
+vericiguat,,,,C,eslesmedi,9,,1,
+vitamin b6,,,,A,eslesmedi,9,,1,
+vitamin e,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,9,,1,
+vortioksetin hidrobromur 2-butanol solvat,vortioxetine,vortioxetine,N06AX26,N,A,9,DDInter1948,1,tam_ad
+zolmitriptan,zolmitriptan,zolmitriptan,N02CC03,N,A,9,DDInter1969,1,tam_ad
+aflibersept,aflibercept,aflibercept,S01LA05,S,A,8,DDInter33,1,tam_ad
+alendronic acid,alendronic acid,alendronic acid,M05BA04,M,A,8,DDInter42,1,tam_ad
+alprazolam,alprazolam,alprazolam,N05BA12,N,A,8,DDInter54,1,tam_ad
+aripiprazole,aripiprazole,aripiprazole,N05AX12,N,A,8,DDInter118,1,tam_ad
+atropine,atropine,atropine,A03BA01,A,A,8,DDInter136,1,tam_ad
+azithromycin,azithromycin,azithromycin,J01FA10,J,A,8,DDInter157,1,tam_ad
+benidipin,benidipine,benidipine,C08CA15,C,A,8,,1,
+benzil,benzyl benzoate,benzyl benzoate,P03AX01,M,A,8,,1,
+bevacizumab,bevacizumab,bevacizumab,L01FG01,L,A,8,DDInter201,1,tam_ad
+bilastin,bilastine,bilastine,R06AX29,R,A,8,,1,
+brinzolamid,brinzolamide,brinzolamide,S01EC04,S,A,8,DDInter237,1,tam_ad
+butylscopolamine,butylscopolamine,butylscopolamine,A03BB01,A,A,8,,1,
+carbamazepine,carbamazepine,carbamazepine,N03AF01,N,A,8,DDInter293,1,tam_ad
+carvedilol,carvedilol,carvedilol,C07AG02,C,A,8,DDInter305,1,tam_ad
+cefixime,cefixime,cefixime,J01DD08,J,A,8,DDInter319,1,tam_ad
+centella asiatica ekstresi,centella asiatica herba,centella asiatica herba,D03AX14,D,A,8,,1,
+deksibuprofen,dexibuprofen,dexibuprofen,M01AE14,M,A,8,,1,
+demir hidroksit polimaltoz kompleksi,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,8,,1,
+dobutamin,dobutamine,dobutamine,C01CA07,C,A,8,DDInter577,1,tam_ad
+dobutamine,dobutamine,dobutamine,C01CA07,C,A,8,DDInter577,1,tam_ad
+dorzolamid,dorzolamide,dorzolamide,S01EC03,S,A,8,,1,
+ebastin,ebastine,ebastine,R06AX22,R,A,8,,1,
+eplerenon,eplerenone,eplerenone,C03DA04,C,A,8,DDInter656,1,tam_ad
+fat emulsions,fat emulsions,fat emulsions,B05BA02,B,A,8,,1,
+favipiravir,,,,J,eslesmedi,8,,1,
+follitropin alfa,follitropin alfa,follitropin alfa,G03GA05,G,A,8,,1,
+hiyaluronat,artificial tears and other indifferent preparations,artificial tears and other indifferent preparations,S01XA20,S,A,8,,1,
+ikatibant,icatibant,icatibant,B06AC02,B,A,8,DDInter902,1,tam_ad
+inosin pranobeks,inosine pranobex,inosine pranobex,J05AX05,J,A,8,,1,
+insan koagulasyon faktoru viii,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,8,,1,
+kliokinol,,,,D,eslesmedi,8,,1,
+l-metionin,,,,B,eslesmedi,8,,0,
+lamivudine,lamivudine,lamivudine,J05AF05,J,A,8,DDInter1019,1,tam_ad
+liksisenatid,lixisenatide,lixisenatide,A10AE54,A,B,8,DDInter1082,1,tam_ad
+linkomisin,lincomycin,lincomycin,J01FF02,J,A,8,DDInter1071,1,tam_ad
+lopamidol,iopamidol,iopamidol,V08AB04,V,A,8,DDInter961,1,tam_ad
+maprotilin,maprotiline,maprotiline,N06AA21,N,A,8,DDInter1124,1,tam_ad
+maravirok,maraviroc,maraviroc,J05AX09,J,A,8,DDInter1125,1,tam_ad
+medazepam,,,,N,eslesmedi,8,,1,
+mepolizumab,mepolizumab,mepolizumab,R03DX09,R,A,8,,1,
+metoklopramid,metoclopramide,metoclopramide,A03FA01,A,A,8,DDInter1197,1,tam_ad
+monobazik sodyum fosfat monohidrat,,,,A,eslesmedi,8,,1,
+nepafenak,nepafenac,nepafenac,S01BC10,S,A,8,,1,
+nikotin rezinat,nicotine,nicotine,N07BA01,N,A,8,DDInter1290,1,tam_ad
+noretisteron,norethisterone,norethisterone,G03DC02,G,A,8,DDInter1312,1,tam_ad
+normal insan immunoglobulini,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,8,,1,
+ornidazole,ornidazole,ornidazole,P01AB03,P,A,8,,1,
+other antiemetics,trimethobenzamide,trimethobenzamide,R06AA10,R,A,8,DDInter1873,1,tam_ad
+penisilin g,benzylpenicillin,benzylpenicillin,J01CE01,J,A,8,DDInter189,1,tam_ad
+piracetam,piracetam,piracetam,N06BX03,N,A,8,,1,
+pirantel,pyrantel,pyrantel,P02CC01,P,A,8,DDInter1546,1,tam_ad
+polietilen glikol 3350,macrogol,macrogol,A06AD15,A,A,8,,1,
+polivinilpirolidon iyot,povidone iodine,povidone iodine,D08AG02,D,A,8,,1,
+potassium chloride,potassium chloride,potassium chloride,B05XA01,B,A,8,DDInter1497,1,tam_ad
+pranlukast,,,,R,eslesmedi,8,,1,
+propiverin,propiverine,propiverine,G04BD06,G,A,8,,1,
+rosuvastatinkalsiyum,,,,C,eslesmedi,8,,1,
+sapropterin,sapropterin,sapropterin,A16AX07,A,A,8,DDInter1639,1,tam_ad
+sefepim,cefepime,cefepime,J01DE01,J,A,8,DDInter317,1,tam_ad
+seftriakson disodyum hemiheptahidrat,ceftriaxone,ceftriaxone,J01DD04,J,A,8,DDInter334,1,tam_ad
+selperkatinib,selpercatinib,selpercatinib,L01EX22,L,A,8,DDInter1658,1,tam_ad
+siklobenzaprin,cyclobenzaprine,cyclobenzaprine,M03BX08,M,A,8,DDInter454,1,tam_ad
+siklopiroks,ciclopirox,ciclopirox,D01AE14,D,A,8,DDInter377,1,tam_ad
+silazapril,cilazapril,cilazapril,C09AA08,C,A,8,,1,
+siponimod fumarik asit,siponimod,siponimod,L04AE03,L,A,8,DDInter1676,1,tam_ad
+solifenacin,solifenacin,solifenacin,G04BD08,G,A,8,DDInter1696,1,tam_ad
+tinidazol,tinidazole,tinidazole,,G,C,8,DDInter1811,1,tam_ad
+tiyamazol,thiamazole,thiamazole,H03BB02,H,A,8,,1,
+umeklidinyum,,,,R,eslesmedi,8,,1,
+vinorelbin,vinorelbine,vinorelbine,L01CA04,L,A,8,DDInter1939,1,tam_ad
+zoledronic acid,zoledronic acid,zoledronic acid,M05BA08,M,A,8,DDInter1968,1,tam_ad
+alprostadil,alprostadil,alprostadil,C01EA01,C,A,7,DDInter55,1,tam_ad
+amilorid,amiloride,amiloride,,C,C,7,DDInter68,1,tam_ad
+aminophylline,aminophylline,aminophylline,R03DA05,R,A,7,DDInter74,1,tam_ad
+bendamustin,bendamustine,bendamustine,L01AA09,L,A,7,DDInter178,1,tam_ad
+benfotiamin,benfotiamine,benfotiamine,A11DA03,A,A,7,,1,
+benserazid,,,,N,eslesmedi,7,,1,
+benzathine benzylpenicillin,benzathine benzylpenicillin,benzathine benzylpenicillin,J01CE08,J,A,7,,1,
+benzokain,,,,R,eslesmedi,7,,1,
+bortezomib,bortezomib,bortezomib,L01XG01,L,A,7,DDInter222,1,tam_ad
+bosutinib,bosutinib,bosutinib,L01EA04,L,A,7,DDInter224,1,tam_ad
+calcium folinate,calcium folinate,calcium folinate,V03AF03,V,A,7,,1,
+canli atenue kizamik virusu,"measles, live attenuated","measles, live attenuated",J07BD01,J,A,7,,1,
+ciclosporin,cyclosporine,ciclosporin,L04AD01,L,A,7,DDInter458,1,pubchem_yayilim
+clopidogrel,clopidogrel,clopidogrel,B01AC04,B,A,7,DDInter413,1,tam_ad
+cobamamide,cobamamide,cobamamide,B03BA04,B,A,7,,1,
+dekstran 70,,,,B,eslesmedi,7,,1,
+demir protein suksinilat,ferric proteinsuccinylate,ferric proteinsuccinylate,B03AB09,B,A,7,,1,
+dienogest,dienogest,dienogest,G03DB08,G,A,7,DDInter546,1,tam_ad
+diosmin,,,,C,eslesmedi,7,,1,
+dopamin,dopamine,dopamine,C01CA04,C,A,7,DDInter584,1,tam_ad
+dutasterid,dutasteride,dutasteride,G04CB02,G,A,7,DDInter611,1,tam_ad
+eltrombopag seskietanolamin,eltrombopag,eltrombopag,B02BX05,B,A,7,DDInter631,1,tam_ad
+eritropoietin alfa,erythropoietin,erythropoietin,B03XA01,B,A,7,DDInter671,1,tam_ad
+etinil estradiol,ethinylestradiol,ethinylestradiol,G03AA10,G,B,7,DDInter692,1,tam_ad
+etofenamate,etofenamate,etofenamate,M02AA06,M,A,7,,1,
+fenilnefrin,,,,R,eslesmedi,7,,1,
+filamentoz hemaglutinin,,,,J,eslesmedi,7,,1,
+fluoresein,fluorescein,fluorescein,S01JA01,S,A,7,,1,
+gansiklovir,ganciclovir,ganciclovir,J05AB06,J,A,7,DDInter806,1,tam_ad
+hesperidin,,,,C,eslesmedi,7,,1,
+hidroksietil nisasta,,,,B,eslesmedi,7,,1,
+hidroksiklorokin,hydroxychloroquine,hydroxychloroquine,P01BA02,P,A,7,DDInter893,1,tam_ad
+imikimod,imiquimod,imiquimod,D06BB10,D,A,7,DDInter913,1,tam_ad
+imipenem,imipenem,imipenem,J01DH51,J,B,7,DDInter911,1,tam_ad
+insan normal immunglobulini,"immunoglobulins,normal human,for extravascular adm.","immunoglobulins,normal human,for extravascular adm.",J06BA01,J,A,7,,1,
+insan rotavirus r1x4414 canli atenue susu,"rota virus, live attenuated","rota virus, live attenuated",J07BH01,J,A,7,,1,
+insulin lispro protamin,,,,A,eslesmedi,7,,1,
+izoniyazid,isoniazid,isoniazid,J04AC01,J,A,7,DDInter986,1,tam_ad
+kafur,,,,R,eslesmedi,7,,1,
+kalsipotriol,,,,D,eslesmedi,7,,1,
+karbosistein,carbocisteine,carbocisteine,R05CB03,R,A,7,,1,
+ketotifen hidrojen,ketotifen,ketotifen,S01GX08,S,A,7,DDInter1012,1,tam_ad
+kladribin,cladribine,cladribine,L04AA40,L,A,7,DDInter392,1,tam_ad
+klonazepam,clonazepam,clonazepam,N03AE01,N,A,7,DDInter411,1,tam_ad
+l-fenilanilin,,,,B,eslesmedi,7,,0,
+l-ornitin,,,,B,eslesmedi,7,,0,
+liraglutid,liraglutide,liraglutide,A10BJ02,A,A,7,DDInter1077,1,tam_ad
+lizinasetat,,,,B,eslesmedi,7,,0,
+loratadine,loratadine,loratadine,R06AX13,R,A,7,DDInter1091,1,tam_ad
+lorlatinib,lorlatinib,lorlatinib,L01ED05,L,A,7,DDInter1094,1,tam_ad
+magaldrat,magaldrate,magaldrate,A02AD02,A,A,7,DDInter1112,1,tam_ad
+monobazik sodyum fosfat,,,,A,eslesmedi,7,,1,
+multivitamins,multivitamins,multivitamins,B03AE03,A,B,7,,1,
+mupirocin,mupirocin,mupirocin,D06AX09,D,A,7,DDInter1249,1,tam_ad
+nateglinide,nateglinide,nateglinide,A10BX03,A,A,7,DDInter1269,1,tam_ad
+nifuroxazide,nifuroxazide,nifuroxazide,A07AX03,A,A,7,,1,
+niraparib,niraparib,niraparib,L01XK02,L,A,7,DDInter1297,1,tam_ad
+normal insan immunglobulini,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,7,,1,
+okaliptol,,,,R,eslesmedi,7,,1,
+oksibutinin,oxybutynin,oxybutynin,G04BD04,G,A,7,DDInter1365,1,tam_ad
+ostradiol,estradiol,estradiol,G03CA03,G,A,7,DDInter679,1,tam_ad
+pantoprazole,pantoprazole,pantoprazole,A02BC02,A,A,7,DDInter1388,1,tam_ad
+pikosulfurik asit,sodium picosulfate,sodium picosulfate,A06AB08,A,A,7,,1,
+povidon iyot,povidone iodine,povidone iodine,D08AG02,D,A,7,,1,
+pridoksin,pyridoxine,pyridoxine (vit b6),A11HA02,A,A,7,DDInter1549,1,pubchem_yayilim
+riboflavin,,,,A,eslesmedi,7,,1,
+rilpivirin,rilpivirine,rilpivirine,J05AG05,J,A,7,DDInter1595,1,tam_ad
+rivastigmin,rivastigmine,rivastigmine,N06DA03,N,A,7,DDInter1610,1,tam_ad
+rivoraksaban,rivaroxaban,rivaroxaban,B01AF01,B,A,7,DDInter1609,1,tam_ad
+rizatriptan,rizatriptan,rizatriptan,N02CC04,N,A,7,DDInter1611,1,tam_ad
+seknidazol,secnidazole,secnidazole,P01AB07,P,A,7,DDInter1649,1,tam_ad
+siklofosfamid,cyclophosphamide,cyclophosphamide,L01AA01,L,A,7,DDInter456,1,tam_ad
+sisplatin,cisplatin,cisplatin,L01XA01,L,A,7,DDInter387,1,tam_ad
+sodium phosphate,sodium phosphate,sodium phosphate,A06AG01,A,A,7,,1,
+syloid karisimi,,,,J,eslesmedi,7,,1,
+tacrolimus,tacrolimus,tacrolimus,L04AD02,L,A,7,DDInter1735,1,tam_ad
+tenoxicam,tenoxicam,tenoxicam,M01AC02,M,A,7,,1,
+terbinafine,terbinafine,terbinafine,D01BA02,D,A,7,DDInter1768,1,tam_ad
+tocilizumab,tocilizumab,tocilizumab,L04AC07,L,A,7,DDInter1824,1,tam_ad
+urapidil,,,,C,eslesmedi,7,,1,
+varfarin,warfarin,warfarin,B01AA03,B,A,7,DDInter1951,1,tam_ad
+venetoklaks,venetoclax,venetoclax,L01XX52,L,A,7,DDInter1926,1,tam_ad
+vitamin b-complex,,,,A,eslesmedi,7,,1,
+vitamin b2,,,,A,eslesmedi,7,,1,
+zofenopril,zofenopril,zofenopril,C09AA15,C,A,7,,1,
+albendazol,albendazole,albendazole,P02CA03,P,A,6,DDInter35,1,tam_ad
+alendronat monosodyum,alendronic acid,alendronic acid,M05BA04,M,A,6,DDInter42,1,tam_ad
+allopurinol,allopurinol,allopurinol,M04AA01,M,A,6,DDInter48,1,tam_ad
+alpelisib,alpelisib,alpelisib,L01EM03,L,A,6,DDInter53,1,tam_ad
+amorolfin,amorolfine,amorolfine,D01AE16,D,A,6,,1,
+anagrelid,anagrelide,anagrelide,L01XX35,L,A,6,DDInter93,1,tam_ad
+asetil sistein,acetylcysteine,acetylcysteine,R05CB01,R,A,6,DDInter19,1,tam_ad
+atomoxetine,atomoxetine,atomoxetine,,N,SKRS,6,DDInter132,1,tam_ad
+avanafil,avanafil,avanafil,,G,C,6,DDInter141,1,tam_ad
+barium sulfate with suspending agents,barium sulfate with suspending agents,barium sulfate with suspending agents,V08BA01,V,A,6,,1,
+bemiparin,bemiparin,bemiparin,B01AB12,B,A,6,,1,
+biperiden,biperiden,biperiden,N04AA02,N,A,6,DDInter211,1,tam_ad
+canli atenue kabakulak virusu,,,,J,eslesmedi,6,,1,
+canli atenue kizamikcik virusu,,,,J,eslesmedi,6,,1,
+carbocisteine,carbocisteine,carbocisteine,R05CB03,R,A,6,,1,
+cefaclor,cefaclor,cefaclor,J01DC04,J,A,6,DDInter309,1,tam_ad
+combinations of electrolytes,,,,B,eslesmedi,6,,1,
+dekstran 40,dextran,dextran,B05AA05,B,A,6,,1,
+demir,,,,B,eslesmedi,6,,1,
+demir ii,ferrous sulfate,ferrous sulfate,B03AA07,B,A,6,,1,
+desonide,desonide,desonide,S01BA11,D,A,6,,1,
+dextran,dextran,dextran,B05AA05,B,A,6,,1,
+dihidroksialuminyum aminoasetat,,,,A,eslesmedi,6,,1,
+dipiridamol,dipyridamole,dipyridamole,B01AC07,B,A,6,DDInter573,1,tam_ad
+edoksaban,edoxaban,edoxaban,B01AF03,B,A,6,DDInter621,1,tam_ad
+efmoroktokog alfa,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,6,,1,
+epinefrin baz,,,,N,eslesmedi,6,,1,
+ezetimip,ezetimibe,ezetimibe,C10BA05,C,B,6,DDInter707,1,tam_ad
+famciclovir,famciclovir,famciclovir,J05AB09,J,A,6,DDInter711,1,tam_ad
+finasterid,finasteride,finasteride,G04CB01,G,A,6,DDInter736,1,tam_ad
+fondaparinuks,fondaparinux,fondaparinux,B01AX05,B,A,6,DDInter775,1,tam_ad
+fosinopril,fosinopril,fosinopril,C09AA09,C,A,6,DDInter781,1,tam_ad
+furasemid,,,,C,eslesmedi,6,,1,
+ginko biloba kuru ekstresi,,,,N,eslesmedi,6,,1,
+gliseril trinitrat,glyceryl trinitrate,glyceryl trinitrate,C05AE01,C,A,6,,1,
+gliserofosfat.hidrat,,,,B,eslesmedi,6,,0,
+glyceryl trinitrate,glyceryl trinitrate,glyceryl trinitrate,C01DA02,C,A,6,,1,
+golimumab,golimumab,golimumab,L04AB06,L,A,6,DDInter837,1,tam_ad
+guselkumab,guselkumab,guselkumab,L04AC16,L,A,6,DDInter849,1,tam_ad
+hamamelis virginiana,,,,D,eslesmedi,6,,1,
+hidrokinon,hidrokuinon,hidrokuinon,D11AX11,D,A,6,,1,
+hydrocortisone butyrate,hydrocortisone butyrate,hydrocortisone butyrate,D07AB02,D,A,6,DDInter888,1,tam_ad
+hydroxyethylstarch,hydroxyethylstarch,hydroxyethylstarch,B05AA07,B,A,6,,1,
+ibrutinib,ibrutinib,ibrutinib,L01EL01,L,A,6,DDInter899,1,tam_ad
+ihtiyol,,,,D,eslesmedi,6,,1,
+iksekizumab,ixekizumab,ixekizumab,L04AC13,L,A,6,DDInter1003,1,tam_ad
+insan fibrinojeni,"fibrinogen, human","fibrinogen, human",B02BB01,B,A,6,,1,
+isosorbide mononitrate,isosorbide mononitrate,isosorbide mononitrate,C01DA14,C,A,6,DDInter990,1,tam_ad
+isotretinoin,isotretinoin,isotretinoin,D10BA01,D,A,6,DDInter991,1,tam_ad
+ivabradin,ivabradine,ivabradine,C01EB17,C,A,6,DDInter996,1,tam_ad
+iyobenguan,,,,V,eslesmedi,6,,1,
+karfilzomib,carfilzomib,carfilzomib,L01XG02,L,A,6,DDInter299,1,tam_ad
+ketokonazol,ketoconazole,ketoconazole,J02AB02,J,A,6,DDInter1008,1,tam_ad
+klorhekzidin,,,,D,eslesmedi,6,,1,
+korur,,,,B,eslesmedi,6,,1,
+"l-lizin, l- metiyonin",,,,B,eslesmedi,6,,0,
+l-ornitin/l-aspartat,,,,A,eslesmedi,6,,1,
+"l-serin, l- treonin",,,,B,eslesmedi,6,,0,
+lactulose,lactulose,lactulose,A06AD11,A,A,6,DDInter1018,1,tam_ad
+levalbuterol,,,,R,eslesmedi,6,,1,
+levocetirizine,levocetirizine,levocetirizine,R06AE09,R,A,6,DDInter1053,1,tam_ad
+levodropropizine,levodropropizine,levodropropizine,R05DB27,R,A,6,,1,
+live attenuated,live attenuated,live attenuated,J07AN01,J,B,6,,1,
+magnezyum,,,,B,eslesmedi,6,,1,
+magnezyum klorur 6h20,,,,B,eslesmedi,6,,0,
+mefenamik asit,mefenamic acid,mefenamic acid,M01AG01,M,A,6,DDInter1139,1,tam_ad
+metabisulfit,,,,B,eslesmedi,6,,0,
+metil,,,,M,eslesmedi,6,,1,
+moksonidin,moxonidine,moxonidine,C02AC05,C,A,6,,1,
+niasinamid,,,,A,eslesmedi,6,,1,
+nifuroksazid,nifuroxazide,nifuroxazide,A07AX03,A,A,6,,1,
+nirsevimab,nirsevimab,nirsevimab,J06BD08,J,A,6,,1,
+nistadin,nystatin,nystatin,A07AA02,A,A,6,DDInter1318,1,tam_ad
+nitrofurantoin,nitrofurantoin,nitrofurantoin,J01XE01,J,A,6,DDInter1303,1,tam_ad
+nitrofurazon,nitrofural,nitrofural,D08AF01,D,A,6,,1,
+nizatidine,nizatidine,nizatidine,A02BA04,A,A,6,DDInter1309,1,tam_ad
+novaljin,metamizole sodium,metamizole sodium,N02BB02,N,A,6,,1,
+oksaliplatin,oxaliplatin,oxaliplatin,L01XA03,L,A,6,DDInter1355,1,tam_ad
+okskarbazepin,oxcarbazepine,oxcarbazepine,N03AF02,N,A,6,DDInter1360,1,tam_ad
+oktakog alfa,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,6,,1,
+oktenidin,,,,D,eslesmedi,6,,1,
+olmesartan medoksamil,olmesartan,olmesartan medoxomil,C09CA08,C,A,6,DDInter1330,1,pubchem_yayilim
+oxcarbazepine,oxcarbazepine,oxcarbazepine,N03AF02,N,A,6,DDInter1360,1,tam_ad
+oxolamine,oxolamine,oxolamine,R05DB07,R,A,6,,1,
+oxymetazoline,oxymetazoline,oxymetazoline,R01AA05,R,A,6,,1,
+patiromer sorbiteks,,,,V,eslesmedi,6,,1,
+pentoxifylline,pentoxifylline,pentoxifylline,C04AD03,C,A,6,DDInter1426,1,tam_ad
+pilokarpin,pilocarpine,pilocarpine,S01EB01,S,A,6,DDInter1465,1,tam_ad
+pimozid,pimozide,pimozide,N05AG02,N,A,6,DDInter1470,1,tam_ad
+pleriksafor,plerixafor,plerixafor,L03AX16,L,A,6,,1,
+polidokanol,polidocanol,polidocanol,C05BB02,C,A,6,,1,
+polistiren sulfonat kalsiyum tuzu,polystyrene sulfonate,polystyrene sulfonate,V03AE01,V,A,6,,1,
+potasyum asetat,,,,B,eslesmedi,6,,0,
+potasyum bikarbonat,,,,A,eslesmedi,6,,1,
+prokain,procaine,procaine,N01BA02,N,A,6,DDInter1525,1,tam_ad
+rafine soyayagi,,,,B,eslesmedi,6,,0,
+rafine zeytinyagi - rafine soya yagi karisimi,,,,B,eslesmedi,6,,0,
+rasekadotril,racecadotril,racecadotril,A07XA04,A,A,6,,1,
+repaglinide,repaglinide,repaglinide,A10BX02,A,A,6,DDInter1581,1,tam_ad
+roflumilast,roflumilast,roflumilast,R03DX07,R,A,6,DDInter1614,1,tam_ad
+ropinirol,ropinirole,ropinirole,N04BC04,N,A,6,DDInter1619,1,tam_ad
+s-metoprolol,metoprolol,metoprolol,C07AB02,C,A,6,DDInter1200,1,tam_ad
+saccharomyces boulardii,saccharomyces boulardii,saccharomyces boulardii,A07FA02,A,A,6,,1,
+sefozolin,cefazolin,cefazolin,J01DB04,J,A,6,DDInter314,1,tam_ad
+seftazidim,ceftazidime,ceftazidime,J01DD02,J,A,6,DDInter330,1,tam_ad
+seftriakson disodyum triseskuihidrat,ceftriaxone,ceftriaxone,J01DD04,J,A,6,DDInter334,1,tam_ad
+silodosin,silodosin,silodosin,G04CA04,G,A,6,DDInter1667,1,tam_ad
+sisaprid,,,,A,eslesmedi,6,,1,
+sodum bisulfit,,,,B,eslesmedi,6,,0,
+sodyum asetat 3h20,,,,B,eslesmedi,6,,0,
+sukraloz,,,,A,eslesmedi,6,,1,
+tamoxifen,tamoxifen,tamoxifen,L02BA01,L,A,6,DDInter1744,1,tam_ad
+terbutalin,terbutaline,terbutaline,R03CC03,R,A,6,DDInter1769,1,tam_ad
+terramisin,,,,D,eslesmedi,6,,1,
+tiamfenikol,thiamphenicol,thiamphenicol,J01BA02,J,A,6,,1,
+tioconazole,tioconazole,tioconazole,D01AC07,D,A,6,DDInter1813,1,tam_ad
+tirofiban,tirofiban,tirofiban,B01AC17,B,A,6,DDInter1818,1,tam_ad
+tolterodine,tolterodine,tolterodine,G04BD07,G,A,6,DDInter1832,1,tam_ad
+topiramate,topiramate,topiramate,N03AX11,N,A,6,DDInter1834,1,tam_ad
+topotekan,topotecan,topotecan,L01CE01,L,A,6,DDInter1835,1,tam_ad
+trastuzumab,trastuzumab,trastuzumab,L01FD01,L,A,6,DDInter1846,1,tam_ad
+travoprost,travoprost,travoprost,S01EE04,S,A,6,DDInter1849,1,tam_ad
+trazodone,trazodone,trazodone,N06AX05,N,A,6,DDInter1851,1,tam_ad
+trimetobenzamid,trimethobenzamide,trimethobenzamide,R06AA10,A,A,6,DDInter1873,1,tam_ad
+turoktokog alfa,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,6,,1,
+ulipristal,ulipristal,ulipristal,G03AD02,G,A,6,DDInter1897,1,tam_ad
+urofollitropin,urofollitropin,urofollitropin,G03GA04,G,A,6,DDInter1904,1,tam_ad
+ustekinumab,ustekinumab,ustekinumab,L04AC05,L,A,6,DDInter1907,1,tam_ad
+valasiklovir,valaciclovir,valaciclovir,J05AB11,J,A,6,DDInter1908,1,tam_ad
+valgansiklovir,valganciclovir,valganciclovir,J05AB14,J,A,6,DDInter1912,1,tam_ad
+varenicline,varenicline,varenicline,N07BA03,N,A,6,DDInter1919,1,tam_ad
+vareniklin,varenicline,varenicline,N07BA03,N,A,6,DDInter1919,1,tam_ad
+vitamin d3 (kolekalsiferol,cholecalciferol,colecalciferol,A11CC05,A,A,6,DDInter367,1,pubchem_yayilim
+vitamin k1,phytomenadione,phytomenadione,B02BA01,A,A,6,,1,
+aktif komur,medicinal charcoal,medicinal charcoal,A07BA01,A,A,5,,1,
+alendronik asit,alendronic acid,alendronic acid,M05BA04,M,A,5,DDInter42,1,tam_ad
+alverin,,,,A,eslesmedi,5,,1,
+amantadin,amantadine,amantadine,N04BB01,N,A,5,DDInter60,1,tam_ad
+ambroxol,ambroxol,ambroxol,R05CB06,R,A,5,,1,
+aminoasit,,,,V,eslesmedi,5,,0,
+amisulprid,amisulpride,amisulpride,N05AL05,N,A,5,DDInter77,1,tam_ad
+amonyum,,,,R,eslesmedi,5,,1,
+aprotinin,aprotinin,aprotinin,B02AB01,B,A,5,DDInter113,1,tam_ad
+atogepant,,,,N,eslesmedi,5,,1,
+azathioprine,azathioprine,azathioprine,L04AX01,L,A,5,DDInter150,1,tam_ad
+benzydamine,benzydamine,benzydamine,M02AA05,M,A,5,,1,
+bizmut subsalisilat,,,,A,eslesmedi,5,,1,
+butenafine,butenafine,butenafine,D01AE23,D,A,5,,1,
+candesartan,candesartan,candesartan,C09DA06,C,B,5,,1,
+carboplatin,carboplatin,carboplatin,L01XA02,L,A,5,DDInter298,1,tam_ad
+cefprozil,cefprozil,cefprozil,J01DC10,J,A,5,DDInter327,1,tam_ad
+ceftazidime,ceftazidime,ceftazidime,J01DD02,J,A,5,DDInter330,1,tam_ad
+ceftibuten,ceftibuten,ceftibuten,J01DD14,J,A,5,DDInter331,1,tam_ad
+combinations with vitamin d,,,,A,eslesmedi,5,,1,
+d-biotin,,,,A,eslesmedi,5,,1,
+dabigatran etexilate,dabigatran etexilate,dabigatran etexilate,B01AE07,B,A,5,,1,
+demir iii hidroksi polimaltoz kompleksi,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,5,,1,
+demir karboksimaltoz,,,,B,eslesmedi,5,,1,
+demir polimaltoz kompleksi,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,5,,1,
+denosumab,denosumab,denosumab,M05BX04,M,A,5,DDInter500,1,tam_ad
+desitabin,decitabine,decitabine,L01BC08,L,A,5,DDInter487,1,tam_ad
+didrogesteron,dydrogesterone,dydrogesterone,G03DB01,G,A,5,,1,
+diflunisal,diflunisal,diflunisal,N02BA11,N,A,5,DDInter551,1,tam_ad
+dihydroxialumini sodium carbonate,dihydroxialumini sodium carbonate,dihydroxialumini sodium carbonate,A02AB04,A,A,5,,1,
+dopamine,dopamine,dopamine,C01CA04,C,A,5,DDInter584,1,tam_ad
+eftrenonakog alfa,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,5,,1,
+emedastin difumarat,emedastine,emedastine,S01GX06,S,A,5,,1,
+epoprostenol,epoprostenol,epoprostenol,B01AC09,B,A,5,DDInter657,1,tam_ad
+erdafitinib,erdafitinib,erdafitinib,L01EN01,L,A,5,DDInter661,1,tam_ad
+estriol,estriol,estriol,G03CA04,G,A,5,,1,
+etoposid,etoposide,etoposide,L01CB01,L,A,5,DDInter702,1,tam_ad
+etoposide,etoposide,etoposide,L01CB01,L,A,5,DDInter702,1,tam_ad
+faktor 8,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,5,,1,
+febuksostat,febuxostat,febuxostat,M04AA03,M,A,5,DDInter713,1,tam_ad
+fenoterol,fenoterol,fenoterol,R03AL01,R,B,5,,1,
+ferrik hidroksit sukroz kompleksi,,,,B,eslesmedi,5,,1,
+fluoxetine,fluoxetine,fluoxetine,N06AB03,N,A,5,DDInter758,1,tam_ad
+folic acid,folic acid,folic acid,B03BB01,B,A,5,DDInter771,1,tam_ad
+formoterol fumarad,,,,R,eslesmedi,5,,1,
+gliserol trinitrat,glyceryl trinitrate,glyceryl trinitrate,C01DA02,C,A,5,,1,
+hamamelis virginiana distilat,,,,D,eslesmedi,5,,1,
+ibandronik asit,ibandronic acid,ibandronic acid,M05BA06,M,A,5,,1,
+immunoglobulins,,,,J,eslesmedi,5,,1,
+indapamide,indapamide,indapamide,C03BA11,C,A,5,DDInter916,1,tam_ad
+insan hepatit b immunoglobulini,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,5,,1,
+insan normal immunglobluni,"immunoglobulins,normal human,for extravascular adm.","immunoglobulins,normal human,for extravascular adm.",J06BA01,J,A,5,,1,
+insan normal immunoglobulin,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,5,,1,
+insulin,insulin (human),insulin (human),A10AC01,A,A,5,,1,
+iodixanol,iodixanol,iodixanol,V08AB09,V,A,5,DDInter958,1,tam_ad
+ioversol,ioversol,ioversol,V08AB07,V,A,5,DDInter966,1,tam_ad
+iron,iron,iron,B03AE01,B,B,5,DDInter975,1,tam_ad
+isosorbitdinitrat,isosorbide dinitrate,isosorbide dinitrate,C01DA08,C,A,5,DDInter989,1,tam_ad
+kalsiyum glukonat,,,,A,eslesmedi,5,,1,
+kalvulanik asit,,,,J,eslesmedi,5,,1,
+kandesartan sileksetilamlodipin besilathidroklorotiyazid,"candesartan, amlodipine and hydrochlorothiazide","candesartan, amlodipine and hydrochlorothiazide",C09DX06,C,A,5,,1,
+karbonhidratlar,carbohydrates,carbohydrates,B05BA03,B,A,5,,1,
+karvedillol,carvedilol,carvedilol,C07AG02,C,A,5,DDInter305,1,tam_ad
+ketoasit kombinasyonu,,,,V,eslesmedi,5,,0,
+klavulanik asit syloid,,,,J,eslesmedi,5,,1,
+klavulonik asit,,,,J,eslesmedi,5,,1,
+klorkinaldol,,,,D,eslesmedi,5,,1,
+klorzoksazon,chlorzoxazone,chlorzoxazone,M03BB03,M,A,5,DDInter366,1,tam_ad
+lamotrigine,lamotrigine,lamotrigine,N03AX09,N,A,5,DDInter1020,1,tam_ad
+lanatocide c,,,,C,eslesmedi,5,,1,
+lauromakrogol 400,polidocanol,polidocanol,C05BB02,C,A,5,,1,
+leflunomide,leflunomide,leflunomide,,L,C,5,DDInter1033,1,tam_ad
+levofloksasin hermihidrat,levofloxacin,levofloxacin,J01MA12,J,A,5,DDInter1055,1,tam_ad
+levosimendan,levosimendan,levosimendan,C01CX08,C,A,5,,1,
+liraglutide,liraglutide,liraglutide,A10BJ02,A,A,5,DDInter1077,1,tam_ad
+makrogol 3350,,,,A,eslesmedi,5,,1,
+metaprolol,metoprolol,metoprolol,C07AB02,C,A,5,DDInter1200,1,tam_ad
+milk substitutes,milk substitutes,milk substitutes,,V,SKRS,5,,0,
+morphine,morphine,morphine,N02AA01,N,A,5,DDInter1244,1,tam_ad
+moxifloxacin,moxifloxacin,moxifloxacin,J01MA14,J,A,5,DDInter1247,1,tam_ad
+multivitamin,,,,A,eslesmedi,5,,1,
+nadifloksasin,nadifloxacin,nadifloxacin,D10AF05,D,A,5,,1,
+nicopyron,,,,N,eslesmedi,5,,1,
+nifedipin,nifedipine,nifedipine,C08CA05,C,A,5,DDInter1291,1,tam_ad
+nikardipin,nicardipine,nicardipine,C08CA04,C,A,5,DDInter1287,1,tam_ad
+nintedanib esilat,nintedanib,nintedanib,L01EX09,L,A,5,DDInter1296,1,tam_ad
+nonakog gamma,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,5,,1,
+norepinefrin,norepinephrine,norepinephrine,C01CA03,C,A,5,DDInter1311,1,tam_ad
+"normal human, for intravascular adm",,,,J,eslesmedi,5,,1,
+oksitetrasiklin,,,,D,eslesmedi,5,,1,
+oksitosin,oxytocin,oxytocin,H01BB02,H,A,5,DDInter1375,1,tam_ad
+oktokog alfa,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,5,,1,
+olmesartan medoxomil,olmesartan,olmesartan medoxomil,C09CA08,C,A,5,DDInter1330,1,pubchem_yayilim
+or other drugs,,,,A,eslesmedi,5,,1,
+other nutrients,other nutrients,other nutrients,,V,SKRS,5,,0,
+oxaliplatin,oxaliplatin,oxaliplatin,L01XA03,L,A,5,DDInter1355,1,tam_ad
+pamidronat,pamidronic acid,pamidronic acid,M05BA03,M,A,5,DDInter1383,1,tam_ad
+paroxetine,paroxetine,paroxetine,N06AB05,N,A,5,DDInter1397,1,tam_ad
+penislin,,,,J,eslesmedi,5,,1,
+pentoksifilin,pentoxifylline,pentoxifylline,C04AD03,C,A,5,DDInter1426,1,tam_ad
+polidocanol,polidocanol,polidocanol,,C,SKRS,5,,1,
+potasyum iyodur,,,,H,eslesmedi,5,,1,
+prednizolon,desonide,desonide,D07AB08,D,A,5,,1,
+prokain penisilin,,,,J,eslesmedi,5,,1,
+pseudoephedrine,pseudoephedrine,pseudoephedrine,R01BA02,R,A,5,DDInter1545,1,tam_ad
+pyridoxine,pyridoxine,pyridoxine (vit b6),A11HA02,A,A,5,DDInter1549,1,pubchem_yayilim
+retinoik asit,tretinoin,tretinoin,D10AD01,D,A,5,DDInter1853,1,tam_ad
+rifaksimin,rifaximin,rifaximin,A07AA11,A,A,5,DDInter1593,1,tam_ad
+risankizumab,risankizumab,risankizumab,L04AC18,L,A,5,DDInter1602,1,tam_ad
+rituksimab,rituximab,rituximab,L01FA01,L,A,5,DDInter1608,1,tam_ad
+rocuronium bromide,rocuronium bromide,rocuronium bromide,M03AC09,M,A,5,,1,
+rurioktokog alfa pegol,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,5,,1,
+sakarin,,,,A,eslesmedi,5,,1,
+sefadroksil,,,,J,eslesmedi,5,,1,
+selekoksib,celecoxib,celecoxib,M01AH01,M,A,5,DDInter336,1,tam_ad
+selineksor,selinexor,selinexor,L01XX66,L,A,5,DDInter1657,1,tam_ad
+siklamat,,,,A,eslesmedi,5,,1,
+silastatin,,,,J,eslesmedi,5,,1,
+silver sulfadiazine,silver sulfadiazine,silver sulfadiazine,D06BA01,D,A,5,,1,
+siproteron,cyproterone,cyproterone,G03HA01,G,A,5,,1,
+sirolimus,sirolimus,sirolimus,,L,C,5,DDInter1678,1,tam_ad
+sodium chloride,sodium chloride,sodium chloride,,B,SKRS,5,DDInter1685,1,tam_ad
+sodyum florur,sodium fluoride,sodium fluoride,A01AA01,A,A,5,,1,
+sofosbuvir,sofosbuvir,sofosbuvir,J05AP08,J,A,5,DDInter1695,1,tam_ad
+sucralfate,sucralfate,sucralfate,A02BX02,A,A,5,DDInter1717,1,tam_ad
+talazoparib,talazoparib,talazoparib,L01XK04,L,A,5,DDInter1742,1,tam_ad
+terazosin,terazosin,terazosin,G04CA03,G,A,5,DDInter1767,1,tam_ad
+tetracycline,tetracycline,tetracycline,J01AA07,J,A,5,DDInter1783,1,tam_ad
+timol,,,,R,eslesmedi,5,,1,
+tiyoklosikosid,thiocolchicoside,thiocolchicoside,M03BX05,M,A,5,,1,
+tropikamid,tropicamide,tropicamide,S01FA06,S,A,5,DDInter1884,1,tam_ad
+tuberkulin saflastirilmis protein turevi,,,,V,eslesmedi,5,,1,
+turoktokog alfa pegol,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,5,,1,
+vekuronyum,vecuronium,vecuronium,M03AC03,M,A,5,DDInter1922,1,tam_ad
+vincristine,vincristine,vincristine,L01CA02,L,A,5,DDInter1937,1,tam_ad
+xylometazoline,xylometazoline,xylometazoline,R01AA07,R,A,5,,1,
+zonisamid,zonisamide,zonisamide,N03AX15,N,A,5,DDInter1971,1,tam_ad
+33f,,,,J,eslesmedi,4,,1,
+a vitamini,retinol (vit a),retinol (vit a),A11CA01,A,A,4,,1,
+abakavir,abacavir,abacavir,J05AF06,J,A,4,DDInter1,1,tam_ad
+acemetacin,acemetacin,acemetacin,M01AB11,M,A,4,,1,
+akalabrutinib,acalabrutinib,acalabrutinib,L01EL02,L,A,4,DDInter9,1,tam_ad
+albutrepenonakog alfa,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,4,,1,
+alfuzosin,alfuzosin,alfuzosin,G04CA01,G,A,4,DDInter44,1,tam_ad
+alginic acid,alginic acid,alginic acid,,A,SKRS,4,,1,
+aluminyum hidroksiklorit,,,,D,eslesmedi,4,,1,
+amlodipinb,amlodipine,amlodipine,C09DB05,C,B,4,DDInter79,1,tam_ad
+anastrozol,anastrozole,anastrozole,L02BG03,L,A,4,DDInter95,1,tam_ad
+antiflatulents,antiflatulents,antiflatulents,A02AF01,A,B,4,,1,
+aritilmis rekombinant insan epidermal buyume faktoru aritilmis bulku,,,,D,eslesmedi,4,,1,
+arsenik trioksit,arsenic trioxide,arsenic trioxide,L01XX27,L,A,4,DDInter120,1,tam_ad
+asfotase alfa,,,,A,eslesmedi,4,,1,
+asitretin,acitretin,acitretin,D05BB02,D,A,4,DDInter21,1,tam_ad
+astemizol,astemizole,astemizole,,R,C,4,DDInter128,1,tam_ad
+atomeksin,atomoxetine,atomoxetine,N06BA09,N,A,4,DDInter132,1,tam_ad
+atracurium,atracurium,atracurium,M03AC04,M,A,4,DDInter135,1,tam_ad
+baloksavir marboksil,baloxavir marboxil,baloxavir marboxil,,J,C,4,DDInter163,1,tam_ad
+beclometasone,beclometasone,beclometasone,D07AC15,R,A,4,,1,
+benzalkonyum,benzalkonium,benzalkonium,D08AJ01,M,A,4,,1,
+betahistidin,betahistine,betahistine,N07CA01,N,A,4,,1,
+bordetella pertussis antijenleri: bogmaca toksoidi,,,,J,eslesmedi,4,,1,
+bromheksin,bromhexine,bromhexine,R05CB02,R,A,4,,1,
+bromhexine,bromhexine,bromhexine,R05CB02,R,A,4,,1,
+bromokriptin,bromocriptine,bromocriptine,G02CB01,G,A,4,DDInter243,1,tam_ad
+buprenorphine,buprenorphine,buprenorphine,,N,C,4,DDInter251,1,tam_ad
+busulfan,busulfan,busulfan,L01AB01,L,A,4,DDInter255,1,tam_ad
+calcipotriol,calcipotriol,calcipotriol,D05AX02,D,A,4,DDInter266,1,tam_ad
+castor oil,castor oil,castor oil,A06AB05,A,A,4,DDInter307,1,tam_ad
+cefditoren,cefditoren,cefditoren,J01DD16,J,A,4,DDInter316,1,tam_ad
+cilostazol,cilostazol,cilostazol,B01AC23,B,A,4,DDInter379,1,tam_ad
+cinnarizine,cinnarizine,cinnarizine,N07CA02,N,A,4,,1,
+cisplatin,cisplatin,cisplatin,L01XA01,L,A,4,DDInter387,1,tam_ad
+clobetasone,clobetasone,clobetasone,D07AB01,D,A,4,,1,
+colecalciferol,cholecalciferol,colecalciferol,A11CC05,A,A,4,DDInter367,1,pubchem_yayilim
+cyanocobalamin,cyanocobalamin,cyanocobalamin,B03BA01,B,A,4,DDInter451,1,tam_ad
+d-alfa-tokoferol,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,4,,1,
+d-pantenol,,,,A,eslesmedi,4,,1,
+d3 vitamini,cholecalciferol,colecalciferol,A11CC05,A,A,4,DDInter367,1,pubchem_yayilim
+dabrafenib,dabrafenib,dabrafenib,L01EC02,L,A,4,DDInter462,1,tam_ad
+damoktokog alfa pegol,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,4,,1,
+dapson,dapsone,dapsone,D10AX05,D,A,4,DDInter475,1,tam_ad
+demir proteinsuksinilat,ferric proteinsuccinylate,ferric proteinsuccinylate,B03AB09,B,A,4,,1,
+desogestrel,desogestrel,desogestrel,G03AC09,G,A,4,DDInter508,1,tam_ad
+dexpanthenol,dexpanthenol,dexpanthenol,D03AX03,D,A,4,,1,
+diasetat,calcium acetate,calcium acetate,V03AE07,V,A,4,DDInter270,1,tam_ad
+dietilamin,,,,M,eslesmedi,4,,1,
+dihidroksipropil teofilin,diprophylline,diprophylline,R03DA01,R,A,4,,1,
+dimenhidrinat,dimenhydrinate,dimenhydrinate,R06AA11,R,A,4,DDInter562,1,tam_ad
+diphenhydramine,diphenhydramine,diphenhydramine,R06AA02,R,A,4,DDInter569,1,tam_ad
+disodyum fosfat,,,,B,eslesmedi,4,,0,
+disopiramit,,,,C,eslesmedi,4,,1,
+dl-alfa tokoferol,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,4,,1,
+doksazosin,doxazosin,doxazosin,C02CA04,C,A,4,DDInter592,1,tam_ad
+dulaglutide,dulaglutide,dulaglutide,A10BJ05,A,A,4,DDInter607,1,tam_ad
+edetates,edetates,edetates,V03AB03,V,A,4,,1,
+elektrolit cozeltisi,,,,B,eslesmedi,4,,1,
+elvitegravir,elvitegravir,elvitegravir,J05AR18,J,B,4,DDInter633,1,tam_ad
+emicizumab,emicizumab,emicizumab,B02BX06,B,A,4,DDInter635,1,tam_ad
+enoxaparin,enoxaparin,enoxaparin,B01AB05,B,A,4,DDInter645,1,tam_ad
+entecavir,entecavir,entecavir,J05AF10,J,A,4,DDInter647,1,tam_ad
+etanercept,etanercept,etanercept,L04AB01,L,A,4,DDInter687,1,tam_ad
+ethinylestradiol,ethinylestradiol,ethinylestradiol,G03AA07,G,B,4,DDInter692,1,tam_ad
+evolocumab,evolocumab,evolocumab,C10AX13,C,A,4,,1,
+extractum cepae,,,,D,eslesmedi,4,,1,
+fenitoin,phenytoin,phenytoin,N03AB02,N,A,4,DDInter1460,1,tam_ad
+fenofibrik asit,choline fenofibrate,choline fenofibrate,C10AB11,C,A,4,,1,
+fenoksimetilpenisilin,phenoxymethylpenicillin,phenoxymethylpenicillin,J01CE02,J,A,4,DDInter1445,1,tam_ad
+fenprobamat,phenprobamate,phenprobamate,M03BA01,M,A,4,,1,
+fexofenadin,fexofenadine,fexofenadine,R06AX26,R,A,4,DDInter732,1,tam_ad
+filamentoz haemagglutinin,,,,J,eslesmedi,4,,1,
+finasteride,finasteride,finasteride,G04CB01,G,A,4,DDInter736,1,tam_ad
+finerenon,finerenone,finerenone,C03DA05,C,A,4,,1,
+flufenazin,fluphenazine,fluphenazine,N05AB02,N,A,4,DDInter760,1,tam_ad
+flumetazon pivalat,,,,D,eslesmedi,4,,1,
+fluorourasil,fluorouracil,fluorouracil,L01BC02,L,A,4,DDInter757,1,tam_ad
+fluticasone,fluticasone,fluticasone,R03AK06,R,B,4,DDInter766,1,tam_ad
+follitropin beta,follitropin beta,follitropin beta,G03GA06,G,A,4,,1,
+formeterol,formoterol,formoterol,R03AK07,R,B,4,DDInter776,1,tam_ad
+fosfomycin,fosfomycin,fosfomycin,J01XX01,J,A,4,DDInter780,1,tam_ad
+gadobenat dimeglumin,gadobenic acid,gadobenic acid,V08CA08,V,A,4,DDInter792,1,tam_ad
+galcanezumab,galcanezumab,galcanezumab,N02CD02,N,A,4,,1,
+galyum,,,,V,eslesmedi,4,,1,
+germanyum,,,,V,eslesmedi,4,,1,
+glatiramer,glatiramer acetate,glatiramer acetate,L03AX13,L,A,4,,1,
+glibenclamide,glyburide,glibenclamide,A10BB01,A,A,4,DDInter831,1,pubchem_yayilim
+glukozamin sulfat kristalize,glucosamine,glucosamine,M01AX05,M,A,4,DDInter829,1,tam_ad
+haemophilus influenzae tip b polisakkarid,,,,J,eslesmedi,4,,1,
+halometazon,halometasone,halometasone,D07AC12,D,A,4,,1,
+hekzahidrat,,,,B,eslesmedi,4,,0,
+hepatitis b,hepatitis b,hepatitis b,J07BC01,J,B,4,,1,
+hepatitis b immunoglobulin,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,4,,1,
+hidroksi etil nisasta,,,,B,eslesmedi,4,,1,
+hiyosin n butilbromur,butylscopolamine,butylscopolamine,A03BB01,A,A,4,,1,
+hydrocortisone,hydrocortisone,hydrocortisone,S01BA02,S,A,4,DDInter885,1,tam_ad
+hydroxyzine,hydroxyzine,hydroxyzine,N05BB01,N,A,4,DDInter895,1,tam_ad
+ibandronic acid,ibandronic acid,ibandronic acid,M05BA06,M,A,4,,1,
+inaktive hepatit a virus antijeni,"hepatitis a, inactivated, whole virus","hepatitis a, inactivated, whole virus",J07BC02,J,A,4,,1,
+indometacin,indometacin,indometacin,M01AB01,M,A,4,,1,
+insan immunglobulini,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,4,,1,
+insan protrombin kompleksi,"coagulation factor ıx, ıı, vıı and x in combination","coagulation factor ıx, ıı, vıı and x in combination",B02BD01,B,A,4,,1,
+insan trombini,,,,B,eslesmedi,4,,1,
+interferon beta-1a,interferon beta 1a,interferon beta 1a,L03AB07,L,A,4,DDInter947,1,tam_ad
+interferon beta-la,interferon beta 1a,interferon beta 1a,L03AB07,L,A,4,DDInter947,1,tam_ad
+ispaghula husk,,,,A,eslesmedi,4,,1,
+izotretinoin,isotretinoin,isotretinoin,D10BA01,D,A,4,DDInter991,1,tam_ad
+kalsiyum laktat,,,,A,eslesmedi,4,,1,
+kandesartan sileksatil,,,,C,eslesmedi,4,,1,
+kapesitabin,capecitabine,capecitabine,L01BC06,L,A,4,DDInter285,1,tam_ad
+karbetosin,carbetocin,carbetocin,H01BB03,H,A,4,,1,
+kariprazin,cariprazine,cariprazine,N05AX15,N,A,4,DDInter300,1,tam_ad
+karmustin,carmustine,carmustine,L01AD01,L,A,4,DDInter302,1,tam_ad
+klidinyum,,,,A,eslesmedi,4,,1,
+klobetazol propionat,clobetasol,clobetasol,D07AD01,D,A,4,DDInter402,1,tam_ad
+klordiazepoksit,,,,A,eslesmedi,4,,1,
+klorfenoksamin,chlorphenoxamine,chlorphenoxamine,D04AA34,D,A,4,,1,
+klorokin,chloroquine,chloroquine,P01BA01,P,A,4,DDInter359,1,tam_ad
+klorpropamid,,,,A,eslesmedi,4,,1,
+kobisistat,cobicistat,cobicistat,J05AR18,J,B,4,DDInter424,1,tam_ad
+kolesevelan,colesevelam,colesevelam,C10AC04,C,A,4,DDInter432,1,tam_ad
+l-isolosin,,,,B,eslesmedi,4,,0,
+l-ornitin l-aspartat,,,,A,eslesmedi,4,,1,
+lactic acid producing organisms,lactic acid producing organisms,lactic acid producing organisms,A07FA01,A,A,4,,1,
+lauromacrogol 400,polidocanol,polidocanol,C05BB02,C,A,4,,1,
+letermovir,letermovir,letermovir,,J,C,4,DDInter1039,1,tam_ad
+letrozol,letrozole,letrozole,L02BG04,L,A,4,DDInter1040,1,tam_ad
+levosalbutamol,levosalbutamol,levosalbutamol,,R,C,4,DDInter1063,1,tam_ad
+lmethiyonin,,,,B,eslesmedi,4,,0,
+lorazepam,lorazepam,lorazepam,N05BA06,N,A,4,DDInter1092,1,tam_ad
+lutropin alfa,lutropin alfa,lutropin alfa,G03GA07,G,A,4,,1,
+magaldrate,magaldrate,magaldrate,A02AF01,A,B,4,DDInter1112,1,tam_ad
+magnezyum asetat tetrahidrat,,,,B,eslesmedi,4,,0,
+menadione,menadione,menadione,B02BA02,B,A,4,,1,
+mepiramin,,,,D,eslesmedi,4,,1,
+metformin pioglitazon,metformin and pioglitazone,metformin and pioglitazone,A10BD05,A,A,4,,1,
+methiyonin,,,,B,eslesmedi,4,,0,
+metiltestosteron,methyltestosterone,methyltestosterone,G03BA02,G,A,4,DDInter1193,1,tam_ad
+mianserin,mianserin,mianserin,N06AX03,N,A,4,,1,
+mikofenolat mafetil,mycophenolic acid,mycophenolic acid,L04AA06,L,A,4,DDInter1252,1,tam_ad
+milrinon,milrinone,milrinone,C01CE02,C,A,4,DDInter1221,1,tam_ad
+minoxidil,minoxidil,minoxidil,D11AX01,D,A,4,DDInter1226,1,tam_ad
+moroktokog alfa af-cc,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,4,,1,
+mukoproteaz,,,,B,eslesmedi,4,,1,
+multienzymes,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,4,,1,
+nalmefen,nalmefene,nalmefene,N07BB05,N,A,4,DDInter1260,1,tam_ad
+nalokson,,,,N,eslesmedi,4,,1,
+neostigmin metilsulfat,neostigmine,neostigmine,N07AA01,N,A,4,DDInter1279,1,tam_ad
+niasin,nicotinic acid,nicotinic acid,C10AD02,C,A,4,,1,
+nikorandil,,,,C,eslesmedi,4,,1,
+nikotin,nicotine,nicotine,N07BA01,N,A,4,DDInter1290,1,tam_ad
+nitisinon,nitisinone,nitisinone,A16AX04,A,A,4,DDInter1300,1,tam_ad
+nitrofural,nitrofural,nitrofural,D08AF01,D,A,4,,1,
+nonakog alfa,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,4,,1,
+oksalamin,oxolamine,oxolamine,R05DB07,R,A,4,,1,
+oktenidin dihidroklorur fenoksietanol,,,,D,eslesmedi,4,,1,
+olaparib,olaparib,olaparib,L01XK01,L,A,4,DDInter1327,1,tam_ad
+omalizumab,omalizumab,omalizumab,R03DX05,R,A,4,DDInter1337,1,tam_ad
+ondansetron hidroklorurdihidrat,ondansetron,ondansetron,A04AA01,A,A,4,DDInter1342,1,tam_ad
+other combinations,,,,A,eslesmedi,4,,1,
+other drugs for obstructive airway diseases,,,,R,eslesmedi,4,,1,
+other respiratory system products,,,,R,eslesmedi,4,,1,
+pankreatin spesial,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,4,,1,
+panroprazol,pantoprazole,pantoprazole,A02BC02,A,A,4,DDInter1388,1,tam_ad
+peginterferon alfa-2a,peginterferon alfa 2a,peginterferon alfa 2a,L03AB11,L,A,4,DDInter1407,1,tam_ad
+pemetrekset disodyum hemipentahidrat,pemetrexed,pemetrexed,L01BA04,L,A,4,DDInter1414,1,tam_ad
+penisilin g potasyum kristalize,benzylpenicillin,benzylpenicillin,J01CE01,J,A,4,DDInter189,1,tam_ad
+pensiklovir,penciclovir,penciclovir,D06BB06,D,A,4,,1,
+pertaktin,,,,J,eslesmedi,4,,1,
+pertuzumab,pertuzumab,pertuzumab,L01FD02,L,A,4,DDInter1434,1,tam_ad
+petidin,pethidine,pethidine,N02AB02,N,A,4,,1,
+piperazine,piperazine,piperazine,P02CB01,P,A,4,DDInter1475,1,tam_ad
+"poliovirus : tip 1 , tip 2 , tip 3 , hepatit b yuzey antijeni",,,,J,eslesmedi,4,,1,
+potasyum hidrojen karbonat,,,,A,eslesmedi,4,,1,
+potasyum sitrat monohidrat,,,,A,eslesmedi,4,,1,
+povidon iyodin,povidone iodine,povidone iodine,D08AG02,D,A,4,,1,
+povidone-iodine,povidone iodine,povidone iodine,D08AG02,D,A,4,,1,
+pramoksin,,,,D,eslesmedi,4,,1,
+prednisolone,prednisolone,prednisolone,D07AA03,H,A,4,DDInter1513,1,tam_ad
+propilen glikol,,,,S,eslesmedi,4,,1,
+quetiapine,quetiapine,quetiapine,,N,SKRS,4,DDInter1553,1,tam_ad
+rafine zeytin yagi,,,,B,eslesmedi,4,,0,
+ramelteon,ramelteon,ramelteon,N05CH02,N,A,4,DDInter1564,1,tam_ad
+rezerpin,,,,C,eslesmedi,4,,1,
+rifamisin sv,,,,J,eslesmedi,4,,1,
+rofekoksib,,,,M,eslesmedi,4,,1,
+ruskogenin,,,,C,eslesmedi,4,,1,
+"saf zeytinyagi, saf soya yagi",fat emulsions,fat emulsions,B05BA02,B,A,4,,1,
+secukinumab,secukinumab,secukinumab,L04AC10,L,A,4,DDInter1652,1,tam_ad
+sertakonazol,sertaconazole,sertaconazole,D01AC14,D,A,4,,1,
+sertindole,sertindole,sertindole,N05AE03,N,A,4,,1,
+sevofluran,sevoflurane,sevoflurane,N01AB08,N,A,4,DDInter1664,1,tam_ad
+silostazol,cilostazol,cilostazol,B01AC23,B,A,4,DDInter379,1,tam_ad
+sitrik asit,,,,A,eslesmedi,4,,1,
+smx,,,,J,eslesmedi,4,,1,
+sodyum laktat cozeltisi,,,,B,eslesmedi,4,,0,
+sodyum sitrat dihitrat,,,,B,eslesmedi,4,,0,
+sorbitol,sorbitol,sorbitol,,A,C,4,DDInter1703,1,tam_ad
+sotalol,sotalol,sotalol,C07AA07,C,A,4,DDInter1704,1,tam_ad
+spirinolakton,spironolactone,spironolactone,C03DA01,C,A,4,DDInter1707,1,tam_ad
+sukralfat,sucralfate,sucralfate,A02BX02,A,A,4,DDInter1717,1,tam_ad
+sulpirid,sulpiride,sulpiride,N05AL01,N,A,4,,1,
+sunitinib baz,sunitinib,sunitinib,L01EX01,L,A,4,DDInter1731,1,tam_ad
+telmisartan / s-amlodipin,telmisartan and amlodipine,telmisartan and amlodipine,C09DB04,C,A,4,,1,
+terebentin yagi,,,,R,eslesmedi,4,,1,
+tetanoz proteinine konjuge edilmis olarak,,,,J,eslesmedi,4,,1,
+tetryzoline,tetryzoline,tetryzoline,S01GA02,R,A,4,,1,
+thiamphenicol,thiamphenicol,thiamphenicol,J01BA02,J,A,4,,1,
+thiopental,thiopental,thiopental,N01AF03,N,A,4,DDInter1795,1,tam_ad
+tiotropium bromide,tiotropium,tiotropium bromide,R03BB04,R,A,4,DDInter1815,1,pubchem_yayilim
+tirofiban baz,tirofiban,tirofiban,B01AC17,B,A,4,DDInter1818,1,tam_ad
+tiyokolsikozit,thiocolchicoside,thiocolchicoside,M03BX05,M,A,4,,1,
+tiyotepa,thiotepa,thiotepa,L01AC01,L,A,4,DDInter1797,1,tam_ad
+tizanidin,tizanidine,tizanidine,M03BX02,M,A,4,DDInter1821,1,tam_ad
+tmt,,,,J,eslesmedi,4,,1,
+tolnaftate,tolnaftate,tolnaftate,D01AE18,D,A,4,,1,
+tolterodin hidrojen,tolterodine,tolterodine,G04BD07,G,A,4,DDInter1832,1,tam_ad
+trametinib,trametinib,trametinib,L01EE01,L,A,4,DDInter1842,1,tam_ad
+tretinoin,tretinoin,tretinoin,D10AD01,D,A,4,DDInter1853,1,tam_ad
+triamcinolone,triamcinolone,triamcinolone,H02AB08,H,A,4,DDInter1855,1,tam_ad
+trientin,trientine,trientine,A16AX12,A,A,4,,1,
+triptorelin,triptorelin,triptorelin,L02AE04,L,A,4,DDInter1880,1,tam_ad
+upadasitinib,upadacitinib,upadacitinib,L04AF03,L,A,4,DDInter1901,1,tam_ad
+vilazodon,,,,N,eslesmedi,4,,1,
+vitamin b-complex with vitamin c,,,,A,eslesmedi,4,,1,
+vitamin-e acetate,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,4,,1,
+vitamins,,,,B,eslesmedi,4,,1,
+vitamins with minerals,,,,B,eslesmedi,4,,1,
+vortioxetine,vortioxetine,vortioxetine,,N,SKRS,4,DDInter1948,1,tam_ad
+zafirlukast,zafirlukast,zafirlukast,R03DC01,R,A,4,DDInter1955,1,tam_ad
+ziprasidon,ziprasidone,ziprasidone,N05AE04,N,A,4,DDInter1967,1,tam_ad
+zirkonyum siklosilikat,sodium zirconium cyclosilicate,sodium zirconium cyclosilicate,V03AE10,V,A,4,DDInter1694,1,tam_ad
+zuclopenthixol,zuclopenthixol,zuclopenthixol,N05AF05,N,A,4,,1,
+123i-iyobenguan(mibg-123i,,,,V,eslesmedi,3,,1,
+"15 pnomokok polisakkarit serotipi: 1, 3, 4, 5, 6a, 6b,7f, 9v, 14, 18c, 19f, 19a, 22f, 23f, 33f","pneumococcus, purified polysaccharides antigen conjugated","pneumococcus, purified polysaccharides antigen conjugated",J07AL02,J,A,3,,1,
+abrositinib,abrocitinib,abrocitinib,D11AH08,D,A,3,,1,
+adrenalin baz,,,,N,eslesmedi,3,,1,
+afatinib dimaleat,afatinib,afatinib,L01EB03,L,A,3,DDInter32,1,tam_ad
+alglukosidaz alfa,,,,A,eslesmedi,3,,1,
+alklometazon,alclometasone,alclometasone,D07AB10,D,A,3,,1,
+alteplaz,alteplase,alteplase,B01AD02,B,A,3,DDInter56,1,tam_ad
+aluminyum hidroksit,,,,A,eslesmedi,3,,1,
+amiodaron,amiodarone,amiodarone,C01BD01,C,A,3,DDInter76,1,tam_ad
+amiodarone,amiodarone,amiodarone,C01BD01,C,A,3,DDInter76,1,tam_ad
+amisulpride,amisulpride,amisulpride,N05AL05,N,A,3,DDInter77,1,tam_ad
+amlodipin bes,,,,C,eslesmedi,3,,1,
+amoksetin,atomoxetine,atomoxetine,N06BA09,N,A,3,DDInter132,1,tam_ad
+amoxicillin trihydrate,,,,J,eslesmedi,3,,1,
+anti-corn preparations,,,,D,eslesmedi,3,,1,
+anti-d immunoglobulin,anti d (rh) immunoglobulin,anti d (rh) immunoglobulin,J06BB01,J,A,3,,1,
+anti-d insan immunoglobulini,anti d (rh) immunoglobulin,anti d (rh) immunoglobulin,J06BB01,J,A,3,,1,
+antimycotique,,,,D,eslesmedi,3,,1,
+armodafinil,armodafinil,armodafinil,N06BA13,N,A,3,DDInter119,1,tam_ad
+aseluler adsorbe bogmaca: bogmaca toksoidi,,,,J,eslesmedi,3,,1,
+asemetasin,acemetacin,acemetacin,M01AB11,M,A,3,,1,
+asetilsalisalik asit,,,,N,eslesmedi,3,,1,
+"asetilsalisilik asit, c vitamini",,,,N,eslesmedi,3,,1,
+azilsartan kamedoksomil,,,,C,eslesmedi,3,,1,
+b12 vitamini,cyanocobalamin,cyanocobalamin,B03BA01,B,A,3,DDInter451,1,tam_ad
+beksaroten,bexarotene,bexarotene,L01XF03,L,A,3,DDInter202,1,tam_ad
+benazepril,benazepril,benazepril,C09AA07,C,A,3,DDInter177,1,tam_ad
+betaksolol,betaxolol,betaxolol,S01ED02,S,A,3,DDInter197,1,tam_ad
+biyosentetik insan insulini,insulin (human),insulin (human),A10AC01,A,A,3,,1,
+bleomisin,bleomycin,bleomycin,L01DC01,L,A,3,DDInter219,1,tam_ad
+buprenorfin,buprenorphine,buprenorphine,,N,C,3,DDInter251,1,tam_ad
+butamirate,butamirate,butamirate,R05DB13,R,A,3,,1,
+b’den elde edilmis prefuzyon f antijeni,,,,J,eslesmedi,3,,1,
+canli,,,,J,eslesmedi,3,,1,
+chloramphenicol,chloramphenicol,chloramphenicol,J01BA01,J,A,3,DDInter351,1,tam_ad
+chorionic gonadotrophin,chorionic gonadotrophin,chorionic gonadotrophin,G03GA01,G,A,3,,1,
+cinko,,,,B,eslesmedi,3,,1,
+cisatrakuryum,cisatracurium,cisatracurium,M03AC11,M,A,3,DDInter386,1,tam_ad
+cisplatinum,cisplatin,cisplatin,L01XA01,L,A,3,DDInter387,1,tam_ad
+coagulation factor viii,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,3,,1,
+concentrates,,,,B,eslesmedi,3,,1,
+"crm197 tasiyici proteine konjuge edilmis polisakkarit serotip 1, 3, 4, 5, 6a, 6b, 7f, 8, 9v, 10a, 11a, 12f, 14, 15b, 18c, 19a, 19f, 22f, 23f",,,,J,eslesmedi,3,,1,
+"d,1,ekzametazim",,,,V,eslesmedi,3,,1,
+d-alfatokoferol,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,3,,1,
+d-pantotenat,,,,A,eslesmedi,3,,1,
+dakomitinib,dacomitinib,dacomitinib,L01EB07,L,A,3,DDInter465,1,tam_ad
+danazol,danazol,danazol,G03XA01,G,A,3,DDInter472,1,tam_ad
+daratumumab,daratumumab,daratumumab,L01FC01,L,A,3,DDInter478,1,tam_ad
+deksketoprofen tometamol,dexketoprofen,dexketoprofen,M02AA27,M,A,3,,1,
+deksrabeprazol,dexrabeprazole,dexrabeprazole,A02BC07,A,A,3,,1,
+dekstoz,carbohydrates,carbohydrates,B05BA03,B,A,3,,1,
+demir glisinsulfat kompleksi,ferrous glycine sulfate,ferrous glycine sulfate,B03AA01,B,A,3,,1,
+desfluran,desflurane,desflurane,N01AB07,N,A,3,DDInter503,1,tam_ad
+diaserein,diacerein,diacerein,M01AX21,M,A,3,,1,
+dibazik sodyum fosfat dodekahidrat,,,,A,eslesmedi,3,,1,
+difenoksilat,,,,A,eslesmedi,3,,1,
+diflukotolon,diflucortolone,diflucortolone,D07AC06,D,A,3,,1,
+difluprednat,,,,D,eslesmedi,3,,1,
+difteri,,,,J,eslesmedi,3,,1,
+digoxin,digoxin,digoxin,C01AA05,C,A,3,DDInter554,1,tam_ad
+dihidrojenfosfat,,,,A,eslesmedi,3,,1,
+diklofenak epolamin,diclofenac,diclofenac,M02AA15,M,A,3,DDInter537,1,tam_ad
+dimetinden,dimetindene,dimetindene,D04AA13,D,A,3,,1,
+doksilamin,doxylamine,doxylamine,R06AA09,R,A,3,DDInter600,1,tam_ad
+doksisiklin,doxycycline,doxycycline,J01AA02,J,A,3,DDInter598,1,tam_ad
+elektrolitler,electrolytes,electrolytes,B05BB01,B,A,3,,1,
+enoksolon,,,,R,eslesmedi,3,,1,
+enzalutamid,enzalutamide,enzalutamide,L02BB04,L,A,3,DDInter649,1,tam_ad
+eprosartan,eprosartan,eprosartan,C09CA02,C,A,3,DDInter658,1,tam_ad
+eptacog alfa aktiflestirilmis,coagulation factor viia,coagulation factor viia,B02BD08,B,A,3,,1,
+esketamin,esketamine,esketamine,N06AX27,N,A,3,DDInter673,1,tam_ad
+ev tozu akarlarinda standardize alerjen ekstrakti,,,,V,eslesmedi,3,,1,
+faktor ix,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,3,,1,
+faktor vii,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,3,,1,
+fenamates,fenamates,fenamates,,M,SKRS,3,,1,
+fenazon,,,,S,eslesmedi,3,,1,
+fenilpropanolamin,,,,R,eslesmedi,3,,1,
+feniramin,pheniramine,pheniramine,R06AB05,R,A,3,,1,
+fenobarbital,phenobarbital,phenobarbital,N03AA02,N,A,3,DDInter1442,1,tam_ad
+fenoksietanol,,,,D,eslesmedi,3,,1,
+fenoksimetilpenisilin benzatin,benzathine phenoxymethylpenicillin,benzathine phenoxymethylpenicillin,J01CE10,J,A,3,,1,
+fentanyl,fentanyl,fentanyl,N01AH01,N,A,3,DDInter722,1,tam_ad
+fezolinetant,fezolinetant,fezolinetant,G02CX06,G,A,3,,1,
+fe²'ye ekivalen ferrum,ferrous fumarate,ferrous fumarate,B03AA02,B,A,3,DDInter725,1,tam_ad
+fimbriae tip 2,,,,J,eslesmedi,3,,1,
+florourasil,fluorouracil,fluorouracil,L01BC02,L,A,3,DDInter757,1,tam_ad
+fluconazol,fluconazole,fluconazole,J02AC01,J,A,3,DDInter743,1,tam_ad
+fludarabin,fludarabine,fludarabine,L01BB05,L,A,3,DDInter745,1,tam_ad
+flufenamik asit,,,,M,eslesmedi,3,,1,
+formetorol,formoterol,formoterol,R03AK08,R,B,3,DDInter776,1,tam_ad
+fosaprepitant dimeglumin,aprepitant,aprepitant,A04AD12,A,A,3,DDInter112,1,tam_ad
+frovatriptan,frovatriptan,frovatriptan,N02CC07,N,A,3,DDInter788,1,tam_ad
+fusidic acid,fusidic acid,fusidic acid,D06AX01,D,A,3,,1,
+gadopentat dimeglumin,gadopentetic acid,gadopentetic acid,V08CA01,V,A,3,DDInter796,1,tam_ad
+gadopentetic acid,gadopentetic acid,gadopentetic acid,V08CA01,V,A,3,DDInter796,1,tam_ad
+gadoteric acid,gadoteric acid,gadoteric acid,V08CA02,V,A,3,DDInter797,1,tam_ad
+gadoterik asit,gadoteric acid,gadoteric acid,V08CA02,V,A,3,DDInter797,1,tam_ad
+gelatin agents,gelatin agents,gelatin agents,B05AA06,B,A,3,,1,
+gestodene,gestodene,gestodene,G03AA10,G,B,3,,1,
+gingko biloba,ginkgo folium,ginkgo folium,N06DX02,N,A,3,,1,
+gliseril gayakolat,,,,R,eslesmedi,3,,1,
+gliserofosfathidrat,,,,B,eslesmedi,3,,0,
+glokokol kompleksi,,,,B,eslesmedi,3,,1,
+glukoz(17.6 g glikoz monohidrat olarak,,,,B,eslesmedi,3,,0,
+glukozamin,glucosamine,glucosamine,M01AX05,M,A,3,DDInter829,1,tam_ad
+glukozamin sulfat kristalin,,,,M,eslesmedi,3,,1,
+glutamine,glutamine,glutamine,A16AA03,A,A,3,,1,
+glycerol,glycerol,glycerol,A06AX01,A,A,3,,1,
+gonadotropin korionik,chorionic gonadotrophin,chorionic gonadotrophin,G03GA01,G,A,3,,1,
+hidrojenfosfat,,,,A,eslesmedi,3,,1,
+hidroklortitazid,,,,C,eslesmedi,3,,1,
+hidroksikobalamin,,,,B,eslesmedi,3,,1,
+hidrotalsit,hydrotalcite,hydrotalcite,A02AD04,A,A,3,,1,
+hindistan cevizi yagi,,,,R,eslesmedi,3,,1,
+hipromelloz,hypromellose,hypromellose,S01KA02,S,A,3,,1,
+hiyosin n-butilbromur,butylscopolamine,butylscopolamine,A03BB01,A,A,3,,1,
+hiyosin-n-butilbromur,butylscopolamine,butylscopolamine,A03BB01,A,A,3,,1,
+hydrochlorothiazide,hydrochlorothiazide,hydrochlorothiazide,C09DX01,C,B,3,DDInter883,1,tam_ad
+ifosfamid,ifosfamide,ifosfamide,L01AA06,L,A,3,DDInter906,1,tam_ad
+iksazomib,ixazomib,ixazomib,L01XG03,L,A,3,DDInter1002,1,tam_ad
+ilaprazol,,,,A,eslesmedi,3,,1,
+imipramin,imipramine,imipramine,N06AA02,N,A,3,DDInter912,1,tam_ad
+inaktif hepatit a virusu,"hepatitis a, inactivated, whole virus","hepatitis a, inactivated, whole virus",J07BC02,J,A,3,,1,
+inaktive hepatit a virusu,"hepatitis a, inactivated, whole virus","hepatitis a, inactivated, whole virus",J07BC02,J,A,3,,1,
+incl. combinations with polypeptides,,,,V,eslesmedi,3,,0,
+infliksimab,infliximab,infliximab,L04AB02,L,A,3,DDInter923,1,tam_ad
+insan koagulasyon faktoru ix,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,3,,1,
+itraconazole,itraconazole,itraconazole,J02AC02,J,A,3,DDInter995,1,tam_ad
+izonikotinik asit hidrazid,,,,J,eslesmedi,3,,1,
+izoprenalin,isoprenalıne,isoprenalıne,C01CA02,C,A,3,,1,
+kabergolin,cabergoline,cabergoline,G02CB03,G,A,3,DDInter260,1,tam_ad
+kabotegravir,cabotegravir,cabotegravir,,J,C,3,DDInter261,1,tam_ad
+kabozantinibmalat,cabozantinib,cabozantinib,L01EX07,L,A,3,DDInter262,1,tam_ad
+kanamisin,kanamycin,kanamycin,,J,C,3,DDInter1004,1,tam_ad
+kenodeoksikolik asit,chenodeoxycholic acid,chenodeoxycholic acid,A05AA01,A,A,3,DDInter348,1,tam_ad
+ketokanazol,ketoconazole,ketoconazole,J02AB02,J,A,3,DDInter1008,1,tam_ad
+ketoprofen lizinat,,,,R,eslesmedi,3,,1,
+klobetazol,clobetasol,clobetasol,D07AD01,D,A,3,DDInter402,1,tam_ad
+klobetazol 17-propionat,clobetasol,clobetasol,D07AD01,D,A,3,DDInter402,1,tam_ad
+klomifen,clomifene,clomifene,G03GB02,G,A,3,DDInter409,1,tam_ad
+klomipramin,clomipramine,clomipramine,N06AA04,N,A,3,DDInter410,1,tam_ad
+kloramfenikol l,chloramphenicol,chloramphenicol,J01BA01,J,A,3,DDInter351,1,tam_ad
+klorpromazin,chlorpromazine,chlorpromazine,N05AA01,N,A,3,DDInter363,1,tam_ad
+kolin,,,,A,eslesmedi,3,,1,
+kondroitin,,,,M,eslesmedi,3,,1,
+kromoglikat,cromoglicic acid,cromoglicic acid,S01GX01,S,A,3,DDInter449,1,tam_ad
+l-aspatik asit,,,,B,eslesmedi,3,,0,
+"l-fenilalanin, l",,,,B,eslesmedi,3,,1,
+l-treozin,,,,B,eslesmedi,3,,0,
+"l-triptofan, l- trozin",,,,B,eslesmedi,3,,0,
+laktik asit,,,,B,eslesmedi,3,,1,
+lanadelumab,lanadelumab,lanadelumab,B06AC05,B,A,3,,1,
+lanreotid,lanreotide,lanreotide,H01CB03,H,A,3,DDInter1021,1,tam_ad
+larotrektinib,larotrectinib,larotrectinib,L01EX12,L,A,3,DDInter1026,1,tam_ad
+latanoprosten bunod,latanoprostene bunod,latanoprostene bunod,S01EE06,S,A,3,,1,
+levamisole,levamisole,levamisole,P02CE01,P,A,3,DDInter1044,1,tam_ad
+levamizol,levamisole,levamisole,P02CE01,P,A,3,DDInter1044,1,tam_ad
+levatirasetam,levetiracetam,levetiracetam,N03AX14,N,A,3,DDInter1046,1,tam_ad
+levobupivacaine,levobupivacaine,levobupivacaine,N01BB10,N,A,3,DDInter1051,1,tam_ad
+lidoflazin,,,,C,eslesmedi,3,,1,
+lidokain prilokain,,,,N,eslesmedi,3,,1,
+linkomisin baz,lincomycin,lincomycin,J01FF02,J,A,3,DDInter1071,1,tam_ad
+lityum,lithium,lithium,N05AN01,N,A,3,,1,
+lmetiyonin,,,,B,eslesmedi,3,,0,
+lonoktokog alfa,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,3,,1,
+lopinavir,lopinavir,lopinavir,J05AR10,J,B,3,DDInter1089,1,tam_ad
+magnesium oxide,magnesium oxide,magnesium oxide,A12CC10,A,A,3,DDInter1119,1,tam_ad
+magnesium sulfate,magnesium sulfate,magnesium sulfate,A12CC02,A,A,3,DDInter1120,1,tam_ad
+magnesyum hidroksit,magnesium hydroxide,magnesium hydroxide,A02AA04,A,A,3,DDInter1118,1,tam_ad
+magnezyum sitrat anhidrit,magnesium citrate,magnesium citrate,A12CC04,A,A,3,DDInter1115,1,tam_ad
+makrogol 4000,macrogol,macrogol,A06AD15,A,A,3,,1,
+maribavir,maribavir,maribavir,J05AX10,J,A,3,,1,
+mebeverin,mebeverine,mebeverine,A03AA04,A,A,3,,1,
+medicinal charcoal,medicinal charcoal,medicinal charcoal,A07BA01,A,A,3,,1,
+mefenamic acid,mefenamic acid,mefenamic acid,M01AG01,M,A,3,DDInter1139,1,tam_ad
+mekobalamin,mecobalamin,mecobalamin,,N,C,3,DDInter1136,1,tam_ad
+menadion sodyum bisulfit,menadione,menadione,B02BA02,B,A,3,,1,
+"meningococcus a,c,y,w-135, tetravalent purified polysaccharides antigen conjugated","meningococcus a,c,y,w 135, tetravalent purified polysaccharides antigen conjugated","meningococcus a,c,y,w 135, tetravalent purified polysaccharides antigen conjugated",J07AH08,J,A,3,,1,
+menotropin hp,human menopausal gonadotrophin,human menopausal gonadotrophin,G03GA02,G,A,3,,1,
+metenamin anhidrometilen,methenamine,methenamine,J01XX05,J,A,3,DDInter1169,1,tam_ad
+metenolon,metenolone,metenolone,A14AA04,A,A,3,,1,
+metil prednisolon,methylprednisolone,methylprednisolone,H02AB04,H,A,3,DDInter1191,1,tam_ad
+metilen mavisi,,,,V,eslesmedi,3,,1,
+mibi-cu kompleksi,,,,V,eslesmedi,3,,1,
+mineral,,,,A,eslesmedi,3,,1,
+mirikizumab,interleukin inhibitors,interleukin inhibitors,L04AC24,L,A,3,,1,
+mitoksantron,mitoxantrone,mitoxantrone,L01DB07,L,A,3,DDInter1234,1,tam_ad
+mitomycin,mitomycin,mitomycin,L01DC03,L,A,3,DDInter1232,1,tam_ad
+mometaszon,mometasone,mometasone,D07AC13,D,A,3,,1,
+monobazik sodyum fosfat di-hidrat,,,,A,eslesmedi,3,,1,
+mycobacterium bovis bcg,bcg vaccine,bcg vaccine,L03AX03,L,A,3,,1,
+mycophenolic acid,mycophenolic acid,mycophenolic acid,L04AA06,L,A,3,DDInter1252,1,tam_ad
+n-difenil metil atropin,,,,A,eslesmedi,3,,1,
+naftazon,naftazone,naftazone,C05CX02,C,A,3,,1,
+nandrolondekanoat,,,,A,eslesmedi,3,,1,
+neisseria meningitidis serogrup b rekombinant lp2086 alt familya a proteini,,,,J,eslesmedi,3,,1,
+neisseria meningitidis serogrup b rekombinant lp2086 alt familya b proteini,,,,J,eslesmedi,3,,1,
+neomisin,neomycin,neomycin,,S,C,3,DDInter1277,1,tam_ad
+niklozamid,niclosamide,niclosamide,P02DA01,P,A,3,DDInter1288,1,tam_ad
+nitrendipine,nitrendipine,nitrendipine,C08CA08,C,A,3,,1,
+nonakog beta pegol,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,3,,1,
+normal insan immunglobulini g,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,3,,1,
+ofloxacin,ofloxacin,ofloxacin,J01MA01,J,A,3,DDInter1325,1,tam_ad
+oksifensiklimin,,,,A,eslesmedi,3,,1,
+oksikt,,,,A,eslesmedi,3,,1,
+oksimetolon,oxymetholone,oxymetholone,A14AA05,A,A,3,DDInter1371,1,tam_ad
+oktreotid,octreotide,octreotide,H01CB02,H,A,3,DDInter1323,1,tam_ad
+olmesartan nedoksomil,olmesartan,olmesartan medoxomil,C09DB02,C,B,3,DDInter1330,1,pubchem_yayilim
+omeprazole,omeprazole,omeprazole,A02BC01,A,A,3,DDInter1340,1,tam_ad
+opipramol,opipramol,opipramol,N06AA05,N,A,3,,1,
+ornitin,,,,B,eslesmedi,3,,0,
+other urologicals,other urologicals,other urologicals,,G,SKRS,3,,1,
+pankreatin silikon kuru toz,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,3,,1,
+pantaprazol,pantoprazole,pantoprazole,A02BC02,A,A,3,DDInter1388,1,tam_ad
+pantoprazol sodyum seksihidrat,pantoprazole,pantoprazole,A02BC02,A,A,3,DDInter1388,1,tam_ad
+paracetamol,acetaminophen,paracetamol,,N,SKRS,3,DDInter14,1,pubchem_yayilim
+parasetamol klorfeniramin maleat fenilefrin,,,,R,eslesmedi,3,,1,
+parenteral preparations,,,,B,eslesmedi,3,,1,
+pegfilgrastim,pegfilgrastim,pegfilgrastim,L03AA13,L,A,3,DDInter1405,1,tam_ad
+pegvisomant,pegvisomant,pegvisomant,H01AX01,H,A,3,DDInter1412,1,tam_ad
+penisilin g prokain,,,,J,eslesmedi,3,,1,
+pentosan polisulfat,pentosan polysulfate sodium,pentosan polysulfate sodium,G04BX15,G,A,3,,1,
+peramivir,peramivir,peramivir,J05AH03,J,A,3,,1,
+permethrin,permethrin,permethrin,P03AC04,P,A,3,,1,
+phenolphthalein,phenolphthalein,phenolphthalein,A06AB04,A,A,3,DDInter1443,1,tam_ad
+phenytoin,phenytoin,phenytoin,N03AB02,N,A,3,DDInter1460,1,tam_ad
+pimecrolimus,pimecrolimus,pimecrolimus,D11AH02,D,A,3,DDInter1468,1,tam_ad
+piperazin,piperazine,piperazine,P02CB01,P,A,3,DDInter1475,1,tam_ad
+pirazinamid,pyrazinamide,pyrazinamide,J04AK01,J,A,3,DDInter1547,1,tam_ad
+polietilen glikol,,,,S,eslesmedi,3,,1,
+polisakkarid serotip,"pneumococcus, purified polysaccharides antigen conjugated","pneumococcus, purified polysaccharides antigen conjugated",J07AL02,J,A,3,,1,
+ponatinib,ponatinib,ponatinib,,L,C,3,DDInter1492,1,tam_ad
+pora p1.4 iceren toplam protein miktari olarak olculen neisseria meningitidis grup b susu nz98/254’ten dis membran vezikulleri,,,,J,eslesmedi,3,,1,
+potassium clavulanate,,,,J,eslesmedi,3,,1,
+potasyum,,,,B,eslesmedi,3,,1,
+povidon,,,,S,eslesmedi,3,,1,
+prasugrel,prasugrel,prasugrel,B01AC22,B,A,3,DDInter1508,1,tam_ad
+predni karbat,prednicarbate,prednicarbate,D07AC18,D,A,3,,1,
+prednisolon,prednisolone,prednisolone,H02AB06,D,A,3,DDInter1513,1,tam_ad
+prednizon,prednisone,prednisone,H02AB07,H,A,3,DDInter1515,1,tam_ad
+pregabalin vitamin b12,pregabalin,pregabalin,N02BF02,N,A,3,DDInter1516,1,tam_ad
+propafenone,propafenone,propafenone,C01BC03,C,A,3,DDInter1534,1,tam_ad
+protionamide,protionamide,protionamide,J04AD01,J,A,3,,1,
+pseudoefedrin,pseudoephedrine,pseudoephedrine,,M,C,3,DDInter1545,1,tam_ad
+pyridinoline carbamate,,,,C,eslesmedi,3,,1,
+ranibizumab,ranibizumab,ranibizumab,S01LA04,S,A,3,,1,
+rasagilin,rasagiline,rasagiline,N04BD02,N,A,3,DDInter1572,1,tam_ad
+rekombinant neisseria meningitidis grup b fhbp fuzyon proteini,,,,J,eslesmedi,3,,1,
+rekombinant neisseria meningitidis grup b nada proteini,,,,J,eslesmedi,3,,1,
+rekombinant neisseria meningitidis grup b nhba fuzyon proteini,,,,J,eslesmedi,3,,1,
+rifamisin sv sodyum tuzu,,,,J,eslesmedi,3,,1,
+rimegepant,rimegepant,rimegepant,N02CD06,N,A,3,DDInter1598,1,tam_ad
+rsv altgrup a,,,,J,eslesmedi,3,,1,
+saksagliptin,saxagliptin,saxagliptin,A10BH03,A,A,3,DDInter1646,1,tam_ad
+sedir agaci yapragi yagi,,,,R,eslesmedi,3,,1,
+sefuroksim soyum,cefuroxime,cefuroxime,S01AA27,S,A,3,DDInter335,1,tam_ad
+senna ekstresi,senna glycosides,senna glycosides,A06AB06,A,A,3,,1,
+sertaconazole,sertaconazole,sertaconazole,G01AF19,G,A,3,,1,
+sevoflurane,sevoflurane,sevoflurane,N01AB08,N,A,3,DDInter1664,1,tam_ad
+simetidin,,,,A,eslesmedi,3,,1,
+siproheptadin,cyproheptadine,cyproheptadine,R06AX02,R,A,3,DDInter459,1,tam_ad
+sitagligtin,sitagliptin,sitagliptin,A10BH01,A,A,3,DDInter1679,1,tam_ad
+sitagliptin fosfat monohidrat metformin,metformin and sitagliptin,metformin and sitagliptin,A10BD07,A,A,3,,1,
+sitikolin,citicoline,citicoline,N06BX06,N,A,3,,1,
+skopolamin n-butil-bromur,butylscopolamine,butylscopolamine,A03BB01,A,A,3,,1,
+sorafenib,sorafenib,sorafenib,L01EX02,L,A,3,DDInter1702,1,tam_ad
+streptomisin,streptomycin,streptomycin,J01GA01,M,A,3,DDInter1713,1,tam_ad
+sulfasalazin,sulfasalazine,sulfasalazine,A07EC01,A,A,3,DDInter1725,1,tam_ad
+sulfasetamid,sulfacetamide,sulfacetamide,D10AF06,D,A,3,,1,
+sulfogayakolat,,,,R,eslesmedi,3,,1,
+sulpride,sulpiride,sulpiride,N05AL01,N,A,3,,1,
+tadafil,tadalafil,tadalafil,G04BE08,G,A,3,DDInter1736,1,tam_ad
+taurin- l-treonin,,,,B,eslesmedi,3,,0,
+temozolomide,temozolomide,temozolomide,L01AX03,L,A,3,DDInter1762,1,tam_ad
+teriparatid,teriparatide,teriparatide,H05AA02,H,A,3,DDInter1772,1,tam_ad
+terlipressin,terlipressin,terlipressin,H01BA04,H,A,3,,1,
+testosterone,testosterone,testosterone,G03BA03,G,A,3,DDInter1775,1,tam_ad
+tetrastatin,,,,D,eslesmedi,3,,1,
+thiazides,thiazides,thiazides,C07BB07,C,B,3,,1,
+tiotroniium,tiotropium,tiotropium bromide,R03BB04,R,A,3,DDInter1815,1,pubchem_yayilim
+tocopherol,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,3,,1,
+tolterodine l-tartarat,tolterodine,tolterodine,G04BD07,G,A,3,DDInter1832,1,tam_ad
+trace elements,,,,A,eslesmedi,3,,1,
+triamteren,,,,C,eslesmedi,3,,1,
+trifluoperazin,trifluoperazine,trifluoperazine,N05AB06,N,A,3,DDInter1866,1,tam_ad
+trimethobenzamide,trimethobenzamide,trimethobenzamide,,R,SKRS,3,DDInter1873,1,tam_ad
+triprolidin,triprolidine,triprolidine,,R,C,3,DDInter1879,1,tam_ad
+trisodyum sitrat,,,,A,eslesmedi,3,,1,
+trisodyum sitrat dihidrat,,,,A,eslesmedi,3,,1,
+triticum vulgareninsulu ekstresi,,,,D,eslesmedi,3,,1,
+troid hormon,,,,H,eslesmedi,3,,1,
+trospium,trospium,trospium,G04BD09,G,A,3,DDInter1886,1,tam_ad
+ursodeoxycholic acid,ursodeoxycholic acid,ursodeoxycholic acid,A05AA02,A,A,3,DDInter1906,1,tam_ad
+valaciclovir,valaciclovir,valaciclovir,J05AB11,J,A,3,DDInter1908,1,tam_ad
+velagluseraz alfa,velagluseraz alfa,velagluseraz alfa,A16AB10,A,A,3,,1,
+vinkristin,vincristine,vincristine,L01CA02,L,A,3,DDInter1937,1,tam_ad
+"vitamin b1, b2, b6, b12, vitamin c",,,,A,eslesmedi,3,,1,
+vitamin b12(metilkobalamin,,,,N,eslesmedi,3,,1,
+vitamin d,cholecalciferol,colecalciferol,A11CC05,A,A,3,DDInter367,1,pubchem_yayilim
+vitamin d3 genistein,,,,A,eslesmedi,3,,1,
+vitamin d3 kolekalsiferol,cholecalciferol,colecalciferol,A11CC05,A,A,3,DDInter367,1,pubchem_yayilim
+vitamin kombinasyonu,,,,A,eslesmedi,3,,1,
+vogliboz,voglibose,voglibose,A10BF03,A,A,3,,1,
+vosoritid,,,,M,eslesmedi,3,,1,
+wart,,,,D,eslesmedi,3,,1,
+zidovudine,zidovudine,zidovudine,J05AF01,J,A,3,DDInter1961,1,tam_ad
+zilukoplan,,,,L,eslesmedi,3,,1,
+1)a/california/7/2009 pdm09 - benzeri sus 2)a/texas/50/2012 - benzeri sus 3)b/massachusetts/2/2012 4) b/brisbane/60/2008,"influenza, inactivated, split virus or surface antigen","influenza, inactivated, split virus or surface antigen",J07BB02,J,A,2,,1,
+8-metoksipsoralen,methoxsalen,methoxsalen,D05AD02,D,A,2,DDInter1177,1,tam_ad
+a/brisbane/02/2018 pdm09 - benzeri sus-a/kansas/14/2017 - benzeri sus- b/colorado/06/2017- benzeri sus- b/phuket/3073/2013 - benzeri sus,"influenza, inactivated, split virus or surface antigen","influenza, inactivated, split virus or surface antigen",J07BB02,J,A,2,,1,
+abatacept,abatacept,abatacept,L04AA24,L,A,2,DDInter5,1,tam_ad
+acitretin,acitretin,acitretin,D05BB02,D,A,2,DDInter21,1,tam_ad
+alanyl glutamine,alanyl glutamine,alanyl glutamine,B05XB02,B,A,2,,1,
+alemtuzumab,alemtuzumab,alemtuzumab,,L,C,2,DDInter41,1,tam_ad
+"alendronat sodyum , vit d3",alendronic acid and colecalciferol,alendronic acid and colecalciferol,M05BB03,M,A,2,,1,
+"alendronat sodyum trihidrat , vit d3, kolekalsiferol",alendronic acid and colecalciferol,alendronic acid and colecalciferol,M05BB03,M,A,2,,1,
+"alendronik asit, vit. d3",alendronic acid and colecalciferol,alendronic acid and colecalciferol,M05BB03,M,A,2,,1,
+alfalipoik asit,,,,A,eslesmedi,2,,1,
+alginat,,,,A,eslesmedi,2,,1,
+alprostadil alfadex kompleksi,alprostadil,alprostadil,C01EA01,C,A,2,DDInter55,1,tam_ad
+amidotrizoat,,,,V,eslesmedi,2,,1,
+aminoasit iv l-treonin,,,,B,eslesmedi,2,,0,
+aminoasit kompleksi,,,,V,eslesmedi,2,,0,
+aminofilin,aminophylline,aminophylline,R03DA05,R,A,2,DDInter74,1,tam_ad
+amitriptilin,amitriptyline,amitriptyline,N06AA09,N,A,2,DDInter78,1,tam_ad
+amoksisilin trihdrat,,,,J,eslesmedi,2,,1,
+ampisilin 250mg,,,,J,eslesmedi,2,,1,
+ampisilin 500mg,,,,J,eslesmedi,2,,1,
+anakinra,anakinra,anakinra,L04AC03,L,A,2,DDInter94,1,tam_ad
+analgesics,analgesics,analgesics,A03DB04,A,B,2,,1,
+"anesthetics, etc",,,,D,eslesmedi,2,,1,
+anti-d insan immunglobulini,anti d (rh) immunoglobulin,anti d (rh) immunoglobulin,J06BB01,J,A,2,,1,
+antihemofilik faktor,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,2,,1,
+antihemofilik faktor ix,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,2,,1,
+antiinfectives,antiinfectives,antiinfectives,S01CA05,S,B,2,,1,
+antipruritics,,,,D,eslesmedi,2,,1,
+antithrombin iii,antithrombin iii,antithrombin iii,B01AB02,B,A,2,,1,
+apixaban,apixaban,apixaban,,B,SKRS,2,DDInter108,1,tam_ad
+artificial tears,artificial tears,artificial tears,S01XA20,S,B,2,,1,
+asciminib,asciminib,asciminib,L01EA06,L,A,2,,1,
+asemetazin,acemetacin,acemetacin,M01AB11,M,A,2,,1,
+asetaminofen,acetaminophen,paracetamol,N02BE01,N,A,2,DDInter14,1,pubchem_yayilim
+asetattetrahidrat,,,,B,eslesmedi,2,,0,
+askorbik asit(vitamin c,,,,M,eslesmedi,2,,1,
+at kaynakli anti t-lenfosit immunoglobulin,antilymphocyte immunoglobulin (horse),antilymphocyte immunoglobulin (horse),L04AA03,L,A,2,DDInter103,1,tam_ad
+"atenue sarihumma virusu, 17 d susu",,,,J,eslesmedi,2,,1,
+atenue varisella zoster virusu,,,,J,eslesmedi,2,,1,
+atezolizumab,atezolizumab,atezolizumab,L01FF05,L,A,2,DDInter131,1,tam_ad
+atosiban,atosiban,atosiban,G02CX01,G,A,2,,1,
+atrakuryum,atracurium,atracurium,M03AC04,M,A,2,DDInter135,1,tam_ad
+attapulgite,attapulgite,attapulgite,A07BC04,A,A,2,DDInter138,1,tam_ad
+avibaktam,,,,J,eslesmedi,2,,1,
+avocado,avocado,avocado,,M,SKRS,2,,1,
+azelaik asit,azelaic acid,azelaic acid,D10AX03,D,A,2,DDInter151,1,tam_ad
+b1,,,,A,eslesmedi,2,,1,
+"b1 vitamini , b6 vitamini , b12 vitamini",,,,A,eslesmedi,2,,1,
+"b1 vitamini 25 mg, b2 vitamini 5 mg, b6 vitamini 10 mg, b12 vitamini 0,03 mg/2cc",,,,A,eslesmedi,2,,1,
+b12 vitaminleri,,,,A,eslesmedi,2,,1,
+b6,,,,A,eslesmedi,2,,1,
+bakampisilin,bacampicillin,bacampicillin,J01CA06,J,A,2,DDInter159,1,tam_ad
+barium sulfate,barium sulfate with suspending agents,barium sulfate with suspending agents,V08BA01,V,A,2,,1,
+baryum sulfat,barium sulfate with suspending agents,barium sulfate with suspending agents,V08BA01,V,A,2,,1,
+basitrasin,,,,D,eslesmedi,2,,1,
+baso4,barium sulfate with suspending agents,barium sulfate with suspending agents,V08BA01,V,A,2,,1,
+beklometazon dipropiyonat anhidr – formoterol,formoterol and beclometasone,formoterol and beclometasone,R03AK08,R,A,2,,1,
+beklometazon dipropiyonat formoterol,formoterol and beclometasone,formoterol and beclometasone,R03AK08,R,A,2,,1,
+belimumab,belimumab,belimumab,,L,C,2,DDInter173,1,tam_ad
+benralizumab,benralizumab,benralizumab,R03DX10,R,A,2,,1,
+benzatin fenoksimetil penisilin,benzathine phenoxymethylpenicillin,benzathine phenoxymethylpenicillin,J01CE10,J,A,2,,1,
+benzetamofillin,,,,R,eslesmedi,2,,1,
+benzoilperoksit,benzoyl peroxide,benzoyl peroxide,D10AE01,D,A,2,,1,
+benzyl benzoate,benzyl benzoate,benzyl benzoate,P03AX01,P,A,2,,1,
+benzylpenicillin,benzylpenicillin,benzylpenicillin,J01CE01,J,A,2,DDInter189,1,tam_ad
+betacarotene,betacarotene,betacarotene,A11CA02,A,A,2,,1,
+biktegravir,bictegravir,bictegravir,J05AR20,J,B,2,DDInter205,1,tam_ad
+bivalirudin,bivalirudin,bivalirudin,,B,C,2,DDInter217,1,tam_ad
+bleomycin,bleomycin,bleomycin,L01DC01,L,A,2,DDInter219,1,tam_ad
+bogmaca,,,,J,eslesmedi,2,,1,
+bordetella pertussis antijenleri,,,,J,eslesmedi,2,,1,
+bordetella pertussis antijenleri: pertussis toksoidi,,,,J,eslesmedi,2,,1,
+bromeksin,bromhexine,bromhexine,R05CB02,R,A,2,,1,
+budezonid,budesonide,budesonide,R03BA02,R,A,2,DDInter246,1,tam_ad
+caffeine,caffeine,caffeine,N06BC01,N,A,2,DDInter263,1,tam_ad
+calcitonin,calcitonin (salmon synthetic),calcitonin (salmon synthetic),H05BA01,H,A,2,,1,
+calcitriol,calcitriol,calcitriol,,A,SKRS,2,DDInter268,1,tam_ad
+calcium pantothenate,,,,A,eslesmedi,2,,1,
+canakinumab,canakinumab,canakinumab,L04AC08,L,A,2,DDInter281,1,tam_ad
+capecitabine,capecitabine,capecitabine,L01BC06,L,A,2,DDInter285,1,tam_ad
+caplacizumab,caplacizumab,caplacizumab,,B,C,2,DDInter286,1,tam_ad
+cephradine,,,,J,eslesmedi,2,,1,
+cetrorelix,cetrorelix,cetrorelix,H01CC02,H,A,2,,1,
+cetuximab,cetuximab,cetuximab,L01FE01,L,A,2,DDInter344,1,tam_ad
+cetylpyridinium,cetylpyridinium,cetylpyridinium,R02AA06,R,A,2,,1,
+chloride,potassium chloride,potassium chloride,B05XA01,B,A,2,DDInter1497,1,tam_ad
+chlorpromazine,chlorpromazine,chlorpromazine,,N,SKRS,2,DDInter363,1,tam_ad
+ciclesonide,ciclesonide,ciclesonide,,R,SKRS,2,DDInter375,1,tam_ad
+cinkosulfat,zinc sulfate,zinc sulfate,A12CB01,A,A,2,DDInter1966,1,tam_ad
+clozapine,clozapine,clozapine,N05AH02,N,A,2,DDInter419,1,tam_ad
+co-enzim b12,cobamamide,cobamamide,B03BA04,B,A,2,,1,
+coagulation factor ix,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,2,,1,
+colchicine,colchicine,colchicine,M04AC01,M,A,2,DDInter431,1,tam_ad
+combinations excl. corticosteroids,,,,R,eslesmedi,2,,1,
+combinations of antihistamines,,,,R,eslesmedi,2,,1,
+combinations of levothyroxine,,,,H,eslesmedi,2,,1,
+cromoglicic acid,cromoglicic acid,cromoglicic acid,R03BC01,R,A,2,DDInter449,1,tam_ad
+cyproterone,cyproterone,cyproterone,,G,SKRS,2,,1,
+cytarabine,cytarabine,cytarabine,L01BC01,L,A,2,DDInter460,1,tam_ad
+dakarbazin,dacarbazine,dacarbazine,L01AX04,L,A,2,DDInter463,1,tam_ad
+darifenacin,darifenacin,darifenacin,G04BD10,G,A,2,DDInter480,1,tam_ad
+darunavir,darunavir,darunavir,J05AE10,J,A,2,DDInter482,1,tam_ad
+deferipron,deferiprone,deferiprone,V03AC02,V,A,2,DDInter489,1,tam_ad
+deferiprone,deferiprone,deferiprone,V03AC02,V,A,2,DDInter489,1,tam_ad
+deflazakort,deflazacort,deflazacort,H02AB13,H,A,2,DDInter492,1,tam_ad
+deksametazin-21-fosfat,dexamethasone,dexamethasone,H02AB02,H,A,2,DDInter513,1,tam_ad
+deksketoprofen trometamol veparasetamol,,,,N,eslesmedi,2,,1,
+dekslansoprazol,dexlansoprazole,dexlansoprazole,,A,C,2,DDInter519,1,tam_ad
+dekslansoprazolve domperidon,,,,A,eslesmedi,2,,1,
+dekualinyum,dequalinium,dequalinium,G01AC05,D,A,2,,1,
+dekzametazon,dexamethasone,dexamethasone,H02AB02,H,A,2,DDInter513,1,tam_ad
+delafloksasin,,,,J,eslesmedi,2,,1,
+demetilklortetrasiklin,,,,J,eslesmedi,2,,1,
+demir (iii hidroksit polimaltoz kompleksi,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,2,,1,
+demir 3 protein,,,,B,eslesmedi,2,,1,
+demir dekstran,,,,B,eslesmedi,2,,1,
+demir hidroksit sukroz kompleksi,,,,B,eslesmedi,2,,1,
+demir iii,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,2,,1,
+demir iii hidroksit sukroz kompleksi,,,,B,eslesmedi,2,,1,
+demir sukroz kompleksi,,,,B,eslesmedi,2,,1,
+desipramine,desipramine,desipramine,N06AA01,N,A,2,DDInter504,1,tam_ad
+deslorotadin,,,,R,eslesmedi,2,,1,
+dexamethasone,dexamethasone,dexamethasone,,S,SKRS,2,DDInter513,1,tam_ad
+dexibuprofen,dexibuprofen,dexibuprofen,M01AE14,M,A,2,,1,
+diacerein,diacerein,diacerein,M01AX21,M,A,2,,1,
+dibazik sodyum fosfat anhidroz,,,,A,eslesmedi,2,,1,
+diger ilaclarla kombine elektrolitler,electrolytes in combination with other drugs,electrolytes in combination with other drugs,B05XA31,B,A,2,,1,
+"dihidrojen fosfat monohidrat, di-sodyum hidrojen",,,,A,eslesmedi,2,,1,
+diklofenak dietilamin,diclofenac,diclofenac,M02AA15,M,A,2,DDInter537,1,tam_ad
+diltizem,diltiazem,diltiazem,C08DB01,C,A,2,DDInter561,1,tam_ad
+dimethyl fumarat,dimethyl fumarat,dimethyl fumarat,,L,SKRS,2,,1,
+diritromisin,dirithromycin,dirithromycin,J01FA13,J,A,2,,1,
+disulfiram,disulfiram,disulfiram,N07BB01,N,A,2,DDInter576,1,tam_ad
+dithranol,,,,D,eslesmedi,2,,1,
+dogal akciger surfektani,natural phospholipids,natural phospholipids,R07AA02,R,A,2,,1,
+doksepin,doxepin,doxepin,D04AX01,D,A,2,DDInter593,1,tam_ad
+domperdion,,,,A,eslesmedi,2,,1,
+domperidone,domperidone,domperidone,A03FA03,A,A,2,,1,
+doravirin,doravirine,doravirine,J05AG06,J,A,2,DDInter585,1,tam_ad
+doxazosin mesylate,doxazosin,doxazosin,C02CA04,C,A,2,DDInter592,1,tam_ad
+doxorubicin,doxorubicin,doxorubicin,L01DB01,L,A,2,DDInter596,1,tam_ad
+durvalumab,durvalumab,durvalumab,L01FF03,L,A,2,DDInter610,1,tam_ad
+dvitamini,,,,M,eslesmedi,2,,1,
+eculizumab,eculizumab,eculizumab,L04AJ01,L,A,2,DDInter618,1,tam_ad
+eflornitin,eflornithine,eflornithine,D11AX16,D,A,2,,1,
+ekonazol,econazole,econazole,D01AC03,D,A,2,DDInter616,1,tam_ad
+eksemestan,exemestane,exemestane,L02BG06,L,A,2,DDInter705,1,tam_ad
+eksenatid,exenatide,exenatide,A10BJ01,A,A,2,DDInter706,1,tam_ad
+elacestrant,elacestrant,elacestrant,L02BA04,L,A,2,,1,
+eliglustat,eliglustat,eliglustat,A16AX10,A,A,2,DDInter629,1,tam_ad
+elranatamab,,,,L,eslesmedi,2,,1,
+eltrombopag,eltrombopag,eltrombopag,,B,SKRS,2,DDInter631,1,tam_ad
+empagliflozin [vandf],,,,A,eslesmedi,2,,1,
+enfortumab vedotin,enfortumab vedotin,enfortumab vedotin,L01FX13,L,A,2,DDInter642,1,tam_ad
+enoksasin,,,,J,eslesmedi,2,,1,
+entrektinib,entrectinib,entrectinib,L01EX14,L,A,2,DDInter648,1,tam_ad
+epcoritamab,epcoritamab,epcoritamab,L01FX27,L,A,2,,1,
+eptifibatid,eptifibatide,eptifibatide,,B,C,2,DDInter659,1,tam_ad
+ergotamin,ergotamine,ergotamine,,N,C,2,DDInter665,1,tam_ad
+ergotamine,ergotamine,ergotamine,,N,C,2,DDInter665,1,tam_ad
+ertapenem,ertapenem,ertapenem,J01DH03,J,A,2,DDInter668,1,tam_ad
+essin,hippocastani semen,hippocastani semen,C05CX03,C,A,2,,1,
+essin dietilamin,,,,M,eslesmedi,2,,1,
+etambutol,ethambutol,ethambutol,J04AK02,M,A,2,DDInter689,1,tam_ad
+ethambutol,ethambutol,ethambutol,J04AK02,J,A,2,DDInter689,1,tam_ad
+ethyl esters of iodised fatty acids,ethyl esters of iodised fatty acids,ethyl esters of iodised fatty acids,V08AD01,V,A,2,,1,
+etinilestradiol 0.02 mg,,,,G,eslesmedi,2,,1,
+etonogestrel,etonogestrel,etonogestrel,G03AC08,G,A,2,DDInter701,1,tam_ad
+etosuksimid,ethosuximide,ethosuximide,N03AD01,N,A,2,DDInter695,1,tam_ad
+etrasimod l-arjinin,,,,L,eslesmedi,2,,1,
+faktor ii,,,,B,eslesmedi,2,,1,
+faktor viii inhibitor by-pass aktivitesine sahip insan plazma proteini,factor vııı inhibitor bypassing activity,factor vııı inhibitor bypassing activity,B02BD03,B,A,2,,1,
+faktor x,,,,B,eslesmedi,2,,1,
+felodipin,felodipine,felodipine,C08CA02,C,A,2,DDInter716,1,tam_ad
+fenaramin hidrojen,pheniramine,pheniramine,R06AB05,R,A,2,,1,
+fenfluramin,fenfluramine,fenfluramine,,N,C,2,DDInter717,1,tam_ad
+fenoksimetil penisilin,phenoxymethylpenicillin,phenoxymethylpenicillin,J01CE02,J,A,2,DDInter1445,1,tam_ad
+fentikanozol,fenticonazole,fenticonazole,G01AF12,G,A,2,,1,
+ferrofumarate,,,,B,eslesmedi,2,,1,
+ferrous glycine sulfate,ferrous glycine sulfate,ferrous glycine sulfate,B03AA01,B,A,2,,1,
+fizostigmin,,,,V,eslesmedi,2,,1,
+florometalon,fluorometholone,fluorometholone,S01BA07,S,A,2,DDInter755,1,tam_ad
+florometolon,fluorometholone,fluorometholone,S01BA07,S,A,2,DDInter755,1,tam_ad
+flucloxacillin,flucloxacillin,flucloxacillin,J01CF05,J,A,2,,1,
+fludarabine,fludarabine,fludarabine,L01BB05,L,A,2,DDInter745,1,tam_ad
+flukloksasilin,flucloxacillin,flucloxacillin,J01CF05,J,A,2,,1,
+flunarizin,flunarizine,flunarizine,N07CA03,N,A,2,,1,
+fluokortolon kaproat,,,,C,eslesmedi,2,,1,
+fluokortolon pivalat,,,,C,eslesmedi,2,,1,
+flupentixol,flupentixol,flupentixol,N05AF01,N,A,2,,1,
+fluvoksamin,fluvoxamine,fluvoxamine,N06AB08,N,A,2,DDInter770,1,tam_ad
+fluvoxamine,fluvoxamine,fluvoxamine,N06AB08,N,A,2,DDInter770,1,tam_ad
+folinik asit pentohidrat,,,,B,eslesmedi,2,,1,
+formoterol fumarat dihidrat - budesonid,formoterol and budesonide,formoterol and budesonide,R03AK07,R,A,2,,1,
+formoterol fumarate,,,,R,eslesmedi,2,,1,
+fosfamisin,fosfomycin,fosfomycin,J01XX01,J,A,2,DDInter780,1,tam_ad
+fremanezumab,fremanezumab,fremanezumab,N02CD03,N,A,2,,1,
+furazolidon,,,,G,eslesmedi,2,,1,
+galyum-67,,,,V,eslesmedi,2,,1,
+ganirelix,ganirelix,ganirelix,H01CC01,H,A,2,DDInter807,1,tam_ad
+gefitinib,gefitinib,gefitinib,L01EB01,L,A,2,DDInter810,1,tam_ad
+gemfibrozil,gemfibrozil,gemfibrozil,C10AB04,C,A,2,DDInter812,1,tam_ad
+gestoden 0.075 mg,,,,G,eslesmedi,2,,1,
+ginkgo glikozidi,ginkgo folium,ginkgo folium,N06DX02,N,A,2,,1,
+glatiremer,glatiramer acetate,glatiramer acetate,L03AX13,L,A,2,,1,
+glibornurid,,,,A,eslesmedi,2,,1,
+glipizid,glipizide,glipizide,A10BB07,A,A,2,DDInter826,1,tam_ad
+gliserin,,,,A,eslesmedi,2,,1,
+gliserol,,,,A,eslesmedi,2,,1,
+glukonat,,,,A,eslesmedi,2,,1,
+glutanik asit,,,,A,eslesmedi,2,,1,
+glycopyrronium bromide,glycopyrronium bromide,glycopyrronium bromide,,R,SKRS,2,,1,
+goserelin,goserelin,goserelin,L02AE03,L,A,2,DDInter839,1,tam_ad
+graniton,granisetron,granisetron,A04AA02,A,A,2,DDInter840,1,tam_ad
+grass pollen,grass pollen,grass pollen,V01AA02,V,A,2,,1,
+guafenazin,,,,R,eslesmedi,2,,1,
+gumus sufadiazin,silver sulfadiazine,silver sulfadiazine,D06BA01,D,A,2,,1,
+gumus sulfadiazin,,,,D,eslesmedi,2,,1,
+hafif magnezyum oksit,,,,A,eslesmedi,2,,1,
+hamamelis virginiana distilati,,,,D,eslesmedi,2,,1,
+hederae helicis folium,hederae helicis folium,hederae helicis folium,,R,SKRS,2,,1,
+hemisellulaz,,,,A,eslesmedi,2,,1,
+hepatit b immunglobulin,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,2,,1,
+hepatit b insan immunglobulini,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,2,,1,
+hepatit b insan immunoglobulini,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,2,,1,
+hepatit b virus yuzey antijeni,,,,J,eslesmedi,2,,1,
+hidrat,,,,B,eslesmedi,2,,0,
+hidrojen peroksit,,,,D,eslesmedi,2,,1,
+"hidrokortizon asetat, ure",hydrocortisone,hydrocortisone,D07XA01,D,A,2,DDInter885,1,tam_ad
+hidroksipolietoksidodekan600,,,,A,eslesmedi,2,,1,
+hidroksizin,hydroxyzine,hydroxyzine,N05BB01,N,A,2,DDInter895,1,tam_ad
+hiyosin-n-butil bromid,,,,A,eslesmedi,2,,1,
+human papillomavirus,"papillomavirus (human types 16, 18)","papillomavirus (human types 16, 18)",J07BM02,J,A,2,,1,
+ibandronikasit,ibandronic acid,ibandronic acid,M05BA06,M,A,2,,1,
+ibuprofen - psodoefedrin hidroklorur askorbik asit,,,,M,eslesmedi,2,,1,
+ibuprofen - psodoefedrin hidroklorur klorfeniramin,,,,M,eslesmedi,2,,1,
+ibuprofen lizin,ibuprofen,ibuprofen,C01EB16,C,A,2,DDInter900,1,tam_ad
+ikosapent etil,omega 3 triglycerides incl. other esters and acids,omega 3 triglycerides incl. other esters and acids,C10AX06,C,A,2,,1,
+imigluseraz,imiglucerase,imiglucerase,A16AB02,A,A,2,DDInter910,1,tam_ad
+inactivated,inactivated,inactivated,J07BB02,J,B,2,,1,
+inaktif polio virus tip 1,,,,J,eslesmedi,2,,1,
+inaktif polio virus tip 2,,,,J,eslesmedi,2,,1,
+inaktif polio virus tip 3,,,,J,eslesmedi,2,,1,
+inavolisib,,,,L,eslesmedi,2,,1,
+incl. antihistamines,,,,D,eslesmedi,2,,1,
+influenza,influenza,influenza,J07BB02,J,B,2,,1,
+influenza virusu,"influenza, inactivated, split virus or surface antigen","influenza, inactivated, split virus or surface antigen",J07BB02,J,A,2,,1,
+influenza virusu yuzey antijeni,,,,J,eslesmedi,2,,1,
+insan alfa-1 proteinaz inhibitoru,alfa1 antitrypsin,alfa1 antitrypsin,B02AB02,B,A,2,,1,
+insan immunoglubulini,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,2,,1,
+insan normal immunglobulin g,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,2,,1,
+insan normal immunglobulini g,"immunoglobulins, normal human, for intravascular adm.","immunoglobulins, normal human, for intravascular adm.",J06BA02,J,A,2,,1,
+"insan plazma koagulasyon faktoru viii, von willebrand faktoru",von willebrand factor and coagulation factor vııı in combination,von willebrand factor and coagulation factor vııı in combination,B02BD06,B,A,2,,1,
+insan plazma pihtilasma faktor viii,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,2,,1,
+insan sitomegalovirus immunoglobulini,cytomegalovirus immunoglobulin,cytomegalovirus immunoglobulin,J06BB09,J,A,2,,1,
+insan tetanoz immunoglobulini,tetanus immunoglobulin,tetanus immunoglobulin,J06BB02,J,A,2,,1,
+insulin detemir,insulin detemir,insulin detemir,A10AE05,A,A,2,DDInter931,1,tam_ad
+insulin glulisin,insulin glulisine,insulin glulisine,A10AB06,A,A,2,DDInter933,1,tam_ad
+insulin lispro cozelti,,,,A,eslesmedi,2,,1,
+ipilimumab,ipilimumab,ipilimumab,,L,C,2,DDInter969,1,tam_ad
+ipratropium bromide,ipratropium,ipratropium bromide,R03AL02,R,B,2,DDInter970,1,pubchem_yayilim
+ipratroplum,ipratropium,ipratropium bromide,R03BB01,R,A,2,DDInter970,1,pubchem_yayilim
+iron trivalent,,,,B,eslesmedi,2,,1,
+isatuximab,isatuximab,isatuximab,L01FC02,L,A,2,DDInter979,1,tam_ad
+isoflurane,isoflurane,isoflurane,N01AB06,N,A,2,DDInter983,1,tam_ad
+isosorbid mononitrat,isosorbide mononitrate,isosorbide mononitrate,C01DA14,C,A,2,DDInter990,1,tam_ad
+isosorbide-5-mononitrate,isosorbide mononitrate,isosorbide mononitrate,C01DA14,C,A,2,DDInter990,1,tam_ad
+isosorbit mononitrat,isosorbide mononitrate,isosorbide mononitrate,C01DA14,C,A,2,DDInter990,1,tam_ad
+itoprid,itopride,itopride,A03FA07,A,A,2,,1,
+ivabradine,ivabradine,ivabradine,C01EB17,C,A,2,DDInter996,1,tam_ad
+iyodoklorhidroksiquin,,,,D,eslesmedi,2,,1,
+iyot,,,,D,eslesmedi,2,,1,
+izokonazol nitrat diflukortolon,imidazoles/triazoles in combination with corticosteroids,imidazoles/triazoles in combination with corticosteroids,D01AC20,D,A,2,,1,
+izoproterenol,isoprenalıne,isoprenalıne,C01CA02,C,A,2,,1,
+izoproternol,isoprenalıne,isoprenalıne,C01CA02,C,A,2,,1,
+izosorbit dinitrat,isosorbide dinitrate,isosorbide dinitrate,C01DA08,C,A,2,DDInter989,1,tam_ad
+kabakulak,,,,J,eslesmedi,2,,1,
+kabazitaksel,cabazitaxel,cabazitaxel,L01CD04,L,A,2,DDInter259,1,tam_ad
+kalfaktan,natural phospholipids,natural phospholipids,R07AA02,R,A,2,,1,
+kalsiyuim,,,,M,eslesmedi,2,,1,
+kalsiyum fosfat tribazik,,,,A,eslesmedi,2,,1,
+"kalsiyum, d3 vitamini",,,,A,eslesmedi,2,,1,
+kamomil tenturu,,,,A,eslesmedi,2,,1,
+kapivasertib,capivasertib,capivasertib,L01EX27,L,A,2,,1,
+karbakol,carbachol,carbachol,S01EB02,S,A,2,,1,
+karboksimetilseluloz,artificial tears and other indifferent preparations,artificial tears and other indifferent preparations,S01XA20,S,A,2,,1,
+karisoprodol,carisoprodol,carisoprodol,,M,C,2,DDInter301,1,tam_ad
+ketamin,ketamine,ketamine,N01AX03,N,A,2,DDInter1007,1,tam_ad
+ketorolac tromethamine,ketorolac,ketorolac,S01BC05,M,A,2,DDInter1010,1,tam_ad
+kizamik,,,,J,eslesmedi,2,,1,
+kizamikcik virusleri,,,,J,eslesmedi,2,,1,
+klaritromisilin,,,,A,eslesmedi,2,,1,
+klavulanik asit avicel,,,,J,eslesmedi,2,,1,
+klavulanik asit sylloid karisimi,,,,J,eslesmedi,2,,1,
+klavulanmik asit-syloid,,,,J,eslesmedi,2,,1,
+klofarabin,clofarabine,clofarabine,L01BB06,L,A,2,DDInter405,1,tam_ad
+klorazepat,potassium clorazepate,potassium clorazepate,N05BA05,N,A,2,,1,
+klorurdihidrat,,,,B,eslesmedi,2,,0,
+klotrimazol,clotrimazole,clotrimazole,D01AC01,D,A,2,DDInter416,1,tam_ad
+klozapin,clozapine,clozapine,N05AH02,N,A,2,DDInter419,1,tam_ad
+koleklasiferol,,,,M,eslesmedi,2,,1,
+kolsisin,colchicine,colchicine,M04AC01,M,A,2,DDInter431,1,tam_ad
+kondoitin,,,,M,eslesmedi,2,,1,
+konjuge haemophilus influenza tip b polisakkarid,,,,J,eslesmedi,2,,1,
+korifollitropin alfa,corifollitropin alfa,corifollitropin alfa,G03GA09,G,A,2,,1,
+kospofunginasetat,caspofungin,caspofungin,J02AX04,J,A,2,DDInter306,1,tam_ad
+krezoksidiol,,,,M,eslesmedi,2,,1,
+krizotinib,crizotinib,crizotinib,,L,C,2,DDInter448,1,tam_ad
+kuadrivalan human papillomavirus,"papillomavirus (human types 6, 11, 16, 18)","papillomavirus (human types 6, 11, 16, 18)",J07BM01,J,A,2,,1,
+l-arginiin l-prolin,,,,B,eslesmedi,2,,0,
+l-izolusin,,,,B,eslesmedi,2,,0,
+l-malik asit,,,,B,eslesmedi,2,,0,
+"l-serin glisin l-sistein, hcl, fosforik asit",,,,B,eslesmedi,2,,0,
+"l-sistein, hcl, l-histidin",,,,B,eslesmedi,2,,0,
+"l-sistein, l- glutamik asit",,,,B,eslesmedi,2,,0,
+l-tirozin ],,,,B,eslesmedi,2,,0,
+l-trionin,,,,B,eslesmedi,2,,0,
+l-trofselamin valin,,,,B,eslesmedi,2,,0,
+lacidipine,lacidipine,lacidipine,C08CA09,C,A,2,,1,
+lactobacillus acidophilus,lactobacillus acidophilus,lactobacillus acidophilus,,G,C,2,DDInter1017,1,tam_ad
+ledipasvir,ledipasvir,ledipasvir,J05AP51,J,B,2,DDInter1031,1,tam_ad
+lenakapavir,,,,J,eslesmedi,2,,1,
+lenvatinib,lenvatinib,lenvatinib,L01EX08,L,A,2,DDInter1036,1,tam_ad
+letrozole,letrozole,letrozole,L02BG04,L,A,2,DDInter1040,1,tam_ad
+levamlodipin besilat valsartan,valsartan and amlodipine,valsartan and amlodipine,C09DB01,C,A,2,,1,
+levokloperastin fendizoat,,,,R,eslesmedi,2,,1,
+levomefolat,,,,G,eslesmedi,2,,1,
+levosetirizin dihidroklorur montelukast,,,,R,eslesmedi,2,,1,
+levulinat,,,,A,eslesmedi,2,,1,
+lidakain,lidocaine,lidocaine,N01BB02,G,A,2,DDInter1066,1,tam_ad
+liizin,,,,B,eslesmedi,2,,0,
+linaglipin metformin,metformin and linagliptin,metformin and linagliptin,A10BD11,A,A,2,,1,
+linagliptin [vandf],,,,A,eslesmedi,2,,1,
+lincomycin,lincomycin,lincomycin,J01FF02,J,A,2,DDInter1071,1,tam_ad
+liothyronine,liothyronine,liothyronine,,H,C,2,DDInter1074,1,tam_ad
+liothyronine sodium,liothyronine sodium,liothyronine sodium,H03AA02,H,A,2,,1,
+lipid thromboplastin,,,,B,eslesmedi,2,,1,
+lipozomal amfoterisin b,amphotericin b,amphotericin b,J02AA01,J,A,2,DDInter85,1,tam_ad
+loksapin baz,,,,N,eslesmedi,2,,1,
+loperamid,loperamide,loperamide,A07DA03,A,A,2,DDInter1088,1,tam_ad
+lornoxicam,lornoxicam,lornoxicam,M01AC05,M,A,2,,1,
+lovastatin,lovastatin,lovastatin,,C,C,2,DDInter1098,1,tam_ad
+lubiproston,,,,A,eslesmedi,2,,1,
+luspatersept,luspatercept,luspatercept,B03XA06,B,A,2,,1,
+lvalin,,,,B,eslesmedi,2,,0,
+macrogol 3350,,,,A,eslesmedi,2,,1,
+magnesium hydroxide,magnesium hydroxide,magnesium hydroxide,A02AA04,A,A,2,DDInter1118,1,tam_ad
+magnezkum,,,,B,eslesmedi,2,,0,
+magnezyum klorur heksahidrat,,,,B,eslesmedi,2,,0,
+"manganez, vit c, zerdecal",,,,M,eslesmedi,2,,1,
+measles,measles,measles,J07BD01,J,B,2,,1,
+mebeverine,mebeverine,mebeverine,A03AA04,A,A,2,,1,
+mefenoksalon,,,,N,eslesmedi,2,,1,
+megestrol,megestrol,megestrol,L02AB01,L,A,2,,1,
+meglumin amidotrizoat,,,,V,eslesmedi,2,,1,
+meglumin iyoksitalmat,ioxitalamic acid,ioxitalamic acid,V08AA05,V,A,2,,1,
+meklizin,meclizine,meclizine,,R,C,2,DDInter1134,1,tam_ad
+melfalan,melphalan,melphalan,L01AA03,L,A,2,DDInter1144,1,tam_ad
+meningokok a polisakkariti,,,,J,eslesmedi,2,,1,
+meningokok c polisakkariti,,,,J,eslesmedi,2,,1,
+meningokok w135 polisakkariti,,,,J,eslesmedi,2,,1,
+meningokok y polisakkariti,,,,J,eslesmedi,2,,1,
+"meningokokal a,c,w135",,,,J,eslesmedi,2,,1,
+mepivakain,mepivacaine,mepivacaine,N01BB03,N,A,2,DDInter1153,1,tam_ad
+mercaptopurine,mercaptopurine,mercaptopurine,L01BB02,L,A,2,DDInter1156,1,tam_ad
+mesalazine,mesalazine,mesalazine,A07EC02,A,A,2,DDInter1158,1,tam_ad
+metabolism products,,,,V,eslesmedi,2,,0,
+metenamin,methenamine,methenamine,J01XX05,J,A,2,DDInter1169,1,tam_ad
+metenamin & metenamin anhidrometilensitrat,methenamine,methenamine,J01XX05,J,A,2,DDInter1169,1,tam_ad
+metenamin hippurat,methenamine,methenamine,J01XX05,J,A,2,DDInter1169,1,tam_ad
+metilmelubrin,metamizole sodium,metamizole sodium,N02BB02,N,A,2,,1,
+midostaurin,midostaurin,midostaurin,L01EX10,L,A,2,DDInter1214,1,tam_ad
+mikofenolat,mycophenolic acid,mycophenolic acid,L04AA06,L,A,2,DDInter1252,1,tam_ad
+mikofenolik,mycophenolic acid,mycophenolic acid,L04AA06,L,A,2,DDInter1252,1,tam_ad
+mikronize progesteron,progesterone,progesterone,G03DA04,G,A,2,DDInter1529,1,tam_ad
+mineral kombinasyonu,,,,A,eslesmedi,2,,1,
+mizolastin,,,,R,eslesmedi,2,,1,
+moclobemid,moclobemide,moclobemide,N06AG02,N,A,2,,1,
+moeksipril hidroklorur vehidroklorotiyazid,moexipril and diuretics,moexipril and diuretics,C09BA13,C,A,2,,1,
+moexipril,moexipril,moexipril,C09AA13,C,A,2,DDInter1237,1,tam_ad
+monobazik sodyum fosfat anhidroz,,,,A,eslesmedi,2,,1,
+"montelukast, combinations","montelukast, combinations","montelukast, combinations",,R,SKRS,2,,1,
+morfozinamid,morinamide,morinamide,J04AK04,J,A,2,,1,
+moxonidine,moxonidine,moxonidine,C02AC05,C,A,2,,1,
+mukolisakkarid polisulfat,organo heparinoid,organo heparinoid,C05BA01,C,A,2,,1,
+multivitamin kompleksi,,,,A,eslesmedi,2,,1,
+multivitaminler,,,,A,eslesmedi,2,,1,
+n 5 chlorine salicylamide,niclosamide,niclosamide,P02DA01,P,A,2,DDInter1288,1,tam_ad
+nabumeton,,,,M,eslesmedi,2,,1,
+natalizumab,natalizumab,natalizumab,L04AG03,L,A,2,DDInter1268,1,tam_ad
+nebivolol hci/s-amlodipin,nebivolol and amlodipine,nebivolol and amlodipine,C07FB12,C,A,2,,1,
+nelarabin,nelarabine,nelarabine,L01BB07,L,A,2,DDInter1275,1,tam_ad
+neostigmin metil,neostigmine,neostigmine,N07AA01,N,A,2,DDInter1279,1,tam_ad
+neostigmine,neostigmine,neostigmine,N07AA01,N,A,2,DDInter1279,1,tam_ad
+netilmicin,netilmicin,netilmicin,S01AA23,S,A,2,DDInter1283,1,tam_ad
+nicotinic acid,nicotinic acid,nicotinic acid,C10AD02,C,A,2,,1,
+nimodipin,nimodipine,nimodipine,C08CA06,C,A,2,DDInter1295,1,tam_ad
+nintedanib,nintedanib,nintedanib,L01EX09,L,A,2,DDInter1296,1,tam_ad
+nitrogliserin,glyceryl trinitrate,glyceryl trinitrate,C01DA02,C,A,2,,1,
+nivolumab,nivolumab,nivolumab,L01FF01,L,A,2,DDInter1308,1,tam_ad
+nusinersen,nusinersen,nusinersen,M09AX07,M,A,2,,1,
+ocrelizumab,ocrelizumab,ocrelizumab,,L,C,2,DDInter1321,1,tam_ad
+ofatumumab,ofatumumab,ofatumumab,,L,C,2,DDInter1324,1,tam_ad
+okserutin,,,,C,eslesmedi,2,,1,
+olapatadin,olopatadine,olopatadine,R01AC08,R,A,2,DDInter1332,1,tam_ad
+onabotulinumtoksin a,botulinum toxin,botulinum toxin,M03AX01,M,A,2,,1,
+oral preparations,,,,B,eslesmedi,2,,1,
+oral rehydration salt formulations,,,,A,eslesmedi,2,,1,
+ornidazol-siprofloksasin,ciprofloxacin and ornidazole,ciprofloxacin and ornidazole,J01RA12,J,A,2,,1,
+osimertinib,osimertinib,osimertinib,L01EB04,L,A,2,DDInter1352,1,tam_ad
+other indifferent preparations,other indifferent preparations,other indifferent preparations,S01XA20,S,B,2,,1,
+"other preparations, combinations","other preparations, combinations","other preparations, combinations",,C,SKRS,2,,1,
+ozanimod,ozanimod,ozanimod,,L,C,2,DDInter1376,1,tam_ad
+palivizumab,palivizumab,palivizumab,J06BD01,J,A,2,,1,
+pamabrom,,,,N,eslesmedi,2,,1,
+pamidronic acid,pamidronic acid,pamidronic acid,M05BA03,M,A,2,DDInter1383,1,tam_ad
+panitumumab,panitumumab,panitumumab,,L,C,2,DDInter1386,1,tam_ad
+pankeratin,,,,A,eslesmedi,2,,1,
+pankreatin enzim konsantresi,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,2,,1,
+pantetonat,,,,A,eslesmedi,2,,1,
+pantotenik asit,,,,B,eslesmedi,2,,0,
+para-aminosalisilik asit sodyum tuzu,sodium aminosalicylate,sodium aminosalicylate,J04AA02,J,A,2,,1,
+"paracetamol, combinations excl. psycholeptics","paracetamol, combinations excl. psycholeptics","paracetamol, combinations excl. psycholeptics",,N,SKRS,2,,1,
+peginterferon beta 1a,peginterferon beta 1a,peginterferon beta 1a,,L,SKRS,2,DDInter1409,1,tam_ad
+peginterferon beta-1a,peginterferon beta 1a,peginterferon beta 1a,L03AB13,L,A,2,DDInter1409,1,tam_ad
+penisilin g benzatin,benzathine benzylpenicillin,benzathine benzylpenicillin,J01CE08,J,A,2,,1,
+"pentavalan rotaviriis serotipleri[gl,g2,g3,g4,p1 ]","rota virus, pentavalent, live, reassorted","rota virus, pentavalent, live, reassorted",J07BH02,J,A,2,,1,
+pertaktin ),,,,J,eslesmedi,2,,1,
+perteknetat,,,,V,eslesmedi,2,,1,
+pheniramine,pheniramine,pheniramine,R06AB05,R,A,2,,1,
+phenylephrine,phenylephrine,phenylephrine,,R,C,2,DDInter1453,1,tam_ad
+phytomenadione,phytomenadione,phytomenadione,B02BA01,B,A,2,,1,
+pinaverium,pinaverium,pinaverium,A03AX04,A,A,2,,1,
+piperacillin,piperacillin,piperacillin,,J,C,2,DDInter1474,1,tam_ad
+piperazin heksahidrat,piperazine,piperazine,P02CB01,P,A,2,DDInter1475,1,tam_ad
+piperonil butoksid,,,,P,eslesmedi,2,,1,
+piretrin,,,,P,eslesmedi,2,,1,
+piridostigmin,pyridostigmine,pyridostigmine,N07AA02,N,A,2,DDInter1548,1,tam_ad
+piridyum,,,,J,eslesmedi,2,,1,
+pirilamin,,,,N,eslesmedi,2,,1,
+piroksikom siklodekstrin,piroxicam,piroxicam,M01AC01,M,A,2,DDInter1478,1,tam_ad
+pnomokokal polisakkarit serotipleri,"pneumococcus, purified polysaccharides antigen conjugated","pneumococcus, purified polysaccharides antigen conjugated",J07AL02,J,A,2,,1,
+polivinilalkol,,,,S,eslesmedi,2,,1,
+polivinilpirolidon,,,,D,eslesmedi,2,,1,
+pomalidomide,pomalidomide,pomalidomide,,L,SKRS,2,DDInter1491,1,tam_ad
+potassium citrate,potassium citrate,potassium citrate,A12BA02,A,A,2,DDInter1498,1,tam_ad
+potassium hloride,potassium chloride,potassium chloride,B05XA01,B,A,2,DDInter1497,1,tam_ad
+potasyum bikarbonat =40 mlval potasyuma esdeger,,,,A,eslesmedi,2,,1,
+potasyum sitrat 1 h₂o,,,,A,eslesmedi,2,,1,
+preparations with salicylic acid derivatives,,,,M,eslesmedi,2,,1,
+prokain benzil penisilin,,,,J,eslesmedi,2,,1,
+prokain penisilin g/potasyum penisilin g,,,,J,eslesmedi,2,,1,
+propafenon,propafenone,propafenone,C01BC03,C,A,2,DDInter1534,1,tam_ad
+propranolol,propranolol,propranolol,C07AA05,C,A,2,DDInter1539,1,tam_ad
+propylthiouracil,propylthiouracil,propylthiouracil,H03BA02,H,A,2,DDInter1541,1,tam_ad
+protamin suspansiyon,,,,A,eslesmedi,2,,1,
+protein-c,protein c,protein c,,B,C,2,DDInter1542,1,tam_ad
+protein-s,,,,B,eslesmedi,2,,1,
+protokilol,,,,R,eslesmedi,2,,1,
+purified antigen,purified antigen,purified antigen,J07BC01,J,B,2,,1,
+purifiye difteri toksoidi,,,,J,eslesmedi,2,,1,
+purifiye tetanoz toksoidi,,,,J,eslesmedi,2,,1,
+quinagolide,quinagolide,quinagolide,G02CB04,G,A,2,,1,
+rafinezeytinyagi,,,,B,eslesmedi,2,,0,
+ramusirumab,ramucirumab,ramucirumab,L01FG02,L,A,2,DDInter1566,1,tam_ad
+rasagiline,rasagiline,rasagiline,N04BD02,N,A,2,DDInter1572,1,tam_ad
+rasburikaz,rasburicase,rasburicase,V03AF07,V,A,2,DDInter1573,1,tam_ad
+rasemik magnezyumaspartat,,,,A,eslesmedi,2,,1,
+rasemik potasyum aspartathemihidrat,,,,A,eslesmedi,2,,1,
+rekombinant insan epidermal buyume faktoru,,,,D,eslesmedi,2,,1,
+rhodapap dc,,,,N,eslesmedi,2,,1,
+riluzol,riluzole,riluzole,N07XX02,N,A,2,DDInter1596,1,tam_ad
+risedronat sodyum hemipentahidrat,risedronic acid,risedronic acid,M05BA07,M,A,2,DDInter1604,1,tam_ad
+romiplostim,romiplostim,romiplostim,B02BX04,B,A,2,DDInter1617,1,tam_ad
+rubella,rubella,rubella,J07BJ01,J,B,2,,1,
+sabal,,,,G,eslesmedi,2,,1,
+safinamid metansulfonat,safinamide,safinamide,N04BD03,N,A,2,DDInter1631,1,tam_ad
+safra ekstresi,,,,A,eslesmedi,2,,1,
+safta ekstresi,,,,A,eslesmedi,2,,1,
+salbatamol,salbutamol,salbutamol,R03AC02,R,A,2,DDInter1632,1,tam_ad
+sapropterin dihidrokloru,sapropterin,sapropterin,A16AX07,A,A,2,DDInter1639,1,tam_ad
+saw palmetto ekstresi,sabalis serrulatae fructus,sabalis serrulatae fructus,G04CX02,G,A,2,,1,
+sefasetril,,,,J,eslesmedi,2,,1,
+sefodoksim prosetil,cefpodoxime,cefpodoxime,J01DD13,J,A,2,DDInter326,1,tam_ad
+seftizoksim,ceftizoxime,ceftizoxime,J01DD07,J,A,2,DDInter332,1,tam_ad
+sefuroksim sokdyum,cefuroxime,cefuroxime,J01DC02,J,A,2,DDInter335,1,tam_ad
+selegilin,selegiline,selegiline,N04BD01,N,A,2,DDInter1653,1,tam_ad
+selumetinib hidrojen,,,,L,eslesmedi,2,,1,
+setilpiridinyum,,,,A,eslesmedi,2,,1,
+setilpridinyum,,,,A,eslesmedi,2,,1,
+setrizin,cetirizine,cetirizine,R06AE07,R,A,2,DDInter343,1,tam_ad
+setroreliks,cetrorelix,cetrorelix,H01CC02,H,A,2,,1,
+sigir safrasi ekstresi,,,,A,eslesmedi,2,,1,
+siklopentolat,cyclopentolate,cyclopentolate,S01FA04,S,A,2,,1,
+siklopiroks olamin,ciclopirox,ciclopirox,D01AE14,D,A,2,DDInter377,1,tam_ad
+siklopiroksolamin,ciclopirox,ciclopirox,D01AE14,D,A,2,DDInter377,1,tam_ad
+sikloserin,cycloserine,cycloserine,J04AB01,J,A,2,DDInter457,1,tam_ad
+silikon dioksit,,,,J,eslesmedi,2,,1,
+siltuksimab,siltuximab,siltuximab,,L,C,2,DDInter1668,1,tam_ad
+silymarin,silymarin,silymarin,,A,SKRS,2,,1,
+sinkokain,,,,C,eslesmedi,2,,1,
+sinnarizin,cinnarizine,cinnarizine,N07CA02,N,A,2,,1,
+siprofloksasin baz,ciprofloxacin,ciprofloxacin,J01MA02,J,A,2,DDInter384,1,tam_ad
+siprofloksasin hidraklorur,ciprofloxacin,ciprofloxacin,S01AE03,S,A,2,DDInter384,1,tam_ad
+siprofloxasin,ciprofloxacin,ciprofloxacin,J01MA02,J,A,2,DDInter384,1,tam_ad
+siyanokobalamin (b 12 vitamini,cyanocobalamin,cyanocobalamin,B03BA01,B,A,2,DDInter451,1,tam_ad
+skopolamin n-butil,,,,A,eslesmedi,2,,1,
+sodium aminosalicylate,sodium aminosalicylate,sodium aminosalicylate,J04AA02,J,A,2,,1,
+sodium picosulfate,sodium picosulfate,sodium picosulfate,A06AB08,A,A,2,,1,
+somapasitan,,,,H,eslesmedi,2,,1,
+somatostatin,somatostatin,somatostatin,H01CB01,H,A,2,,1,
+somatrogon,somatrogon,somatrogon,H01AC08,H,A,2,,1,
+sonidegib difosfat,,,,L,eslesmedi,2,,1,
+"soyabean oil, unsaponifiables","soyabean oil, unsaponifiables","soyabean oil, unsaponifiables",,M,SKRS,2,,1,
+spiramicin,spiramycin,spiramycin,J01RA04,J,B,2,,1,
+split virus or surface antigen,split virus or surface antigen,split virus or surface antigen,J07BB02,J,B,2,,1,
+strontium ranelat,,,,M,eslesmedi,2,,1,
+sugammadex,sugammadex,sugammadex,V03AB35,V,A,2,DDInter1719,1,tam_ad
+sulbaktam 125mg,,,,J,eslesmedi,2,,1,
+sulbaktam 250mg,,,,J,eslesmedi,2,,1,
+sulodexide,sulodexide,sulodexide,B01AB11,B,A,2,,1,
+sumitrin,phenothrin,phenothrin,P03AC03,P,A,2,,1,
+sympathomimetics,,,,R,eslesmedi,2,,1,
+tafamidis,tafamidis,tafamidis,N07XX08,N,A,2,DDInter1737,1,tam_ad
+tasiyici protein olarak tetanoz toksoidi,,,,J,eslesmedi,2,,1,
+tavsanlardan elde edilen anti insan t-lenfosit immunoglobulini,antithymocyte immunoglobulin (rabbit),antithymocyte immunoglobulin (rabbit),L04AA04,L,A,2,DDInter106,1,tam_ad
+tazobaktam sodyu,,,,J,eslesmedi,2,,1,
+teicoplanin,teicoplanin,teicoplanin,J01XA02,J,A,2,,1,
+tekmisartan,telmisartan,telmisartan,C09CA07,C,A,2,DDInter1759,1,tam_ad
+temisartan,,,,C,eslesmedi,2,,1,
+tenofovir alefenamid,tenofovir alafenamide,tenofovir alafenamide,J05AR20,J,B,2,,1,
+tenofovir disopoksilfumarat,tenofovir disoproxil,tenofovir disoproxil,J05AF07,J,A,2,,1,
+tenofovir disoproxil,tenofovir disoproxil,tenofovir disoproxil,J05AF07,J,A,2,,1,
+tetanoz,,,,J,eslesmedi,2,,1,
+tetanoz toksoid tasiyici proteine konjuge,,,,J,eslesmedi,2,,1,
+tetrahidrozolin,tetryzoline,tetryzoline,S01GA02,S,A,2,,1,
+tetrakain,tetracaine,tetracaine,,N,C,2,DDInter1779,1,tam_ad
+thiocolchicoside,thiocolchicoside,thiocolchicoside,,M,SKRS,2,,1,
+tiaprofenic acid,tiaprofenic acid,tiaprofenic acid,,M,SKRS,2,,1,
+tiaprofenik asit,tiaprofenic acid,tiaprofenic acid,M01AE11,M,A,2,,1,
+tibbi komur,,,,A,eslesmedi,2,,1,
+tilaktaz,tilactase,tilactase,A09AA04,A,A,2,,1,
+tiomersal,,,,D,eslesmedi,2,,1,
+tiotropium bromid,tiotropium,tiotropium bromide,R03BB04,R,A,2,DDInter1815,1,pubchem_yayilim
+tiyopental,thiopental,thiopental,N01AF03,N,A,2,DDInter1795,1,tam_ad
+tobramycin,tobramycin,tobramycin,S01AA12,S,A,2,DDInter1822,1,tam_ad
+tocopherol (vit e),tocopherol (vit e),tocopherol (vit e),,A,SKRS,2,,1,
+tramadolhidroklorur,tramadol,tramadol,N02AX02,N,A,2,DDInter1841,1,tam_ad
+trastuzuma,trastuzumab,trastuzumab,L01FY01,L,B,2,DDInter1846,1,tam_ad
+trastuzumab emtansine,trastuzumab emtansine,trastuzumab emtansine,L01FD03,L,A,2,DDInter1848,1,tam_ad
+tremelimumab,tremelimumab,tremelimumab,L01FX20,L,A,2,,1,
+treosulfan,treosulfan,treosulfan,L01AB02,L,A,2,,1,
+triamsinolon asetonit,,,,A,eslesmedi,2,,1,
+triamsinolon bekzasetonid,triamcinolone,triamcinolone,H02AB08,H,A,2,DDInter1855,1,tam_ad
+triklozan,,,,D,eslesmedi,2,,1,
+trimebutin baz,,,,C,eslesmedi,2,,1,
+trimetazidine,trimetazidine,trimetazidine,C01EB15,C,A,2,,1,
+trimethobenzamit,trimethobenzamide,trimethobenzamide,R06AA10,R,A,2,DDInter1873,1,tam_ad
+triticum vulgare,,,,D,eslesmedi,2,,1,
+trokserutin,,,,C,eslesmedi,2,,1,
+tropisetron,tropisetron,tropisetron,A04AA03,A,A,2,,1,
+tuberculosis,tuberculosis,tuberculosis,J07AN01,J,B,2,,1,
+tukatinib,tucatinib,tucatinib,L01EH03,L,A,2,DDInter1891,1,tam_ad
+udenafil,udenafil,udenafil,G04BE11,G,A,2,,1,
+urtika ekstresi,,,,G,eslesmedi,2,,1,
+valproic acid,valproic acid,valproic acid,N03AG01,N,A,2,DDInter1913,1,tam_ad
+vancomycin,vancomycin,vancomycin,J01XA01,J,A,2,DDInter1916,1,tam_ad
+vandetanib,vandetanib,vandetanib,,L,C,2,DDInter1917,1,tam_ad
+various alimentary tract,,,,V,eslesmedi,2,,0,
+varisella zoster virusu glikoprotein e antijeni,"zoster, purified antigen","zoster, purified antigen",J07BK03,J,A,2,,1,
+vazopressin,,,,H,eslesmedi,2,,1,
+vigabatrin,vigabatrin,vigabatrin,N03AG04,N,A,2,DDInter1933,1,tam_ad
+vinblastin,vinblastine,vinblastine,L01CA01,L,A,2,DDInter1936,1,tam_ad
+vinflunin ditartarat,vinflunine,vinflunine,L01CA05,L,A,2,,1,
+vismodegib,vismodegib,vismodegib,L01XJ01,L,A,2,DDInter1940,1,tam_ad
+vitamin b,,,,A,eslesmedi,2,,1,
+"vitamin b complex, plain","vitamin b complex, plain","vitamin b complex, plain",,A,SKRS,2,,1,
+vitamin b kompleksi,,,,A,eslesmedi,2,,1,
+vitamin b1 / vitamin b6 / vitamin b12 / tioktik asit,,,,A,eslesmedi,2,,1,
+vitamin b1-vitamin b6-vitamin b12-tioktik asit,,,,A,eslesmedi,2,,1,
+vitamin b1/b6/b12,,,,A,eslesmedi,2,,1,
+vitamin d3 toz,,,,M,eslesmedi,2,,1,
+vitamin kompleksi,,,,A,eslesmedi,2,,1,
+vitaminb12,,,,N,eslesmedi,2,,1,
+von willebrand faktoru,,,,B,eslesmedi,2,,1,
+warfarin,warfarin,warfarin,,B,SKRS,2,DDInter1951,1,tam_ad
+y gruplarinin saflastirilmis polisakkaritleri,,,,J,eslesmedi,2,,1,
+yuzey antijeni,,,,J,eslesmedi,2,,1,
+zopiklon,zopiclone,zopiclone,N05CF01,N,A,2,DDInter1972,1,tam_ad
+zuklopentiksol,zuclopenthixol,zuclopenthixol,N05AF05,N,A,2,,1,
+123i,,,,V,eslesmedi,1,,1,
+"23 pnomokok serotipleri: 1, 2, 3, 4, 5, 6b, 7f, 8, 9n, 9v, 10a, lla, 12f, 14, 15b, 17f, 18c, 19f, 19a, 20, 22f, 23f",,,,J,eslesmedi,1,,1,
+"23 pnomokokkal polisakkarit serotipi: 1, 2, 3, 4, 5, 6b, 7f, 8, 9n, 9v, 10a, 11a, 12f, 14, 15b, 17f, 18c, 19f, 19a, 20, 22f, 23f, 33f","pneumococcus, purified polysaccharides antigen","pneumococcus, purified polysaccharides antigen",J07AL01,J,A,1,,1,
+"28,5mg klavulanik asit",,,,J,eslesmedi,1,,1,
+5-aminolevulinik asit,,,,L,eslesmedi,1,,1,
+5-florourasil,,,,D,eslesmedi,1,,1,
+57mg klavulanik asit,,,,J,eslesmedi,1,,1,
+"9-valan insan papillomavirus tipleri [tip 6, 11, 16, 18, 31, 33, 45, 52, 58]","papillomavirus (human types 6, 11, 16, 18, 31, 33, 45, 52, 58)","papillomavirus (human types 6, 11, 16, 18, 31, 33, 45, 52, 58)",J07BM03,J,A,1,,1,
+[18f] florokolin,,,,V,eslesmedi,1,,1,
+[18f]-florodopa,,,,V,eslesmedi,1,,1,
+"a vitamini, b vitamini, b2 vitamini, b6 vitamini",,,,A,eslesmedi,1,,1,
+a/victoria/4897/2022 pdm09 benzeri sus a/croatia/10136rv/2023 benzeri sus b/austria/1359417/2021 benzeri sus,,,,J,eslesmedi,1,,1,
+absiksimab,abciximab,abciximab,B01AC13,B,A,1,DDInter6,1,tam_ad
+aceclofenac,aceclofenac,aceclofenac,M01AB16,M,A,1,,1,
+acetylsalicylic acid,acetylsalicylic acid,acetylsalicylic acid,C10BX05,C,B,1,DDInter20,1,tam_ad
+acids,acids,acids,C10AX06,C,B,1,,1,
+adapalene,adapalene,adapalene,D10AD03,D,A,1,DDInter28,1,tam_ad
+adefovir dipivoksil,adefovir dipivoxil,adefovir dipivoxil,J05AF08,J,A,1,DDInter30,1,tam_ad
+aessin,,,,M,eslesmedi,1,,1,
+agalsidase alfa,agalsidase alfa,agalsidase alfa,A16AB03,A,A,1,,1,
+agalsidaz beta,agalsidase beta,agalsidase beta,A16AB04,A,A,1,DDInter34,1,tam_ad
+agni casti fructus,agni casti fructus,agni casti fructus,G02CX03,G,A,1,,1,
+agomelatine,agomelatine,agomelatine,N06AX22,N,A,1,,1,
+akamprosat,acamprosate,acamprosate,N07BB03,N,A,1,DDInter10,1,tam_ad
+aktif karbon,,,,A,eslesmedi,1,,1,
+aktive attapuljit,attapulgite,attapulgite,A07BC04,A,A,1,DDInter138,1,tam_ad
+alectinib,alectinib,alectinib,L01ED03,L,A,1,DDInter39,1,tam_ad
+alfa1-proteinaz inhibitoru (insan,alfa1 antitrypsin,alfa1 antitrypsin,B02AB02,B,A,1,,1,
+alfacalcidol,alfacalcidol,alfacalcidol,A11CC03,A,A,1,,1,
+aljinatpotasyum,alginic acid,alginic acid,A02BX13,A,A,1,,1,
+alkaftadin,,,,S,eslesmedi,1,,1,
+aloglipin,,,,A,eslesmedi,1,,1,
+alogliptin,alogliptin,alogliptin,,A,C,1,DDInter51,1,tam_ad
+alpinia officinarum,,,,A,eslesmedi,1,,1,
+aluminyum klorid hidroksid kompleksi,,,,V,eslesmedi,1,,1,
+alumniyum hidroksit,,,,D,eslesmedi,1,,1,
+amfoterisin b,amphotericin b,amphotericin b,J02AA01,J,A,1,DDInter85,1,tam_ad
+amiadoron,amiodarone,amiodarone,C01BD01,C,A,1,DDInter76,1,tam_ad
+amifostine,amifostine,amifostine,V03AF05,V,A,1,DDInter65,1,tam_ad
+amphotericin b,amphotericin b,amphotericin b,J02AA01,J,A,1,DDInter85,1,tam_ad
+anastrozole,anastrozole,anastrozole,L02BG03,L,A,1,DDInter95,1,tam_ad
+androctonus australis hector,,,,J,eslesmedi,1,,1,
+androctonus crassicauda akrep venomlarina karsin immunoglobulin f 2 fragmanlari,,,,J,eslesmedi,1,,1,
+androctonus crassicauda akrep venomuna karsin immunoglobulin f 2 fragmanlari,,,,J,eslesmedi,1,,1,
+andusomeran,,,,J,eslesmedi,1,,1,
+anesthetics for topical use,lidocaine,lidocaine,D04AB01,D,A,1,DDInter1066,1,tam_ad
+anhidroz beklometazon,,,,R,eslesmedi,1,,1,
+anhidroz piroksikam,piroxicam,piroxicam,M02AA07,M,A,1,DDInter1478,1,tam_ad
+anifrolumab,,,,L,eslesmedi,1,,1,
+antacids,,,,A,eslesmedi,1,,1,
+antacids with antiflatulents,,,,A,eslesmedi,1,,1,
+antibiotics,antibiotics,antibiotics,D07CA01,D,B,1,,1,
+antiinflammatory agents,antiinflammatory agents,antiinflammatory agents,,S,SKRS,1,,1,
+"antiinflammatory preparations, non-steroids for topical use",etofenamate,etofenamate,M02AA06,M,A,1,,1,
+antikuduz immunoglobulin f 2 fragmenti,rabies immunoglobulin,rabies immunoglobulin,J06BB05,J,A,1,,1,
+antikuduz immunoglobulin fragmanlari-ekuin,rabies immunoglobulin,rabies immunoglobulin,J06BB05,J,A,1,,1,
+antipsoriatics for topical use,,,,D,eslesmedi,1,,1,
+antiseptics,antiseptics,antiseptics,,R,SKRS,1,,1,
+antithymocyte immunoglobulin,antithymocyte immunoglobulin (rabbit),antithymocyte immunoglobulin (rabbit),L04AA04,L,A,1,DDInter106,1,tam_ad
+antitimosit immunoglobulin,antithymocyte immunoglobulin (rabbit),antithymocyte immunoglobulin (rabbit),L04AA04,L,A,1,DDInter106,1,tam_ad
+antivaricose therapy,antivaricose therapy,antivaricose therapy,,C,SKRS,1,,1,
+apalutamit,apalutamide,apalutamide,L02BB05,L,A,1,DDInter107,1,tam_ad
+aprepitant,aprepitant,aprepitant,A04AD12,A,A,1,DDInter112,1,tam_ad
+"aprotinin, set 2: trombin",,,,B,eslesmedi,1,,1,
+aprotininkombi set ii: trombin,,,,B,eslesmedi,1,,1,
+argatroban,argatroban,argatroban,,B,C,1,DDInter117,1,tam_ad
+aripipirazol,aripiprazole,aripiprazole,N05AX12,N,A,1,DDInter118,1,tam_ad
+aripirazol,aripiprazole,aripiprazole,N05AX12,N,A,1,DDInter118,1,tam_ad
+aritilmis propiolakton ile inaktive edilmis,,,,J,eslesmedi,1,,1,
+aritilmis tetanoz toksoidi,tetanus toxoid,tetanus toxoid,J07AM01,J,A,1,,1,
+asebutolol,acebutolol,acebutolol,C07AB04,C,A,1,DDInter12,1,tam_ad
+aseklofenak,aceclofenac,aceclofenac,M01AB16,M,A,1,,1,
+asetazolamid,acetazolamide,acetazolamide,S01EC01,S,A,1,DDInter15,1,tam_ad
+asetil salisik asit,acetylsalicylic acid,acetylsalicylic acid,N02BA01,N,A,1,DDInter20,1,tam_ad
+asetilsalisilik asi,,,,N,eslesmedi,1,,1,
+asetilsitein,acetylcysteine,acetylcysteine,R05CB01,R,A,1,DDInter19,1,tam_ad
+asparaginase,asparaginase,asparaginase,L01XX02,L,A,1,,1,
+atenue su cicegi virusu,,,,J,eslesmedi,1,,1,
+atomoksetinhidroklorur,atomoxetine,atomoxetine,N06BA09,N,A,1,DDInter132,1,tam_ad
+atrformoterol,formoterol,formoterol,R03AC13,R,A,1,DDInter776,1,tam_ad
+avalglukozidaz alfa,,,,A,eslesmedi,1,,1,
+avelumab,avelumab,avelumab,L01FF04,L,A,1,DDInter144,1,tam_ad
+azacitidine,azacitidine,azacitidine,,L,SKRS,1,DDInter148,1,tam_ad
+aztreonam beta,,,,J,eslesmedi,1,,1,
+b kompleks vitamin,,,,A,eslesmedi,1,,1,
+b vitaminleri kompleksi,,,,A,eslesmedi,1,,1,
+bacampicillin,bacampicillin,bacampicillin,J01CA06,J,A,1,DDInter159,1,tam_ad
+baclofen,baclofen,baclofen,M03BX01,M,A,1,DDInter162,1,tam_ad
+bakir,,,,B,eslesmedi,1,,1,
+basiliksimab,basiliximab,basiliximab,L04AC02,L,A,1,DDInter166,1,tam_ad
+bcg vaccine,bcg vaccine,bcg vaccine,L03AX03,L,A,1,,1,
+bedakuilin,,,,J,eslesmedi,1,,1,
+beklametazon,beclometasone,beclometasone,R01AD01,R,A,1,,1,
+beklometazon dipropiyonat anhidroz – formoterol,formoterol and beclometasone,formoterol and beclometasone,R03AK08,R,A,1,,1,
+beklometazon dipropriyonat,beclometasone,beclometasone,R01AD01,R,A,1,,1,
+belladonna,belladonna,belladonna,,A,SKRS,1,DDInter175,1,tam_ad
+belumosudil,belumosudil,belumosudil,L04AA48,L,A,1,,1,
+benidipine,benidipine,benidipine,C08CA15,C,A,1,,1,
+benzatin benzil penisilin,,,,J,eslesmedi,1,,1,
+benzatin benzilpenisilin,,,,J,eslesmedi,1,,1,
+benzil alkol,,,,H,eslesmedi,1,,1,
+benzil penisilin,,,,J,eslesmedi,1,,1,
+benzilpenisilin,,,,J,eslesmedi,1,,1,
+benztropin,,,,N,eslesmedi,1,,1,
+beraktant,natural phospholipids,natural phospholipids,R07AA02,R,A,1,,1,
+berotralstat,berotralstat,berotralstat,,B,C,1,DDInter193,1,tam_ad
+besifloksasin,besifloxacin,besifloxacin,S01AE08,S,A,1,,1,
+betain,betaine,betaine,A16AA06,A,A,1,,1,
+betametazon 17-valerat,betamethasone,betamethasone,D07AC01,D,A,1,DDInter195,1,tam_ad
+betametazon dipropionat,,,,H,eslesmedi,1,,1,
+betametazon sodyumfosfat,,,,H,eslesmedi,1,,1,
+betametazondipropionat,,,,H,eslesmedi,1,,1,
+betaxolol,betaxolol,betaxolol,S01ED02,S,A,1,DDInter197,1,tam_ad
+betiatide,,,,V,eslesmedi,1,,1,
+bicalutamide,bicalutamide,bicalutamide,,L,SKRS,1,DDInter204,1,tam_ad
+bicisate,,,,V,eslesmedi,1,,1,
+bifazik izofan biyosentetik insan insulini,,,,A,eslesmedi,1,,1,
+bifidobacterium breve,,,,A,eslesmedi,1,,1,
+bifidobacterium infantis,,,,A,eslesmedi,1,,1,
+bifonazol,bifonazole,bifonazole,D01AC10,D,A,1,,1,
+bile acid preparations,,,,A,eslesmedi,1,,1,
+bimataprost,,,,S,eslesmedi,1,,1,
+bimekizumab,bimekizumab,bimekizumab,L04AC21,L,A,1,,1,
+binimetinib,binimetinib,binimetinib,L01EE03,L,A,1,DDInter210,1,tam_ad
+birimonidin,,,,S,eslesmedi,1,,1,
+bisacodyl,bisacodyl,bisacodyl,A06AB02,A,A,1,DDInter212,1,tam_ad
+bismuth subcitrate,bismuth subcitrate,bismuth subcitrate,A02BX05,A,A,1,,1,
+bisoprolol fumarate,bisoprolol,bisoprolol,C07AB07,C,A,1,DDInter216,1,tam_ad
+bivaluridin,,,,B,eslesmedi,1,,1,
+bizmut subgallat,,,,C,eslesmedi,1,,1,
+bizmut subhidrat,,,,D,eslesmedi,1,,1,
+blinatumomab,blinatumomab,blinatumomab,L01FX07,L,A,1,DDInter220,1,tam_ad
+bogmaca antijenleri,,,,J,eslesmedi,1,,1,
+borik asit,,,,D,eslesmedi,1,,1,
+bornaprine,bornaprine,bornaprine,N04AA11,N,A,1,,1,
+bortezomib [mi],bortezomib,bortezomib,L01XG01,L,A,1,DDInter222,1,tam_ad
+botulinum toksini tip a,botulinum toxin,botulinum toxin,M03AX01,M,A,1,,1,
+brentuksimab vedotin,brentuksimab vedotin,brentuksimab vedotin,L01FX05,L,A,1,,1,
+brimonidine tartrate,brimonidine,brimonidine,S01EA05,S,A,1,DDInter234,1,tam_ad
+brivudin,brivudine,brivudine,J05AB15,J,A,1,,1,
+brolucizumab,,,,S,eslesmedi,1,,1,
+bromfenak,bromfenac,bromfenac,S01BC11,S,A,1,DDInter241,1,tam_ad
+budesonide,budesonide,budesonide,,R,SKRS,1,DDInter246,1,tam_ad
+bupropiyon,bupropion,bupropion,N06AX12,N,A,1,DDInter252,1,tam_ad
+butamitrat,butamirate,butamirate,R05DB13,R,A,1,,1,
+buthus occitanus,,,,J,eslesmedi,1,,1,
+c-1 esteraz inhibitoru,"c1 inhibitor, plasma derived","c1 inhibitor, plasma derived",B06AC01,B,A,1,,1,
+c1-esteraz inhibitoru,,,,B,eslesmedi,1,,1,
+calcium acetate,calcium acetate,calcium acetate,,V,SKRS,1,DDInter270,1,tam_ad
+calcium acetate anhydrous,calcium acetate,calcium acetate,V03AE07,V,A,1,DDInter270,1,tam_ad
+calcium glubionate,,,,A,eslesmedi,1,,1,
+"calcium, combinations with vitamin d and/or other drugs","calcium, combinations with vitamin d and/or other drugs","calcium, combinations with vitamin d and/or other drugs",,A,SKRS,1,,1,
+canli zayiflatilmis varisella virusu,"varicella, live attenuated","varicella, live attenuated",J07BK01,J,A,1,,1,
+capsaicin,,,,M,eslesmedi,1,,1,
+"carbohydrates/proteins/minerals/vitamins, combinations","carbohydrates/proteins/minerals/vitamins, combinations","carbohydrates/proteins/minerals/vitamins, combinations",,V,SKRS,1,,0,
+carglumic acid,carglumic acid,carglumic acid,,A,SKRS,1,,1,
+caries prophylactic agents,,,,A,eslesmedi,1,,1,
+cefepime,cefepime,cefepime,J01DE01,J,A,1,DDInter317,1,tam_ad
+celecoxib,celecoxib,celecoxib,M01AH01,M,A,1,DDInter336,1,tam_ad
+centella asiatica ekst,centella asiatica herba,centella asiatica herba,D03AX14,D,A,1,,1,
+certolizumab pegol,certolizumab pegol,certolizumab pegol,L04AB05,L,A,1,DDInter342,1,tam_ad
+cfu bcg tice susu,bcg vaccine,bcg vaccine,L03AX03,L,A,1,,1,
+chlorambucil,chlorambucil,chlorambucil,L01AA02,L,A,1,DDInter350,1,tam_ad
+chlorhexidine,chlorhexidine,chlorhexidine,,R,SKRS,1,DDInter356,1,tam_ad
+chlorpheniramine,chlorpheniramine,chlorpheniramine,,R,C,1,DDInter362,1,tam_ad
+chlorzoxazone,chlorzoxazone,chlorzoxazone,,M,C,1,DDInter366,1,tam_ad
+cimicifugae rhizoma,cimicifugae rhizoma,cimicifugae rhizoma,,G,SKRS,1,,1,
+cink oksit,,,,D,eslesmedi,1,,1,
+cinko monoetil,,,,D,eslesmedi,1,,1,
+cinko sulfat heptahidrat0,,,,A,eslesmedi,1,,1,
+cinko sulfatheptahidret,zinc sulfate,zinc sulfate,A12CB01,A,A,1,DDInter1966,1,tam_ad
+cinkooksit,,,,D,eslesmedi,1,,1,
+clemastine,clemastine,clemastine,R06AA04,R,A,1,DDInter395,1,tam_ad
+clostridium botilinum tip a toksinhemaglutinin kompleksi,botulinum toxin,botulinum toxin,M03AX01,M,A,1,,1,
+cmc,,,,H,eslesmedi,1,,1,
+codeine phosphate,,,,R,eslesmedi,1,,1,
+collagenase,,,,D,eslesmedi,1,,1,
+combinations of different antibiotics,combinations of different antibiotics,combinations of different antibiotics,,S,SKRS,1,,1,
+combinations of imidazole derivatives,combinations of imidazole derivatives,combinations of imidazole derivatives,,G,SKRS,1,,1,
+combinations of vitamins,combinations of vitamins,combinations of vitamins,,A,SKRS,1,,1,
+combinations with diphtheria toxoid,,,,J,eslesmedi,1,,1,
+combinations with mumps,,,,J,eslesmedi,1,,1,
+combinations with psycholeptics,,,,N,eslesmedi,1,,1,
+complexes of aluminium,,,,A,eslesmedi,1,,1,
+copper oxide,,,,A,eslesmedi,1,,1,
+crovalimab,,,,L,eslesmedi,1,,1,
+cyanocobalamin tannin complex,cyanocobalamin tannin complex,cyanocobalamin tannin complex,B03BA02,B,A,1,,1,
+cyclophosphamide,cyclophosphamide,cyclophosphamide,L01AA01,L,A,1,DDInter456,1,tam_ad
+cyproheptadine,cyproheptadine,cyproheptadine,R06AX02,R,A,1,DDInter459,1,tam_ad
+"d-pantenol, c vitamini, d3 vitamini, e vitamini",,,,A,eslesmedi,1,,1,
+dantrolen sodyum hemiheptahidrat,,,,M,eslesmedi,1,,1,
+darolutamit,darolutamide,darolutamide,L02BB06,L,A,1,DDInter481,1,tam_ad
+dasabuvir,dasabuvir,dasabuvir,J05AP09,J,A,1,DDInter483,1,tam_ad
+daunorubisin,daunorubicin,daunorubicin,L01DB02,L,A,1,DDInter485,1,tam_ad
+deferoksamin metansulfonat,deferoxamine,deferoxamine,V03AC01,V,A,1,DDInter490,1,tam_ad
+dekstran-70 1.0 mg hidroksipropil metil seluloz,artificial tears and other indifferent preparations,artificial tears and other indifferent preparations,S01XA20,S,A,1,,1,
+delamanid,,,,J,eslesmedi,1,,1,
+demir (iii hidroksit sukroz kompleksi,,,,B,eslesmedi,1,,1,
+demir -glisin,,,,B,eslesmedi,1,,1,
+demir glisin sulfat kompleksi,ferrous glycine sulfate,ferrous glycine sulfate,B03AA01,B,A,1,,1,
+demir iii sukroz kompleksi,,,,B,eslesmedi,1,,1,
+derivatives in combination with psycholeptics,derivatives in combination with psycholeptics,derivatives in combination with psycholeptics,,A,SKRS,1,,1,
+desmopresin,desmopressin,desmopressin,H01BA02,H,A,1,DDInter507,1,tam_ad
+dextromethorphane,,,,R,eslesmedi,1,,1,
+di-iyodohidroksikinolin,,,,G,eslesmedi,1,,1,
+diclofenac sodium,diclofenac,diclofenac,D11AX18,D,A,1,DDInter537,1,tam_ad
+diclofenak dietilamonyum,diclofenac,diclofenac,M02AA15,M,A,1,DDInter537,1,tam_ad
+dietilamin salisilat essin,,,,M,eslesmedi,1,,1,
+dietilen triamin penta asetik asit,,,,V,eslesmedi,1,,1,
+difenhidraminhidroklorur,,,,D,eslesmedi,1,,1,
+diflorazon diasetat,diflorasone,diflorasone,D07AC10,D,A,1,,1,
+digoksin,digoxin,digoxin,C01AA05,C,A,1,DDInter554,1,tam_ad
+dihidrajen,,,,B,eslesmedi,1,,1,
+dihidroergotoksin etansulfonat,,,,C,eslesmedi,1,,1,
+dihidrojen,,,,A,eslesmedi,1,,1,
+diklofenak asit,diclofenac,diclofenac,M01AB05,M,A,1,DDInter537,1,tam_ad
+diklorofen,,,,P,eslesmedi,1,,1,
+dimerkaptosuksinik asit,,,,V,eslesmedi,1,,1,
+dinoprostone,dinoprostone,dinoprostone,G02AD02,G,A,1,,1,
+dionie,,,,R,eslesmedi,1,,1,
+dionin,,,,R,eslesmedi,1,,1,
+dipotasyum fosfat,,,,B,eslesmedi,1,,1,
+diprophylline,diprophylline,diprophylline,R03DA01,R,A,1,,1,
+dipyridamole,dipyridamole,dipyridamole,B01AC07,B,A,1,DDInter573,1,tam_ad
+disinfectants,,,,D,eslesmedi,1,,1,
+doksapram,doxapram,doxapram,,R,C,1,DDInter591,1,tam_ad
+doksisiklin hiklat,doxycycline,doxycycline,J01AA02,J,A,1,DDInter598,1,tam_ad
+donmperidon,domperidone,domperidone,A03FA03,A,A,1,,1,
+dornase alfa,dornase alfa (desoxyribonuclease),dornase alfa (desoxyribonuclease),R05CB13,R,A,1,,1,
+dorzalamid,,,,S,eslesmedi,1,,1,
+dostarlimab,dostarlimab,dostarlimab,L01FF07,L,A,1,,1,
+doxycycline,doxycycline,doxycycline,J01AA02,J,A,1,DDInter598,1,tam_ad
+doxylamine,doxylamine,doxylamine,R06AA09,R,A,1,DDInter600,1,tam_ad
+dutasteride,dutasteride,dutasteride,G04CB02,G,A,1,DDInter611,1,tam_ad
+dydrogesterone,dydrogesterone,dydrogesterone,G03DB01,G,A,1,,1,
+e vitamini-asetat,tocopherol (vit e),tocopherol (vit e),A11HA03,A,A,1,,1,
+efavirenz,efavirenz,efavirenz,J05AG03,J,A,1,DDInter624,1,tam_ad
+ekulizumab,eculizumab,eculizumab,,L,C,1,DDInter618,1,tam_ad
+electrolytes in combination with other drugs,electrolytes in combination with other drugs,electrolytes in combination with other drugs,B05XA31,B,A,1,,1,
+elementer demir,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,1,,1,
+enalapril maleate,,,,C,eslesmedi,1,,1,
+enflurane,enflurane,enflurane,,N,C,1,DDInter641,1,tam_ad
+enkorafenib,encorafenib,encorafenib,L01EC03,L,A,1,DDInter640,1,tam_ad
+enoksanarin,enoxaparin,enoxaparin,B01AB05,B,A,1,DDInter645,1,tam_ad
+ephedrine,ephedrine,ephedrine,,R,C,1,DDInter650,1,tam_ad
+epinastin,epinastine,epinastine,S01GX10,S,A,1,,1,
+eplontersen,,,,N,eslesmedi,1,,1,
+eptakog alfa,coagulation factor viia,coagulation factor viia,B02BD08,B,A,1,,1,
+erenumab,erenumab,erenumab,N02CD01,N,A,1,,1,
+ergokalsiferol,,,,A,eslesmedi,1,,1,
+"ergotamine, combinations excl. psycholeptics","ergotamine, combinations excl. psycholeptics","ergotamine, combinations excl. psycholeptics",,N,SKRS,1,,1,
+eribulin,eribulin,eribulin,,L,C,1,DDInter666,1,tam_ad
+eritromisin base,erythromycin,erythromycin,J01FA01,J,A,1,DDInter670,1,tam_ad
+esans girofle,,,,A,eslesmedi,1,,1,
+esomeprazol sodyu,esomeprazole,esomeprazole,A02BC05,A,A,1,DDInter676,1,tam_ad
+estradiol propionate,estradiol,estradiol,G03CA03,G,A,1,DDInter679,1,tam_ad
+estramustin sodyum fosfatmonohidrat,estramustine,estramustine,L01XX11,L,A,1,DDInter681,1,tam_ad
+etfenamat,,,,M,eslesmedi,1,,1,
+ethionamide,ethionamide,ethionamide,J04AD03,J,A,1,DDInter694,1,tam_ad
+etidronat di,etidronic acid,etidronic acid,M05BA01,M,A,1,DDInter698,1,tam_ad
+etidronic acid,etidronic acid,etidronic acid,M05BA01,M,A,1,DDInter698,1,tam_ad
+etinidiol diasetat,,,,G,eslesmedi,1,,1,
+etinilostradiol,,,,G,eslesmedi,1,,1,
+etinodiol diasetat,,,,G,eslesmedi,1,,1,
+etionamid,ethionamide,ethionamide,J04AD03,J,A,1,DDInter694,1,tam_ad
+etofenamat benzil,etofenamate,etofenamate,M02AA06,M,A,1,,1,
+etofenomat,,,,M,eslesmedi,1,,1,
+etotenamat,etofenamate,etofenamate,M02AA06,M,A,1,,1,
+etravirin,etravirine,etravirine,J05AG04,J,A,1,DDInter703,1,tam_ad
+exemestane,exemestane,exemestane,L02BG06,L,A,1,DDInter705,1,tam_ad
+expectorants,expectorants,expectorants,,R,SKRS,1,,1,
+ezetimibe,ezetimibe,ezetimibe,C10AX09,C,A,1,DDInter707,1,tam_ad
+factor ix,coagulation factor ıx,coagulation factor ıx,B02BD04,B,A,1,,1,
+faricimab,faricimab,faricimab,S01LA09,S,A,1,,1,
+fe iii hidroksit polimaltoz kompleksi,ferric oxide polymaltose complexes,ferric oxide polymaltose complexes,B03AB05,B,A,1,,1,
+fedratinib,fedratinib,fedratinib,L01EJ02,L,A,1,DDInter714,1,tam_ad
+fenilbatazon,,,,N,eslesmedi,1,,1,
+fenilbutirat,sodium phenylbutyrate,sodium phenylbutyrate,A16AX03,A,A,1,,1,
+fenilerin,,,,N,eslesmedi,1,,1,
+fenirmain,pheniramine,pheniramine,R06AB05,R,A,1,,1,
+fenol,,,,A,eslesmedi,1,,1,
+fenolftalein,,,,A,eslesmedi,1,,1,
+fentanyl citrate,fentanyl,fentanyl,N01AH01,N,A,1,DDInter722,1,tam_ad
+fenyramidol,fenyramidol,fenyramidol,,M,SKRS,1,,1,
+ferri amonyum,,,,V,eslesmedi,1,,1,
+ferric citrate,,,,B,eslesmedi,1,,1,
+ferric proteinsuccinylate,ferric proteinsuccinylate,ferric proteinsuccinylate,B03AB09,B,A,1,,1,
+ferrik amonyum,,,,V,eslesmedi,1,,1,
+ferrimanniyol ovalbumin,,,,B,eslesmedi,1,,1,
+ferrous fumarate,ferrous fumarate,ferrous fumarate,,B,C,1,DDInter725,1,tam_ad
+ferrum reductum,,,,A,eslesmedi,1,,1,
+fidaksomisin,fidaxomicin,fidaxomicin,A07AA12,A,A,1,DDInter734,1,tam_ad
+flavoksat,flavoxate,flavoxate,G04BD02,G,A,1,DDInter738,1,tam_ad
+florodeoksi glukoz,,,,V,eslesmedi,1,,1,
+florotimidin,,,,V,eslesmedi,1,,1,
+fludrokortizon,fludrocortisone,fludrocortisone,H02AA02,H,A,1,DDInter747,1,tam_ad
+flukloks asilin,flucloxacillin,flucloxacillin,J01CF05,J,A,1,,1,
+fluorometholone,fluorometholone,fluorometholone,,S,C,1,DDInter755,1,tam_ad
+flutamid,flutamide,flutamide,L02BB01,L,A,1,DDInter765,1,tam_ad
+flutemetamol,,,,V,eslesmedi,1,,1,
+"fluticasone, combinations","fluticasone, combinations","fluticasone, combinations",,R,SKRS,1,,1,
+folicacid,,,,B,eslesmedi,1,,1,
+folik asit dekspantenol,,,,B,eslesmedi,1,,0,
+"folik asit, b12 vitamin",,,,B,eslesmedi,1,,1,
+fondaparinux,fondaparinux,fondaparinux,B01AX05,B,A,1,DDInter775,1,tam_ad
+fosamprenavir,fosamprenavir,fosamprenavir,J05AE07,J,A,1,DDInter777,1,tam_ad
+foskarbidopa,,,,N,eslesmedi,1,,1,
+foskarnet,foscarnet,foscarnet,,J,C,1,DDInter779,1,tam_ad
+foslevodopa,,,,N,eslesmedi,1,,1,
+fructus agni casti kuru ekstresi,agni casti fructus,agni casti fructus,G02CX03,G,A,1,,1,
+fucidat,fusidic acid,fusidic acid,J01XC01,J,A,1,,1,
+gadoksetat,gadoxetic acid,gadoxetic acid,V08CA10,V,A,1,DDInter800,1,tam_ad
+galsulfaz,,,,A,eslesmedi,1,,1,
+ganciclovir,ganciclovir,ganciclovir,J05AB06,J,A,1,DDInter806,1,tam_ad
+gayafenezin,,,,R,eslesmedi,1,,1,
+gemtuzumab ozogamisin,gemtuzumab ozogamicin,gemtuzumab ozogamicin,L01FX02,L,A,1,DDInter814,1,tam_ad
+genistein,,,,A,eslesmedi,1,,1,
+gestoden,gestodene,gestodene,G03AA10,G,B,1,,1,
+gilteritinib,gilteritinib,gilteritinib,L01EX13,L,A,1,DDInter817,1,tam_ad
+ginkgo folium,ginkgo folium,ginkgo folium,,N,SKRS,1,,1,
+glekaprevir,glecaprevir,glecaprevir,J05AP57,J,B,1,DDInter824,1,tam_ad
+gliseril guayakolat,,,,R,eslesmedi,1,,1,
+gliseriltrinitrat,glyceryl trinitrate,glyceryl trinitrate,C01DA02,C,A,1,,1,
+glucagon,glucagon,glucagon,H04AA01,H,A,1,DDInter827,1,tam_ad
+glyceryl guaiacolate,,,,R,eslesmedi,1,,1,
+glycrrhiza glabra,,,,A,eslesmedi,1,,1,
+gonadorelin,gonadorelin,gonadorelin,V04CM01,V,A,1,DDInter838,1,tam_ad
+griseofulvin,griseofulvin,griseofulvin,D01BA01,D,A,1,DDInter843,1,tam_ad
+guaifenasin,,,,R,eslesmedi,1,,1,
+gumus sulfadiyazin,silver sulfadiazine,silver sulfadiazine,D06BA01,D,A,1,,1,
+haemophilus influenza tip b polisakkarit,"hemophilus influenzae b, purified antigen conjugated","hemophilus influenzae b, purified antigen conjugated",J07AG01,J,A,1,,1,
+halometasone,halometasone,halometasone,D07AC12,D,A,1,,1,
+heksetidin,hexetidine,hexetidine,G01AX16,G,A,1,,1,
+hemophilus influenzae tip b'nin prp kapsuler polisakkariti,"hemophilus influenzae b, purified antigen conjugated","hemophilus influenzae b, purified antigen conjugated",J07AG01,J,A,1,,1,
+heparinoid,organo heparinoid,organo heparinoid,C05BA01,C,A,1,,1,
+hepatit 8 yuzey antijeni,,,,J,eslesmedi,1,,1,
+hib,,,,J,eslesmedi,1,,1,
+hidrojen fosfat dodekahidrat,,,,A,eslesmedi,1,,1,
+hidroklorur,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,1,,1,
+hidrokortizon asetat pramoksin,hydrocortisone,hydrocortisone,D07XA01,D,A,1,DDInter885,1,tam_ad
+hidrokortizon-17-butirat,hydrocortisone butyrate,hydrocortisone butyrate,D07AB02,D,A,1,DDInter888,1,tam_ad
+"hidroksietil nisasta 130/0,42",hydroxyethylstarch,hydroxyethylstarch,B05AA07,B,A,1,,1,
+hidroksietil nisasta 130/0.42,,,,B,eslesmedi,1,,0,
+hidroksikarbamid,hydroxycarbamide,hydroxycarbamide,L01XX05,L,A,1,,1,
+hidroksiure,hydroxycarbamide,hydroxycarbamide,L01XX05,L,A,1,,1,
+hidroksokobalamin,,,,B,eslesmedi,1,,1,
+hidrosmin,,,,C,eslesmedi,1,,1,
+hiyasin-n-butilbromur,,,,A,eslesmedi,1,,1,
+hiyosin-n butil,butylscopolamine,butylscopolamine,A03BB01,A,A,1,,1,
+hyaluronat,artificial tears and other indifferent preparations,artificial tears and other indifferent preparations,S01XA20,S,A,1,,1,
+hydrotalcite,hydrotalcite,hydrotalcite,A02AD04,A,A,1,,1,
+hymecromone,hymecromone,hymecromone,A05AX02,A,A,1,,1,
+"hynic-[d-phe',tyr3-oktreotid] trifloroasetat",,,,V,eslesmedi,1,,1,
+hyosin n butilbromit,butylscopolamine,butylscopolamine,A03BB01,A,A,1,,1,
+hypertonic,,,,S,eslesmedi,1,,1,
+ibuprofen - psodoefedrin,,,,M,eslesmedi,1,,1,
+"ibuprofen, combinations","ibuprofen, combinations","ibuprofen, combinations",,M,SKRS,1,,1,
+ibutilid,ibutilide,ibutilide,,C,C,1,DDInter901,1,tam_ad
+ichtiyol,,,,D,eslesmedi,1,,1,
+idarucizumab,,,,V,eslesmedi,1,,1,
+idursulfaz,idursulfase,idursulfase,A16AB09,A,A,1,,1,
+immune sera,,,,J,eslesmedi,1,,1,
+inaktif cocuk felci,,,,J,eslesmedi,1,,1,
+inaktif cocuk felci virusleri,,,,J,eslesmedi,1,,1,
+inaktif cocuk gelci,,,,J,eslesmedi,1,,1,
+inaktif sars-cov-2 virus antijeni,,,,J,eslesmedi,1,,1,
+inaktive edilmis & saflastirilmis kuduz antijen konsantresi,,,,J,eslesmedi,1,,1,
+incl. scabicides,,,,P,eslesmedi,1,,1,
+indacaterol,indacaterol,indacaterol,,R,SKRS,1,DDInter915,1,tam_ad
+inklisiran,inclisiran,inclisiran,C10AX16,C,A,1,,1,
+inotuzumab ozogamisin,inotuzumab ozogamicin,inotuzumab ozogamicin,L01FB01,L,A,1,DDInter927,1,tam_ad
+insan,,,,B,eslesmedi,1,,1,
+insan alfa 1-proteinaz inhibitoru,alfa1 antitrypsin,alfa1 antitrypsin,B02AB02,B,A,1,,1,
+insan hepatit b immunoglobulin,hepatitis b immunoglobulin,hepatitis b immunoglobulin,J06BB04,J,A,1,,1,
+insan koagulasyon faktoru x,,,,B,eslesmedi,1,,1,
+insan plazmasindan turetilmis koagulasyon faktoru viii,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,1,,1,
+insan protein c,protein c,protein c,B01AD12,B,A,1,DDInter1542,1,tam_ad
+interferon beta 1a,interferon beta 1a,interferon beta 1a,,L,SKRS,1,DDInter947,1,tam_ad
+ioflupane,,,,V,eslesmedi,1,,1,
+ipratropium bromid,ipratropium,ipratropium bromide,R03AL02,R,B,1,DDInter970,1,pubchem_yayilim
+ipratropiyum,,,,R,eslesmedi,1,,1,
+iron in combination with folic acid,,,,B,eslesmedi,1,,1,
+"iron, parenteral preparations","iron, parenteral preparations","iron, parenteral preparations",,B,SKRS,1,,1,
+isofluran,isoflurane,isoflurane,N01AB06,N,A,1,DDInter983,1,tam_ad
+ivermectin,ivermectin,ivermectin,,P,SKRS,1,DDInter998,1,tam_ad
+iyodoklorhikroksikin,,,,D,eslesmedi,1,,1,
+iyodur-131,,,,V,eslesmedi,1,,1,
+izofan nph biyosentetik insan insulini,insulin (human),insulin (human),A10AC01,A,A,1,,1,
+izosorbit-5 mononitrat,isosorbide mononitrate,isosorbide mononitrate,C01DA14,C,A,1,DDInter990,1,tam_ad
+kabazitaxel,cabazitaxel,cabazitaxel,L01CD04,L,A,1,DDInter259,1,tam_ad
+kalsiferol,,,,A,eslesmedi,1,,1,
+kalsipotriyol,,,,D,eslesmedi,1,,1,
+kalsiyum glukonat monohidrat-kalsiyum levulinat,calcium (different salts in combination),calcium (different salts in combination),A12AA20,A,A,1,,1,
+kalsiyum magnezyum fitat,,,,A,eslesmedi,1,,1,
+kangrelor tetrasodyum,cangrelor,cangrelor,B01AC25,B,A,1,DDInter283,1,tam_ad
+kaolin,kaolin,kaolin,,A,C,1,DDInter1005,1,tam_ad
+karbetapentan,,,,R,eslesmedi,1,,1,
+karbomer,artificial tears and other indifferent preparations,artificial tears and other indifferent preparations,S01XA20,S,A,1,,1,
+karteolol,carteolol,carteolol,S01ED05,S,A,1,DDInter303,1,tam_ad
+kekik esansi,,,,A,eslesmedi,1,,1,
+ketorolac,ketorolac,ketorolac,,M,SKRS,1,DDInter1010,1,tam_ad
+kinidin,,,,C,eslesmedi,1,,1,
+kinidin feniletil barbiturat,,,,C,eslesmedi,1,,1,
+kizamik virusu enders edmonston susu kabakulak virusu jeryl lynn susu kizamikcik virusu wistar ra 27/3 susu su cicegi virusu oka,,,,J,eslesmedi,1,,1,
+klaritromisin laktobiyonat,clarithromycin,clarithromycin,J01FA09,J,A,1,DDInter393,1,tam_ad
+klasiyum folinik asit,calcium folinate,calcium folinate,V03AF03,V,A,1,,1,
+klavulanik asit syloid karisimi,,,,J,eslesmedi,1,,1,
+klavulanik asit-syloid,,,,J,eslesmedi,1,,1,
+klavulonikasit,,,,J,eslesmedi,1,,1,
+klemastin hidrojen,clemastine,clemastine,R06AA04,R,A,1,DDInter395,1,tam_ad
+klobazam,clobazam,clobazam,N05BA09,N,A,1,DDInter401,1,tam_ad
+klobetazol 17,clobetasol,clobetasol,D07AD01,D,A,1,DDInter402,1,tam_ad
+klobutanol,,,,A,eslesmedi,1,,1,
+klodranat,clodronic acid,clodronic acid,M05BA02,M,A,1,,1,
+klopidogrel hidrojen,clopidogrel,clopidogrel,B01AC04,B,A,1,DDInter413,1,tam_ad
+klorfenamin,,,,R,eslesmedi,1,,1,
+klorfeniramin maleate,,,,R,eslesmedi,1,,1,
+klorfeniraminmaleat,,,,R,eslesmedi,1,,1,
+klorheksidin glukona,,,,A,eslesmedi,1,,1,
+klorheksizidin,,,,D,eslesmedi,1,,1,
+klorurkalsiyum klorur 2.h2omagnezyum klorur 6.h2opotasyum,electrolytes,electrolytes,B05BB01,B,A,1,,1,
+kluvanik asit,,,,J,eslesmedi,1,,1,
+koagulasyon faktoru xiii,,,,B,eslesmedi,1,,1,
+kobimetinib,cobimetinib,cobimetinib,L01EE02,L,A,1,DDInter425,1,tam_ad
+kodein fasfat,,,,N,eslesmedi,1,,1,
+kokarboksilaz,,,,B,eslesmedi,1,,0,
+kolin alfaskerat,,,,N,eslesmedi,1,,1,
+kolistimetat sodyum 4.500.000 iu,colistin,colistin,J01XB01,J,A,1,,1,
+kombi set i: fibrinojen,,,,B,eslesmedi,1,,1,
+kompleks olusturucu proteinler icermeyen clostridium botulinum kulturlerinden saflastirilmis botulinum toksin tip a,botulinum toxin,botulinum toxin,M03AX01,M,A,1,,1,
+konestat alfa,conestat alfa,conestat alfa,,B,C,1,DDInter437,1,tam_ad
+konsantre insan plazma fibrinojeni,"fibrinogen, human","fibrinogen, human",B02BB01,B,A,1,,1,
+koriogonadotropin alfa,choriogonadotropin alfa,choriogonadotropin alfa,G03GA08,G,A,1,,1,
+krom,,,,B,eslesmedi,1,,1,
+kromolin,cromoglicic acid,cromoglicic acid,S01GX01,S,A,1,DDInter449,1,tam_ad
+krotamiton,,,,D,eslesmedi,1,,1,
+kukurt,,,,A,eslesmedi,1,,1,
+kulturu,,,,A,eslesmedi,1,,1,
+l-alanil-l-glutamin,alanyl glutamine,alanyl glutamine,B05XB02,B,A,1,,1,
+l-carnitine,levocarnitine,levocarnitine,A16AA01,A,A,1,DDInter1052,1,tam_ad
+l-karnitin,levocarnitine,levocarnitine,A16AA01,A,A,1,DDInter1052,1,tam_ad
+l-ornitin-l-aspartat,,,,A,eslesmedi,1,,1,
+labetalol,labetalol,labetalol,,C,C,1,DDInter1013,1,tam_ad
+lactobailus asidofilus,,,,A,eslesmedi,1,,1,
+lapatinib ditosilat,lapatinib,lapatinib,L01EH01,L,A,1,DDInter1024,1,tam_ad
+laronidaz,laronidase,laronidase,A16AB05,A,A,1,DDInter1025,1,tam_ad
+leflunamid,,,,L,eslesmedi,1,,1,
+leirus quinquestriatus,,,,J,eslesmedi,1,,1,
+levadropropizin,levodropropizine,levodropropizine,R05DB27,R,A,1,,1,
+levamizolhidroklorur,levamisole,levamisole,P02CE01,P,A,1,DDInter1044,1,tam_ad
+levocarnitine,levocarnitine,levocarnitine,A16AA01,A,A,1,DDInter1052,1,tam_ad
+levoddropropizin,levodropropizine,levodropropizine,R05DB27,R,A,1,,1,
+levofloksasin hemhidrat,levofloxacin,levofloxacin,J01MA12,J,A,1,DDInter1055,1,tam_ad
+levomentol,,,,M,eslesmedi,1,,1,
+levothyroxine sodium,levothyroxine sodium,levothyroxine sodium,H03AA01,H,A,1,,1,
+lidockaine,lidocaine,lidocaine,N01BB02,N,A,1,DDInter1066,1,tam_ad
+lidokain baz,,,,G,eslesmedi,1,,1,
+lidoksin,lidocaine,lidocaine,D04AB01,D,A,1,DDInter1066,1,tam_ad
+lifitegrast,,,,S,eslesmedi,1,,1,
+lincomisin,lincomycin,lincomycin,J01FF02,J,A,1,DDInter1071,1,tam_ad
+linestrenol,lynestrenol,lynestrenol,G03DC03,G,A,1,,1,
+lipegfilgrastim,lipegfilgrastim,lipegfilgrastim,L03AA14,L,A,1,,1,
+lithium,lithium,lithium,N05AN01,N,A,1,,1,
+liyofilize laktobasillus reuteri,,,,A,eslesmedi,1,,1,
+lizozim,,,,R,eslesmedi,1,,1,
+lodoksamid,lodoxamide,lodoxamide,S01GX05,S,A,1,,1,
+loteprednol etabonate,loteprednol,loteprednol,S01BA14,S,A,1,,1,
+loxoprofen sodium,,,,M,eslesmedi,1,,1,
+ltriptofan,,,,B,eslesmedi,1,,0,
+lulikonazol,luliconazole,luliconazole,D01AC18,D,A,1,,1,
+lutesyum,,,,V,eslesmedi,1,,1,
+macrovipera lebetina,,,,J,eslesmedi,1,,1,
+macrovipera lebetina yilan venomunakarsi immunoglobulin f 2 fragmanlari,,,,J,eslesmedi,1,,1,
+magnesium,,,,A,eslesmedi,1,,1,
+magnesium compounds,,,,A,eslesmedi,1,,1,
+magnesium oksit,magnesium oxide,magnesium oxide,A02AA02,A,A,1,DDInter1119,1,tam_ad
+magnezyum aspartat dihidrat,,,,A,eslesmedi,1,,1,
+magnezyum klorur hegzahidrat,,,,B,eslesmedi,1,,0,
+magnzeyum oksit,,,,A,eslesmedi,1,,1,
+manezyum hidroksit,,,,A,eslesmedi,1,,1,
+mangafodipir,mangafodipir,mangafodipir,V08CA05,V,A,1,,1,
+mangan,,,,B,eslesmedi,1,,1,
+manganese carbonate,,,,A,eslesmedi,1,,1,
+manidipine,manidipine,manidipine,C08CA11,C,A,1,,1,
+marstacimab,marstacimab,marstacimab,B02BX11,B,A,1,,1,
+mebendazole,mebendazole,mebendazole,P02CA01,P,A,1,DDInter1128,1,tam_ad
+medroksi progesteron,medroxyprogesterone,medroxyprogesterone,G03AC06,G,A,1,,1,
+medroksiprogesteron,,,,G,eslesmedi,1,,1,
+medroxyprogesterone,medroxyprogesterone,medroxyprogesterone,G03DA02,G,A,1,,1,
+melphalan,melphalan,melphalan,L01AA03,L,A,1,DDInter1144,1,tam_ad
+mepivacaine,mepivacaine,mepivacaine,N01BB03,N,A,1,DDInter1153,1,tam_ad
+merck susu,,,,J,eslesmedi,1,,1,
+merkaptopurin,mercaptopurine,mercaptopurine,L01BB02,L,A,1,DDInter1156,1,tam_ad
+merkurokrom,,,,D,eslesmedi,1,,1,
+mertiatide,,,,V,eslesmedi,1,,1,
+mesna,mesna,mesna,V03AF01,V,A,1,,1,
+mesterolon,mesterolone,mesterolone,G03BB01,G,A,1,,1,
+metandrostenolon,,,,A,eslesmedi,1,,1,
+metenamin mandelat,methenamine,methenamine,J01XX05,J,A,1,DDInter1169,1,tam_ad
+methoxalen,methoxsalen,methoxsalen,D05BA02,D,A,1,DDInter1177,1,tam_ad
+methoxsalen,methoxsalen,methoxsalen,D05BA02,D,A,1,DDInter1177,1,tam_ad
+methyldopa,methyldopa (levorotatory),methyldopa (levorotatory),C02AB01,C,A,1,,1,
+methylprednisolone,methylprednisolone,methylprednisolone,,H,SKRS,1,DDInter1191,1,tam_ad
+methylrosaniline,methylrosaniline,methylrosaniline,D01AE02,D,A,1,,1,
+metilendifosfonik asit,,,,V,eslesmedi,1,,1,
+metilergonovin,methylergometrine,methylergometrine,G02AB01,G,A,1,DDInter1187,1,tam_ad
+metilsalisilat,,,,M,eslesmedi,1,,1,
+metokarbamol,,,,M,eslesmedi,1,,1,
+metotresat,methotrexate,methotrexate,L04AX03,L,A,1,DDInter1174,1,tam_ad
+metotrexat,methotrexate,methotrexate,L04AX03,L,A,1,DDInter1174,1,tam_ad
+metronidazol mikonazol nitrat lidokain,,,,G,eslesmedi,1,,1,
+"metronidazol, ure",,,,D,eslesmedi,1,,1,
+miconazole,miconazole,miconazole,D01AC02,D,A,1,DDInter1209,1,tam_ad
+mide mukoza tozu,,,,A,eslesmedi,1,,1,
+mifamurtid,mifamurtide,mifamurtide,L03AX15,L,A,1,,1,
+mifamurtide,mifamurtide,mifamurtide,,L,SKRS,1,,1,
+migalastat,migalastat,migalastat,A16AX14,A,A,1,DDInter1216,1,tam_ad
+miglustat,miglustat,miglustat,A16AX06,A,A,1,DDInter1218,1,tam_ad
+mikroagrege insan albumini,,,,V,eslesmedi,1,,1,
+mikronize fenofibrat,fenofibrate,fenofibrate,C10AB05,C,A,1,DDInter718,1,tam_ad
+minerals,,,,A,eslesmedi,1,,1,
+mirvetuximab soravtansin,mirvetuximab soravtansine,mirvetuximab soravtansine,L01FX26,L,A,1,,1,
+misoprostol,misoprostol,misoprostol,A02BB01,A,A,1,DDInter1231,1,tam_ad
+mitomisin,mitomycin,mitomycin,L01DC03,L,A,1,DDInter1232,1,tam_ad
+mometason,mometasone,mometasone,D07AC13,D,A,1,,1,
+monobenzon,monobenzone,monobenzone,D11AX13,D,A,1,,1,
+monoetil,,,,D,eslesmedi,1,,1,
+monokomponent biyosentetik insan insulini,insulin (human),insulin (human),A10AB01,A,A,1,,1,
+montivipera xanthina yilan venomlarina karsin immunglobulin f 2 fragmentleri,,,,J,eslesmedi,1,,1,
+montivipera xanthina yilanvenomuna karsi immunoglobulin f 2fragmanlari,,,,J,eslesmedi,1,,1,
+moroktokog alfa,coagulation factor vııı,coagulation factor vııı,B02BD02,B,A,1,,1,
+mukopolisakkarit polisulfat,organo heparinoid,organo heparinoid,C05BA01,C,A,1,,1,
+mupirosin kasiyum,mupirocin,mupirocin,D06AX09,D,A,1,DDInter1249,1,tam_ad
+mydriatics,,,,S,eslesmedi,1,,1,
+n -l-alanil-l-glutamin,alanyl glutamine,alanyl glutamine,B05XB02,B,A,1,,1,
+nadifloxacin,nadifloxacin,nadifloxacin,,D,SKRS,1,,1,
+nafarelin,,,,H,eslesmedi,1,,1,
+nalidiksik asit,,,,J,eslesmedi,1,,1,
+naloxone,naloxone,naloxone,V03AB15,V,A,1,DDInter1262,1,tam_ad
+naltrekson,naltrexone,naltrexone,N07BB04,N,A,1,DDInter1263,1,tam_ad
+nane esansi,,,,A,eslesmedi,1,,1,
+nano boyutlu insan serum albumin kolloidi,,,,V,eslesmedi,1,,1,
+naphazoline,naphazoline,naphazoline,R01AA08,R,A,1,,1,
+nepafenac,nepafenac,nepafenac,,S,SKRS,1,,1,
+neratinib,neratinib,neratinib,,L,C,1,DDInter1281,1,tam_ad
+nevirapine,nevirapine,nevirapine,J05AG01,J,A,1,DDInter1285,1,tam_ad
+niacinamide,,,,A,eslesmedi,1,,1,
+nicotinamide,nicotinamide,nicotinamide,,B,C,1,DDInter1289,1,tam_ad
+nifedipine,nifedipine,nifedipine,C08CA05,C,A,1,DDInter1291,1,tam_ad
+niklosamid,niclosamide,niclosamide,P02DA01,P,A,1,DDInter1288,1,tam_ad
+nirmatrelvir,,,,J,eslesmedi,1,,1,
+nitrazepam,nitrazepam,nitrazepam,,N,C,1,DDInter1301,1,tam_ad
+nitroprusid,nitroprusside,nitroprusside,C02DD01,C,A,1,DDInter1305,1,tam_ad
+nonoksinol,,,,G,eslesmedi,1,,1,
+nopoksamin,,,,M,eslesmedi,1,,1,
+norgestimat,,,,G,eslesmedi,1,,1,
+norgestrel,norgestrel,norgestrel,,G,C,1,DDInter1315,1,tam_ad
+noskapin,,,,R,eslesmedi,1,,1,
+nystatin,nystatin,nystatin,A07AA02,A,A,1,DDInter1318,1,tam_ad
+obinutuzumab,obınutuzumab,obınutuzumab,L01FA03,L,A,1,,1,
+octreotide,octreotide,octreotide,H01CB02,H,A,1,DDInter1323,1,tam_ad
+okaliptus yagi,,,,R,eslesmedi,1,,1,
+oksibat,sodium oxybate,sodium oxybate,N07XX04,N,A,1,DDInter1690,1,tam_ad
+oksidronat,,,,V,eslesmedi,1,,1,
+oksolinik asit,,,,J,eslesmedi,1,,1,
+olapatidin,olopatadine,olopatadine,S01GX09,S,A,1,DDInter1332,1,tam_ad
+olipudaz alfa,,,,A,eslesmedi,1,,1,
+olopatadine,olopatadine,olopatadine,S01GX09,S,A,1,DDInter1332,1,tam_ad
+ombitasvir,,,,J,eslesmedi,1,,1,
+omega-3-triglycerides incl. other esters,omega 3 triglycerides incl. other esters,omega 3 triglycerides incl. other esters,C10AX06,C,B,1,,1,
+onabotulinumtoksina,botulinum toxin,botulinum toxin,M03AX01,M,A,1,,1,
+organo heparinoid,organo heparinoid,organo heparinoid,,C,SKRS,1,,1,
+other agents for local oral treatment,other agents for local oral treatment,other agents for local oral treatment,,A,SKRS,1,,1,
+other antipruritics,,,,D,eslesmedi,1,,1,
+other antiseptics,,,,D,eslesmedi,1,,1,
+other cold combınatıon preparatıons,other cold combination preparations,other cold combination preparations,,R,SKRS,1,,1,
+other dermatologicals,,,,D,eslesmedi,1,,1,
+other diagnostic agents,13c urea,13c urea,V04CX05,V,A,1,,1,
+other ectoparasiticides,,,,P,eslesmedi,1,,1,
+other mineral supplements,,,,A,eslesmedi,1,,1,
+other non-therapeutic auxiliary products,,,,V,eslesmedi,1,,0,
+other preparations,,,,C,eslesmedi,1,,1,
+oxytocin,oxytocin,oxytocin,H01BB02,H,A,1,DDInter1375,1,tam_ad
+palbociclib,palbociclib,palbociclib,,L,SKRS,1,DDInter1379,1,tam_ad
+palonosetron hydrochloride,palonosetron,palonosetron,A04AA05,A,A,1,DDInter1382,1,tam_ad
+pankreas enzim konsantresi,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,1,,1,
+pankreatin dimetikon,"multienzymes (lipase, protease etc.)","multienzymes (lipase, protease etc.)",A09AA02,A,A,1,,1,
+pantokain,,,,S,eslesmedi,1,,1,
+pantoprolin,pantoprazole,pantoprazole,A02BC02,A,A,1,DDInter1388,1,tam_ad
+papaverine,papaverine,papaverine,A03AD01,A,A,1,DDInter1389,1,tam_ad
+parasetamol fenilefrin hidroklorur difenhidramin,,,,R,eslesmedi,1,,1,
+"parasetamol, k1orfeniramin",,,,R,eslesmedi,1,,1,
+parasetemol,,,,R,eslesmedi,1,,1,
+parasetomol,,,,R,eslesmedi,1,,1,
+paritaprevir,paritaprevir,paritaprevir,,J,C,1,DDInter1395,1,tam_ad
+pembrolizumab,pembrolizumab,pembrolizumab,L01FF02,L,A,1,DDInter1413,1,tam_ad
+pemetrekset disodyum hemiheptahidrat,pemetrexed,pemetrexed,L01BA04,L,A,1,DDInter1414,1,tam_ad
+penciclovir,penciclovir,penciclovir,D06BB06,D,A,1,,1,
+pentason polisulfat,pentosan polysulfate sodium,pentosan polysulfate sodium,G04BX15,G,A,1,,1,
+pentetik asit,,,,V,eslesmedi,1,,1,
+perasetamol,,,,R,eslesmedi,1,,1,
+pertaktin inaktif poliovirus,,,,J,eslesmedi,1,,1,
+peru balsam,,,,D,eslesmedi,1,,1,
+pethidine,pethidine,pethidine,N02AB02,N,A,1,,1,
+phenprobamate,phenprobamate,phenprobamate,M03BA01,M,A,1,,1,
+pibrentasvir,pibrentasvir,pibrentasvir,J05AP57,J,B,1,,1,
+pilocarpine,pilocarpine,pilocarpine,N07AX01,N,A,1,DDInter1465,1,tam_ad
+pimavanserin,pimavanserin,pimavanserin,N05AX17,N,A,1,DDInter1467,1,tam_ad
+piperacillin na,,,,J,eslesmedi,1,,1,
+piribedil,piribedil,piribedil,N04BC08,N,A,1,,1,
+pirimidon,primidone,primidone,N03AA03,N,A,1,DDInter1521,1,tam_ad
+pirofosfat dekahidrat,,,,V,eslesmedi,1,,1,
+piroxicam,piroxicam,piroxicam,M01AC01,M,A,1,DDInter1478,1,tam_ad
+pirvinyum,pyrvinium,pyrvinium,P02CX01,P,A,1,,1,
+pitman moore susu kuduz virus antijeni,,,,J,eslesmedi,1,,1,
+pivmesilinam,,,,J,eslesmedi,1,,1,
+pizotifen,pizotifen,pizotifen,N02CX01,N,A,1,,1,
+plantago ovata tohumlari,,,,A,eslesmedi,1,,1,
+polietilen glikol 400,,,,S,eslesmedi,1,,1,
+polisorbat 80,,,,H,eslesmedi,1,,1,
+polivinil alkol,,,,S,eslesmedi,1,,1,
+polystyrene sulfonate,polystyrene sulfonate,polystyrene sulfonate,,V,SKRS,1,,1,
+potassiumiodide,,,,A,eslesmedi,1,,1,
+potasyujm klavulanik asit,,,,J,eslesmedi,1,,1,
+potasyum bi karbonat,,,,A,eslesmedi,1,,1,
+pralidoksim,pralidoxime,pralidoxime,V03AB04,V,A,1,DDInter1503,1,tam_ad
+prednikarbat,prednicarbate,prednicarbate,D07AC18,D,A,1,,1,
+prednizolon metasulfobenzoat,,,,D,eslesmedi,1,,1,
+prilocaine,prilocaine,prilocaine,N01BB04,N,A,1,DDInter1518,1,tam_ad
+primidon,primidone,primidone,N03AA03,N,A,1,DDInter1521,1,tam_ad
+proparakain,proxymetacaine,proxymetacaine,S01HA04,S,A,1,,1,
+protirelin,protirelin,protirelin,V04CJ02,V,A,1,,1,
+prpparakain,proxymetacaine,proxymetacaine,S01HA04,S,A,1,,1,
+"pseudoephedrine, combinations","pseudoephedrine, combinations","pseudoephedrine, combinations",,R,SKRS,1,,1,
+psodoefedrin hidroklorurt,,,,M,eslesmedi,1,,1,
+pyridoxine hydrochloride,,,,B,eslesmedi,1,,1,
+pyridoxinehydrochloride,,,,A,eslesmedi,1,,1,
+pyrithione zinc,pyrithione zinc,pyrithione zinc,D11AX12,D,A,1,,1,
+pyrvinium,pyrvinium,pyrvinium,P02CX01,P,A,1,,1,
+quaternary ammonium compounds,,,,A,eslesmedi,1,,1,
+radyum-223 diklorur,,,,V,eslesmedi,1,,1,
+rafine edilmis balik yagi,fat emulsions,fat emulsions,B05BA02,B,A,1,,1,
+raloxifene,raloxifene,raloxifene,G03XC01,G,A,1,DDInter1562,1,tam_ad
+raltegravir,raltegravir,raltegravir,J05AJ01,J,A,1,DDInter1563,1,tam_ad
+raltitrexed,raltitrexed,raltitrexed,L01BA03,L,A,1,,1,
+ramucirumab,ramucirumab,ramucirumab,,L,SKRS,1,DDInter1566,1,tam_ad
+ravulizumab,ravulizumab,ravulizumab,L04AJ02,L,A,1,DDInter1574,1,tam_ad
+reboksetinmetan sulfonat,reboxetine,reboxetine,N06AX18,N,A,1,,1,
+regorafenib,regorafenib,regorafenib,L01EX05,L,A,1,DDInter1576,1,tam_ad
+rekombinant rsv glikoprotein f antijeni,respiratory syncytial virus vaccines,respiratory syncytial virus vaccines,J07BX05,J,A,1,,1,
+remdesivir,remdesivir,remdesivir,J05AB16,J,A,1,DDInter1578,1,tam_ad
+reteplase,reteplase,reteplase,B01AD07,B,A,1,DDInter1585,1,tam_ad
+retinol,retinol,retinol,S01XA02,S,A,1,,1,
+rezorsin,,,,A,eslesmedi,1,,1,
+rhubarb koku ekstresi,,,,A,eslesmedi,1,,1,
+riboflavin-5-sodyum,,,,A,eslesmedi,1,,1,
+ribosiklib,ribociclib,ribociclib,L01EF02,L,A,1,DDInter1588,1,tam_ad
+rifabutin,rifabutin,rifabutin,J04AB04,J,A,1,DDInter1589,1,tam_ad
+rifamisin sv aktif,rifamycin,rifamycin,S02AA12,S,A,1,DDInter1591,1,tam_ad
+rifampicin,rifampicin,rifampicin,J04AB02,J,A,1,DDInter1590,1,tam_ad
+rifampin,rifampicin,rifampicin,J04AB02,J,A,1,DDInter1590,1,tam_ad
+rilmenidine,rilmenidine,rilmenidine,C02AC06,C,A,1,,1,
+rimexolone,rimexolone,rimexolone,S01BA13,S,A,1,,1,
+risdiplam,risdiplam,risdiplam,M09AX10,M,A,1,DDInter1603,1,tam_ad
+risedronik asit,risedronic acid,risedronic acid,M05BA07,M,A,1,DDInter1604,1,tam_ad
+ritlesitinib,ritlecitinib,ritlecitinib,L04AF08,L,A,1,,1,
+roche,,,,L,eslesmedi,1,,1,
+romosozumab,romosozumab,romosozumab,M05BX06,M,A,1,DDInter1618,1,tam_ad
+roxithromycin,roxithromycin,roxithromycin,J01FA06,J,A,1,,1,
+rozanolixizumab,,,,L,eslesmedi,1,,1,
+rubarb ekstresi,,,,A,eslesmedi,1,,1,
+rupatadine,rupatadine,rupatadine,R06AX28,R,A,1,,1,
+sacituzumab govitekan,sacituzumab govitecan,sacituzumab govitecan,L01FX17,L,A,1,DDInter1629,1,tam_ad
+saflastirilmis difteri toksoidi,,,,J,eslesmedi,1,,1,
+saflastirilmis tetanoz toksoidi,,,,J,eslesmedi,1,,1,
+salisalik asit,,,,D,eslesmedi,1,,1,
+salisilazosulfapiridin,sulfasalazine,sulfasalazine,A07EC01,A,A,1,DDInter1725,1,tam_ad
+salmaterol,,,,R,eslesmedi,1,,1,
+salmonella typhi'nin polisakkaritleri,,,,J,eslesmedi,1,,1,
+satralizumab,satralizumab,satralizumab,L04AC19,L,A,1,DDInter1644,1,tam_ad
+sebelipaz alfa,,,,A,eslesmedi,1,,1,
+sefepime,cefepime,cefepime,J01DE01,J,A,1,DDInter317,1,tam_ad
+seftolozan sukfat,,,,J,eslesmedi,1,,1,
+seftriaksaon,ceftriaxone,ceftriaxone,J01DD04,J,A,1,DDInter334,1,tam_ad
+selenyum sulfid,,,,D,eslesmedi,1,,1,
+senna glycosides,senna glycosides,senna glycosides,A06AB06,A,A,1,,1,
+senne ekstresi,,,,A,eslesmedi,1,,1,
+sennoside,senna glycosides,senna glycosides,A06AB06,A,A,1,,1,
+sennozit,,,,A,eslesmedi,1,,1,
+sequential,sequential,sequential,M05BB05,M,B,1,,1,
+seritinib,ceritinib,ceritinib,L01ED02,L,A,1,DDInter340,1,tam_ad
+set 1: insan fibrinojeni,,,,B,eslesmedi,1,,1,
+setirizinm,cetirizine,cetirizine,R06AE07,R,A,1,DDInter343,1,tam_ad
+sidofovir,cidofovir,cidofovir,J05AB12,J,A,1,DDInter378,1,tam_ad
+sigir akciger surfaktani,natural phospholipids,natural phospholipids,R07AA02,R,A,1,,1,
+siklosporin a,cyclosporine,ciclosporin,L04AD01,L,A,1,DDInter458,1,pubchem_yayilim
+silicones,silicones,silicones,,A,SKRS,1,,1,
+similar agents,,,,M,eslesmedi,1,,1,
+sisteamin,mercaptamine,mercaptamine,S01XA21,S,A,1,,1,
+sitizin,cytisinicline,cytisinicline,N07BA04,N,A,1,,1,
+snake venom antiserum,snake venom antiserum,snake venom antiserum,J06AA03,J,A,1,,1,
+sobrerol,,,,R,eslesmedi,1,,1,
+sodium,,,,R,eslesmedi,1,,1,
+sodium bicarbonate,sodium bicarbonate,sodium bicarbonate,,B,SKRS,1,DDInter1683,1,tam_ad
+sodium fluoride,sodium fluoride,sodium fluoride,A01AA01,A,A,1,,1,
+sodium glycerophosphate,sodium glycerophosphate,sodium glycerophosphate,B05XA14,B,A,1,DDInter1688,1,tam_ad
+sodium hyaluronate [ep],artificial tears and other indifferent preparations,artificial tears and other indifferent preparations,S01XA20,S,A,1,,1,
+sodium molybdate,,,,A,eslesmedi,1,,1,
+sodyum benzoat,,,,R,eslesmedi,1,,1,
+solcoseryl,,,,A,eslesmedi,1,,1,
+sotorasib,sotorasib,sotorasib,L01XX73,L,A,1,,1,
+spesolimab,,,,L,eslesmedi,1,,1,
+spiramisin adipat,spiramycin,spiramycin,J01FA02,J,A,1,,1,
+stronsiyum lanelat,strontium ranelate,strontium ranelate,M05BX03,M,A,1,,1,
+strontium ranelate,strontium ranelate,strontium ranelate,M05BX03,M,A,1,,1,
+suksametonyum,suxamethonium,suxamethonium,M03AB01,M,A,1,,1,
+sulbutiamine,sulbutiamine,sulbutiamine,A11DA02,A,A,1,,1,
+sulfametoksazol trimetoprim,sulfamethoxazole and trimethoprim,sulfamethoxazole and trimethoprim,J01EE01,J,A,1,,1,
+sulfatkompleksi,,,,B,eslesmedi,1,,1,
+sulfisoksazol,sulfisoxazole,sulfisoxazole,,S,C,1,DDInter1727,1,tam_ad
+sulfometaksozol,,,,J,eslesmedi,1,,1,
+synthetic anticholinergics,,,,A,eslesmedi,1,,1,
+taligluseraz alfa,taliglucerase alfa,taliglucerase alfa,A16AB11,A,A,1,,1,
+tartarik asit,,,,A,eslesmedi,1,,1,
+tazobaktam na,,,,J,eslesmedi,1,,1,
+temsirolimus,temsirolimus,temsirolimus,L01EG01,L,A,1,DDInter1763,1,tam_ad
+tenecteplase,tenecteplase,tenecteplase,B01AD11,B,A,1,DDInter1764,1,tam_ad
+tent. de valeriane,,,,N,eslesmedi,1,,1,
+tent.de grateagus,,,,N,eslesmedi,1,,1,
+tent.de pasiflora,,,,N,eslesmedi,1,,1,
+terbutalin sulfat guaifenesin,,,,R,eslesmedi,1,,1,
+"terbutaline, combinations","terbutaline, combinations","terbutaline, combinations",,R,SKRS,1,,1,
+terebentin esansi,,,,R,eslesmedi,1,,1,
+testosteron,,,,G,eslesmedi,1,,1,
+testosteron fenilpropiyonat,,,,G,eslesmedi,1,,1,
+testosteron izokaproat,,,,G,eslesmedi,1,,1,
+testosteron undekanoat,testosterone,testosterone,G03BA03,G,A,1,DDInter1775,1,tam_ad
+tetanoz toksoidleri,,,,J,eslesmedi,1,,1,
+tetanus toxoid,,,,J,eslesmedi,1,,1,
+tetracosactide,tetracosactide,tetracosactide,H01AA02,H,A,1,DDInter1782,1,tam_ad
+tetrafloroborat,,,,V,eslesmedi,1,,1,
+tetrahydrozoline,tetryzoline,tetryzoline,S01GA02,S,A,1,,1,
+tetrakis bakir,,,,V,eslesmedi,1,,1,
+tetrasiklinhidroklorur,tetracycline,tetracycline,D06AA04,D,A,1,DDInter1783,1,tam_ad
+tetrizolin,,,,S,eslesmedi,1,,1,
+tezepelumab,,,,R,eslesmedi,1,,1,
+thalidomid,thalidomide,thalidomide,L04AX02,L,A,1,DDInter1789,1,tam_ad
+thalidomide,thalidomide,thalidomide,,L,SKRS,1,DDInter1789,1,tam_ad
+thiamine mononitrate,,,,A,eslesmedi,1,,1,
+thioacetazone,thioacetazone,thioacetazone,J04AK07,J,A,1,,1,
+thymus vulgaris,,,,A,eslesmedi,1,,1,
+tiamfenikol glisinat,thiamphenicol,thiamphenicol,J01BA02,J,A,1,,1,
+tiamin mononitrat,,,,A,eslesmedi,1,,1,
+tiamine mononitrate,,,,B,eslesmedi,1,,1,
+tianeptine,tianeptine,tianeptine,N06AX14,N,A,1,,1,
+tiasetazon,thioacetazone,thioacetazone,J04AK07,J,A,1,,1,
+tiklopidin,ticlopidine,ticlopidine,B01AC05,B,A,1,DDInter1804,1,tam_ad
+tildrakizumab,tildrakizumab,tildrakizumab,,L,C,1,DDInter1806,1,tam_ad
+timolol maleate,,,,S,eslesmedi,1,,1,
+tioguanin,tioguanin,tioguanin,L01BB03,L,A,1,,1,
+tiokol,,,,R,eslesmedi,1,,1,
+tioktik asit(alfa lipoik asit,lipoic acid,thioctic acid,A16AX01,A,A,1,DDInter1076,1,pubchem_yayilim
+tiotropyum,,,,R,eslesmedi,1,,1,
+tirofiban hidrokloru,tirofiban,tirofiban,B01AC17,B,A,1,DDInter1818,1,tam_ad
+tirofiban(baz,tirofiban,tirofiban,B01AC17,B,A,1,DDInter1818,1,tam_ad
+tirotropin alfa,,,,V,eslesmedi,1,,1,
+tiyoklosikozit,,,,M,eslesmedi,1,,1,
+tiyokol,,,,R,eslesmedi,1,,1,
+tiyokolsikosit,thiocolchicoside,thiocolchicoside,M03BX05,M,A,1,,1,
+tiyokolsikozid,,,,M,eslesmedi,1,,1,
+tiyokonazol,,,,G,eslesmedi,1,,1,
+tolcapone,tolcapone,tolcapone,N04BX01,N,A,1,DDInter1829,1,tam_ad
+tolnaftat,tolnaftate,tolnaftate,D01AE18,D,A,1,,1,
+topotecan,topotecan,topotecan,,L,SKRS,1,DDInter1835,1,tam_ad
+trabectedin,trabectedin,trabectedin,L01CX01,L,A,1,DDInter1840,1,tam_ad
+trabektedin,trabectedin,trabectedin,L01CX01,L,A,1,DDInter1840,1,tam_ad
+trastuzumab derukstekan,trastuzumab deruxtecan,trastuzumab deruxtecan,L01FD04,L,A,1,DDInter1847,1,tam_ad
+tretionin,,,,D,eslesmedi,1,,1,
+tribenosid,,,,C,eslesmedi,1,,1,
+tribenosid lidokain,,,,C,eslesmedi,1,,1,
+trifluoperazine,trifluoperazine,trifluoperazine,N05AB06,N,A,1,DDInter1866,1,tam_ad
+trimetobenzamit,trimethobenzamide,trimethobenzamide,R06AA10,R,A,1,DDInter1873,1,tam_ad
+trinitrinin,glyceryl trinitrate,glyceryl trinitrate,C05AE01,C,A,1,,1,
+trombin,,,,B,eslesmedi,1,,1,
+trospiyum,trospium,trospium,G04BD09,G,A,1,DDInter1886,1,tam_ad
+tulobuterol,tulobuterol,tulobuterol,R03CC11,R,A,1,,1,
+undecylenic acid,,,,D,eslesmedi,1,,1,
+"ure, salisilik asit",,,,D,eslesmedi,1,,1,
+ursedooksikolik asit,ursodeoxycholic acid,ursodeoxycholic acid,A05AA02,A,A,1,DDInter1906,1,tam_ad
+urtica dioica,,,,A,eslesmedi,1,,1,
+varicella,varicella,varicella,J07BK01,J,B,1,,1,
+vazelin likid,liquid paraffin,liquid paraffin,A06AA01,A,A,1,,1,
+vedolizumab,vedolizumab,vedolizumab,,L,C,1,DDInter1923,1,tam_ad
+velpatasvir,velpatasvir,velpatasvir,J05AP56,J,B,1,DDInter1924,1,tam_ad
+vemurafenib,vemurafenib,vemurafenib,L01EC01,L,A,1,DDInter1925,1,tam_ad
+vero hucresi,,,,J,eslesmedi,1,,1,
+verteporfin,verteporfin,verteporfin,S01LA01,S,A,1,DDInter1929,1,tam_ad
+vestronidaz alfa,,,,A,eslesmedi,1,,1,
+vipera ammodytes,,,,J,eslesmedi,1,,1,
+vipera ammodytes yilan venomuna karsinimmunoglobulin f 2 fragmanlari,,,,J,eslesmedi,1,,1,
+vitamin a palmitat 20.000 iu/ml,,,,A,eslesmedi,1,,1,
+vitamin b 6,,,,A,eslesmedi,1,,1,
+vitamin b complex with vitamin c,vitamin b complex with vitamin c,vitamin b complex with vitamin c,,A,SKRS,1,,1,
+"vitamin b1, b6, b12, metamizol",,,,N,eslesmedi,1,,1,
+vitamin b3,,,,A,eslesmedi,1,,1,
+vitamin b5,,,,A,eslesmedi,1,,1,
+vitamin b7,,,,B,eslesmedi,1,,0,
+vitamin d 3,,,,M,eslesmedi,1,,1,
+vitamin d2,,,,A,eslesmedi,1,,1,
+"vitamin d3, dl-α-tokoferol",,,,B,eslesmedi,1,,0,
+vitamin d3/kalsiyum,,,,M,eslesmedi,1,,1,
+"vitamin e , c",,,,A,eslesmedi,1,,1,
+vitamin-c,,,,N,eslesmedi,1,,1,
+vitis vinifera,,,,A,eslesmedi,1,,1,
+voglibose,voglibose,voglibose,A10BF03,A,A,1,,1,
+voksilaprevir,voxilaprevir,voxilaprevir,J05AP56,J,B,1,DDInter1950,1,tam_ad
+vortioksetin hidroklour,vortioxetine,vortioxetine,N06AX26,N,A,1,DDInter1948,1,tam_ad
+zanamivir,zanamivir,zanamivir,J05AH01,J,A,1,DDInter1958,1,tam_ad
+zidovudin,zidovudine,zidovudine,J05AR01,J,B,1,DDInter1961,1,tam_ad
+zinc oxide,,,,A,eslesmedi,1,,1,
+zinc sulfate heptahydrate,zinc sulfate,zinc sulfate,A12CB01,A,A,1,DDInter1966,1,tam_ad
+zink pirition,pyrithione zinc,pyrithione zinc,D11AX12,D,A,1,,1,
+zolpidem,zolpidem,zolpidem,,N,C,1,DDInter1970,1,tam_ad
+zonisamide,zonisamide,zonisamide,,N,SKRS,1,DDInter1971,1,tam_ad
+jozamisin,,,,M,eslesmedi,0,,1,
+streptokinne,,,,M,eslesmedi,0,,1,
+taurolidin,,,,M,eslesmedi,0,,1,
