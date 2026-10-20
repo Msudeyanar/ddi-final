@@ -6,6 +6,10 @@ __pycache__/
 scratch/
 *.pdf
 notebooks/titck_skrs_birlestirme.ipynb
+ ddinter-birlestirme
 .cache/
 docs/kisi_b_gorev_plani.md
 src/update_notebook_*.py
+
+test_eda.py
+ main
