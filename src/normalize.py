@@ -170,7 +170,16 @@ _GECERSIZ_KALINTILAR = frozenset({
     "hidrojen", "disodyum", "trisodyum", "monobazik", "dibazik", "bi", "baz",
     "oksit", "hidroksit", "florur"
 })
+_PSEUDO_BILESENLER = frozenset({
+    "plain", "combinations", "various", "concentrates", "hemofiltrates",
+    "combinations excl. psycholeptics"
+})
 _PARANTEZ = re.compile(r"\([^)]*\)")
+_ATC_SIFAT_REGEX = re.compile(
+    r",\s*(?:plain|combinations(?:\s+excl\.[^,]*)?|various|concentrates)\b|\s+and\s+hemofiltrates\b",
+    re.IGNORECASE
+)
+
 
 
 def _tuz_listesi_oku(dosya_yolu: Optional[str] = None) -> list[str]:
@@ -265,6 +274,7 @@ def tuz_at(etkin_madde, tuz_listesi_yolu: Optional[str] = None) -> Optional[str]
     temiz = re.sub(r"\b(sodyum|potasyum)\s+(?:hidrojen\s+karbonat|bi\s+karbonat)\b", r"\1 bikarbonat", temiz)
     temiz = re.sub(r"\b(?:monobazik|dibazik)\s+(sodyum|potasyum)\s+fosfat\b", r"\1 fosfat", temiz)
     temiz = _PARANTEZ.sub(" ", temiz)
+    temiz = _ATC_SIFAT_REGEX.sub("", temiz)
     rx = _tuz_regex(tuz_listesi_yolu)
     tuz_kume = _tuz_kume(tuz_listesi_yolu)
 
@@ -285,7 +295,7 @@ def tuz_at(etkin_madde, tuz_listesi_yolu: Optional[str] = None) -> Optional[str]
         parca = _RX_PERCENT.sub("", parca)
         parca = _RX_PERCENT_TRAIL.sub("", parca)
         parca = _RX_HYDRATE.sub("", parca).strip(" \t\n\r,.-;/")
-        if parca and parca not in sonuc:  # tekrarları at, sırayı koru
+        if parca and parca not in _PSEUDO_BILESENLER and parca not in sonuc:  # tekrarları at, sırayı koru
             sonuc.append(parca)
     return ", ".join(sonuc) or None
 
@@ -318,7 +328,8 @@ def bilesenlere_ayir(
         for i, p in enumerate(parts, 1):
             norm = ad_normalize(p) or p.lower().strip()
             norm = norm.strip(" \t\n\r,.-;/")
-            bilesenler.append((i, p, norm))
+            if norm and norm not in _PSEUDO_BILESENLER:
+                bilesenler.append((i, p, norm))
         return bilesenler
 
     # Türkçe küçük harfe indirgeme
@@ -333,6 +344,9 @@ def bilesenlere_ayir(
     t = re.sub(r"\(\s*[sSrdRD]\s*\)\s*-\s*", "", t)
     # Parantez içi genel açıklamaları sil
     t = _PARANTEZ.sub(" ", t)
+
+    # TİTCK/SKRS açıklama kalıntılarını (ATC sıfatlarını) virgülden bölmeden önce temizle
+    t = _ATC_SIFAT_REGEX.sub("", t)
 
     # Sırayla ayırıcılar: +, ;, ve, and
     t = re.sub(r"\s*(?:\+|;|\bve\b|\band\b)\s*", "|", t)
@@ -391,6 +405,8 @@ def bilesenlere_ayir(
         b_tr = _RX_PERCENT_TRAIL.sub("", b_tr)
         b_tr = _RX_HYDRATE.sub("", b_tr).strip(" \t\n\r,.-;/")
         if not re.search(r"[a-zA-ZçğıöşüÇĞİÖŞÜ]", b_tr) or len(b_tr) <= 1:
+            continue
+        if b_tr in _PSEUDO_BILESENLER:
             continue
         if b_tr and b_tr not in gorulen_tr:
             gorulen_tr.add(b_tr)
@@ -482,6 +498,10 @@ if __name__ == "__main__":
         ("olmesartan medoksomil", "olmesartan"),
         ("dekzametazon", "dekzametazon"),
         ("ISOTRETINOIN", "isotretinoin"),
+        ("MULTIVITAMINS, PLAIN", "multivitamins"),
+        ("tiyokolşikosid, combinations", "tiyokolsikosid"),
+        ("antiseptics, various", "antiseptics"),
+        ("hemodialytics and hemofiltrates", "hemodialytics"),
         (None, None),
     ]
     for girdi, beklenen in testler:

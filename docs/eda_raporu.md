@@ -25,14 +25,14 @@
 | kural_6_skrs_tamamlandi      | object      |            0 | %0.00           |                  2 | 0                                   |
 | atc_kaynak_hatasi_duzeltildi | object      |            0 | %0.00           |                  2 | 0                                   |
 
-#### Tablo 2: urun_etken.csv Özet Profili (Toplam Satır: 32,211, Sütun: 4)
+#### Tablo 2: urun_etken.csv Özet Profili (Toplam Satır: 32,076, Sütun: 4)
 
 | Sütun Adı   | Veri Tipi   |   Boş Sayısı | Boş Oranı (%)   |   Benzersiz Sayısı | Örnek Değer      |
 |:------------|:------------|-------------:|:----------------|-------------------:|:-----------------|
-| barkod      | object      |           29 | %0.09           |             23,777 | 8685276183408    |
+| barkod      | object      |           29 | %0.09           |             23,714 | 8685276183408    |
 | sira        | object      |            0 | %0.00           |                 29 | 1                |
-| bilesen_ham | object      |            0 | %0.00           |              3,706 | imatinib mesilat |
-| bilesen_tr  | object      |            0 | %0.00           |              3,073 | imatinib         |
+| bilesen_ham | object      |            0 | %0.00           |              3,698 | imatinib mesilat |
+| bilesen_tr  | object      |            0 | %0.00           |              3,065 | imatinib         |
 
 #### Tablo 3: Veri Entegrasyonu ve Ayrıştırma Mutabakat Tablosu
 
@@ -46,13 +46,13 @@
 | Eksik Kayıt (eksik_kayit.csv)                      |       0 |
 | ATC Çelişkili Ürünler (atc_celiski=1)              |     369 |
 | Nihai Ürün Sayısı (urun.csv)                       |  23,801 |
-| Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv) |  32,211 |
-| Tekil Normalize Etken Madde Sayısı                 |   3,073 |
+| Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv) |  32,076 |
+| Tekil Normalize Etken Madde Sayısı                 |   3,065 |
 
 ### Özet Tablolar Analitik Değerlendirmesi (3 Cümle Kuralı):
 
 1. **Ne Görülüyor?** `urun.csv` tablosunda kritik operasyonel sütunlar (`urun_adi`, `etkin_madde_ham`, `atc_final`, `durum`, `kaynak`) %100 doluluk oranına sahipken, SKRS eşleşmesi bulunmayan ruhsatlı ürünlerden kaynaklı olarak `atc_skrs` ve `atc_adi_skrs` alanlarında beklenen şekilde %47,46 boşluk gözlenmektedir.
-2. **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri `urun_etken.csv` tablosunda 32.211 bileşen satırına ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3,073 tekil etken maddeye** indirgenmiştir.
+2. **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri `urun_etken.csv` tablosunda 32.076 bileşen satırına ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3,065 tekil etken maddeye** indirgenmiştir.
 3. **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi ve sıfır veri kaybıyla tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
 
 ### 2. Grafik E01: Bileşen Sayısı Dağılımı
@@ -63,10 +63,10 @@
 
 | Bileşen Sayısı   |   Kapsam İçi Ürün |   Kapsam Dışı Ürün |   Toplam Ürün | Genel Oran (%)   |
 |:-----------------|------------------:|-------------------:|--------------:|:-----------------|
-| 1                |            18,895 |                446 |        19,341 | %81.26           |
-| 2                |             3,299 |                 10 |         3,309 | %13.90           |
-| 3                |               521 |                  0 |           521 | %2.19            |
-| 4                |               156 |                  0 |           156 | %0.66            |
+| 1                |            18,960 |                446 |        19,406 | %81.53           |
+| 2                |             3,239 |                 10 |         3,249 | %13.65           |
+| 3                |               518 |                  0 |           518 | %2.18            |
+| 4                |               154 |                  0 |           154 | %0.65            |
 | 5                |                16 |                226 |           242 | %1.02            |
 | 6                |                 5 |                 93 |            98 | %0.41            |
 | 7+               |                14 |                120 |           134 | %0.56            |
@@ -137,13 +137,13 @@
 |:---------------------------|-------------------------:|:--------------------------|:-----------------------|:--------------------------|
 | 1. Ham Metin               |                    4,617 | -                         | -                      | %0.00                     |
 | 2. Küçük Harf & Boşluk     |                    4,134 | -483                      | %10.46                 | %10.46                    |
-| 3. Tuz ve Hidrat Arındırma |                    3,286 | -848                      | %20.51                 | %28.83                    |
-| 4. Bileşen Ayrıştırma      |                    3,073 | -213                      | %6.48                  | %33.44                    |
+| 3. Tuz ve Hidrat Arındırma |                    3,270 | -864                      | %20.90                 | %29.17                    |
+| 4. Bileşen Ayrıştırma      |                    3,065 | -205                      | %6.27                  | %33.61                    |
 
 #### 📌 Grafik E04 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
 1. **Ne Görülüyor?** İP2 normalizasyon hattında 4.617 ham etkin madde metni; küçük harf dönüşümü, tuz/hidrat temizliği ve bileşen ayrıştırma aşamalarından geçerek kademeli olarak konsolide edilmiştir.
-2. **En Önemli Sayı:** En büyük tekil indirgemeyi **848 farklı metni (%20.51)** tekilleştiren tuz ve hidrat arındırma adımı sağlarken, 4 aşama sonunda toplamda **1,544 metin elenerek (%33.44 genel indirgeme)** veri kümesi net 3,073 tekil etken maddeye indirgenmiştir.
+2. **En Önemli Sayı:** En büyük tekil indirgemeyi **864 farklı metni (%20.90)** tekilleştiren tuz ve hidrat arındırma adımı sağlarken, 4 aşama sonunda toplamda **1,552 metin elenerek (%33.61 genel indirgeme)** veri kümesi net 3,065 tekil etken maddeye indirgenmiştir.
 3. **Projeye Etkisi:** Yüzde 33'lük bu devasa indirgeme, downstream aşamalarda yapılacak bulanık eşleştirme (rapidfuzz) ve PubChem/DDInter sorgularının arama uzayını üçte bir oranında daraltarak hem işlem hızını hem de eşleşme doğruluğunu maksimize etmiştir.
 
 ### 6. Grafik E07: ATC Çelişki Sınıfları Dağılımı ve Gerçek Çelişki Analizi
