@@ -2,13 +2,18 @@
 
 *Bu rapor; TİTCK Ruhsatlı İlaçlar, SKRS-3 ve DDInter veritabanları üzerinden PDF şartnamesine tam uyumlu olarak hazırlanmış; jüri ve hoca sunumlarını kolaylaştırmak amacıyla analitik tablolar, konuşma notları ve savunma kartlarıyla donatılmıştır.*
 
+
+> [!NOTE]
+> **TİTCK ve SKRS Veri Temizliği Güncellemesi (PR #20 - Kişi A Entegrasyonu):**
+> TİTCK etkin madde metinlerindeki WHO ATC sıfat kalıntıları (, ,  vb.)  üzerinde temizlenmiş;  tablosundaki sahte 135 satır ayıklanarak satır sayısı 32.211'den **32.076'ya**, tekil etken madde sayısı **3.065'e** konsolide edilmiştir. 65 ürün gerçek monoterapi statüsüne geçmiş (tekli: 19.406, kombine: 4.395), E01 ve E04 grafikleri bu temiz veriye göre güncellenmiştir.
+
 ---
 
 ## 🧭 Hızlı Sunum Navigasyonu (10 Temel EDA Grafiği)
 
 | Kod | Grafik Konusu | Sunumdaki Ana Mesaj |
 |:---:|:---|:---|
-| **E01** | [Bileşen Sayısı Dağılımı](#2-grafik-e01-bileşen-sayısı-dağılımı) | Portföyün %81,3'ü tekli; 5+ bileşenli serumlar Kural 4 ile elendi |
+| **E01** | [Bileşen Sayısı Dağılımı](#2-grafik-e01-bileşen-sayısı-dağılımı) | Portföyün %81,53'ü tekli; 5+ bileşenli serumlar Kural 4 ile elendi |
 | **E02** | [14 ATC Ana Grubu](#3-grafik-e02-14-atc-ana-grubu-ve-skrs-durumu) | Pazarın %50,1'i DDInter'da bağımsız dosyası olmayan 6 grupta |
 | **E03** | [ATC Kod Uzunluğu (Granülarite)](#4-grafik-e03-atc-kod-uzunluğu-granülarite-dağılımı) | İlaçların %93,4'ü 7 haneli tam kimyasal kodda; Yol A için mükemmel |
 | **E04** | [Etken Madde Normalizasyon Hunisi](#5-grafik-e04-etken-madde-normalizasyon-hunisi) | Tuz ve hidrat temizliğiyle veri tabanı %33,4 oranında tekilleştirildi |
@@ -36,8 +41,8 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 |:---|:---|---:|:---|
 | **Ruhsatlı İlaç Portföyü** | İncelenen TİTCK Ruhsatlı Ürün | **23,801** | %100 operasyonel doluluk, 0 kayıp kayıt |
 | **Kapsam İçi Ürünler** | Analize Alınan Terapötik İlaç | **22,469** | Kural 4 ile elenen 895 serum/radyofarmasötik hariç |
-| **Bileşen Ayrıştırma** | Nihai Ayrıştırılmış Bileşen Kaydı | **32,211** | Kombine ilaçlar dahil tüm bileşenler ayrıştırıldı |
-| **Tekil Etken Madde** | Normalize Benzersiz Türk Etken Maddesi | **3,073** | 4 aşamalı normalizasyonla %33,4 indirgeme |
+| **Bileşen Ayrıştırma** | Nihai Ayrıştırılmış Bileşen Kaydı | **32,076** | Sahte sıfatlar elenerek temizlenen bileşen kaydı |
+| **Tekil Etken Madde** | Normalize Benzersiz Türk Etken Maddesi | **3,065** | 4 aşamalı normalizasyonla %33,61 indirgeme |
 | **Yol A Ürün Kapsamı** | Tek Bileşenli ATC Köprüsüyle Çözülen Ürün | **21,709 (%91.2)** | Türkiye pazarının ezici çoğunluğu doğrudan kapsandı |
 | **Yol A+B Kapsamı** | Kural Tabanlı Çözülen Toplam Ürün | **22,052 (%92.7)** | Klinik karar destek motorunun ilk sürüm omurgası |
 | **DDInter Eşleşen Bileşen** | DDInter Kimliği Kazanan Türk Etken Maddesi | **1,365 (%44.4)** | Pazardaki en sık kullanılan moleküllerin %66,7'si |
@@ -90,14 +95,14 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 | kural_6_skrs_tamamlandi | object | 0 | %0.00 | 2 | 0 |
 | atc_kaynak_hatasi_duzeltildi | object | 0 | %0.00 | 2 | 0 |
 
-#### Tablo 2: urun_etken.csv Özet Profili (Toplam Satır: 32,211, Sütun: 4)
+#### Tablo 2: urun_etken.csv Özet Profili (Toplam Satır: 32,076, Sütun: 4)
 
 | Sütun Adı | Veri Tipi | Boş Sayısı | Boş Oranı (%) | Benzersiz Sayısı | Örnek Değer |
 |:---|:---|---:|:---|---:|:---|
-| barkod | object | 29 | %0.09 | 23,777 | 8685276183408 |
+| barkod | object | 29 | %0.09 | 23,714 | 8685276183408 |
 | sira | object | 0 | %0.00 | 29 | 1 |
-| bilesen_ham | object | 0 | %0.00 | 3,706 | imatinib mesilat |
-| bilesen_tr | object | 0 | %0.00 | 3,073 | imatinib |
+| bilesen_ham | object | 0 | %0.00 | 3,698 | imatinib mesilat |
+| bilesen_tr | object | 0 | %0.00 | 3,065 | imatinib |
 
 #### Tablo 3: Veri Entegrasyonu ve Ayrıştırma Mutabakat Tablosu
 
@@ -111,14 +116,14 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 | **Eksik Kayıt (eksik_kayit.csv)** | 0 | Her iki kaynakta da bulunamayan sıfır kayıp |
 | **ATC Çelişkili Ürünler (atc_celiski=1)** | 369 | Ruhsatlı ve SKRS kodları farklı kimyasal gruplarda olanlar |
 | **Nihai Ürün Sayısı (urun.csv)** | 23,801 | %100 operasyonel bütünlükle teslim edilen ürün tablosu |
-| **Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv)** | 32,211 | Kombine ilaçların satır bazında ayrıştırılmış hali |
-| **Tekil Normalize Etken Madde Sayısı** | 3,073 | `bilesen_tr` alanında tekilleştirilen net bileşen sayısı |
+| **Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv)** | 32,076 | Sahte sıfatlardan (plain, combinations vb.) arındırılmış satır |
+| **Tekil Normalize Etken Madde Sayısı** | 3,065 |  alanında tekilleştirilen net bileşen sayısı |
 
 #### 💡 Özet Tablolar Analitik Değerlendirmesi:
 
-- **Ne Görüyorsun?:** `urun.csv` tablosunda kritik operasyonel sütunlar (`urun_adi`, `etkin_madde_ham`, `atc_final`, `durum`, `kaynak`) %100 doluluk oranına sahipken, SKRS eşleşmesi bulunmayan ruhsatlı ürünlerden kaynaklı olarak `atc_skrs` ve `atc_adi_skrs` alanlarında beklenen şekilde %47,46 boşluk gözlenmektedir.
-- **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri `urun_etken.csv` tablosunda 32.211 bileşen satırına ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3.073 tekil etken maddeye** indirgenmiştir.
-- **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi ve sıfır veri kaybıyla tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
+- **Ne Görüyorsun?:**  tablosunda kritik operasyonel sütunlar (, , , , ) %100 doluluk oranına sahipken, SKRS eşleşmesi bulunmayan ruhsatlı ürünlerden kaynaklı olarak  ve  alanlarında beklenen şekilde %47,46 boşluk gözlenmektedir.
+- **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri  tablosunda sahte sıfat kalıntılarından arındırılarak 32.076 bileşen satırına ayrıştırılmış ve **3.065 tekil etken maddeye** indirgenmiştir.
+- **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi, sahte sıfatların elenmesi ve sıfır veri kaybıyla tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
 
 ---
 
@@ -130,10 +135,10 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 | Bileşen Sayısı | Kapsam İçi Ürün | Kapsam Dışı Ürün | Toplam Ürün | Genel Oran (%) | Klinik Profil Örneği |
 |:---|---:|---:|---:|:---|:---|
-| **1** | 18,895 | 446 | 19,341 | %81.26 | Monoterapi (Parasetamol, Metformin, vb.) |
-| **2** | 3,299 | 10 | 3,309 | %13.90 | İkili Kombinasyon (Amlodipin + Valsartan) |
-| **3** | 521 | 0 | 521 | %2.19 | Üçlü Kombinasyon (Antihipertansif / KOAH) |
-| **4** | 156 | 0 | 156 | %0.66 | Dörtlü Kombinasyon (Antitüberküloz / Grip) |
+| **1** | 18,960 | 446 | 19,406 | %81.53 | Monoterapi (Parasetamol, Metformin, vb.) |
+| **2** | 3,239 | 10 | 3,249 | %13.65 | İkili Kombinasyon (Amlodipin + Valsartan) |
+| **3** | 518 | 0 | 518 | %2.18 | Üçlü Kombinasyon (Antihipertansif / KOAH) |
+| **4** | 154 | 0 | 154 | %0.65 | Dörtlü Kombinasyon (Antitüberküloz / Grip) |
 | **5** | 16 | 226 | 242 | %1.02 | Multivitamin veya Elektrolit Solüsyonu |
 | **6** | 5 | 93 | 98 | %0.41 | Total Parenteral Beslenme (TPN) |
 | **7+** | 14 | 120 | 134 | %0.56 | Çoklu Amino Asit ve Elektrolit Paketleri |
@@ -149,8 +154,8 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 - Türkiye pazarının tekli vs. kombine ilaç profilini ve çok bileşenli serumların elenme gerekçesini belgeler.
 
 **💡 Çıktıdan Ne Anlamalıyız?:**
-- **Ne Görüyorsun?:** TİTCK ruhsatlı ilaç portföyünün **%81,26'sı (19.341 ürün)** tek bir etken maddeden oluşurken, 5 ve daha fazla bileşen içeren formülasyonların ezici çoğunluğu (439 ürün) Kural 4 kapsamında elenen B05 grubu parenteral solüsyonlardır.
-- **En Önemli Sayı:** Toplam **4.460 kombine ürün (%18,74)** tespit edilmiş olup, bu değer 1. haftadaki kaba tahminden (4.572 kombine) yalnızca 112 ürün (%2,45) daha düşüktür; fark, tuz/hidrat eklerinin temizlenmesiyle giderilen yapay bileşen fazlalıklarından kaynaklanmaktadır.
+- **Ne Görüyorsun?:** TİTCK ruhsatlı ilaç portföyünün **%81,53'ü (19.406 ürün)** tek bir etken maddeden oluşurken, 5 ve daha fazla bileşen içeren formülasyonların ezici çoğunluğu (439 ürün) Kural 4 kapsamında elenen B05 grubu parenteral solüsyonlardır.
+- **En Önemli Sayı:** Toplam **4.395 kombine ürün (%18,47)** tespit edilmiş olup, bu değer 1. haftadaki kaba tahminden (4.572 kombine) yalnızca 112 ürün (%2,45) daha düşüktür; fark, tuz/hidrat eklerinin temizlenmesiyle giderilen yapay bileşen fazlalıklarından kaynaklanmaktadır.
 - **Projeye Etkisi:** Analiz kapsamında kalan 4.011 kombine ürün Yol B (rapidfuzz ile ATC adı ayrıştırma) ve Yol C/D için hedef kümeyi belirlerken, 18.895 tekli ürün doğrudan Yol A (ATC köprüsü) üzerinden hızla DDInter eşleştirmesine aktarılmıştır.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
@@ -244,64 +249,26 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 | Aşama Sırası | Normalizasyon Adımı | Benzersiz Değer Sayısı | Adım İndirgemesi (Adet) | Adım İndirgemesi (%) | Kümülatif İndirgeme (%) |
 |:---:|:---|---:|---:|:---|:---|
-| **1** | Ham Metin (`etkin_madde_ham`) | 4,617 | — | — | %0.00 |
+| **1** | Ham Metin () | 4,617 | — | — | %0.00 |
 | **2** | Küçük Harf, Türkçe Karakter & Boşluk | 4,134 | -483 | %10.46 | %10.46 |
-| **3** | Tuz ve Hidrat Arındırma (Kural 2 & 3) | 3,286 | -848 | %20.51 | %28.83 |
-| **4** | Bileşen Ayrıştırma (Kural 1) | 3,073 | -213 | %6.48 | %33.44 |
+| **3** | Tuz ve Hidrat Arındırma (Kural 2 & 3) | 3,270 | -864 | %20.90 | %29.17 |
+| **4** | Bileşen Ayrıştırma (Kural 1) | 3,065 | -205 | %6.27 | %33.61 |
 
 #### 📌 Grafik E04 Metodolojik ve Analitik Değerlendirmesi:
 
 **📌 Kod Ne İşe Yarıyor?:**
-- Ham metinden 3.073 tekil etken maddeye kadar uygulanan 4 aşamalı temizliğin huni grafiğini çizer.
+- Ham metinden 3.065 tekil etken maddeye kadar uygulanan 4 aşamalı temizliğin huni grafiğini çizer.
 
 **🎯 Grafik Ne İşe Yarıyor?:**
 - Tuz, hidrat ve yazım farklarının elenmesiyle veritabanı arama uzayının ne kadar sadeleştiğini gösterir.
 
 **💡 Çıktıdan Ne Anlamalıyız?:**
 - **Ne Görüyorsun?:** İP2 normalizasyon hattında 4.617 ham etkin madde metni; küçük harf dönüşümü, tuz/hidrat temizliği ve bileşen ayrıştırma aşamalarından geçerek kademeli olarak konsolide edilmiştir.
-- **En Önemli Sayı:** En büyük tekil indirgemeyi **848 farklı metni (%20,51)** tekilleştiren tuz ve hidrat arındırma adımı sağlarken, 4 aşama sonunda toplamda **1.544 metin elenerek (%33,44 genel indirgeme)** veri kümesi net 3.073 tekil etken maddeye indirgenmiştir.
+- **En Önemli Sayı:** En büyük tekil indirgemeyi **864 farklı metni (%20,90)** tekilleştiren tuz ve hidrat arındırma adımı sağlarken, 4 aşama sonunda toplamda **1.552 metin elenerek (%33,61 genel indirgeme)** veri kümesi net 3.065 tekil etken maddeye indirgenmiştir.
 - **Projeye Etkisi:** Yüzde 33'lük bu devasa indirgeme, downstream aşamalarda yapılacak bulanık eşleştirme (rapidfuzz) ve PubChem/DDInter sorgularının arama uzayını üçte bir oranında daraltarak hem işlem hızını hem de eşleşme doğruluğunu maksimize etmiştir.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Ham verideki 4.617 farklı yazımı, kimyasal kurallarımızla temizleyerek %33,4 küçülttük ve net 3.073 tekil etken maddeye indirdik. En büyük katkıyı 848 metni birleştiren tuz ve hidrat temizliği sağladı."*
-
----
-
-### 6. Grafik E07: ATC Çelişki Sınıfları ve Gerçek Çelişki Analizi
-
-![Grafik E07](../figs/E07_celiski_siniflari.png)
-
-#### Tablo 8: ATC Çelişki Sınıfları ve Gerçek Çelişki Dağılımı
-
-| Çelişki Sınıfı | Tanım / Kriter | Ürün Sayısı | Portföy Oranı (%) | İki Kaynaklı Ürün Oranı (%) | Çelişki Durumu (`atc_celiski`) | Uygulanan Çözüm Kuralı |
-|:---|:---|---:|---:|---:|:---|:---|
-| **bosluk** | Boşluk/karakter temizliği sonrası tam eşit kodlar | 11,222 | %47.15 | %96.41 | Çelişki Yok (0) | Ruhsatlı kod onaylandı |
-| **duzey_farki** | Biri diğerinin ön eki (örn. `N02B` vs `N02BE01`) | 49 | %0.21 | %0.42 | **Sahte Çelişki (0)** | Kural 8: Uzun olan (ayrıntılı) kod seçildi |
-| **ayni_grup_farkli_madde** | İlk 5 hane aynı, son 2 hane farklı | 27 | %0.11 | %0.23 | **Gerçek Çelişki (1)** | Ruhsatlı kod alındı, Yol A köprüsü kapatıldı |
-| **farkli_grup** | İlk 5 hane tamamen farklı terapötik grup | 342 | %1.44 | %2.94 | **Gerçek Çelişki (1)** | Ruhsatlı kod alındı, Yol A köprüsü kapatıldı |
-| **bos** | Kaynakların en az birinde ATC kodu eksik | 12,161 | %51.09 | — | Karşılaştırılamaz (0) | Kural 6/7: Mevcut olan kod veya boş atandı |
-| **TOPLAM** | — | **23,801** | **%100.00** | — | — | — |
-
-> **🎯 "411 Çelişkinin Kaçı Gerçek?" Analitik Kararı:**
-> - **İki Kaynakta da Kod Olup Farklı Olan Toplam Ürün:** **418** (1. Hafta Kaba Tahmini: 411)
-> - **Gerçek Çelişki Sayısı:** **369** (%88.28) -> `farkli_grup` (342) + `ayni_grup_farkli_madde` (27).
-> - **Granülarite Farkı (Sahte Çelişki):** **49** (%11.72) -> `duzey_farki` (Biri diğerinin hiyerarşik üst düzeyi olup Kural 8 ile detaylı kod alınarak sorunsuz çözülmüştür).
-
-#### 📌 Grafik E07 Metodolojik ve Analitik Değerlendirmesi:
-
-**📌 Kod Ne İşe Yarıyor?:**
-- Ruhsatlı liste ve SKRS kodları arasındaki 418 kod farklılığını analiz edip gerçek ve sahte çelişkileri ayrıştırır.
-
-**🎯 Grafik Ne İşe Yarıyor?:**
-- 1. haftadaki "411 çelişki var" iddiasını test eder; hangilerinin sistemsel yazım farkı, hangilerinin gerçek klinik uyumsuzluk olduğunu belgeler.
-
-**💡 Çıktıdan Ne Anlamalıyız?:**
-- **Ne Görülüyor?:** TİTCK Ruhsatlı İlaçlar Listesi ile SKRS E-Reçete Listesi karşılaştırıldığında, her iki kaynakta da ATC kodu bulunan 11.640 ürünün **%96,4'ü (11.222 ürün)** boşluk temizliği sonrası birebir tam uyumludur.
-- **En Önemli Sayı:** 1. haftadaki 411 kaba tahmine karşılık detaylı analizle tespit edilen 418 kod farklılığından yalnızca **369 adedi (%88,3, tüm portföyün %1,55'i)** gerçek çelişki niteliğinde olup (`farkli_grup`: 342, `ayni_grup_farkli_madde`: 27); geriye kalan 49 ürün ise birinin diğerinin ön eki olduğu granülarite farkıdır (`duzey_farki`) ve Kural 8 ile çözülmüştür.
-- **Projeye Etkisi:** Gerçek çelişki tespit edilen 369 ürün için ruhsatlı liste resmi kayıt olarak kabul edilmekle birlikte, klinik eşleştirme güvenliğini garanti altına almak amacıyla bu ürünlerde Yol A (ATC köprüsü) devre dışı bırakılmış ve doğrudan etkin madde metin madenciliği (Yol C/D) zorunlu kılınmıştır.
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"İlk haftada 411 çelişki olduğu sanılıyordu. Detaylı analizimizde gördük ki bunların 49'u çelişki değil, sadece biri kısa diğeri uzun yazılmış aynı koddur. Gerçek çelişki sayısı 369'dur (portföyün sadece %1,5'i) ve biz bu 369 üründe hata yapmamak için ATC köprüsünü kapatıp doğrudan etken madde adıyla eşleştirme yaptık."*
+> *"Ham verideki 4.617 farklı yazımı, kimyasal kurallarımızla temizleyerek %33,6 küçülttük ve net 3.065 tekil etken maddeye indirdik. En büyük katkıyı 864 metni birleştiren tuz ve hidrat temizliği sağladı."*İlk haftada 411 çelişki olduğu sanılıyordu. Detaylı analizimizde gördük ki bunların 49'u çelişki değil, sadece biri kısa diğeri uzun yazılmış aynı koddur. Gerçek çelişki sayısı 369'dur (portföyün sadece %1,5'i) ve biz bu 369 üründe hata yapmamak için ATC köprüsünü kapatıp doğrudan etken madde adıyla eşleştirme yaptık."*
 
 ---
 
