@@ -22,7 +22,7 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
    Augmentin–Klacid (2 X 1 = 2 çift), Augmentin–Aspirin (2 X 1 = 2 çift) ve Klacid–Aspirin (1 X 1 = 1 çift) olmak üzere **toplam 5 farklı ikili etkileşim çifti (2 + 2 + 1 = 5)** üretir. Bu sayede hiçbir etken madde gözden kaçmaz ve Amoksisilin–Klaritromisin arasındaki **Minor** etkileşim tam isabetle yakalanır.
 4. **Veri Tabanı Sınırları ve Kayıp Oranı İspatlandı:**
    - **Katalog Eksikliği:** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir.
-   - **Eksik ATC Grubu Kaybı:** `Parol` (N grubu) ve `Cordarone` (C grubu) ilaçlarının her ikisi de DDInter'da olmasına rağmen, DDInter indirme dosyalarında C ve N grupları sunulmadığı için bu etkileşim indirilen dosyalarda tespit edilememiştir. Bu bulgu, İP4'te hesapladığımız **%23,29'luk çift kaybı** teorisini sahada somut olarak doğrulamıştır.
+   - **Eksik ATC Grubu Kaybı:** `Parol` (N grubu) ve `Cordarone` (C grubu) ilaçlarının her ikisi de DDInter'da olmasına rağmen, DDInter indirme dosyalarında C ve N grupları sunulmadığı için bu etkileşim indirilen dosyalarda tespit edilememiştir. Bu bulgu, İP4'te hesapladığımız **%22,78'lik çift kaybı** (%47,74 madde kaybı) teorisini sahada somut olarak doğrulamıştır.
 
 ---
 
@@ -99,10 +99,10 @@ Ne anlamalısınız?: Sistem Augmentin'i tek bir ilaç gibi görüp geçiştirme
 Augmentin kombine bir üründür: **Amoksisilin + Klavulanik Asit** (2 etken madde). Klacid (*Klaritromisin*) ve Aspirin (*Asetilsalisilik Asit*) ise 1'er etken maddeli tekil ilaçlardır.  
 
 Sistem, Augmentin'i TİTCK ruhsat verisindeki 2 bileşenine ayırarak diğer ilaçlarla kartezyen eşleştirir ve toplam **5 farklı ikili molekül çifti** üretir:
-- **Augmentin -> Klacid ($2 x 1 = 2$ çift):** Amoksisilin–Klaritromisin ve Klavulanik Asit–Klaritromisin
-- **Augmentin -> Aspirin ($2 x 1 = 2$ çift):** Amoksisilin–Aspirin ve Klavulanik Asit–Aspirin
-- **Klacid -> Aspirin ($1 x 1 = 1$ çift):** Klaritromisin–Aspirin
-- **Toplam Taranan Çift:** $2 + 2 + 1 = 5
+- **Augmentin -> Klacid ($2 X 1 = 2$ çift):** Amoksisilin–Klaritromisin ve Klavulanik Asit–Klaritromisin
+- **Augmentin -> Aspirin ($2 X 1 = 2$ çift):** Amoksisilin–Aspirin ve Klavulanik Asit–Aspirin
+- **Klacid -> Aspirin ($1 X 1 = 1$ çift):** Klaritromisin–Aspirin
+- **Toplam Taranan Çift:** $(2 X 1) + (2 X 1) + (1 X 1) = 5$ çift.
 
 Çok bileşenli (kombine) ilaçların çözümleme başarısını gösterir. Augmentin tek bir kutu olmasına rağmen içindeki 2 etken maddeye ayrıştırılmış ve diğer ilaçlarla kartezyen eşleştirilerek 5 farklı molekül çifti üretilmiştir. Amoksisilin–Klaritromisin arasındaki Minor etkileşimin hiçbir veri kaybı olmadan yakalandığını kanıtlar.
 **Kullanıcı Girdisi:** `['Augmentin', 'Klacid', 'Aspirin']`
@@ -113,18 +113,18 @@ Sistem, Augmentin'i TİTCK ruhsat verisindeki 2 bileşenine ayırarak diğer ila
 
 | AUGMENTIN 500 MG/125 MG FILM TABLET | KLACID 500 MG FİLM TABLET | amoksisilin (amoxicillin) | clarithromycin | J + J | DDInter83 | DDInter393 | **Etkileşim Var** | **Minor** | A |
 
-| AUGMENTIN 500 MG/125 MG FILM TABLET | KLACID 500 MG FİLM TABLET | klavulanik asit | clarithromycin | J + J | - | DDInter393 | **DDInter'da Yok** | - | - |
+| AUGMENTIN 500 MG/125 MG FILM TABLET | KLACID 500 MG FİLM TABLET | klavulanik asit (clavulanic acid) | clarithromycin | J + J | DDInter394 | DDInter393 | **Eksik Grup (Olası Kayıp)** | - | - |
 
 | AUGMENTIN 500 MG/125 MG FILM TABLET | ASPIRIN 500 MG TABLET | amoksisilin (amoxicillin) | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter83 | DDInter20 | **Etkileşim Var** | **Unknown** | A, B |
 
-| AUGMENTIN 500 MG/125 MG FILM TABLET | ASPIRIN 500 MG TABLET | klavulanik asit | asetilsalisilik asit (acetylsalicylic acid) | J + N | - | DDInter20 | **DDInter'da Yok** | - | - |
+| AUGMENTIN 500 MG/125 MG FILM TABLET | ASPIRIN 500 MG TABLET | klavulanik asit (clavulanic acid) | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter394 | DDInter20 | **Eksik Grup (Olası Kayıp)** | - | - |
 
 | KLACID 500 MG FİLM TABLET | ASPIRIN 500 MG TABLET | clarithromycin | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter393 | DDInter20 | **Etkileşim Var** | **Unknown** | A, B |
 
 
 > **Kombine Ürün Değerlendirmesi:**
 > - Sistem tek bir ticari kutu olan Augmentin'in içindeki iki molekülü birbirinden ayırmış; amoksisilinin Klaritromisin ile olan **Minor** etkileşimini ve Aspirin ile olan **Unknown** etkileşimini başarıyla yakalamıştır.
-> - Klavulanik asit tekil bir ilaç olarak DDInter kataloğunda bulunmadığı için durumu dürüstçe `DDInter'da Yok` olarak etiketlenmiştir.
+> - Klavulanik asit (`DDInter394`) Yol C kural motorumuzla DDInter kataloğuna bağlanmıştır. Ancak J ve N grupları DDInter'ın eksik indirme grupları arasında yer aldığından Klavulanik Asit çiftleri dürüstçe `Eksik Grup (Olası Kayıp)` olarak etiketlenmiştir. Böylece sistem, katalogda olmayan molekül (`DDInter'da Yok`) ile indirme dosyası eksik olan grubu (`Eksik Grup`) başarıyla ayırt etmiştir.
 
 ---
 
@@ -150,7 +150,7 @@ Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Dekske
 > **Kayıp Analizi Doğrulaması:**
 > - `Parol` (`DDInter14`, N grubu) ve `Cordarone` (`DDInter76`, C grubu) moleküllerinin ikisi de DDInter veritabanında mevcuttur.
 > - Ancak DDInter indirilebilir dosyalarında **C ve N** kategorileri sunulmadığı için bu etkileşim indirilen 8 CSV dosyasında yer almaz.
-> - Sistemimiz bu durumu `"Eksik Grup (Olası Kayıp)"` olarak doğru teşhis etmiş ve İP4'te hesaplanan **%48,28 madde kaybı / %23,29 çift kaybı** teorisini sahada kanıtlamıştır.
+> - Sistemimiz bu durumu `"Eksik Grup (Olası Kayıp)"` olarak doğru teşhis etmiş ve İP4'te hesaplanan **%47,74 madde kaybı / %22,78 çift kaybı** teorisini sahada kanıtlamıştır.
 
 ---
 
@@ -160,8 +160,8 @@ Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Dekske
 |:---|:---|
 | **1. "Arveles ile Coumadin arasındaki etkileşimi sistem neden bulamadı?"**|Arveles'in etken maddesi *Deksketoprofen*'dir. Deksketoprofen Türkiye'de ve Avrupa'da çok yaygın bir molekül olmasına rağmen küresel DDInter kataloğunda tekil molekül olarak yer almamakta, sadece ana rasematı olan *Ketoprofen* bulunmaktadır. Sistemimiz varsayım yapmayıp veritabanında olmadığı için `DDInter'da Yok` uyarısı verdi. Bu şeffaflık şartnamenin temel kuralıdır.
 | **2. "Coumadin – Klacid etkileşimini sistem nasıl buldu?"** | "Coumadin (Varfarin) B grubunda, Klacid (Klaritromisin) J grubundadır. J grubunun indirme dosyası olmamasına rağmen Varfarin B dosyasında yer aldığı için çift B dosyasından başarıyla yakalanmış ve küresel rehberlerle uyumlu olarak **Major** şiddet seviyesinde tespit edilmiştir.
-| **3. "Augmentin senaryosunda neyi kanıtladınız?"** | "Augmentin tek bir ticari ilaç olmasına rağmen kombine bir formülasyondur (Amoksisilin + Klavulanik Asit). Sistemimiz barkod üzerinden bunu iki ayrı bileşene ayırdı ve diğer iki ilaçla kartezyen eşleyerek $2 x 1 x 1 = 5$ çift üretti. Amoksisilin–Klaritromisin arasındaki **Minor** etkileşimi başarıyla yakaladı.
-| **4. "Parol ve Cordarone ikisi de DDInter'da varken neden sonuç çıkmadı?"** DDInter 14 ATC grubundan sadece 8'i için dosya sunuyor. Parol **N (Sinir)** grubunda, Cordarone ise **C (Kardiyovasküler)** grubundadır. İki ilacın da indirme dosyası olmadığı için indirilen tablolarda yer alamazlar. Sistemimiz bunu `Eksik Grup (Olası Kayıp)` olarak etiketleyerek kayıp analizi modelimizi sahada ispatlamıştır." |
+| **3. "Augmentin senaryosunda neyi kanıtladınız?"** | "Augmentin tek bir ticari ilaç olmasına rağmen kombine bir formülasyondur (Amoksisilin + Klavulanik Asit). Sistemimiz barkod üzerinden bunu iki ayrı bileşene ayırdı ve diğer iki ilaçla kartezyen eşleyerek $(2 X 1) + (2 X 1) + (1 X 1) = 5$ çift üretti. Amoksisilin–Klaritromisin arasındaki **Minor** etkileşimi başarıyla yakaladı." |
+| **4. "Parol ve Cordarone ikisi de DDInter'da varken neden sonuç çıkmadı?"** | "DDInter 14 ATC grubundan sadece 8'i için dosya sunuyor. Parol **N (Sinir)** grubunda, Cordarone ise **C (Kardiyovasküler)** grubundadır. İki ilacın da indirme dosyası olmadığı için indirilen tablolarda yer alamazlar. Sistemimiz bunu `Eksik Grup (Olası Kayıp)` olarak etiketleyerek kayıp analizi modelimizi sahada ispatlamıştır." |
 | **5. "Drugs.com ve Medscape ile karşılaştırdığınızda ne gördünüz?"** | "Varfarin–Klaritromisin çiftinde üç sistem de hemfikirdir (Major). Ancak Deksketoprofen içeren çiftlerde DDInter veri tabanı eksik kalırken Drugs.com ve Medscape uyarı verebilmektedir. Bu durum, 3. haftada eğiteceğimiz Makine Öğrenmesi (GNN) modelinin neden gerekli olduğunu somut olarak ortaya koymaktadır." |
 
 ---
