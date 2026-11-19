@@ -1,81 +1,82 @@
 # İP3: DDInter İlaç Eşleşme Raporu
 
-> **Özet:** Türkiye'deki kapsam içi etken maddelerin %46.1'i (1,365 / 2,958), kapsam içi ruhsatlı ürünlerin %76.5'inin (17,188 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
-> *(Tüm Bileşenler Bazında: %44.4 (1,365 / 3,073) — Tüm Ruhsatlı Ürünler Bazında: %76.7 (17,586 / 22,927))*
+> **Özet:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,416 / 2,945), kapsam içi ruhsatlı ürünlerin %80.4'inin (18,067 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
+> *(Tüm Bileşenler Bazında: %46.3 (1,418 / 3,065) — Tüm Ruhsatlı Ürünler Bazında: %80.6 (18,474 / 22,927))*
 
 ## 1. Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Dağılımı
 | Eşleşme Yolu | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) | Açıklama |
 | :--- | :---: | :---: | :---: | :--- |
-| **Yol A (Tek Bileşenli ATC)** | 1,906 | 1,219 | %64.0 | Tek bileşenli ürünlerin SKRS ATC sözlüğünden İngilizce adı |
+| **Yol A (Tek Bileşenli ATC)** | 1,887 | 1,219 | %64.6 | Tek bileşenli ürünlerin SKRS ATC sözlüğünden İngilizce adı |
 | **Yol B (Kombine Bölme & RapidFuzz)** | 66 | 36 | %54.5 | Kombine ürünlerin ATC adından ayrıştırılan bileşenler |
-| **Yol C (Kural Tabanlı - tr_en_kurallar)** | 78 | 78 | %100.0 | Türkçe kural tabanlı çeviri motoru ile eşleşenler |
+| **Yol C (Kural Tabanlı - tr_en_kurallar)** | 106 | 106 | %100.0 | Türkçe kural tabanlı çeviri motoru ile eşleşenler |
 | **SKRS (Kural 5/6)** | 90 | 32 | %35.6 | SKRS'ten doğrudan İngilizce gelen ürünler |
-| **Eşleşmedi (Kişi C - Yol D Adayları)** | 933 | 0 | %0.0 | Kural motoru ve PubChem ile eşleşmeyip Kişi C uzman incelemesine kalanlar |
-| **TOPLAM** | **3,073** | **1,365** | **%44.4** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |
-> **Not (PubChem Doğrulaması ve Dağılımı):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden 16 tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve 24 satıra yayılmıştır. Örneğin 377 ürünlü parasetamol → DDInter14 (acetaminophen). Kurtarılan bu bileşikler resmi ATC adı ile DDInter adı farklılaşan Yol A ve Yol B satırlarıdır (bu nedenle Yol A/B altında DDInter kimliği kazanmışlardır). Kural motoruna girmeyip `eslesmedi` yolunda kalan 933 bileşenin en sık olanları (dekstroz, kalsiyum klorur, sodyum laktat, magnezyum klorur, tiyokolsikosid vb.) DDInter kütüphanesinde hiç yer almadığından bu gruptan yeni DDInter eşleşmesi çıkmamış ve tümü Kişi C'nin Yol D taslağına devredilmiştir.
+| **Yol D (Kişi C - Uzman Manuel İnceleme)** | 24 | 24 | %100.0 | Kişi C tarafından en sık eşleşmeyenlerden doğrulanarak bağlanan bileşenler |
+| **Eşleşmedi (Kalan)** | 892 | 1 | %0.1 | Kural motoru ve Yol D sonrasında eşleşmeyen bileşenler |
+| **TOPLAM** | **3,065** | **1,418** | **%46.3** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |
+> **Not (Yol D ve PubChem Doğrulaması):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden 17 tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve 24 satıra yayılmıştır. Örneğin 376 ürünlü parasetamol → DDInter14 (acetaminophen). Adım 5 kapsamında ise Kişi C tarafından en sık 100 eşleşmeyen bileşen incelenmiş; 23 bileşen DDInter kimliklerine bağlanmış ve 20 İngilizce ad düzeltmesi yapılarak toplam 24 bileşen Yol D statüsüne kavuşturulmuştur. Kalan 892 bileşen sonraki aşamalara devredilmiştir.
 
 ## 2. DDInter Eşleşme Oranı Özeti
 | Metrik Düzeyi | Toplam Büyüklük | DDInter'da Bulunan | Kapsama Oranı (%) |
 | :--- | :---: | :---: | :--- |
-| **Kapsam İçi Etken Madde Bazında** | 2,958 | 1,365 | %46.1 |
-| **Kapsam İçi Ruhsatlı Ürün Bazında (En Az 1 Bileşen)** | 22,470 | 17,188 | %76.5 |
-| **Tüm Etken Maddeler Bazında** | 3,073 | 1,365 | %44.4 |
-| **Tüm Ruhsatlı Ürünler Bazında (En Az 1 Bileşen)** | 22,927 | 17,586 | %76.7 |
+| **Kapsam İçi Etken Madde Bazında** | 2,945 | 1,416 | %48.1 |
+| **Kapsam İçi Ruhsatlı Ürün Bazında (En Az 1 Bileşen)** | 22,470 | 18,067 | %80.4 |
+| **Tüm Etken Maddeler Bazında** | 3,065 | 1,418 | %46.3 |
+| **Tüm Ruhsatlı Ürünler Bazında (En Az 1 Bileşen)** | 22,927 | 18,474 | %80.6 |
 
-> **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen 1,365 etken madde kaydı, toplam **852 benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).
+> **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen 1,418 etken madde kaydı, toplam **896 benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).
 
 ## 3. ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)
 | ATC Ana Grubu | Grup Açıklaması | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) |
 | :---: | :--- | :---: | :--- | :---: |
-| **A** | Sindirim Sistemi ve Metabolizma | 470 | 145 | %30.9 |
-| **B** | Kan ve Kan Yapıcı Organlar | 257 | 79 | %30.7 |
-| **C** | Kardiyovasküler Sistem | 215 | 120 | %55.8 |
-| **D** | Dermatolojik İlaçlar | 192 | 61 | %31.8 |
-| **G** | Genito-Üriner Sistem ve Cinsiyet Hormonları | 119 | 60 | %50.4 |
-| **H** | Sistemik Hormonal Preparatlar | 56 | 30 | %53.6 |
-| **J** | Sistemik Antiinfektifler (Antibiyotikler vb.) | 443 | 179 | %40.4 |
-| **L** | Antineoplastik ve İmmünomodülatör Ajanlar | 299 | 251 | %83.9 |
-| **M** | Kas-İskelet Sistemi | 173 | 64 | %37.0 |
-| **N** | Sinir Sistemi | 285 | 198 | %69.5 |
+| **A** | Sindirim Sistemi ve Metabolizma | 468 | 155 | %33.1 |
+| **B** | Kan ve Kan Yapıcı Organlar | 249 | 89 | %35.7 |
+| **C** | Kardiyovasküler Sistem | 215 | 122 | %56.7 |
+| **D** | Dermatolojik İlaçlar | 192 | 62 | %32.3 |
+| **G** | Genito-Üriner Sistem ve Cinsiyet Hormonları | 119 | 62 | %52.1 |
+| **H** | Sistemik Hormonal Preparatlar | 56 | 33 | %58.9 |
+| **J** | Sistemik Antiinfektifler (Antibiyotikler vb.) | 442 | 183 | %41.4 |
+| **L** | Antineoplastik ve İmmünomodülatör Ajanlar | 299 | 252 | %84.3 |
+| **M** | Kas-İskelet Sistemi | 173 | 68 | %39.3 |
+| **N** | Sinir Sistemi | 284 | 204 | %71.8 |
 | **P** | Antiparaziter Ürünler | 31 | 19 | %61.3 |
-| **R** | Solunum Sistemi | 220 | 85 | %38.6 |
+| **R** | Solunum Sistemi | 219 | 89 | %40.6 |
 | **S** | Duyu Organları | 90 | 38 | %42.2 |
-| **V** | Çeşitli (Various) | 108 | 36 | %33.3 |
+| **V** | Çeşitli (Various) | 108 | 40 | %37.0 |
 
-> **Not (ATC Dağılımı):** Tablo kapsam içi 2,958 etken maddeyi içerir. Kapsam dışı veya ATC atanmamış 115 bileşen tablodan hariç tutulmuştur; toplam etken madde 3,073'dir.
+> **Not (ATC Dağılımı):** Tablo kapsam içi 2,945 etken maddeyi içerir. Kapsam dışı veya ATC atanmamış 120 bileşen tablodan hariç tutulmuştur; toplam etken madde 3,065'dir.
 
-> **Önemli Not (Eşleşme Oranı vs. Etkileşim Kapsamı):** Tablodaki yüksek eşleşme oranları (örn. Sinir Sistemi %69.5), bu ilaçların DDInter kütüphanesinde kimlik olarak geçtiğini gösterir. Ancak DDInter indirme paketlerinde C, G, J, M, N, S gibi ana grupların bağımsız etkileşim dosyaları bulunmamaktadır. Dolayısıyla bu gruptaki ilaçlar yalnızca diğer mevcut gruplarla (A, B, D, H, L, P, R, V) olan etkileşimlerde yer alabilir; iki N grubu ilacının kendi arasındaki etkileşim DDInter dosyalarında bulunamaz.
+> **Önemli Not (Eşleşme Oranı vs. Etkileşim Kapsamı):** Tablodaki yüksek eşleşme oranları (örn. Sinir Sistemi %71.8), bu ilaçların DDInter kütüphanesinde kimlik olarak geçtiğini gösterir. Ancak DDInter indirme paketlerinde C, G, J, M, N, S gibi ana grupların bağımsız etkileşim dosyaları bulunmamaktadır. Dolayısıyla bu gruptaki ilaçlar yalnızca diğer mevcut gruplarla (A, B, D, H, L, P, R, V) olan etkileşimlerde yer alabilir; iki N grubu ilacının kendi arasındaki etkileşim DDInter dosyalarında bulunamaz.
 
 ## 4. Eşleşmeyen En Sık 30 Bileşen Tablosu (Kişi C Öncelik Listesi - Kapsam İçi)
 | Sıra | Türkçe Bileşen Adı | Ürün Sayısı | Önerilen İngilizce / ATC | Durum |
 | :---: | :--- | :---: | :--- | :--- |
-| 1 | `dekstroz` | 720 | carbohydrates (B05BA03) | Yol D Adayı |
-| 2 | `kalsiyum klorur` | 409 | - (-) | Yol D Adayı |
-| 3 | `hidroklorotiyazid` | 379 | - (-) | Yol D Adayı |
-| 4 | `sodyum laktat` | 315 | - (-) | Yol D Adayı |
-| 5 | `magnezyum klorur` | 300 | - (-) | Yol D Adayı |
-| 6 | `glukoz` | 180 | carbohydrates (B05BA03) | Yol D Adayı |
-| 7 | `tiyokolsikosid` | 155 | thiocolchicoside (M03BX05) | Yol D Adayı |
-| 8 | `deksketoprofen` | 131 | dexketoprofen (M01AE17) | Yol D Adayı |
-| 9 | `klavulanik asit` | 105 | - (-) | Yol D Adayı |
-| 10 | `kandesartan` | 103 | candesartan (C09CA06) | Yol D Adayı |
-| 11 | `glisin` | 100 | glycine (B05CX03) | Yol D Adayı |
-| 12 | `vildagliptin` | 87 | vildagliptin (A10BH02) | Yol D Adayı |
-| 13 | `l-losin` | 76 | - (-) | Yol D Adayı |
-| 14 | `simetikon` | 63 | silicones (A03AX13) | Yol D Adayı |
-| 15 | `combinations` | 62 | imidazoles/triazoles in combination with corticosteroids (D01AC20) | Yol D Adayı |
-| 16 | `sulbaktam` | 62 | sulbactam (J01CG01) | Yol D Adayı |
-| 17 | `benzidamin` | 60 | benzydamine (A01AD02) | Yol D Adayı |
-| 18 | `klorheksidin` | 57 | - (-) | Yol D Adayı |
-| 19 | `metamizol` | 55 | metamizole sodium (N02BB02) | Yol D Adayı |
-| 20 | `gliklazid` | 54 | gliclazide (A10BB09) | Yol D Adayı |
-| 21 | `levotiroksin` | 54 | levothyroxine sodium (H03AA01) | Yol D Adayı |
-| 22 | `allergen extracts` | 53 | allergen extracts (-) | Yol D Adayı |
-| 23 | `sodyum iyodur` | 53 | - (-) | Yol D Adayı |
-| 24 | `diuretics` | 51 | diuretics (C09BA04) | Yol D Adayı |
-| 25 | `glikoz` | 48 | - (-) | Yol D Adayı |
-| 26 | `peritoneal dialytics` | 48 | peritoneal dialytics (-) | Yol D Adayı |
-| 27 | `dapoksetin` | 47 | dapoxetine (G04BX14) | Yol D Adayı |
-| 28 | `mometazon` | 47 | mometasone (R01AD09) | Yol D Adayı |
-| 29 | `other cold preparations` | 47 | codeine and paracetamol (N02AJ06) | Yol D Adayı |
-| 30 | `carbohydrates` | 44 | carbohydrates (B05BA03) | Yol D Adayı |
+| 1 | `sodyum laktat` | 315 | - (-) | Eşleşmedi |
+| 2 | `tiyokolsikosid` | 155 | thiocolchicoside (M03BX05) | Eşleşmedi |
+| 3 | `deksketoprofen` | 131 | dexketoprofen (M01AE17) | Eşleşmedi |
+| 4 | `kandesartan` | 103 | candesartan (C09CA06) | Eşleşmedi |
+| 5 | `glisin` | 100 | glycine (B05CX03) | Eşleşmedi |
+| 6 | `vildagliptin` | 87 | vildagliptin (A10BH02) | Eşleşmedi |
+| 7 | `l-losin` | 76 | - (-) | Eşleşmedi |
+| 8 | `sulbaktam` | 62 | sulbactam (J01CG01) | Eşleşmedi |
+| 9 | `benzidamin` | 60 | benzydamine (A01AD02) | Eşleşmedi |
+| 10 | `metamizol` | 55 | metamizole (N02BB02) | Eşleşmedi |
+| 11 | `gliklazid` | 54 | gliclazide (A10BB09) | Eşleşmedi |
+| 12 | `allergen extracts` | 53 | allergen extracts (-) | Eşleşmedi |
+| 13 | `diuretics` | 51 | diuretics (C09BA04) | Eşleşmedi |
+| 14 | `peritoneal dialytics` | 48 | peritoneal dialytics (-) | Eşleşmedi |
+| 15 | `dapoksetin` | 47 | dapoxetine (G04BX14) | Eşleşmedi |
+| 16 | `mometazon` | 47 | mometasone (R01AD09) | Eşleşmedi |
+| 17 | `other cold preparations` | 47 | codeine and paracetamol (N02AJ06) | Eşleşmedi |
+| 18 | `carbohydrates` | 44 | carbohydrates (B05BA03) | Eşleşmedi |
+| 19 | `nimesulid` | 43 | nimesulide (M02AA26) | Eşleşmedi |
+| 20 | `aljinik asit` | 41 | alginic acid (A02BX13) | Eşleşmedi |
+| 21 | `enzyme inhibitor` | 41 | enzyme inhibitor (J01CR02) | Eşleşmedi |
+| 22 | `fusidik asit` | 41 | fusidic acid (D06AX01) | Eşleşmedi |
+| 23 | `electrolytes with carbohydrates` | 40 | electrolytes with carbohydrates (B05BB02) | Eşleşmedi |
+| 24 | `tenofovir disoproksil` | 38 | tenofovir disoproxil (J05AF07) | Eşleşmedi |
+| 25 | `sultamicillin` | 35 | sultamicillin (J01CR04) | Eşleşmedi |
+| 26 | `butamirat` | 32 | butamirate (R05DB13) | Eşleşmedi |
+| 27 | `pinaveryum` | 32 | pinaverium (A03AX04) | Eşleşmedi |
+| 28 | `hypertonic solutions` | 29 | - (-) | Eşleşmedi |
+| 29 | `dekspantenol` | 28 | dexpanthenol (D03AX03) | Eşleşmedi |
+| 30 | `karbidopa` | 28 | - (-) | Eşleşmedi |
