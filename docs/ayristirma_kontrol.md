@@ -1,78 +1,89 @@
-# İP2: Etkin Madde Ayrıştırma Doğruluk Kontrol Raporu — 50 Kombine Ürün Elle İncelemesi
+# İP2: Etkin Madde Ayrıştırma Doğruluk Kontrol Raporu — 50 Rastgele Kombine Ürün İncelemesi
 
-Bu rapor, `02_etken_ayristirma` notebook'u ve `config/tuz_listesi.txt` kuralları ile ayrıştırılan kombine ürünlerden rastgele seçilen 50 kaydın doğrulanması amacıyla Kişi A ve Kişi C tarafından ortaklaşa hazırlanmıştır[cite: 34, 38]. Amaç, ayırıcıların (`+`, `/`, `ve`) ve tuz temizleme motorunun başarısını denetlemek ve %90 doğruluk eşiğini test etmektir[cite: 34].
-
----
-
-## 1. 50 Rastgele Kombine Ürün Doğruluk Tablosu
-
-| # | Ürün Adı | Orijinal Etkin Madde Metni | Ayrıştırılan Bileşenler | Doğru mu? | İnceleme / Not |
-|---|---|---|---|---|---|
-| 1 | CO-DIOVAN 160/12.5 MG FILM TABLET | valsartan + hidroklorotiyazid | valsartan, hidroklorotiyazid | Evet | Standart `+` ayrıştırması başarılı. |
-| 2 | AUGMENTIN-BID 1000 MG FILM TABLET | amoksisilin trihidrat + klavulanik asit | amoksisilin, klavulanik asit | Evet | Tuz sözcüğü (`trihidrat`) tam sözcük olarak atılmış[cite: 32, 34]. |
-| 3 | KLACID MR 500 MG KONTROLLU SALIM | klaritromisin | klaritromisin | Evet | Tekil kök doğru korunmuş. |
-| 4 | KOMBIGLYZE XR 2.5/1000 MG UZATILMIS | saksagliptin hcl + metformin hcl | saksagliptin, metformin | Evet | `hcl` tuzları başarıyla temizlenmiş. |
-| 5 | DUOCID 375 MG FILM TABLET | sultamisilin | sultamisilin | Evet | Ön-ilaç molekülü bölünmeden korunmuş. |
-| 6 | APROVEL 150 MG FILM TABLET | irbesartan | irbesartan | Evet | Tekil kök başarılı. |
-| 7 | CO-IRBESAN 300/12.5 MG FILM TABLET | irbesartan + hidroklorotiyazid | irbesartan, hidroklorotiyazid | Evet | Başarılı. |
-| 8 | TRIPLIXAM 5/1.25/5 MG FILM TABLET | perindopril arginin + indapamid + amlodipin | perindopril, indapamid, amlodipin | Evet | 3'lü kombinasyon ve `arginin` tuzu temizliği başarılı. |
-| 9 | MICARDIS PLUS 80/12.5 MG TABLET | telmisartan + hidroklorotiyazid | telmisartan, hidroklorotiyazid | Evet | Başarılı. |
-| 10 | CIPRO 500 MG FILM TABLET | siprofloksasin hidroklorur | siprofloksasin | Evet | `hidroklorur` tuzu atılmış. |
-| 11 | RIFOCIN 250 MG/3 ML ENJEKSIYONLUK | rifamisin sv sodyum | rifamisin sv | Evet | `sodyum` tuzu atılmış, etken kökü korunmuş. |
-| 12 | GLUCOVANCE 500/5 MG FILM TABLET | metformin hidroklorur + glibenklamid | metformin, glibenklamid | Evet | Başarılı. |
-| 13 | JANUMET 50/1000 MG FILM KAPLI TAB | sitagliptin fosfat + metformin hcl | sitagliptin, metformin | Evet | Başarılı. |
-| 14 | EXFORGE 10/160 MG FILM TABLET | amlodipin besilat + valsartan | amlodipin, valsartan | Evet | `besilat` tuzu atılmış. |
-| 15 | FORXIGA 10 MG FILM KAPLI TABLET | dapagliflozin propandiol | dapagliflozin | Evet | `propandiol` solvatı atılmış. |
-| 16 | XIGDUO XR 5/1000 MG UZATILMIS SALIM | dapagliflozin + metformin hidroklorur | dapagliflozin, metformin | Evet | Başarılı. |
-| 17 | COVERAM 5/5 MG TABLET | perindopril arginin + amlodipin besilat | perindopril, amlodipin | Evet | İki bileşenin de tuzları temizlenmiş. |
-| 18 | CO-APROVEL 150/12.5 MG FILM TABLET | irbesartan ve hidroklorotiyazid | irbesartan, hidroklorotiyazid | Evet | `ve` bağlacı başarıyla ayrıştırılmış[cite: 33]. |
-| 19 | TAVANIC 500 MG FILM TABLET | levofloksasin hemihidrat | levofloksasin | Evet | `hemihidrat` tuzu atılmış. |
-| 20 | BACTRIM 400/80 MG TABLET | sulfametoksazol + trimetoprim | sulfametoksazol, trimetoprim | Evet | Başarılı. |
-| 21 | SYMBICORT 160/4.5 MCG TURBUHALER | budesonid + formoterol fumarat dihidrat | budesonid, formoterol | Evet | Çoklu tuz sözcüğü temizlenmiş. |
-| 22 | FOSTER 100/6 MCG INHALASYON COZELTISI | beklometazon dipropiyonat + formoterol | beklometazon dipropiyonat, formoterol | Kısmen | `dipropiyonat` esteri kalmış (DDInter aramasında sorunsuz). |
-| 23 | SERETIDE DISKUS 250 MCG | flutikazon propiyonat + salmeterol | flutikazon, salmeterol | Evet | Başarılı. |
-| 24 | DUODART 0.5/0.4 MG SERT KAPSUL | dutasterid + tamsulosin hidroklorur | dutasterid, tamsulosin | Evet | Başarılı. |
-| 25 | TWYNSTA 80/5 MG TABLET | telmisartan + amlodipin | telmisartan, amlodipin | Evet | Başarılı. |
-| 26 | ATACAND PLUS 16/12.5 MG TABLET | kandesartan sileksetil + hidroklorotiyazid | kandesartan, hidroklorotiyazid | Evet | `sileksetil` temizlenmiş. |
-| 27 | CO-TARG 160/12.5 MG FILM TABLET | valsartan + hidroklorotiyazid | valsartan, hidroklorotiyazid | Evet | Başarılı. |
-| 28 | CADUET 5/10 MG FILM TABLET | amlodipin besilat + atorvastatin kalsiyum | amlodipin, atorvastatin | Evet | `kalsiyum` ve `besilat` tuzları atılmış. |
-| 29 | VIMPAT 100 MG FILM TABLET | lakozamid | lakozamid | Evet | Başarılı. |
-| 30 | INSPRA 25 MG FILM KAPLI TABLET | eplerenon | eplerenon | Evet | Başarılı. |
-| 31 | TRUSOPT %2 STERIL GOZ DAMLASI | dorzolamid hidroklorur | dorzolamid | Evet | Başarılı. |
-| 32 | COSOPT STERIL GOZ DAMLASI | dorzolamid hidroklorur + timolol maleat | dorzolamid, timolol | Evet | Başarılı. |
-| 33 | COMBIVENT TEK DOZLUK INHALASYON | ipratropium bromur + salbutamol sulfat | ipratropium, salbutamol | Evet | `bromur` ve `sulfat` temizlenmiş. |
-| 34 | DUORESP SPIROMAX 160/4.5 MCG | budesonid + formoterol fumarat | budesonid, formoterol | Evet | Başarılı. |
-| 35 | DYMISTA 137/50 MCG BURUN SPREYI | azelastin hidroklorur + flutikazon | azelastin, flutikazon | Evet | Başarılı. |
-| 36 | RELVAR ELLIPTA 92/22 MCG | flutikazon furoat + vilanterol | flutikazon furoat, vilanterol | Kısmen | `furoat` ester eki korunmuş. |
-| 37 | ANORO ELLIPTA 55/22 MCG | umeklidinyum bromur + vilanterol | umeklidinyum, vilanterol | Evet | Başarılı. |
-| 38 | SEEBRI BREEZHALER 44 MCG | glikopironyum bromur | glikopironyum | Evet | Başarılı. |
-| 39 | ULTIBRO BREEZHALER 110/50 MCG | indakaterol maleat + glikopironyum | indakaterol, glikopironyum | Evet | Başarılı. |
-| 40 | AIRFLUSAL FORSPIRO 50/250 MCG | salmeterol ksinafoat + flutikazon | salmeterol, flutikazon | Evet | `ksinafoat` tuzu başarıyla atılmış. |
-| 41 | TENOFOVIR/EMTRISITABIN 245/200 MG | tenofovir disoproksil + emtrisitabin | tenofovir disoproksil, emtrisitabin | Evet | Disoproksil ön-ilaç grubu korunmuş. |
-| 42 | ATROPIN SULFAT 0.5 MG/ML AMPUL | atropin sulfat | atropin | Evet | `sulfat` tuzu atılmış. |
-| 43 | POTASYUM KLORUR %7.5 AMPUL | potasyum klorur | potasyum klorur | Evet | Tuz sözcüğü etken maddenin kendisi olduğu için korunmuş (Kural 3)[cite: 34]. |
-| 44 | SODYUM BIKARBONAT %8.4 AMPUL | sodyum bikarbonat | sodyum bikarbonat | Evet | Orijinal metin kural gereği korunmuş (Kural 3)[cite: 34]. |
-| 45 | MAGNEZYUM SULFAT %15 AMPUL | magnezyum sulfat | magnezyum sulfat | Evet | Orijinal metin kural gereği korunmuş (Kural 3)[cite: 34]. |
-| 46 | DILTIZEM 60 MG TABLET | diltiazem hidroklorur | diltiazem | Evet | Başarılı. |
-| 47 | ISOPTIN 40 MG FILM TABLET | verapamil hidroklorur | verapamil | Evet | Başarılı. |
-| 48 | CORDARONE 200 MG TABLET | amiodaron hidroklorur | amiodaron | Evet | Başarılı. |
-| 49 | RYTHMOL 150 MG FILM TABLET | propafenon hidroklorur | propafenon | Evet | Başarılı. |
-| 50 | DIGOXIN-SANDOZ 0.25 MG TABLET | digoksin | digoksin | Evet | Başarılı. |
+- **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi[cite: 31]
+- **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi[cite: 34, 38]
+- **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme[cite: 34, 38]
+- **Örneklem Yöntemi:** `notebooks/02_etken_ayristirma.ipynb` üzerinden `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün[cite: 34]
+- **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
 
 ---
 
-## 2. Doğruluk İstatistiği ve Karar
+## 1. 50 Rastgele Kombine Ürün Doğruluk Tablosu (`sample(n=50, random_state=42)`)
 
-- **Toplam İncelenen Kombine Ürün:** 50[cite: 34, 38]
-- **Tam Başarılı Ayrıştırma:** 48 (%96.0)
-- **Kısmi Form (Ester Formu Kalan / Kabul Edilebilir):** 2 (%4.0)
-- **Hatalı / Başarısız Ayrıştırma:** 0 (%0.0)
-- **Genel Doğruluk Oranı:** %96.0 (Şartnamedeki %90 eşiğinin üzerindedir)[cite: 34].
+| # | Barkod | Ürün Adı | Orijinal Ham Metin (`etkin_madde_ham`) | Ayrıştırılan Bileşenler (`bilesen_tr`) | Doğru mu? | İnceleme / Hata Analizi |
+|---|---|---|---|---|---|---|
+| 1 | 8699828690931 | ISOLYTE-M %5 DEKSTROZLU ÇÖZELTİ | sodyum asetat trihidrat,dibazik potasyum fosfat,dekstroz monohidrat,sodyum klorür,potasyum klorür | sodyum asetat, dibazik potasyum fosfat, dekstroz, sodyum klorur, potasyum klorur | **Doğru** | 5 elektrolit/şeker bileşeni başarıyla ayrıştırılmış, inorganik tuzlar korunmuştur. |
+| 2 | 8680836323959 | TURKFLEKS %5 DEKSTROZ % 0,45 SODYUM | dekstroz anhidrat, sodyum klorür | dekstroz, sodyum klorur | **Doğru** | Anhidrat tuzu temizlenmiş, iki bileşen tam ayrışmıştır. |
+| 3 | 8699527093866 | BENORAL 250 MG/250 MG FİLM TABLET | vitamin b1 in combination with vitamin b6 and/or vitamin b12 | vitamin b1 in combination with vitamin b6, or vitamin b12 | **Hatalı** | TİTCK ham metnindeki İngilizce WHO açıklama metni bölünürken 'or' bağlacı kalıntı bırakmıştır. |
+| 4 | 8690509574274 | VICKS VAPODRY SURUP, 120 ML | psödoefedrin hidroklorür, klorfeniramin maleat, dekstrometorfan hidrobromür | psodoefedrin, klorfeniramin, dekstrometorfan | **Doğru** | 3'lü kombinasyonda hidroklorür, maleat ve hidrobromür tuzları başarıyla atılmıştır. |
+| 5 | 8699844696559 | Primefleks Ringer 0,86 g+0,03 g+0,033 g | Sodyum klorür, Potasyum klorür, Kalsiyum klorür dihidrat | sodyum klorur, potasyum klorur, kalsiyum klorur | **Doğru** | Elektrolit tuzları kural gereği korunmuş, dihidrat atılmıştır. |
+| 6 | 8699569092254 | OLMYSAR COMBO 40MG/5 MG TABLET | olmesartan medoksomil, amlodipin besilat | olmesartan, amlodipin | **Doğru** | Medoksomil ve besilat ekleri tam sözcük olarak temizlenmiştir. |
+| 7 | 8699606692355 | POLİFLEKS 100 MG/ML DEKSTRAN40+9 MG | dekstran+sodyum klorür | dekstran, sodyum klorur | **Doğru** | `+` ayırıcısı başarıyla çalışmıştır. |
+| 8 | 8680881012891 | TELMODIP 80 MG/10 MG TABLET | telmisartan+amlodipin besilat | telmisartan, amlodipin | **Doğru** | Başarılı `+` ayrıştırması ve tuz temizliği. |
+| 9 | 8699512007212 | GRIMEL TABLET, 20 ADET | parasetamol, klorfeniramin | parasetamol, klorfeniramin | **Doğru** | Virgül ayrıştırması başarılı. |
+| 10 | 8699788698077 | BİOFLEKS %5 DEKSTROZ RİNGER LAKTAT | dekstroz monohidrat, sodyum klorür, sodyum laktat, potasyum klorür, kalsiyum klorür | dekstroz, sodyum klorur, sodyum laktat, potasyum klorur, kalsiyum klorur | **Doğru** | 5 bileşen eksiksiz ayrışmıştır. |
+| 11 | 8699523010133 | BEVITOL TABLET, 20 ADET | vitamin b1,vitamin b6 | vitamin b1, vitamin b6 | **Doğru** | Boşluksuz virgül başarıyla ayrıştırılmıştır. |
+| 12 | 8699569280279 | KLAMOKS 312.5 MG FORT SÜSPANSİYON | amoksisilin ve klavulanik asit | amoksisilin, klavulanik asit | **Doğru** | `ve` bağlacı başarıyla ayrıştırılmıştır[cite: 33]. |
+| 13 | 8698923793516 | MON.MIBI KIT, 1.0 MG/FLAKON IV | tetrakis bakir (i) ve tetrafloroborat (mibi) | tetrakis bakir, tetrafloroborat | **Hatalı** | Tekil koordinasyon kompleksi (MIBI), aradaki 've' bağlacı nedeniyle ikiye bölünmüştür. |
+| 14 | 8681911570015 | ASE-COLD PEDİATRİK ŞURUP | parasetamol/oksalamin sitrat/klorfeniramin maleat | parasetamol, oksalamin, klorfeniramin | **Doğru** | `/` ayırıcısı ve sitrat/maleat tuzları temizlenmiştir. |
+| 15 | 8699514383949 | THIOCILLINE DERİ MERHEMİ | basitrasin+neomisin sülfat | basitrasin, neomisin | **Doğru** | Başarılı `+` ayrıştırması. |
+| 16 | 8681291110191 | MEBUCAIN NANELI PASTIL | lidokain hidroklorür ve setilpiridinyum klorür | lidokain, setilpiridinyum | **Doğru** | `ve` bağlacı ve klorür tuzları başarıyla temizlenmiştir. |
+| 17 | 8699606693659 | PF K-CAMINE %8 AMINO ASIT | L-İzolösin, L-Lösin, Lizin, L-Metiyonin, L-Fenilalanin... | l-izolosin, l-losin, lizin, l-metiyonin, l-fenilalanin... | **Doğru** | 15 amino asit virgüllerle eksiksiz ayrıştırılmıştır. |
+| 18 | 8699540570108 | ESPEKTAN ŞURUP, 100 ML | psödoefedrin hcl ve guafenazin | psodoefedrin, guafenazin | **Doğru** | Başarılı. |
+| 19 | 8699844693527 | Primefleks Laktatlı Ringer I.V. | Sodyum klorür, Sodyum laktat, Potasyum klorür, Kalsiyum klorür | sodyum klorur, sodyum laktat, potasyum klorur, kalsiyum klorur | **Doğru** | 4 elektrolit eksiksiz korunmuştur. |
+| 20 | 8680400770509 | CALCİOSEL ENJEKSİYONLUK ÇÖZELTİ | kalsiyum glukonat monohidrat, kalsiyum levulinat | kalsiyum glukonat, levulinat | **Kısmi** | İkinci bileşenin 'kalsiyum' kök kelimesi tuz regex'i nedeniyle düşmüş, 'levulinat' kalmıştır. |
+| 21 | 8680952510912 | OSTEOFLEX FILM TABLET | glukozamin sulfat, kondoitin sulfat, manganez, vit c, zerdecal | glukozamin, kondoitin, manganez, vit c, zerdecal | **Hatalı** | 'vit c' 4 harften kısa olduğu için virgül ayrıştırma kuralına takılmış, son 3 bileşen bölünememiştir. |
+| 22 | 8699828140054 | GYNOFERON DEPO DRAJE | demir ii sülfat, folik asit, mukoproteaz | demir ii, folik asit, mukoproteaz | **Doğru** | Başarılı 3'lü ayrıştırma. |
+| 23 | 8699525096043 | Zalepril Film Kaplı Tablet | Lerkanidipin hidroklorür, Enalapril maleat | lerkanidipin, enalapril | **Doğru** | Başarılı. |
+| 24 | 8680836323898 | TURKFLEKS %5 DEKSTROZ % 0,9 SODYUM | dekstroz anhidrat, sodyum klorür | dekstroz, sodyum klorur | **Doğru** | Başarılı. |
+| 25 | 8681144039044 | Bayduo Cold Flu Tablet | İbuprofen, Psödoefedrin hidroklorür | ibuprofen, psodoefedrin | **Doğru** | Başarılı. |
+| 26 | 8699606691914 | POLİFLEKS 60 MG/ML DEKSTRAN 70 | dekstran+sodyum klorür | dekstran, sodyum klorur | **Doğru** | Başarılı. |
+| 27 | 8680352000709 | Otify Kulak Damlası | Fenazon, Lidokain Hidroklorür | fenazon, lidokain | **Doğru** | Başarılı. |
+| 28 | 8699625960336 | PENTAXİM IM ENJEKSİYONLUK | difteri, tetanoz, boğmaca ve inaktif çocuk felci, hib | difteri, tetanoz, bogmaca, inaktif cocuk gelci, hib | **Kısmi** | 'felci' sözcüğü normalizasyon regex'inde 'gelci' karakter bozulmasına uğramıştır. |
+| 29 | 8699514094227 | POLIVIT C FİLM TABLET | vitamin B1, B2, B6, B12, vitamin C, kalsiyum d-pantotenat, nikotinamid, d-biotin, folik asit | vitamin b1, b2, b6, b12, vitamin c, d-pantotenat, nikotinamid, d-biotin, folik asit | **Hatalı** | 'B1, B2, B6, B12' virgülleri 4 harf kuralına takılmış, B vitaminleri tek blok kalmıştır. |
+| 30 | 8680881023552 | MUCOVIT-C EFERVESAN TABLET | asetilsistein / askorbik asit | asetilsistein, askorbik asit | **Doğru** | `/` ayırıcısı başarıyla çalışmıştır. |
+| 31 | 8680881024320 | OSMEGA EFERVESAN TABLET | kalsiyum karbonat, vitamin d3 genistein | kalsiyum karbonat, vitamin d3 genistein | **Kısmi** | 'vitamin d3' ve 'genistein' arasında ayırıcı bulunmadığı için tek parça kalmıştır. |
+| 32 | 8699824010061 | BEDOXINAL TABLET | vitamin b1 in combination with vitamin b6 and/or vitamin b12 | vitamin b1 in combination with vitamin b6, or vitamin b12 | **Hatalı** | WHO kategori açıklaması İngilizce bağlaç kalıntısı içermektedir. |
+| 33 | 8680881094910 | ATODIP FILM TABLET | amlodipin besilat+atorvastatin kalsiyum | amlodipin, atorvastatin | **Doğru** | `+` ayırıcısı ve tuz temizliği kusursuz. |
+| 34 | 8699559350050 | PELONG %5 KREM | Lidokain, Prilokain | lidokain, prilokain | **Doğru** | Başarılı. |
+| 35 | 8699514094425 | VALTALİD PLUS TABLET | Valsartan, Klortalidon | valsartan, klortalidon | **Doğru** | Başarılı. |
+| 36 | 8680741520337 | FORPACK AERESOL | formoterol fumarat dihidrat/budesonid | formoterol, budesonid | **Doğru** | `/` ayırıcısı ve çift tuz temizliği başarılı. |
+| 37 | 8699606693123 | POLİFLEKS İZOLEN-P %5 DEKSTROZLU | Dekstroz anhidr+sodyum laktat, potasyum klorür, magnezyum klorür, dibazik sodyum fosfat | dekstroz, sodyum laktat, potasyum klorur, magnezyum klorur, dibazik sodyum fosfat | **Doğru** | 5 elektrolit/şeker başarıyla ayrılmıştır. |
+| 38 | 8699543010168 | ALDACTAZİDE TABLET | spirinolakton / hidroklorotiyazid | spirinolakton, hidroklorotiyazid | **Doğru** | `/` ayırıcısı başarılı. |
+| 39 | 8699976021366 | MEGINGO EFERVESAN TABLET | memantin hcl ve ginko biloba kuru ekstresi | memantin, ginko biloba kuru ekstresi | **Doğru** | `ve` bağlacı başarılı. |
+| 40 | 8699516098063 | SOPRANO FILM TABLET | bisoprolol fumarat ve hidroklorotiyazid | bisoprolol, hidroklorotiyazid | **Doğru** | Başarılı. |
+| 41 | 8680881091278 | EZESIM FILM TABLET | ezetimib ve simvastatin | ezetimib, simvastatin | **Doğru** | Başarılı. |
+| 42 | 8680881099021 | LIMITEN PLUS TABLET | valsartan, hidroklorotiyazid | valsartan, hidroklorotiyazid | **Doğru** | Başarılı. |
+| 43 | 8699514610205 | OFNOL FRESH OFTALMİK ÇÖZELTİ | olopatadin hcl ve sodyum hiyalüronat | olopatadin, hiyaluronat | **Doğru** | Başarılı. |
+| 44 | 8680638250118 | GRIBEXFEN HOT D TOZ | fenilefrin hcl, klorfeniramin maleat ve parasetamol | fenilefrin, klorfeniramin, parasetamol | **Doğru** | Virgül ve `ve` birlikte doğru ayrışmıştır. |
+| 45 | 8699844091682 | METİRASİN FILM TABLET | spiramicin ve metronidazol | spiramicin, metronidazol | **Doğru** | Başarılı. |
+| 46 | 8699636091524 | DELSTRIGO FILM TABLET | Doravirin, Lamivudin, Tenofovir disoproksil fumarat | doravirin, lamivudin, tenofovir disoproksil | **Doğru** | 3'lü antiviral kombinasyonu başarıyla ayrışmıştır. |
+| 47 | 8680199197532 | NYSTAFUR VAJİNAL OVÜL | nifuratel, nistatin | nifuratel, nistatin | **Doğru** | Başarılı. |
+| 48 | 8699736750291 | ENJEKSIYONLUK POTASYUM FOSFAT | dipotasyum fosfat/potasyum dihidrajen fosfat | dipotasyum fosfat, dihidrajen | **Kısmi** | İkinci kısımdaki 'fosfat' sözcüğü atılmış, 'dihidrajen' eksik kalmıştır. |
+| 49 | 8699960580046 | ZANITEK FILM TABLET | enalapril maleat, lerkanidipin hidroklorür | enalapril, lerkanidipin | **Doğru** | Başarılı. |
+| 50 | 8699514012016 | BITIRON TABLET | combinations of levothyroxine and liothyronine | combinations of levothyroxine, liothyronine | **Hatalı** | 'combinations of' WHO kategori metni kalıntısı kalmıştır. |
 
 ---
 
-## 3. Kişi C İnceleme Notu
+## 2. Doğruluk İstatistiği ve Gerçekçi Değerlendirme
 
-- **Kontrol Tarihi:** 20 Ekim 2026
-- **İnceleme Kapsamı:** 50 kombine ürün örneğinde ayırıcı kurallar (`+`, `/`, `ve`)[cite: 33], tuz atma mekanizması ve özel durumlar (etken maddenin kendisinin tuz olması)[cite: 34] incelenmiştir.
-- **Sonuç:** Ayrıştırma motoru %96.0 doğrulukla %90 eşiğini aşmıştır[cite: 34]. `urun_etken.csv` çıktısının güvenilir olduğu onaylanmıştır[cite: 34].
+Notebook 02 tarafından rastgele seçilen (`sample(n=50, random_state=42)`) 50 kombine ürünün bağımsız klinik ve algoritmik inceleme sonuçları:
+
+- **Toplam İncelenen Gerçek Kombine Ürün:** 50
+- **Tam Başarılı Ayrıştırma:** **40 ürün (%80.0)**
+- **Kısmi Başarılı (Ester/kök kaybı):** **4 ürün (%8.0)** *(Calciosel, Pentaxim, Osmega, Potasyum Fosfat)*
+- **Hatalı / Bölünemeyen Ayrıştırma:** **6 ürün (%12.0)** *(Benoral, Mon.Mibi, Osteoflex, Polivit C, Bedoxinal, Bitiron)*
+
+### 📌 Gerçek Doğruluk Oranı: **%80.0 (Tam Doğru) / %88.0 (Kısmi Başarılılar Dahil)**
+
+---
+
+## 3. Kök Neden Analizi ve Kişi A & C Ortak Notu
+
+1. **Hata Kaynakları:**
+   - **Kural Tabanlı Motorun Sınırı (4 Harf Kuralı):** Virgül ayrıştırmasında `vitamin B1, B2, C` veya `vit c` gibi kısa kısaltmalar kural tabanlı regex motoru tarafından bölünememektedir (`POLIVIT C`, `OSTEOFLEX`).
+   - **TİTCK Kaynak Açıklamaları:** Bazı ürünlerde etken madde yerine doğrudan WHO ATC İngilizce açıklaması girilmiştir (`BENORAL`, `BEDOXINAL`, `BITIRON`).
+   - **Kompleks Kimyasal Yapılar:** `tetrakis bakir (i) ve tetrafloroborat` gibi tekil moleküler kompleksler 've' bağlacı nedeniyle yanlışlıkla bölünmektedir (`MON.MIBI`).
+2. **Projeye Etkisi ve Çözüm (Yol D):**
+   - Saf regex motorunun kombine ürünlerdeki gerçek doğruluğu **%80.0 - %82.0** seviyesindedir. Daha önce tek bileşenli ürünler eklenerek raporlanan yapay %96 oranı gerçekçi değildir.
+   - Bu %18 - %20'lik uç vaka ve karmaşık bileşenler Adım 3'teki otomatik Yol A/B kurallarına girmemekte; Kişi C'nin yürüttüğü **Yol D (Elle Eşleme)** taslağına (`data/interim/ruhsatli_esleme_taslagi.csv`) aktarılarak insan denetimiyle güvenli biçimde çözülmektedir.
