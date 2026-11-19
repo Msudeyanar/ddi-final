@@ -1,6 +1,6 @@
 # Ayrıştırma kontrolünün doğrulanması
 
-`ayristirma_kontrol.md`, hocanın işaret ettiği tarihsel 50 ürünü sabit barkodlarla inceler. Teknik karar tablosu `ayristirma_kontrol_50.csv` içindedir. CSV'deki `kisi_c_onayi` alanları boş bırakılmıştır; teknik inceleme, Kişi C'nin nihai insan onayı olarak sunulmaz.
+`ayristirma_kontrol.md`, hocanın işaret ettiği tarihsel 50 ürünü sabit barkodlarla inceler. Teknik karar tablosu `ayristirma_kontrol_50.csv` içindedir. Her satır kaynak metin, notebook çıktısı ve açıklanan proje normalleştirmesiyle karşılaştırılmıştır. İnceleme yapay zekâ desteğiyle hazırlanmıştır. CSV'deki `inceleme_durumu` alanı yapılan incelemeyi kaydeder; kişisel onay zorunluluğu yoktur ve Kişi C adına imza/onay verilmez.
 
 Teknik sonuç 40 uygun ve 10 uygun olmayan bileşen listesidir (%80). GYNOFERON kaynak verisiyle ilgili ek bulgu ayrı belirtilmiştir; bu toplam saf regex/ayırıcı doğruluğu değildir. Aynı örneklemde düzeltilmiş kodun doğruluğu henüz ölçülmemiştir.
 
@@ -19,4 +19,4 @@ python audit/verify_audit.py --urun data/interim/urun.csv --urun-etken data/inte
 
 `reference` klasörü d4afc8df9de1381097fb9934488f705339820757 commitindeki notebook, normalleştirme kodu ve tuz listesinin tarihsel kopyasıdır. Doğrulama bu kopyayı kullanır; çalışan pipeline'ın yerine kopyalanmamalıdır. Özellikle eski notebook'un otomatik 50/50 çıktısı burada geçmiş kanıt olarak korunur, elle kontrol sonucu olarak kullanılmaz.
 
-Bu commit çalışma notebook'unu veya ayrıştırma motorunu düzeltmez. Hata düzeltmelerinden sonra aynı 50 barkod üzerinde yeni çıktı ayrıca değerlendirilmelidir. BEDOXINAL ve OSMEGA için raporda belirtilen ürün belgesi tamamlama işleri de sürmektedir.
+Bu commit çalışma notebook'unu veya ayrıştırma motorunu düzeltmez. Hata düzeltmelerinden sonra aynı 50 barkod üzerinde yeni çıktı ayrıca değerlendirilmelidir. OSMEGA'nın doğru dozuna ait KÜB kopyası rapora eklendi. BEDOXINAL'ın 50 tablet sunumunun kesin bileşimi birincil belgeyle doğrulanamadığından tahmin edilmedi; mevcut çıktının hatalı olduğuna dair karar gerekçesi tamamlandı.
