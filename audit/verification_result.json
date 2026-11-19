@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "package_counts": {
+    "Doğru": 40,
+    "Hatalı": 10
+  },
+  "input_verification": {
+    "product_records": 23801,
+    "uploaded_ingredient_records": 32076,
+    "historical_ingredient_records": 32076,
+    "historical_population": 4416,
+    "combined_per_source_row": 4395,
+    "blank_product_barcodes": 24,
+    "extra_population_rows_from_barcode_selection": 21,
+    "exact_sample_name_and_output_matches": 50
+  },
+  "scope": "CSV records parsed as text; raw-file byte hashes were not checked.",
+  "clinical_review_automated": false
+}
