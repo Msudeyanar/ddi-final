@@ -155,3 +155,21 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 * **Durum:** DDInter veri tabanındaki 160.235 tekil çiftin **%60,33'ü (96.675) Moderate**, **%18,61'i (29.813) Unknown** seviyesindedir. Minor düzeyi ise yalnızca %4,26'dır.
 * **Açık Soru:** DDInter kaynaklarında şiddet seviyesi belirtilmemiş (Unknown) olan 29.813 çift arayüzde kullanıcıya nasıl yansıtılmalıdır?
 * **Öneri:** Hekime yanlış güven vermemek veya panik yaratmamak adına "Etkileşim Var — Klinik Kanıt Düzeyi Belirsiz" şeklinde özel sarı/gri bir uyarı etiketiyle sunulmalı; hekime hastayı klinik olarak gözlemlemesi tavsiye edilmelidir.
+
+---
+
+## 16a. Tek Kaynaklı Ürünlerde Eski WHO ATC Kodu (Kişi A - Kural 8 Kapsamı Dışı)
+* **Gözlem (Kişi A):** Güncellenmiş Kural 8 ile WHO kümülatif değişiklik listesinde yer alan çelişkili 167 ürün yeni koda çekilmiştir. Ancak SKRS'te karşılığı bulunmayan (`bos` sınıfı) 154 üründe `atc_final` hâlâ eski WHO kodunu taşımaktadır. Bu ürünlerin 89'u pregabalin (N03AX16), 16'sı gabapentin (N03AX12), geri kalanı fingolimod, barisitinib, sirolimus vb. etken maddelerdir.
+* **Neden Dokunulmadı:** Güncellenmiş Kural 8 yalnızca iki kaynak arasında çelişki bulunan ürünleri kapsamaktadır. Bu 154 üründe bir çelişki (karşı tarafta kod) olmadığından kural devreye girmemektedir. Ayrıca Sabit Kural 1 ("Ürün adı, etkin madde ve ATC için Ruhsatlı Liste esas alınır") gereği ruhsatlı koddaki değişiklik için danışman onayı gerekmektedir.
+* **Olası Etki:** Aynı etken madde (ör. pregabalin) veri setinde iki farklı ATC koduyla (N03AX16 ve N02BF02) görünmektedir. Bu durum ATC bazlı analizlerde (ör. ATC ana grubu dağılımı, Yol A eşleştirmesi) bölünmeye yol açabilir.
+* **Karar / Soru:** WHO eşlemesi bu 154 tek kaynaklı ürüne de uygulanmalı mıdır, yoksa yalnızca çelişki kuralı kapsamında mı kalmalıdır?
+
+---
+
+## 17a. TİTCK ATC Kodlarındaki Karakter Hataları (CONTUBEL `DO3AX` ve Benzerleri) (Kişi A)
+* **Gözlem (Kişi A):** TİTCK Ruhsatlı İlaçlar Listesinde az sayıda üründe ATC kodu karakter düzeyinde hatalı girilmiştir. Tespit edilen örnekler:
+  - **CONTUBEL** (barkod `8699540019614`): ATC kodu `DO3AX` olarak girilmiş; sıfır (`0`) yerine İngilizce büyük harf `O` yazılmıştır. Doğru kod `D03AX` (other cicatrizants) olmalıdır.
+  - Benzer potansiyel hatalar: `M02A A15` (fazla boşluk), `S03CA0L` (sıfır/L karışıklığı), `N06AX2I` (rakam/harf karışıklığı).
+* **Mevcut Durum:** CONTUBEL şu anda `atc_final = DO3AX` ve `atc_celiski = 1` olarak işaretlidir. Güncellenmiş Kural 8 (WHO kümülatif değişiklik listesi) bu tür karakter hatalarını kapsamamaktadır çünkü `DO3AX` → `D03AX` bir WHO kod değişikliği değildir.
+* **Olası Etki:** `DO3AX` geçerli bir ATC kodu olmadığı için bu ürün Yol A (ATC köprüsü) eşleştirmesine giremez ve ATC ana grubu dağılımında `D` grubu yerine sınıflandırma dışı kalır.
+* **Karar / Soru:** Bu tür karakter hataları `src/normalize.py` veya Notebook 01'deki ATC temizleme adımına bir düzeltme regex'i eklenerek otomatik mi düzeltilmelidir (ör. `DO3AX` → `D03AX`), yoksa mevcut `atc_kaynak_hatasi_duzeltildi` mekanizması (TEKNAZOL örneğinde olduğu gibi) kullanılarak elle mi müdahale edilmelidir?
