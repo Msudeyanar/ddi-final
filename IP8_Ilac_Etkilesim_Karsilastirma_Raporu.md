@@ -23,7 +23,7 @@ Test çiftleri:
 |Test edilen durum|Drugs.com|Medscape|WebMD|
 |-|-|-|-|
 |Arveles (marka)|Tanınmadı (ABD’de bulunmuyor)|Eşleşme yok|Eşleşme yok|
-|Deksketoprofen|Tanınmadı|Eşleşme yok (“dexketoprofen”)|Eşleşme yok|
+|Deksketoprofen|Etkileşim verisi sunulmadı ([Şekil 9](images/sekil09.png), [İngilizce tekrar araması](https://www.drugs.com/interaction/list/?searchterm=dexketoprofen))|Eşleşme yok (“dexketoprofen”)|Eşleşme yok|
 |Deksketoprofen trometamol|Eşleşme yok|Test edilmedi|Test edilmedi|
 |Klacid (marka)|Tanınmadı|Test edilmedi|Marka adıyla eşleşmedi|
 |Klaritromisin|Tanındı (763 ilaç, 5 hastalık, 1 alkol/besin etkileşimi)|Varfarin sayfasındaki etkileşim listesinde yer aldı|Tanındı|
@@ -265,13 +265,17 @@ BNF üzerinden ilaç etkileşim kontrolleri gerçekleştirilmek istenmiştir. An
 
 İP8 kapsamında Drugs.com, Medscape ve WebMD çevrimiçi ilaç etkileşim kontrol araçları; Arveles (deksketoprofen), Coumadin (varfarin) ve Klacid (klaritromisin) ilaçları kullanılarak değerlendirilmiştir.
 
-Üç araçta da varfarin ile klaritromisin arasındaki etkileşim, etken madde adlarıyla yapılan kontroller sonucunda görüntülenebilmiştir. Drugs.com bu etkileşimi “Major” olarak sınıflandırmış ve kanama riskindeki artışa ilişkin uyarı sunmuştur. Medscape sonucu “Önemli – Yakından Takip Edin” kategorisinde gösterirken WebMD “Yakından takip edin” uyarısı vermiştir. Böylece üç araç da bu ilaç çifti için takip gerektiren bir etkileşim olasılığı bildirmiştir.
+Üç araçta da varfarin ile klaritromisin arasındaki etkileşim, etken madde adlarıyla yapılan kontroller sonucunda görüntülenebilmiştir. Drugs.com bu etkileşimi “Major” olarak sınıflandırmış ve kanama riskindeki artışa ilişkin uyarı sunmuştur. Medscape sonucu “Önemli – Yakından Takip Edin” kategorisinde gösterirken WebMD “Yakından takip edin” uyarısı vermiştir. Üç araç da etkileşimi gösterdi. Drugs.com Major, Medscape ve WebMD ise yakın takip etiketi kullandı. Araçların şiddet ölçekleri farklıdır. [Şekil 7](images/sekil07.png) · [Şekil 14](images/sekil14.png) · [Şekil 20](images/sekil20.png)
 
 Buna karşılık Arveles ve deksketoprofen adları araçlarda eşleştirilemediği için bu ilaçları içeren çiftlerin etkileşimleri güvenilir biçimde karşılaştırılamamıştır. Bu durum, araçların marka adı ve etken maddeyi tanıma kapasitesinin sonuçları etkileyebildiğini göstermektedir.
 
 Klinik not: Deksketoprofen, steroid olmayan antiinflamatuvar ilaçlar (NSAİİ) grubundandır ve NSAİİ’lerin varfarin gibi oral antikoagülanlarla birlikte kullanımında kanama riskinin arttığı genel olarak bilinmektedir. Bu nedenle deksketoprofen + varfarin çiftinin araçlarda değerlendirilememiş olması, bu çalışmada klinik açıdan en önemli eksikliklerden biridir. Bu çiftin etkileşim durumu, ilacın ruhsatlı kısa ürün bilgisi gibi birincil bir kaynaktan ayrıca doğrulanmalıdır.
 
 Genel olarak araçlar arasında ortak bir etkileşim uyarısı gözlemlenmiş; ancak sınıflandırma ifadeleri farklılık göstermiştir. Test sonuçları yalnızca belirtilen aramalar ve görüntülenen çıktılar için geçerlidir. İlaç adının eşleştirilememesi, etkileşim olmadığı şeklinde yorumlanmamalıdır.
+
+### Drugs.com İngilizce adla tekrar arama
+
+20 Kasım 2026’da Drugs.com etkileşim denetleyicisinde `dexketoprofen` arandı. Araç, ilacın ABD’de bulunmadığını ve etkileşim verisi sunamadığını bildirdi. Uluslararası ilaç kaydına bağlantı gösterildi. Varfarin–deksketoprofen çifti için şiddet etiketi elde edilemedi. [Drugs.com arama sonucu](https://www.drugs.com/interaction/list/?searchterm=dexketoprofen) · [İlk test, Şekil 9](images/sekil09.png)
 
 ## 6\. Sınırlılıklar
 
@@ -280,4 +284,3 @@ Genel olarak araçlar arasında ortak bir etkileşim uyarısı gözlemlenmiş; a
 * Test seti küçüktür (3 ilaç, 3 çift) ve her araçta tüm durumlar denenmemiştir (karşılaştırma tablosunda “Test edilmedi” olarak işaretlidir).
 * Sınıflandırma ölçekleri araçlar arasında doğrudan eşdeğer değildir.
 * Sonuçlar arama tarihindeki araç sürümlerini yansıtır; araç içerikleri zamanla değişebilir.
-
