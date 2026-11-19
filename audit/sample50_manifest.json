@@ -938,7 +938,8 @@
       "expected_note": "",
       "note": "Virgülle ayrılan bileşenler korunmuş; hidratlar kaldırılmış, elektrolit adları korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 2,
@@ -984,7 +985,8 @@
       "expected_note": "",
       "note": "Dekstroz ve sodyum klorür ayrı; yalnız anhidrat eki kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 3,
@@ -1032,7 +1034,8 @@
       "sources": [
         "P1"
       ],
-      "cause": "ATC_sinif_metni_ve_and_or"
+      "cause": "ATC_sinif_metni_ve_and_or",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 4,
@@ -1083,7 +1086,8 @@
       "expected_note": "",
       "note": "Ham metindeki bileşenler ayrı; hidroklorür, maleat ve hidrobromür ekleri proje kuralıyla kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 5,
@@ -1134,7 +1138,8 @@
       "expected_note": "",
       "note": "Elektrolitler ayrı tutulmuş; kalsiyum klorürde yalnız hidrat kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 6,
@@ -1180,7 +1185,8 @@
       "expected_note": "",
       "note": "İki madde ayrı; medoksomil ve besilat proje normalleştirmesine göre kaldırılmış. Ön-ilaç/form eşdeğerliği bu ayrıştırma ölçümünden ayrı bir eşleme kararıdır.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 7,
@@ -1226,7 +1232,8 @@
       "expected_note": "",
       "note": "Artı işareti iki kaynağı ayırmış; sodyum klorür adı korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 8,
@@ -1272,7 +1279,8 @@
       "expected_note": "",
       "note": "Artı işareti iki bileşeni ayırmış; besilat eki kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 9,
@@ -1318,7 +1326,8 @@
       "expected_note": "",
       "note": "Ham metindeki iki bileşen ayrı ve adları korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 10,
@@ -1379,7 +1388,8 @@
       "expected_note": "",
       "note": "Ham metindeki bileşenler eksiksiz ayrılmış; elektrolitler korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 11,
@@ -1425,7 +1435,8 @@
       "expected_note": "",
       "note": "B1 ve B6 ayrı; bu satırdaki virgül ayrıştırması başarılı.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 12,
@@ -1471,7 +1482,8 @@
       "expected_note": "",
       "note": "ve bağlacı iki bileşeni doğru ayırmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 13,
@@ -1518,7 +1530,8 @@
       "sources": [
         "P2"
       ],
-      "cause": "tek_bilesigin_yanlis_bolunmesi"
+      "cause": "tek_bilesigin_yanlis_bolunmesi",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 14,
@@ -1569,7 +1582,8 @@
       "expected_note": "",
       "note": "Slash ayırıcıları bileşenleri ayırmış. oksalamin yazımı ham kaynaktan aynen geliyor; olası yazım düzeltmesi İP3/eşleme kontrolüne bırakılmıştır.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 15,
@@ -1615,7 +1629,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; neomisin sülfatın tuz eki proje kuralıyla kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 16,
@@ -1661,7 +1676,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; hidroklorür ve klorür ekleri proje kuralıyla kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 17,
@@ -1772,7 +1788,8 @@
       "expected_note": "",
       "note": "Amino asit adları ayrılmış; parantez içi doz/eşdeğer açıklamalar ve hidrat/HCl eki çıkarılmış. Bileşen listesinin tam KÜB doğrulaması ayrıca yapılmış sayılmaz.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 18,
@@ -1818,7 +1835,8 @@
       "expected_note": "",
       "note": "ve bağlacı ayrılmış; hcl kaldırılmış. guafenazin yazımı ham kaynağın yazımıdır.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 19,
@@ -1874,7 +1892,8 @@
       "expected_note": "",
       "note": "Elektrolitler ayrı; kalsiyum klorür dihidrattan yalnız hidrat kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 20,
@@ -1918,9 +1937,12 @@
         "kalsiyum levulinat"
       ],
       "expected_note": "",
-      "note": "kalsiyum levulinat dihidrat ifadesi levulinat biçimine düşmüş. Bu elektrolit bileşiğinde kalsiyum korunmalı; yalnız hidrat kaldırılmalıdır.",
-      "sources": [],
-      "cause": "elektrolitte_ad_kaybi"
+      "note": "İki kalsiyum tuzu ayrı etkin maddelerdir. Üreticinin CALCİOSEL KT s. 1 Etkin madde bölümü kalsiyum glukonat monohidrat ve kalsiyum levülinat dihidratı doğrular. Çıktıda ikinci bileşiğin kalsiyumu silinmiş ve yalnız levulinat kalmıştır; hidrat çıkarılabilir, bileşiğin kalsiyumu korunmalıdır.",
+      "sources": [
+        "P8"
+      ],
+      "cause": "elektrolitte_ad_kaybi",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 21,
@@ -1973,7 +1995,8 @@
       "expected_note": "",
       "note": "manganez, vit c, zerdecal tek parça kalmış. vit c kısaltması nedeniyle virgül kuralı kalan grubu ayıramamış. Beklenen liste ham metne dayanır; kesin bitkisel/kimyasal form ayrıca doğrulanmalıdır.",
       "sources": [],
-      "cause": "kisa_bilesen_adlarinda_virgul"
+      "cause": "kisa_bilesen_adlarinda_virgul",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 22,
@@ -2026,7 +2049,8 @@
         "P3",
         "P3a"
       ],
-      "cause": "kaynak_bilesim_ve_normalizasyon"
+      "cause": "kaynak_bilesim_ve_normalizasyon",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 23,
@@ -2072,7 +2096,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; hidroklorür ve maleat ekleri kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 24,
@@ -2118,7 +2143,8 @@
       "expected_note": "",
       "note": "Dekstroz ve sodyum klorür ayrı; anhidrat eki kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 25,
@@ -2164,7 +2190,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; psödoefedrindeki hidroklorür eki kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 26,
@@ -2210,7 +2237,8 @@
       "expected_note": "",
       "note": "Artı işareti ayrılmış; dekstran ve sodyum klorür korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 27,
@@ -2256,7 +2284,8 @@
       "expected_note": "",
       "note": "Ondalık virgüller ürün adındadır; etkin madde alanındaki virgül iki bileşeni ayırmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 28,
@@ -2317,7 +2346,8 @@
       "expected_note": "",
       "note": "Ham metindeki aşı ana grupları ayrı korunmuş. Tip bilgisi normalize edilmiş alanda yoktur; özgün etkin_madde_ham alanı korunmalıdır. Bu karar antijen/molekül düzeyinde KÜB doğrulaması değildir.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 29,
@@ -2382,7 +2412,8 @@
       "expected_note": "",
       "note": "B1, B2, B6, B12 ve C tek parça kalmış. Ortak vitamin öneki tamamlanarak ayrı adlara açılmalı. Bu beklenen liste mevcut tuz indirgeme sözleşmesini kullanır; pantotenatın kalsiyum formunu koruma konusu ayrıca değerlendirilebilir.",
       "sources": [],
-      "cause": "vitamin_kisaltma_listesi"
+      "cause": "vitamin_kisaltma_listesi",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 30,
@@ -2428,7 +2459,8 @@
       "expected_note": "",
       "note": "Slash iki bileşeni ayırmış; adlar korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 31,
@@ -2473,9 +2505,12 @@
         "genistein"
       ],
       "expected_note": "",
-      "note": "Ham metinde vitamin d3 ile genistein arasında ayırıcı eksik; çıktı bunu tek etkin madde gibi bırakmış. Beklenen ayrım ham metindeki madde adlarına dayanır. Bu barkod/doza özgü üretici/TİTCK belgesi ayrıca tamamlanmalıdır; farklı doz belgesi bu ürünün kesin kanıtı diye sunulmamıştır.",
-      "sources": [],
-      "cause": "ham_metinde_eksik_ayirici"
+      "note": "OSMEGA 600 mg/400 IU/25 mg KÜB s. 1 Bölüm 2 kalsiyum karbonat, vitamin D3 ve genisteini ayrı etkin maddeler olarak listeler. Ham metinde D3 ile genistein arasında ayırıcı eksiktir; çıktı vitamin d3 genistein ifadesini tek bileşen bırakmıştır. Beklenen üçlü liste aynı doza ait belgeyle desteklenmiştir; bu belgeye dayanılarak barkod veya ambalaj değişikliği yapılmaz.",
+      "sources": [
+        "P7"
+      ],
+      "cause": "ham_metinde_eksik_ayirici",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 32,
@@ -2516,9 +2551,10 @@
       "status": "Hatalı",
       "expected": null,
       "expected_note": "Ürüne özgü tarihsel KÜB/KT doğrulanana kadar bileşim belirsiz; ATC sınıfındaki and/or ifadesinden B12 varlığı çıkarılamaz.",
-      "note": "Kaynak metin ATC sınıf açıklamasıdır; vitamin b1 in combination with vitamin b6 ve or vitamin b12 geçerli bağımsız etkin madde adları değildir. Çıktının hatalı olduğu açıktır; doğrulanamayan tam bileşim uydurulmamıştır.",
+      "note": "Ham alan A11DB sınıf açıklamasıdır; vitamin b1 in combination with vitamin b6 ve or vitamin b12 bağımsız etkin madde adları değildir. Ayrıştırma hatası bu metinlerden görülebilir. Bu araştırmada 50 tablet sunumuna ait birincil tarihsel KÜB/KT doğrulanamadığından kesin ürün bileşimi boş bırakılmıştır; sınıf adından B12 varlığı çıkarılmaz.",
       "sources": [],
-      "cause": "ATC_sinif_metni_ve_and_or"
+      "cause": "ATC_sinif_metni_ve_and_or",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 33,
@@ -2564,7 +2600,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; besilat ve atorvastatine ait kalsiyum tuzu proje kuralıyla kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 34,
@@ -2610,7 +2647,8 @@
       "expected_note": "",
       "note": "Ham metindeki iki bileşen ayrı ve adları korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 35,
@@ -2656,7 +2694,8 @@
       "expected_note": "",
       "note": "Ham metindeki iki bileşen ayrı ve adları korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 36,
@@ -2702,7 +2741,8 @@
       "expected_note": "",
       "note": "Slash ayrılmış; formoterolün fumarat ve dihidrat ekleri kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 37,
@@ -2763,7 +2803,8 @@
       "expected_note": "",
       "note": "Artı ve virgül ayırıcıları birlikte işlenmiş; elektrolit adları korunmuş, hidrat ekleri kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 38,
@@ -2809,7 +2850,8 @@
       "expected_note": "",
       "note": "Ham metindeki iki bileşen ayrı. spirinolakton yazımı ham kaynakta da var; kaynak yazımının klinik adıyla eşleştirilmesi ayrı kontrol gerektirir.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 39,
@@ -2855,7 +2897,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; kuru ekstre adı tek bileşen olarak korunmuş. ginko yazımı ham kaynaktan gelir.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 40,
@@ -2901,7 +2944,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; bisoprololün fumarat eki kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 41,
@@ -2947,7 +2991,8 @@
       "expected_note": "",
       "note": "ve bağlacı iki bileşeni ayırmış; adlar korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 42,
@@ -2993,7 +3038,8 @@
       "expected_note": "",
       "note": "Virgül iki bileşeni ayırmış; adlar korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 43,
@@ -3049,7 +3095,8 @@
         "active_moiety_group_key": "hiyaluronik asit",
         "scope": "technical ingredient normalization only",
         "pipeline_alias_applied": false
-      }
+      },
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 44,
@@ -3100,7 +3147,8 @@
       "expected_note": "",
       "note": "Virgül ve ve bağlacı birlikte bileşenleri ayırmış; tuz ekleri kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 45,
@@ -3146,7 +3194,8 @@
       "expected_note": "",
       "note": "ve bağlacı iki bileşeni ayırmış; kaynak yazımı korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 46,
@@ -3197,7 +3246,8 @@
       "expected_note": "",
       "note": "Bileşenler ayrı; fumarat çıkarılmış, tenofovir disoproksil ön-ilaç adı korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 47,
@@ -3243,7 +3293,8 @@
       "expected_note": "",
       "note": "Virgül iki bileşeni ayırmış; adlar korunmuş.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 48,
@@ -3287,9 +3338,12 @@
         "potasyum dihidrojen fosfat"
       ],
       "expected_note": "",
-      "note": "İkinci elektrolitten hem potasyum hem fosfat silinmiş; dihidrajen anlamsız kalıntı olmuş. Kaynaktaki dihidrajen yazımı da ayrı bir yazım sorunudur; doğru bileşik adı ayrıca ürün belgesiyle doğrulanmalıdır.",
-      "sources": [],
-      "cause": "elektrolitte_ad_kaybi"
+      "note": "KÜB s. 1 Bölüm 2 iki etkin maddeyi dipotasyum fosfat ve potasyum dihidrojen fosfat olarak doğrular; s. 7 Bölüm 6.5 20 x 20 mL sunumunu içerir. İkinci bileşikten hem potasyum hem fosfat silinerek dihidrajen kalmıştır. Ham metindeki dihidrajen yazımı da düzeltilmelidir; iki elektrolit adı tam korunmalıdır.",
+      "sources": [
+        "P9"
+      ],
+      "cause": "elektrolitte_ad_kaybi",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 49,
@@ -3335,7 +3389,8 @@
       "expected_note": "",
       "note": "İki bileşen ayrılmış; maleat ve hidroklorür ekleri kaldırılmış.",
       "sources": [],
-      "cause": ""
+      "cause": "",
+      "review_status": "Satır bazında incelendi"
     },
     {
       "sira": 50,
@@ -3383,8 +3438,73 @@
       "sources": [
         "P5"
       ],
-      "cause": "ATC_aciklama_oneki"
+      "cause": "ATC_aciklama_oneki",
+      "review_status": "Satır bazında incelendi"
     }
   ],
-  "revision_note": "GYNOFERON source error resolved; OFNOL normalization accepted with P4/P6 evidence. 40 appropriate, 10 inappropriate; human approval and corrected-code retest outstanding."
+  "revision_note": "50 satır yeniden karşılaştırıldı. Kişisel onay zorunluluğu kaldırıldı; inceleme yöntemi açıklandı. 20, 31 ve 48 numaralı kayıtların belge kanıtı genişletildi; BEDOXINAL kesin bileşimi doğrulanmış gibi sunulmadı. Tarihsel örneklem ve çıktıların hiçbiri değiştirilmedi.",
+  "review": {
+    "method": "Yapay zekâ destekli satır bazında kaynak metin, notebook çıktısı ve proje normalleştirme kuralları karşılaştırması",
+    "reviewed_count": 50,
+    "reviewed_ordinals": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "labels_inferred_from_component_count": false,
+    "personal_approval_required_for_this_table": false,
+    "independent_human_signoff_claimed": false,
+    "clinical_validation_performed": false,
+    "unresolved_exact_source_composition_ordinals": [
+      32
+    ],
+    "source_gap_does_not_hide_output_error": true
+  }
 }
