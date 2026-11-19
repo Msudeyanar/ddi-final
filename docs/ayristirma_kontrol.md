@@ -1,78 +1,178 @@
-# İP2: Etkin Madde Ayrıştırma Doğruluk Kontrol Raporu — 50 Kombine Ürün Elle İncelemesi
+# İP2 — Gerçek 50 Ürünlük Ayrıştırma Kontrolü
 
-Bu rapor, `02_etken_ayristirma` notebook'u ve `config/tuz_listesi.txt` kuralları ile ayrıştırılan kombine ürünlerden rastgele seçilen 50 kaydın doğrulanması amacıyla Kişi A ve Kişi C tarafından ortaklaşa hazırlanmıştır[cite: 34, 38]. Amaç, ayırıcıların (`+`, `/`, `ve`) ve tuz temizleme motorunun başarısını denetlemek ve %90 doğruluk eşiğini test etmektir[cite: 34].
+**İnceleme tarihi:** 19 Kasım 2026  
+**Çalışma:** Kişi C için kaynakları gösterilmiş satır bazında inceleme taslağı  
+**Hedef dosya:** `docs/ayristirma_kontrol.md`  
+**Hedef dal:** `feature/kisi-c-ortak-kontroller`  
+**Durum:** İnceleme kararları aşağıdadır; satır bazında teknik inceleme kararları tamamlanmıştır; nihai ekip onayı ve düzeltme sonrası yeniden test beklenmektedir. Bu belge, Kişi C'nin önceden elle onay verdiğini iddia etmez.
 
----
+## 1. Sonuç
 
-## 1. 50 Rastgele Kombine Ürün Doğruluk Tablosu
+Önceki rapordaki Co-Diovan ile başlayan liste, hocanın işaret ettiği notebook örneklemiyle uyuşmamaktadır. Önceki `%96` başarı ve `urun_etken.csv güvenilirdir` sonuçları bu incelemede geçerli kanıt kabul edilmemiştir. Notebook'un otomatik `50/50` sonucu da elle doğrulama olarak kullanılamaz.
 
-| # | Ürün Adı | Orijinal Etkin Madde Metni | Ayrıştırılan Bileşenler | Doğru mu? | İnceleme / Not |
-|---|---|---|---|---|---|
-| 1 | CO-DIOVAN 160/12.5 MG FILM TABLET | valsartan + hidroklorotiyazid | valsartan, hidroklorotiyazid | Evet | Standart `+` ayrıştırması başarılı. |
-| 2 | AUGMENTIN-BID 1000 MG FILM TABLET | amoksisilin trihidrat + klavulanik asit | amoksisilin, klavulanik asit | Evet | Tuz sözcüğü (`trihidrat`) tam sözcük olarak atılmış[cite: 32, 34]. |
-| 3 | KLACID MR 500 MG KONTROLLU SALIM | klaritromisin | klaritromisin | Evet | Tekil kök doğru korunmuş. |
-| 4 | KOMBIGLYZE XR 2.5/1000 MG UZATILMIS | saksagliptin hcl + metformin hcl | saksagliptin, metformin | Evet | `hcl` tuzları başarıyla temizlenmiş. |
-| 5 | DUOCID 375 MG FILM TABLET | sultamisilin | sultamisilin | Evet | Ön-ilaç molekülü bölünmeden korunmuş. |
-| 6 | APROVEL 150 MG FILM TABLET | irbesartan | irbesartan | Evet | Tekil kök başarılı. |
-| 7 | CO-IRBESAN 300/12.5 MG FILM TABLET | irbesartan + hidroklorotiyazid | irbesartan, hidroklorotiyazid | Evet | Başarılı. |
-| 8 | TRIPLIXAM 5/1.25/5 MG FILM TABLET | perindopril arginin + indapamid + amlodipin | perindopril, indapamid, amlodipin | Evet | 3'lü kombinasyon ve `arginin` tuzu temizliği başarılı. |
-| 9 | MICARDIS PLUS 80/12.5 MG TABLET | telmisartan + hidroklorotiyazid | telmisartan, hidroklorotiyazid | Evet | Başarılı. |
-| 10 | CIPRO 500 MG FILM TABLET | siprofloksasin hidroklorur | siprofloksasin | Evet | `hidroklorur` tuzu atılmış. |
-| 11 | RIFOCIN 250 MG/3 ML ENJEKSIYONLUK | rifamisin sv sodyum | rifamisin sv | Evet | `sodyum` tuzu atılmış, etken kökü korunmuş. |
-| 12 | GLUCOVANCE 500/5 MG FILM TABLET | metformin hidroklorur + glibenklamid | metformin, glibenklamid | Evet | Başarılı. |
-| 13 | JANUMET 50/1000 MG FILM KAPLI TAB | sitagliptin fosfat + metformin hcl | sitagliptin, metformin | Evet | Başarılı. |
-| 14 | EXFORGE 10/160 MG FILM TABLET | amlodipin besilat + valsartan | amlodipin, valsartan | Evet | `besilat` tuzu atılmış. |
-| 15 | FORXIGA 10 MG FILM KAPLI TABLET | dapagliflozin propandiol | dapagliflozin | Evet | `propandiol` solvatı atılmış. |
-| 16 | XIGDUO XR 5/1000 MG UZATILMIS SALIM | dapagliflozin + metformin hidroklorur | dapagliflozin, metformin | Evet | Başarılı. |
-| 17 | COVERAM 5/5 MG TABLET | perindopril arginin + amlodipin besilat | perindopril, amlodipin | Evet | İki bileşenin de tuzları temizlenmiş. |
-| 18 | CO-APROVEL 150/12.5 MG FILM TABLET | irbesartan ve hidroklorotiyazid | irbesartan, hidroklorotiyazid | Evet | `ve` bağlacı başarıyla ayrıştırılmış[cite: 33]. |
-| 19 | TAVANIC 500 MG FILM TABLET | levofloksasin hemihidrat | levofloksasin | Evet | `hemihidrat` tuzu atılmış. |
-| 20 | BACTRIM 400/80 MG TABLET | sulfametoksazol + trimetoprim | sulfametoksazol, trimetoprim | Evet | Başarılı. |
-| 21 | SYMBICORT 160/4.5 MCG TURBUHALER | budesonid + formoterol fumarat dihidrat | budesonid, formoterol | Evet | Çoklu tuz sözcüğü temizlenmiş. |
-| 22 | FOSTER 100/6 MCG INHALASYON COZELTISI | beklometazon dipropiyonat + formoterol | beklometazon dipropiyonat, formoterol | Kısmen | `dipropiyonat` esteri kalmış (DDInter aramasında sorunsuz). |
-| 23 | SERETIDE DISKUS 250 MCG | flutikazon propiyonat + salmeterol | flutikazon, salmeterol | Evet | Başarılı. |
-| 24 | DUODART 0.5/0.4 MG SERT KAPSUL | dutasterid + tamsulosin hidroklorur | dutasterid, tamsulosin | Evet | Başarılı. |
-| 25 | TWYNSTA 80/5 MG TABLET | telmisartan + amlodipin | telmisartan, amlodipin | Evet | Başarılı. |
-| 26 | ATACAND PLUS 16/12.5 MG TABLET | kandesartan sileksetil + hidroklorotiyazid | kandesartan, hidroklorotiyazid | Evet | `sileksetil` temizlenmiş. |
-| 27 | CO-TARG 160/12.5 MG FILM TABLET | valsartan + hidroklorotiyazid | valsartan, hidroklorotiyazid | Evet | Başarılı. |
-| 28 | CADUET 5/10 MG FILM TABLET | amlodipin besilat + atorvastatin kalsiyum | amlodipin, atorvastatin | Evet | `kalsiyum` ve `besilat` tuzları atılmış. |
-| 29 | VIMPAT 100 MG FILM TABLET | lakozamid | lakozamid | Evet | Başarılı. |
-| 30 | INSPRA 25 MG FILM KAPLI TABLET | eplerenon | eplerenon | Evet | Başarılı. |
-| 31 | TRUSOPT %2 STERIL GOZ DAMLASI | dorzolamid hidroklorur | dorzolamid | Evet | Başarılı. |
-| 32 | COSOPT STERIL GOZ DAMLASI | dorzolamid hidroklorur + timolol maleat | dorzolamid, timolol | Evet | Başarılı. |
-| 33 | COMBIVENT TEK DOZLUK INHALASYON | ipratropium bromur + salbutamol sulfat | ipratropium, salbutamol | Evet | `bromur` ve `sulfat` temizlenmiş. |
-| 34 | DUORESP SPIROMAX 160/4.5 MCG | budesonid + formoterol fumarat | budesonid, formoterol | Evet | Başarılı. |
-| 35 | DYMISTA 137/50 MCG BURUN SPREYI | azelastin hidroklorur + flutikazon | azelastin, flutikazon | Evet | Başarılı. |
-| 36 | RELVAR ELLIPTA 92/22 MCG | flutikazon furoat + vilanterol | flutikazon furoat, vilanterol | Kısmen | `furoat` ester eki korunmuş. |
-| 37 | ANORO ELLIPTA 55/22 MCG | umeklidinyum bromur + vilanterol | umeklidinyum, vilanterol | Evet | Başarılı. |
-| 38 | SEEBRI BREEZHALER 44 MCG | glikopironyum bromur | glikopironyum | Evet | Başarılı. |
-| 39 | ULTIBRO BREEZHALER 110/50 MCG | indakaterol maleat + glikopironyum | indakaterol, glikopironyum | Evet | Başarılı. |
-| 40 | AIRFLUSAL FORSPIRO 50/250 MCG | salmeterol ksinafoat + flutikazon | salmeterol, flutikazon | Evet | `ksinafoat` tuzu başarıyla atılmış. |
-| 41 | TENOFOVIR/EMTRISITABIN 245/200 MG | tenofovir disoproksil + emtrisitabin | tenofovir disoproksil, emtrisitabin | Evet | Disoproksil ön-ilaç grubu korunmuş. |
-| 42 | ATROPIN SULFAT 0.5 MG/ML AMPUL | atropin sulfat | atropin | Evet | `sulfat` tuzu atılmış. |
-| 43 | POTASYUM KLORUR %7.5 AMPUL | potasyum klorur | potasyum klorur | Evet | Tuz sözcüğü etken maddenin kendisi olduğu için korunmuş (Kural 3)[cite: 34]. |
-| 44 | SODYUM BIKARBONAT %8.4 AMPUL | sodyum bikarbonat | sodyum bikarbonat | Evet | Orijinal metin kural gereği korunmuş (Kural 3)[cite: 34]. |
-| 45 | MAGNEZYUM SULFAT %15 AMPUL | magnezyum sulfat | magnezyum sulfat | Evet | Orijinal metin kural gereği korunmuş (Kural 3)[cite: 34]. |
-| 46 | DILTIZEM 60 MG TABLET | diltiazem hidroklorur | diltiazem | Evet | Başarılı. |
-| 47 | ISOPTIN 40 MG FILM TABLET | verapamil hidroklorur | verapamil | Evet | Başarılı. |
-| 48 | CORDARONE 200 MG TABLET | amiodaron hidroklorur | amiodaron | Evet | Başarılı. |
-| 49 | RYTHMOL 150 MG FILM TABLET | propafenon hidroklorur | propafenon | Evet | Başarılı. |
-| 50 | DIGOXIN-SANDOZ 0.25 MG TABLET | digoksin | digoksin | Evet | Başarılı. |
+| Sonuç | Kayıt sayısı | Pay / açıklama | Kanıt |
+|---|---:|---|---|
+| Ham metne ve belirtilen proje normalleştirmesine göre doğru | 40 | %80; ürünlerin tüm klinik bileşiminin doğrulandığı anlamına gelmez | Bölüm 5 karar sütunu; kontrol CSV'si |
+| Açık hata / uygun olmayan bileşen listesi | 10 | %20; 9 önceki açık hata + GYNOFERON kaynak/bileşen sorunu | Bölüm 4; sıra no 3, 13, 20, 21, 22, 29, 31, 32, 48, 50 |
+| İnceleme kararı bekleyen | 0 | %0; GYNOFERON ve OFNOL FRESH kararları Bölüm 6'da sonuçlandırıldı | Bölüm 5 ve 6 |
+| Toplam | 50 | %100 | N2 örneklemi; Bölüm 5'teki sabit 50 satır |
 
----
+**Bu 50 kayıt için teknik inceleme sonucu: `40/50 = %80`.** OFNOL FRESH, belgelenen organik tuz/ana etkin yapı normalleştirmesi kapsamında uygun kabul edilmiştir. GYNOFERON kaynak/bileşen sorunu dahil 10 kayıt uygun bulunmamıştır. Bu toplam saf ayırıcı/regex doğruluğu değildir; kaynak verideki ürün bileşimi sorunu ile ayrıştırma/normalleştirme sorunları gerekçelerde ayrılmıştır. N1 Bölüm 4'teki `%90` eşiği bu eski çıktıyla sağlanmamaktadır. Sonuç yalnız sabit örneklem ve aşağıdaki ölçütler içindir; tüm veri setinin klinik doğruluğu veya düzeltilmiş kodun başarısı diye sunulamaz.
 
-## 2. Doğruluk İstatistiği ve Karar
+## 2. Kanıtlar ve sürümler
 
-- **Toplam İncelenen Kombine Ürün:** 50[cite: 34, 38]
-- **Tam Başarılı Ayrıştırma:** 48 (%96.0)
-- **Kısmi Form (Ester Formu Kalan / Kabul Edilebilir):** 2 (%4.0)
-- **Hatalı / Başarısız Ayrıştırma:** 0 (%0.0)
-- **Genel Doğruluk Oranı:** %96.0 (Şartnamedeki %90 eşiğinin üzerindedir)[cite: 34].
+| Kod | Kaynak | Konum / kullanım |
+|---|---|---|
+| N1 | [02_etken_ayristirma.ipynb](https://github.com/Msudeyanar/ddi-final/blob/d4afc8df9de1381097fb9934488f705339820757/notebooks/02_etken_ayristirma.ipynb) | Commit d4afc8d; Bölüm 4 hedefi ve seçim yöntemi |
+| N2 | Aynı notebook | Kod hücresi id=`62e06900`; `ornek50 = df_kombine.sample(n=50, random_state=42)` ve kayıtlı stdout; sira 1 ISOLYTE-M, sira 2 TURKFLEKS |
+| K1 | [src/normalize.py](https://github.com/Msudeyanar/ddi-final/blob/d4afc8df9de1381097fb9934488f705339820757/src/normalize.py) | Aynı committeki ayrıştırma/normalleştirme işlevleri |
+| K2 | [config/tuz_listesi.txt](https://github.com/Msudeyanar/ddi-final/blob/d4afc8df9de1381097fb9934488f705339820757/config/tuz_listesi.txt) | Aynı committeki tuz listesi |
+| U | Kullanıcının son sağladığı `urun(1).csv` (mantıksal dosya: `urun.csv`) | 23.801 veri kaydı; tam ürün adı ve ham etkin madde. Satır numaraları başlık dahil 1'den başlar. |
+| E | Son sağlanan `urun_etken(1).csv` (mantıksal dosya: `urun_etken.csv`) | 32.076 veri kaydı; barkod bazında bileşen çıktıları. Satır numaraları başlık dahil 1'den başlar. |
+| V | `audit/verify_audit.py` ve `audit/sample50_manifest.json` | Örneklem, satır kaynakları, karar sayıları ve çıktılar için yeniden üretim/denetim |
 
----
+U/E dosyalarının kimlik ve boyut bilgileri manifestte saklanmıştır. Tüm dosyanın byte düzeyinde SHA-256 değeri hesaplanmış gibi sunulmamıştır. Ekiple paylaşırken aynı girdi sürümleri kullanılmalıdır.
 
-## 3. Kişi C İnceleme Notu
+### 2.1. Örneklem nasıl sabitlendi?
 
-- **Kontrol Tarihi:** 20 Ekim 2026
-- **İnceleme Kapsamı:** 50 kombine ürün örneğinde ayırıcı kurallar (`+`, `/`, `ve`)[cite: 33], tuz atma mekanizması ve özel durumlar (etken maddenin kendisinin tuz olması)[cite: 34] incelenmiştir.
-- **Sonuç:** Ayrıştırma motoru %96.0 doğrulukla %90 eşiğini aşmıştır[cite: 34]. `urun_etken.csv` çıktısının güvenilir olduğu onaylanmıştır[cite: 34].
+U dosyasındaki sıra ve ham metinler korunarak K1/K2 kodları yeniden çalıştırıldı. Yeniden üretilen bileşen kaydı sayısı `32.076` oldu; N1'in ayrıştırma çıktı hücresi id=`a55eea71` aynı sayıyı gösterir. Notebook'taki seçim ifadesi aynen uygulanınca havuz `4.416` satır oldu. Seçilen ürünlerin sırası ve bileşen listeleri, N2'deki kayıtlı 50 satırın tamamıyla eşleşti. İlk gönderilen `urun_etken.csv` dosyasında `32.211` kayıt, son gönderilen E dosyasında `32.076` kayıt vardır. Son U dosyası önceki U ile alan ve sıra bazında aynıdır. Sabit örneklemdeki 50 ürünün bileşen listeleri her iki E sürümünde de N2 ile aynıdır. Dolayısıyla bu raporda eski ve düzeltilmiş başarı oranları birbirine karıştırılmamıştır.
+
+Bu sayılar tahmin edilmemiştir: paket içindeki yeniden üretim sonucu ve V doğrulaması kullanılmıştır. Ambalaj seçimi tahminle yapılmamıştır; tam barkodlar N2 ile eşleşen yeniden üretimden alınmıştır.
+
+### 2.2. Ek bulgu: boş barkodların örnekleme etkisi
+
+U dosyasında barkodu boş 24 ürün vardır. Ayrıştırmanın kaynak satırında birden fazla bileşen bulunan herhangi bir boş barkod varsa, `kombine_barkodlar` içine eksik barkod anahtarı da girer. `isin` bununla diğer boş barkodlu ürünleri de seçebilir. Bu çalışmada kaynak satırı başına çoklu bileşen koşulunu sağlayan havuz `4.395` iken notebook'un barkod üzerinden oluşturduğu havuz `4.416`'dır; fark 21 kayıttır. Bu bulgu V tarafından ayrıca denetlenir.
+
+Bu kusur, geçmişteki örneklemi yeniden üretmek için burada korunmuştur. Gelecek örnekleme öncesinde eksik barkodlar ayrı işlenmeli; kimlik olarak yalnız boş barkod kullanılmamalıdır. Düzeltme yapıldıktan sonra oluşacak yeni rastgele örneklem, aşağıdaki 50 barkodun önce/sonra karşılaştırmasının yerine geçirilmemelidir.
+
+## 3. Karar ölçütü
+
+- **Doğru:** Ham metindeki bileşen grupları ayrılmış, açıklama parçaları yeni ilaç yapılmamış ve belirtilen proje normalleştirmesinde kimlik kaybı görülmemiştir.
+- **Hatalı:** Bir bileşik yanlış bölünmüş, birden fazla madde tek parça bırakılmış, bileşik adı bozulmuş, sınıf/açıklama metni etkin madde adına karışmış veya kaynak etkin-madde listesi KÜB ile uyuşmamıştır. Kaynak veri hatası ile ayırıcı/normalleştirme hatası gerekçede ayrılır.
+- **İnceleme gerekli:** Ürün belgesi ya da baz/tuz eşdeğerliği hakkında açık karar gerekmektedir. Bu kayıtlar doğruluk payına eklenmez.
+
+Doğru işareti tüm farmasötik formun, yardımcı maddelerin, dozların veya klinik güvenliğin doğrulandığı anlamına gelmez. Ham kaynaktaki yazım sorunları ve İP3 eşleme kararları, burada ayrıştırma başarısından ayrı not edilmiştir. Seçim motorun zaten en az iki parçaya ayırdığı ürünlere koşulludur; tek parça bırakılan gerçek kombine ürünleri kapsayan bağımsız bir genel doğruluk ölçümü değildir.
+
+## 4. Doğrulanan açık hatalar
+
+| Sıra | Ürün | Hata / yapılacak işlem | Kanıt |
+|---:|---|---|---|
+| 3 | BENORAL 250 MG/250 MG FİLM KAPLI TABLET, 50 ADET | Kaynak metin ürün bileşimi yerine and/or içeren ATC sınıf açıklamasıdır. İki üretilen parça etkin madde adı değildir. BENORAL'ın üretici KT'si B1 ve B6'yı doğrular; sınıf adından B12 eklenmez. | N2 / U:19832 / E:27555, 27556 / P1 |
+| 13 | MON.MIBI KIT, 1.0 MG/FLAKON IV ENJEKSİYON İÇİN STERİL/APİROJEN LİYOFİLİZE TOZ, 5 ADET | Tek bir kimyasal kompleks kaynak alanındaki ve sözcüğü nedeniyle iki ilaç gibi bölünmüş; ligand/oksidasyon bilgisi de silinmiş. Üretici belgesindeki İçerik başlığı tek MIBI bileşiğini doğrular. | N2 / U:14690 / E:21132, 21133 / P2 |
+| 20 | CALCİOSEL 225 mg + 572 mg / 10 mL ENJEKSIYONLUK ÇÖZELTI | kalsiyum levulinat dihidrat ifadesi levulinat biçimine düşmüş. Bu elektrolit bileşiğinde kalsiyum korunmalı; yalnız hidrat kaldırılmalıdır. | N2 / U:8772 / E:13181, 13182 |
+| 21 | OSTEOFLEX FILM TABLET, 30 ADET | manganez, vit c, zerdecal tek parça kalmış. vit c kısaltması nedeniyle virgül kuralı kalan grubu ayıramamış. Beklenen liste ham metne dayanır; kesin bitkisel/kimyasal form ayrıca doğrulanmalıdır. | N2 / U:7630 / E:11578, 11579, 11580 |
+| 22 | GYNOFERON DEPO DRAJE, 60 ADET | KÜB bölüm 2 etkin maddeleri demir II sülfat ve folik asit olarak listeler; bölüm 6.5 hem 30 hem 60 tablet ambalajını kapsar (ruhsat 212/65). Eski depo draje KÜB'ünün bölüm 6.1'inde mukoproteoz yardımcı maddedir. Kaynakta mukoproteaz adıyla üçüncü etkin madde üretilmesi bu belgelerle uyumlu değildir. demir ii sülfat → demir ii dönüşümünde de bileşik adı kaybolmaktadır. Bu kayıt kaynak/bileşen listesi hatası olarak işaretlenmiştir; üç parçaya ayırma işlemi tek başına ayırıcı hatası sayılmamıştır. | N2 / U:16436 / E:23192, 23193, 23194 / P3, P3a |
+| 29 | POLIVIT C FİLM TABLET, 500 ADET | B1, B2, B6, B12 ve C tek parça kalmış. Ortak vitamin öneki tamamlanarak ayrı adlara açılmalı. Bu beklenen liste mevcut tuz indirgeme sözleşmesini kullanır; pantotenatın kalsiyum formunu koruma konusu ayrıca değerlendirilebilir. | N2 / U:21721 / E:29750, 29751, 29752, 29753, 29754 |
+| 31 | OSMEGA 600 MG/400 IU/25 MG EFERVESAN TABLET, 30 ADET | Ham metinde vitamin d3 ile genistein arasında ayırıcı eksik; çıktı bunu tek etkin madde gibi bırakmış. Beklenen ayrım ham metindeki madde adlarına dayanır. Bu barkod/doza özgü üretici/TİTCK belgesi ayrıca tamamlanmalıdır; farklı doz belgesi bu ürünün kesin kanıtı diye sunulmamıştır. | N2 / U:13588 / E:19680, 19681 |
+| 32 | BEDOXINAL 50 TABLET | Kaynak metin ATC sınıf açıklamasıdır; vitamin b1 in combination with vitamin b6 ve or vitamin b12 geçerli bağımsız etkin madde adları değildir. Çıktının hatalı olduğu açıktır; doğrulanamayan tam bileşim uydurulmamıştır. | N2 / U:18299 / E:25676, 25677 |
+| 48 | ENJEKSIYONLUK POTASYUM FOSFAT 20 ML, 20 AMPUL | İkinci elektrolitten hem potasyum hem fosfat silinmiş; dihidrajen anlamsız kalıntı olmuş. Kaynaktaki dihidrajen yazımı da ayrı bir yazım sorunudur; doğru bileşik adı ayrıca ürün belgesiyle doğrulanmalıdır. | N2 / U:17793 / E:24977, 24978 |
+| 50 | BITIRON 50 MCG/12.5 MCG TABLET, 50 ADET | combinations of ifadesi ilk madde adına yapışık kalmış. Üretici KÜB bölüm 2 iki tiroid hormonunu doğrular. Beklenen normalleştirilmiş İngilizce adlar kaynağın dilinde korunmuştur. | N2 / U:21288 / E:29205, 29206 / P5 |
+
+## 5. Gerçek örneklemin tamamı
+
+Bu tablodaki sıra N2 ile aynıdır. Beklenen adlar, aksi belirtilmedikçe bu raporun mevcut tuz/karakter normalleştirmesi bağlamındadır. Belirsiz bir bileşim için beklenen liste uydurulmamıştır.
+
+| Sıra | Barkod / tam ürün adı | Ham etkin madde | Notebook ve E çıktısı | Beklenen / gerekli işlem | Karar / gerekçe | Kanıt |
+|---:|---|---|---|---|---|---|
+| 1 | 8699828690931 — ISOLYTE-M %5 DEKSTROZLU MULTİPLE ELEKTRONİK İDAME ÇÖZELTİSİ, 1000 ML SETLİ | sodyum asetat trihidrat,dibazik potasyum fosfat,dekstroz monohidrat,sodyum klorür,potasyum klorür | sodyum asetat; dibazik potasyum fosfat; dekstroz; sodyum klorur; potasyum klorur | sodyum asetat; dibazik potasyum fosfat; dekstroz; sodyum klorur; potasyum klorur | **Doğru** — Virgülle ayrılan bileşenler korunmuş; hidratlar kaldırılmış, elektrolit adları korunmuş. | N2 / U:8127 / E:12279, 12280, 12281, 12282, 12283 |
+| 2 | 8680836323959 — TURKFLEKS %5 DEKSTROZ % 0,45 SODYUM KLORÜR SUDAKİ ÇÖZELTİSİ, 500 ML (SETLİ) | dekstroz anhidrat, sodyum klorür | dekstroz; sodyum klorur | dekstroz; sodyum klorur | **Doğru** — Dekstroz ve sodyum klorür ayrı; yalnız anhidrat eki kaldırılmış. | N2 / U:7428 / E:11277, 11278 |
+| 3 | 8699527093866 — BENORAL 250 MG/250 MG FİLM KAPLI TABLET, 50 ADET | vitamin b1 in combination with vitamin b6 and/or vitamin b12 | vitamin b1 in combination with vitamin b6; or vitamin b12 | vitamin b1; vitamin b6 | **Hatalı** — Kaynak metin ürün bileşimi yerine and/or içeren ATC sınıf açıklamasıdır. İki üretilen parça etkin madde adı değildir. BENORAL'ın üretici KT'si B1 ve B6'yı doğrular; sınıf adından B12 eklenmez. | N2 / U:19832 / E:27555, 27556 / P1 |
+| 4 | 8690509574274 — VICKS VAPODRY SURUP, 120 ML | psödoefedrin hidroklorür, klorfeniramin maleat, dekstrometorfan hidrobromür | psodoefedrin; klorfeniramin; dekstrometorfan | psodoefedrin; klorfeniramin; dekstrometorfan | **Doğru** — Ham metindeki bileşenler ayrı; hidroklorür, maleat ve hidrobromür ekleri proje kuralıyla kaldırılmış. | N2 / U:8628 / E:12978, 12979, 12980 |
+| 5 | 8699844696559 — Primefleks Ringer 0,86 g+0,03 g+0,033 g/100 mL I.V. İnfüzyonluk Çözelti (500 ml, setsiz) | Sodyum klorür, Potasyum klorür, Kalsiyum klorür dihidrat | sodyum klorur; potasyum klorur; kalsiyum klorur | sodyum klorur; potasyum klorur; kalsiyum klorur | **Doğru** — Elektrolitler ayrı tutulmuş; kalsiyum klorürde yalnız hidrat kaldırılmış. | N2 / U:702 / E:901, 902, 903 |
+| 6 | 8699569092254 — OLMYSAR COMBO 40MG/5 MG FILM KAPLI TABLET, 28 ADET | olmesartan medoksomil, amlodipin besilat | olmesartan; amlodipin | olmesartan; amlodipin | **Doğru** — İki madde ayrı; medoksomil ve besilat proje normalleştirmesine göre kaldırılmış. Ön-ilaç/form eşdeğerliği bu ayrıştırma ölçümünden ayrı bir eşleme kararıdır. | N2 / U:8753 / E:13152, 13153 |
+| 7 | 8699606692355 — POLİFLEKS 100 MG/ML DEKSTRAN40+9 MG/ML İZOTONİK SODYUM KLORÜR I.V. İNFÜZYON İÇİN ÇÖZELTİ, 250 ML SETLİ(PVC) | dekstran+sodyum klorür | dekstran; sodyum klorur | dekstran; sodyum klorur | **Doğru** — Artı işareti iki kaynağı ayırmış; sodyum klorür adı korunmuş. | N2 / U:16729 / E:23535, 23536 |
+| 8 | 8680881012891 — TELMODIP 80 MG/10 MG TABLET, TABLET, 28 ADET | telmisartan+amlodipin besilat | telmisartan; amlodipin | telmisartan; amlodipin | **Doğru** — Artı işareti iki bileşeni ayırmış; besilat eki kaldırılmış. | N2 / U:11825 / E:17286, 17287 |
+| 9 | 8699512007212 — GRIMEL TABLET, 20 ADET | parasetamol, klorfeniramin | parasetamol; klorfeniramin | parasetamol; klorfeniramin | **Doğru** — Ham metindeki iki bileşen ayrı ve adları korunmuş. | N2 / U:19405 / E:27012, 27013 |
+| 10 | 8699788698077 — BİOFLEKS %5 DEKSTROZ RİNGER LAKTAT ENJEKSİYONLUK ÇÖZELTİ 500 ML (PVC TORBA) SETSİZ | dekstroz monohidrat, sodyum klorür, sodyum laktat, potasyum klorür, kalsiyum klorür | dekstroz; sodyum klorur; sodyum laktat; potasyum klorur; kalsiyum klorur | dekstroz; sodyum klorur; sodyum laktat; potasyum klorur; kalsiyum klorur | **Doğru** — Ham metindeki bileşenler eksiksiz ayrılmış; elektrolitler korunmuş. | N2 / U:18162 / E:25460, 25461, 25462, 25463, 25464 |
+| 11 | 8699523010133 — BEVITOL TABLET, 20 ADET | vitamin b1,vitamin b6 | vitamin b1; vitamin b6 | vitamin b1; vitamin b6 | **Doğru** — B1 ve B6 ayrı; bu satırdaki virgül ayrıştırması başarılı. | N2 / U:20615 / E:28414, 28415 |
+| 12 | 8699569280279 — KLAMOKS 312.5 MG FORT ORALSÜSPANSİYON HAZIRLAMAK İÇİN KURUTOZ, 75 ML | amoksisilin ve klavulanik asit | amoksisilin; klavulanik asit | amoksisilin; klavulanik asit | **Doğru** — ve bağlacı iki bileşeni doğru ayırmış. | N2 / U:20364 / E:28143, 28144 |
+| 13 | 8698923793516 — MON.MIBI KIT, 1.0 MG/FLAKON IV ENJEKSİYON İÇİN STERİL/APİROJEN LİYOFİLİZE TOZ, 5 ADET | tetrakis bakir (i) ve tetrafloroborat (mibi) | tetrakis bakir; tetrafloroborat | tetrakis (2-metoksi izobutil izonitril) bakir (i) tetrafloroborat (mibi) | **Hatalı** — Tek bir kimyasal kompleks kaynak alanındaki ve sözcüğü nedeniyle iki ilaç gibi bölünmüş; ligand/oksidasyon bilgisi de silinmiş. Üretici belgesindeki İçerik başlığı tek MIBI bileşiğini doğrular. | N2 / U:14690 / E:21132, 21133 / P2 |
+| 14 | 8681911570015 — ASE-COLD 120 mg+50mg+1mg/5 ml PEDİATRİK ŞURUP | parasetamol/oksalamin sitrat/klorfeniramin maleat | parasetamol; oksalamin; klorfeniramin | parasetamol; oksalamin; klorfeniramin | **Doğru** — Slash ayırıcıları bileşenleri ayırmış. oksalamin yazımı ham kaynaktan aynen geliyor; olası yazım düzeltmesi İP3/eşleme kontrolüne bırakılmıştır. | N2 / U:5625 / E:8412, 8413, 8414 |
+| 15 | 8699514383949 — THIOCILLINE 500 IU/G + 5 MG/G DERİ MERHEMİ, 30 G | basitrasin+neomisin sülfat | basitrasin; neomisin | basitrasin; neomisin | **Doğru** — İki bileşen ayrılmış; neomisin sülfatın tuz eki proje kuralıyla kaldırılmış. | N2 / U:21550 / E:29496, 29497 |
+| 16 | 8681291110191 — MEBUCAIN 2 MG/1 MG NANELI PASTIL (20 ADET) | lidokain hidroklorür ve setilpiridinyum klorür | lidokain; setilpiridinyum | lidokain; setilpiridinyum | **Doğru** — İki bileşen ayrılmış; hidroklorür ve klorür ekleri proje kuralıyla kaldırılmış. | N2 / U:9066 / E:13526, 13527 |
+| 17 | 8699606693659 — PF K-CAMINE %8 AMINO ASIT IV INFUZYON ICIN COZELTI, 1000 ML (SETSIZ) | L-İzolösin, L-Lösin, Lizin (L-Lizin asetat 0,86 g olarak), L-Metiyonin, L-Fenilalanin, L-Treonin, L-Triptofan, L-Valin, L-Alanin, L-Arjinin, L-Histidin, L-Prolin, L-Serin, Glisin (Amino asetik asit), L-Sistein. HCl. H2O | l-izolosin; l-losin; lizin; l-metiyonin; l-fenilalanin; l-treonin; l-triptofan; l-valin; l-alanin; l-arjinin; l-histidin; l-prolin; l-serin; glisin; l-sistein | l-izolosin; l-losin; lizin; l-metiyonin; l-fenilalanin; l-treonin; l-triptofan; l-valin; l-alanin; l-arjinin; l-histidin; l-prolin; l-serin; glisin; l-sistein | **Doğru** — Amino asit adları ayrılmış; parantez içi doz/eşdeğer açıklamalar ve hidrat/HCl eki çıkarılmış. Bileşen listesinin tam KÜB doğrulaması ayrıca yapılmış sayılmaz. | N2 / U:11548 / E:16836, 16837, 16838, 16839, 16840, 16841, 16842, 16843, 16844, 16845, 16846, 16847, 16848, 16849, 16850 |
+| 18 | 8699540570108 — ESPEKTAN ŞURUP, 100 ML | psödoefedrin hcl ve guafenazin | psodoefedrin; guafenazin | psodoefedrin; guafenazin | **Doğru** — ve bağlacı ayrılmış; hcl kaldırılmış. guafenazin yazımı ham kaynağın yazımıdır. | N2 / U:21435 / E:29365, 29366 |
+| 19 | 8699844693527 — Primefleks Laktatlı Ringer I.V. İnfüzyonluk Çözelti, 500 ML SETSİZ | Sodyum klorür, Sodyum laktat, Potasyum klorür, Kalsiyum klorür dihidrat | sodyum klorur; sodyum laktat; potasyum klorur; kalsiyum klorur | sodyum klorur; sodyum laktat; potasyum klorur; kalsiyum klorur | **Doğru** — Elektrolitler ayrı; kalsiyum klorür dihidrattan yalnız hidrat kaldırılmış. | N2 / U:1466 / E:1891, 1892, 1893, 1894 |
+| 20 | 8680400770509 — CALCİOSEL 225 mg + 572 mg / 10 mL ENJEKSIYONLUK ÇÖZELTI | kalsiyum glukonat monohidrat, kalsiyum levulinat dihidrat | kalsiyum glukonat; levulinat | kalsiyum glukonat; kalsiyum levulinat | **Hatalı** — kalsiyum levulinat dihidrat ifadesi levulinat biçimine düşmüş. Bu elektrolit bileşiğinde kalsiyum korunmalı; yalnız hidrat kaldırılmalıdır. | N2 / U:8772 / E:13181, 13182 |
+| 21 | 8680952510912 — OSTEOFLEX FILM TABLET, 30 ADET | glukozamin sulfat, kondoitin sulfat, manganez, vit c, zerdecal | glukozamin; kondoitin; manganez, vit c, zerdecal | glukozamin; kondoitin; manganez; vitamin c; zerdecal | **Hatalı** — manganez, vit c, zerdecal tek parça kalmış. vit c kısaltması nedeniyle virgül kuralı kalan grubu ayıramamış. Beklenen liste ham metne dayanır; kesin bitkisel/kimyasal form ayrıca doğrulanmalıdır. | N2 / U:7630 / E:11578, 11579, 11580 |
+| 22 | 8699828140054 — GYNOFERON DEPO DRAJE, 60 ADET | demir ii sülfat, folik asit, mukoproteaz | demir ii; folik asit; mukoproteaz | demir ii sulfat; folik asit | **Hatalı** — KÜB bölüm 2 etkin maddeleri demir II sülfat ve folik asit olarak listeler; bölüm 6.5 hem 30 hem 60 tablet ambalajını kapsar (ruhsat 212/65). Eski depo draje KÜB'ünün bölüm 6.1'inde mukoproteoz yardımcı maddedir. Kaynakta mukoproteaz adıyla üçüncü etkin madde üretilmesi bu belgelerle uyumlu değildir. demir ii sülfat → demir ii dönüşümünde de bileşik adı kaybolmaktadır. Bu kayıt kaynak/bileşen listesi hatası olarak işaretlenmiştir; üç parçaya ayırma işlemi tek başına ayırıcı hatası sayılmamıştır. | N2 / U:16436 / E:23192, 23193, 23194 / P3, P3a |
+| 23 | 8699525096043 — Zalepril 20 mg/20 mg Film Kaplı Tablet (30 Adet) | Lerkanidipin hidroklorür, Enalapril maleat | lerkanidipin; enalapril | lerkanidipin; enalapril | **Doğru** — İki bileşen ayrılmış; hidroklorür ve maleat ekleri kaldırılmış. | N2 / U:431 / E:589, 590 |
+| 24 | 8680836323898 — TURKFLEKS %5 DEKSTROZ % 0,9 SODYUM KLORÜR SUDAKİ ÇÖZELTİSİ, 500 ML (SETLİ) | dekstroz anhidrat, sodyum klorür | dekstroz; sodyum klorur | dekstroz; sodyum klorur | **Doğru** — Dekstroz ve sodyum klorür ayrı; anhidrat eki kaldırılmış. | N2 / U:7432 / E:11285, 11286 |
+| 25 | 8681144039044 — Bayduo Cold Flu 200 mg / 30 mg Film Kaplı Tablet, 12 ADET | İbuprofen, Psödoefedrin hidroklorür | ibuprofen; psodoefedrin | ibuprofen; psodoefedrin | **Doğru** — İki bileşen ayrılmış; psödoefedrindeki hidroklorür eki kaldırılmış. | N2 / U:1698 / E:2393, 2394 |
+| 26 | 8699606691914 — POLİFLEKS 60 MG/ML DEKSTRAN 70+9 MG/ML İZOTONİK SODYUM KLORÜR İV İNFÜZYON İÇİN ÇÖZELTİ, 500 ML PVC SETLI | dekstran+sodyum klorür | dekstran; sodyum klorur | dekstran; sodyum klorur | **Doğru** — Artı işareti ayrılmış; dekstran ve sodyum klorür korunmuş. | N2 / U:17024 / E:23951, 23952 |
+| 27 | 8680352000709 — Otify 45,52 mg + 11,38 mg/ml Kulak Damlası, Çözelti, 1 ADET | Fenazon, Lidokain Hidroklorür | fenazon; lidokain | fenazon; lidokain | **Doğru** — Ondalık virgüller ürün adındadır; etkin madde alanındaki virgül iki bileşeni ayırmış. | N2 / U:1368 / E:1690, 1691 |
+| 28 | 8699625960336 — PENTAXİM 0,5 ML IM ENJEKSİYONLUK SÜSPANSİYON İÇİN TOZ İÇEREN FLAKON VE SÜSPANSİYON İÇEREN KULLANIMA HAZIR ENJEKTÖR, 1 ADET | difteri, tetanoz, boğmaca ve inaktif çocuk gelci (tip 1,2,3) ve hib | difteri; tetanoz; bogmaca; inaktif cocuk gelci; hib | difteri; tetanoz; bogmaca; inaktif cocuk gelci; hib | **Doğru** — Ham metindeki aşı ana grupları ayrı korunmuş. Tip bilgisi normalize edilmiş alanda yoktur; özgün etkin_madde_ham alanı korunmalıdır. Bu karar antijen/molekül düzeyinde KÜB doğrulaması değildir. | N2 / U:16321 / E:23057, 23058, 23059, 23060, 23061 |
+| 29 | 8699514094227 — POLIVIT C FİLM TABLET, 500 ADET | vitamin B1, B2, B6, B12, vitamin C, kalsiyum D-pantotenat,nikotinamid, D-biotin, folik asit. | vitamin b1, b2, b6, b12, vitamin c; d-pantotenat; nikotinamid; d-biotin; folik asit | vitamin b1; vitamin b2; vitamin b6; vitamin b12; vitamin c; d-pantotenat; nikotinamid; d-biotin; folik asit | **Hatalı** — B1, B2, B6, B12 ve C tek parça kalmış. Ortak vitamin öneki tamamlanarak ayrı adlara açılmalı. Bu beklenen liste mevcut tuz indirgeme sözleşmesini kullanır; pantotenatın kalsiyum formunu koruma konusu ayrıca değerlendirilebilir. | N2 / U:21721 / E:29750, 29751, 29752, 29753, 29754 |
+| 30 | 8680881023552 — MUCOVIT-C 900/300MG EFERVESAN TABLET, TABLET, 20 ADET | asetilsistein / askorbik asit | asetilsistein; askorbik asit | asetilsistein; askorbik asit | **Doğru** — Slash iki bileşeni ayırmış; adlar korunmuş. | N2 / U:12039 / E:17687, 17688 |
+| 31 | 8680881024320 — OSMEGA 600 MG/400 IU/25 MG EFERVESAN TABLET, 30 ADET | kalsiyum karbonat, vitamin d3 genistein | kalsiyum karbonat; vitamin d3 genistein | kalsiyum karbonat; vitamin d3; genistein | **Hatalı** — Ham metinde vitamin d3 ile genistein arasında ayırıcı eksik; çıktı bunu tek etkin madde gibi bırakmış. Beklenen ayrım ham metindeki madde adlarına dayanır. Bu barkod/doza özgü üretici/TİTCK belgesi ayrıca tamamlanmalıdır; farklı doz belgesi bu ürünün kesin kanıtı diye sunulmamıştır. | N2 / U:13588 / E:19680, 19681 |
+| 32 | 8699824010061 — BEDOXINAL 50 TABLET | vitamin b1 in combination with vitamin b6 and/or vitamin b12 | vitamin b1 in combination with vitamin b6; or vitamin b12 | Ürüne özgü tarihsel KÜB/KT doğrulanana kadar bileşim belirsiz; ATC sınıfındaki and/or ifadesinden B12 varlığı çıkarılamaz. | **Hatalı** — Kaynak metin ATC sınıf açıklamasıdır; vitamin b1 in combination with vitamin b6 ve or vitamin b12 geçerli bağımsız etkin madde adları değildir. Çıktının hatalı olduğu açıktır; doğrulanamayan tam bileşim uydurulmamıştır. | N2 / U:18299 / E:25676, 25677 |
+| 33 | 8680881094910 — ATODIP 10MG/10MG FILM KAPLI TABLET , TABLET, 30 ADET | amlodipin besilat+atorvastatin kalsiyum | amlodipin; atorvastatin | amlodipin; atorvastatin | **Doğru** — İki bileşen ayrılmış; besilat ve atorvastatine ait kalsiyum tuzu proje kuralıyla kaldırılmış. | N2 / U:11747 / E:17180, 17181 |
+| 34 | 8699559350050 — PELONG %5 KREM, 5X5 GRAM | Lidokain, Prilokain | lidokain; prilokain | lidokain; prilokain | **Doğru** — Ham metindeki iki bileşen ayrı ve adları korunmuş. | N2 / U:3199 / E:4596, 4597 |
+| 35 | 8699514094425 — VALTALİD PLUS 320 MG/25 MG FİLM KAPLI TABLET, 28 ADET | Valsartan, Klortalidon | valsartan; klortalidon | valsartan; klortalidon | **Doğru** — Ham metindeki iki bileşen ayrı ve adları korunmuş. | N2 / U:3886 / E:5454, 5455 |
+| 36 | 8680741520337 — FORPACK 6 MCG/400 MCG AERESOL İNHALASYONU, SÜSPANSİYON, 120 DOZ | formoterol fumarat dihidrat/budesonid | formoterol; budesonid | formoterol; budesonid | **Doğru** — Slash ayrılmış; formoterolün fumarat ve dihidrat ekleri kaldırılmış. | N2 / U:11075 / E:16229, 16230 |
+| 37 | 8699606693123 — POLİFLEKS İZOLEN-P %5 DEKSTROZLU ELEKTROLİT IV İNFÜZYON İÇİN ÇÖZELTİ, 250 ML PVC TORBA SETSİZ | Dekstroz anhidr+sodyum laktat, potasyum klorür, magnezyum klorür hekzahidrat, dibazik sodyum fosfat | dekstroz; sodyum laktat; potasyum klorur; magnezyum klorur; dibazik sodyum fosfat | dekstroz; sodyum laktat; potasyum klorur; magnezyum klorur; dibazik sodyum fosfat | **Doğru** — Artı ve virgül ayırıcıları birlikte işlenmiş; elektrolit adları korunmuş, hidrat ekleri kaldırılmış. | N2 / U:16983 / E:23872, 23873, 23874, 23875, 23876 |
+| 38 | 8699543010168 — ALDACTAZİDE 50 MG/50 MG TABLET, 30 ADET | spirinolakton / hidroklorotiyazid | spirinolakton; hidroklorotiyazid | spirinolakton; hidroklorotiyazid | **Doğru** — Ham metindeki iki bileşen ayrı. spirinolakton yazımı ham kaynakta da var; kaynak yazımının klinik adıyla eşleştirilmesi ayrı kontrol gerektirir. | N2 / U:20327 / E:28097, 28098 |
+| 39 | 8699976021366 — MEGINGO 20/120 MG EFERVESAN TABLET, 90 ADET | memantin hcl ve ginko biloba kuru ekstresi | memantin; ginko biloba kuru ekstresi | memantin; ginko biloba kuru ekstresi | **Doğru** — İki bileşen ayrılmış; kuru ekstre adı tek bileşen olarak korunmuş. ginko yazımı ham kaynaktan gelir. | N2 / U:13030 / E:18948, 18949 |
+| 40 | 8699516098063 — SOPRANO 5 MG/12.5 MG FILM TABLET, 30 ADET | bisoprolol fumarat ve hidroklorotiyazid | bisoprolol; hidroklorotiyazid | bisoprolol; hidroklorotiyazid | **Doğru** — İki bileşen ayrılmış; bisoprololün fumarat eki kaldırılmış. | N2 / U:22623 / E:30809, 30810 |
+| 41 | 8680881091278 — EZESIM 10/10 MG FILM KAPLI TABLET, 84 ADET | ezetimib ve simvastatin | ezetimib; simvastatin | ezetimib; simvastatin | **Doğru** — ve bağlacı iki bileşeni ayırmış; adlar korunmuş. | N2 / U:12700 / E:18506, 18507 |
+| 42 | 8680881099021 — LIMITEN PLUS 320 MG/12.5 MG FILM KAPLI TABLET, 98 ADET | valsartan, hidroklorotiyazid | valsartan; hidroklorotiyazid | valsartan; hidroklorotiyazid | **Doğru** — Virgül iki bileşeni ayırmış; adlar korunmuş. | N2 / U:12499 / E:18262, 18263 |
+| 43 | 8699514610205 — OFNOL FRESH % 0.1 + %0.15 STERİL OFTALMİK ÇÖZELTİ, 1 ADET | olopatadin hcl ve sodyum hiyalüronat | olopatadin; hiyaluronat | olopatadin; hiyaluronat (ana etkin yapı eşleme anahtarı: hiyaluronik asit) | **Doğru** — İki etkin madde doğru ayrılmıştır. KÜB bölüm 2 olopatadin hidroklorür ve sodyum hiyalüronatı listeler; aynı KÜB'de etkin yapı hiyalüronik asit adıyla da ele alınır. PubChem Sodium Hyaluronate kaydı Hyaluronic Acid ile active-moiety ilişkisini gösterir. Bu nedenle projenin organik tuz indirgeme yaklaşımıyla olopatadin + hiyaluronat çıktısı bu teknik incelemede uygun kabul edilmiştir. hiyaluronat, eşleme aşamasında hiyaluronik asit anahtarıyla ilişkilendirilmeli; kaynak sodyum hiyalüronat biçimi korunmalıdır. Bu, farmasötik formlar arasında klinik değiştirilebilirlik kararı değildir. | N2 / U:7363 / E:11195, 11196 / P4, P6 |
+| 44 | 8680638250118 — GRIBEXFEN HOT D TEK KULLANIMLIK TOZ IÇEREN POŞET, 12 ADET | fenilefrin hcl, klorfeniramin maleat ve parasetamol | fenilefrin; klorfeniramin; parasetamol | fenilefrin; klorfeniramin; parasetamol | **Doğru** — Virgül ve ve bağlacı birlikte bileşenleri ayırmış; tuz ekleri kaldırılmış. | N2 / U:9578 / E:14137, 14138, 14139 |
+| 45 | 8699844091682 — METİRASİN 1,5 MIU/250 MG FİLM KAPLI TABLET, 10 ADET | spiramicin ve metronidazol | spiramicin; metronidazol | spiramicin; metronidazol | **Doğru** — ve bağlacı iki bileşeni ayırmış; kaynak yazımı korunmuş. | N2 / U:13134 / E:19097, 19098 |
+| 46 | 8699636091524 — DELSTRIGO 100 MG/300 MG/300 MG FİLM KAPLI TABLET, 30 ADET | Doravirin, Lamivudin, Tenofovir disoproksil fumarat | doravirin; lamivudin; tenofovir disoproksil | doravirin; lamivudin; tenofovir disoproksil | **Doğru** — Bileşenler ayrı; fumarat çıkarılmış, tenofovir disoproksil ön-ilaç adı korunmuş. | N2 / U:2911 / E:4280, 4281, 4282 |
+| 47 | 8680199197532 — NYSTAFUR 500 MG/200.000 I.U. VAJİNAL OVÜL, 12 ADET | nifuratel, nistatin | nifuratel; nistatin | nifuratel; nistatin | **Doğru** — Virgül iki bileşeni ayırmış; adlar korunmuş. | N2 / U:4757 / E:7149, 7150 |
+| 48 | 8699736750291 — ENJEKSIYONLUK POTASYUM FOSFAT 20 ML, 20 AMPUL | dipotasyum fosfat/potasyum dihidrajen fosfat | dipotasyum fosfat; dihidrajen | dipotasyum fosfat; potasyum dihidrojen fosfat | **Hatalı** — İkinci elektrolitten hem potasyum hem fosfat silinmiş; dihidrajen anlamsız kalıntı olmuş. Kaynaktaki dihidrajen yazımı da ayrı bir yazım sorunudur; doğru bileşik adı ayrıca ürün belgesiyle doğrulanmalıdır. | N2 / U:17793 / E:24977, 24978 |
+| 49 | 8699960580046 — ZANITEK 10 MG/10MG FILM TABLET,90 ADET | enalapril maleat, lerkanidipin hidroklorür | enalapril; lerkanidipin | enalapril; lerkanidipin | **Doğru** — İki bileşen ayrılmış; maleat ve hidroklorür ekleri kaldırılmış. | N2 / U:13980 / E:20278, 20279 |
+| 50 | 8699514012016 — BITIRON 50 MCG/12.5 MCG TABLET, 50 ADET | combinations of levothyroxine and liothyronine | combinations of levothyroxine; liothyronine | levothyroxine; liothyronine | **Hatalı** — combinations of ifadesi ilk madde adına yapışık kalmış. Üretici KÜB bölüm 2 iki tiroid hormonunu doğrular. Beklenen normalleştirilmiş İngilizce adlar kaynağın dilinde korunmuştur. | N2 / U:21288 / E:29205, 29206 / P5 |
+
+## 6. Sonuçlandırılan iki özel kayıt
+
+### 22. GYNOFERON — sonuçlandırıldı
+
+**Karar: Hatalı — kaynak/bileşen listesi.**
+
+KÜB bölüm 2 etkin maddeleri demir II sülfat ve folik asit olarak listeler; bölüm 6.5 hem 30 hem 60 tablet ambalajını kapsar (ruhsat 212/65). Eski depo draje KÜB'ünün bölüm 6.1'inde mukoproteoz yardımcı maddedir. Kaynakta mukoproteaz adıyla üçüncü etkin madde üretilmesi bu belgelerle uyumlu değildir. demir ii sülfat → demir ii dönüşümünde de bileşik adı kaybolmaktadır. Bu kayıt kaynak/bileşen listesi hatası olarak işaretlenmiştir; üç parçaya ayırma işlemi tek başına ayırıcı hatası sayılmamıştır.
+
+**Beklenen etkin madde listesi:** demir II sülfat; folik asit. Ham kaynak alanındaki mukoproteaz ifadesi otomatik olarak yeni bir etkin madde yapılmamalıdır. Etkin/yardımcı madde ayrımı kaynak veride düzeltilmelidir.
+
+**İz:** N2 / U:16436 / E:23192, 23193, 23194 / P3, P3a
+
+### 43. OFNOL FRESH — sonuçlandırıldı
+
+**Karar: Doğru — proje normalleştirmesi kapsamında.**
+
+İki etkin madde doğru ayrılmıştır. KÜB bölüm 2 olopatadin hidroklorür ve sodyum hiyalüronatı listeler; aynı KÜB'de etkin yapı hiyalüronik asit adıyla da ele alınır. PubChem Sodium Hyaluronate kaydı Hyaluronic Acid ile active-moiety ilişkisini gösterir. Bu nedenle projenin organik tuz indirgeme yaklaşımıyla olopatadin + hiyaluronat çıktısı bu teknik incelemede uygun kabul edilmiştir. hiyaluronat, eşleme aşamasında hiyaluronik asit anahtarıyla ilişkilendirilmeli; kaynak sodyum hiyalüronat biçimi korunmalıdır. Bu, farmasötik formlar arasında klinik değiştirilebilirlik kararı değildir.
+
+**Kaynak ve anahtar ayrımı:** `bilesen_ham` için sodyum hiyalüronat; mevcut `bilesen_tr` için hiyaluronat; eşleme için önerilen ana etkin yapı anahtarı hiyaluronik asit. Bu son eşanlamlı anahtarın pipeline'a uygulandığı iddia edilmemektedir. Ürüne özel test puanlaması veya marka takma adı eklenmemiştir.
+
+**İz:** N2 / U:7363 / E:11195, 11196 / P4, P6
+
+BEDOXINAL için de ürünün kesin etkin madde listesi birincil arşiv KÜB/KT ile tamamlanmalıdır. Ancak mevcut çıktının sınıf cümlesini iki madde adı gibi sunması açık hata olduğu için satırın Hatalı kararı bundan bağımsızdır. OSMEGA için doğru barkod/doza ait birincil belge bağlantısı eklenmeli; farklı dozun belgesi bu kayıt için kanıt diye gösterilmemelidir.
+
+## 7. Kişi A ile yapılacak düzeltmeler ve yeniden test
+
+1. Bu 50 barkodu `docs/ayristirma_kontrol_50.csv` ile sabitle.
+2. ATC sınıf açıklaması, `and/or`, `combinations of`, kısa vitamin listeleri ve eksik ayırıcıları kontrol kuyruğuna yönlendir; bilinmeyen ürün bileşimini sınıf adından üretme.
+3. Tek kimyasal bileşik içindeki bağlaç/parantezleri ve elektrolit bileşiklerini koruyan kuralları düzenle.
+4. GYNOFERON kaynak bileşen alanını KÜB ile düzelt. OFNOL FRESH için belgelenen hiyaluronat/hiyalüronik asit ana etkin yapı eşlemesini genel eşanlamlı tablosunda izlenebilir tut; ham tuz/form bilgisini silme. Kaynak ve kod hatalarını ayrı tut.
+5. Düzeltilmiş kodu aynı 50 barkod üzerinde çalıştır. Yeni çıktıları ayrı sütuna yaz. Bu rapor henüz kod düzeltmesi yapıldığını veya yeni doğruluğun ölçüldüğünü iddia etmez.
+6. Doğruluğu, satır bazında incelenen kararlarla hesapla. `len(bilesenler) >= 2` testini doğruluk etiketi yerine kullanma. Belirsiz kayıtları ve hata türlerini ayrıca göster.
+
+## 8. Birincil ürün belgeleri
+
+- **P1:** [Santa Farma — BENORAL kullanma talimatı](https://www.santafarma.com.tr/assets/urunler/benoral-film-tablet/kt/benoral-film-tablet.pdf) — s. 1, Etkin madde ve Bölüm 1. B1 ve B6 bileşimini ve aynı belgede 30/50 tablet sunumunu doğrular. Erişim: 19 Kasım 2026.
+- **P2:** [Eczacıbaşı-Monrol — MON.MIBI KIT üretici belgesi](https://www.monrol.com/assets/images/products/MIBI_Kit.pdf) — s. 2 (Türkçe), İçerik. MIBI'nin tek bir kompleks bileşik olarak yazıldığını doğrular. Erişim: 19 Kasım 2026.
+- **P3:** [TİTCK — GYNOFERON KÜB](https://www.titck.gov.tr/storage/Archive/2024/kubKtAttachments/GYNOFERONKB_6fd3c172-472c-44c6-ab4d-9b723b24364b.pdf) — Bölüm 2 (s. 1) etkin maddeler; Bölüm 6.5 (s. 11) 30 ve 60 tablet ambalajları; Bölüm 8 (s. 12) ruhsat 212/65. Bu nedenle 60'lı ambalaj belirsizliği giderilmiştir. Erişim: 19 Kasım 2026.
+- **P3a:** [GYNOFERON depo draje — eski KÜB kopyası](https://cdn.ilacrehberi.com/gynoferon-depo-draje-8e57-kub.pdf) — Bölüm 2 (s. 1) etkin maddeler; Bölüm 6.1 (s. 9) mukoproteozun yardımcı maddeler arasında yer alması. Belge ruhsat 212/65'i taşır; bu eski belge Bölüm 6.5'te yalnız 30 draje sunumunu listeler, 60'lı sunumun tek başına kanıtı değildir. Erişim: 19 Kasım 2026.
+- **P4:** [Abdi İbrahim — OFNOL FRESH KÜB](https://www.abdiibrahim.com.tr/Uploads/Product/prospektus/ofnol/1311-kub-temiz.pdf) — s. 1 Bölüm 2 etkin maddeler; s. 1 Bölüm 4.2 ve s. 6 Bölüm 5.1'de hiyalüronik asit terminolojisi. Ürünün tuz biçimi ve ana etkin yapı adı birlikte değerlendirilmiştir. Erişim: 19 Kasım 2026.
+- **P6:** [PubChem — Sodium Hyaluronate](https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Hyaluronate) — Reference Collection SID 516577826; Synonyms ve Bölüm 5.2 Other Relationships: Hyaluronic Acid, has active moiety. Bu ilişki veri normalleştirme kararını destekler; tek başına klinik eşdeğerlik iddiası oluşturmaz. Erişim: 19 Kasım 2026.
+- **P5:** [Abdi İbrahim — BİTİRON KÜB](https://www.abdiibrahim.com.tr/Uploads/Product/prospektus/bitiron/bitiron.pdf) — s. 1, Bölüm 2. İki tiroid hormonu adını doğrular; arşivdeki 50 tablet sunumuna ait ambalaj doğrulaması yapılmış sayılmaz. Erişim: 19 Kasım 2026.
+
+## 9. Nihai teslim durumu
+
+- Gerçek notebook örneklemi barkod ve sıra bazında yeniden üretildi.
+- Kaynak metin, mevcut çıktı, beklenen/gerekli işlem, karar ve kanıt konumu her satıra eklendi.
+- Önceki %96 ve otomatik %100 başarı iddiaları geçerli sonuç olarak kullanılmadı.
+- Satır bazında teknik incelemede karar bekleyen kayıt kalmadı: 40 uygun, 10 uygun olmayan çıktı; ürün bazında %80.
+- Kişi C/ekip onayı, açık hataların kaynak/kod düzeltmeleri ve aynı örneklemde yeniden test bekleniyor. BEDOXINAL ve OSMEGA için belirtilen belge tamamlama işleri ayrıca izlenmelidir.
+
