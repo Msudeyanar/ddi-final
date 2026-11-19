@@ -71,3 +71,24 @@ Bu ölümcül veri hataları, **"SKRS kodu her zaman günceldir" varsayımının
 1. Notebook 01'den gelen 20 ürünün incelemesi sonucunda 5 ürünün WHO güncellemesi olduğu doğrulanmış ve yeni kod seçilerek çelişki kaldırılmıştır (`atc_celiski = 0`, `atc_who_guncellendi = 1`). Kalan 15 ürün ise SKRS veri giriş hataları (Admiraz, ATOMINEX, Nimejel Plus), endikasyon/kombinasyon farklılıkları veya TİTCK yazım hatası (`DO3AX`) nedeniyle resmî Ruhsatlı kodda korunmuş ve çelişki olarak (`atc_celiski = 1`) işaretlenmiştir.
 2. Tüm portföyde 369 çelişkinin **167 adedi WHO kuralıyla çözülmüş**, kalan **202 ürün ise güvenli tarafta kalınarak `atc_celiski = 1` ile işaretlenmiş** ve Yol A köprüsünden çıkarılmıştır.
 3. İP1 kalite kriterleri ve Kural 8 mutabakatı eksiksiz sağlanmıştır[cite: 31, 33].
+
+
+---
+
+## 5. Kişi C İnceleme Notu
+
+Notebook 01’de `farkli_grup` filtresi uygulandıktan sonra `head(20)` ile listelenen 20 kaydın barkodları ve TİTCK/SKRS ATC kod çiftleri raporla aynı sırada eşleşiyor.
+
+### SKRS kod uyuşmazlıkları
+
+- **Admiraz 1 mg (`8699074090509`).** TİTCK kodu `L04AE03` siponimoda karşılık geliyor. SKRS alanındaki `C09DX04`, valsartan ve sakubitril kombinasyonuna ait. [Siponimod](https://atcddd.fhi.no/atc_ddd_index/?code=L04AE03) · [Valsartan ve sakubitril](https://atcddd.fhi.no/atc_ddd_index/?code=C09DX04)
+- **Atominex 10 mg (`8699717150010`).** TİTCK kodu `N06BA09` atomoksetine karşılık geliyor. SKRS alanındaki `J01CA04`, amoksisiline ait. Yerel kayıttaki `amoksetin hidroklorür` yazımı ürün bilgisine göre `atomoksetin hidroklorür` olarak düzeltilmeli. [Ürün bilgisi](https://www.sanofi.com/assets/countries/turkey/docs/products/prescription-products/A/atominex-10-mg-kapsul-kub.pdf) · [Atomoksetin](https://atcddd.fhi.no/atc_ddd_index/?code=N06BA09) · [Amoksisilin](https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04)
+- **Nimejel Plus %1 + %5 jel (`8680150350112`).** Ürün nimesulid ve lidokain içeriyor. TİTCK kodu `M02AA26` topikal nimesulide karşılık geliyor. SKRS alanındaki `D10AF05`, nadifloksasine ait. [Ürün bilgisi](https://www.titck.gov.tr/storage/Archive/2025/kubKtAttachments/nimejek1312ktrevBruhsatkesimonayli_26_03_2025.pdf) · [Nimesulid](https://atcddd.fhi.no/atc_ddd_index/?code=M02AA26) · [Nadifloksasin](https://atcddd.fhi.no/atc_ddd_index/?code=D10AF05)
+
+Bu üç kayıt için Kural 8 uyarınca TİTCK kodunun korunmasını ve `atc_celiski = 1` olarak işaretlenmesini uygun buldum. İncelenen yerel `urun.csv` kopyası bu kararla uyumlu.
+
+### WHO kod güncellemeleri
+
+Rystiggo (`L04AG16` → `L04AL02`, 2026), Saphnelo (`L04AA51` → `L04AG11`, 2024), Zeposia’nın iki kaydı (`L04AA38` → `L04AE02`, 2024) ve Tofanzi (`L04AA29` → `L04AF01`, 2024) için kod geçişlerini ve yıllarını resmî listeden doğruladım. [WHO ATC değişiklik listesi](https://atcddd.fhi.no/atc_ddd_alterations__cumulative/atc_alterations/)
+
+İncelenen yerel `urun.csv` kopyasında bu beş kayıt hâlâ eski `atc_final` kodunu ve `atc_celiski = 1` değerini taşıyor. Güncel çıktıda beş kaydın da yeni `atc_final` kodunu ve `atc_celiski = 0` değerini taşıdığı ayrıca teyit edilmeli.
