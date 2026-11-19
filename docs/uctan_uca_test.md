@@ -14,7 +14,7 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
 ### 🎯 4 Temel Çıkarımı:
 
 1. **Uçtan Uca Zincir Çalışıyor:** Kullanıcı ticari müstahzar adını (örn. `Arveles`, `Coumadin`, `Klacid`) küçük veya büyük harfle girdiğinde sistem; ticari adı bulmakta, barkod üzerinden bileşenlerine ayırmakta ve DDInter ID'leri üzerinden etkileşimi saniyeler içinde tespit etmektedir.
-2. **Klinik Tutarlılık %100 Doğrulandı:** Tıbbi literatürde ve küresel rehberlerde en tehlikeli ölümcül etkileşimlerden biri olan **Varfarin – Klaritromisin (Coumadin + Klacid)** etkileşimi, sistemimiz tarafından **Major** seviyesinde tam isabetle yakalanmıştır (Drugs.com ve Medscape ile %100 uyumludur).
+2. **Varfarin – Klaritromisin:** Notebook 04 Bölüm 10’da DDInter sonucu Major. Drugs.com da Major gösterdi. Medscape ve WebMD yakın takip uyarısı verdi. Araçların etiketleri farklı. [İP8 Şekil 7](../images/sekil07.png) · [Şekil 14](../images/sekil14.png) · [Şekil 20](../images/sekil20.png)
 3. **Kombine İlaç Çözümlemesi Başarılı:** `Augmentin` gibi birden fazla etken madde içeren kombine müstahzarlar sistem tarafından otomatik olarak moleküllerine ayrıştırılmakta ve her bileşen bağımsız taranmaktadır:
    - **Augmentin** tek bir kutu olmasına rağmen 2 etken madde içerir: *Amoksisilin* ve *Klavulanik Asit*.
    - **Klacid** (*Klaritromisin*) ve **Aspirin** (*Asetilsalisilik Asit*) ise 1'er etken madde içerir.
@@ -68,11 +68,11 @@ Ne anlamalısınız?: Sistem Augmentin'i tek bir ilaç gibi görüp geçiştirme
 
 | Çift                              | ATC Grupları | DDInter Beklenen   | DDInter Gerçek | DDInter Kimlikleri    |  Şiddet   | Drugs.com Sonucu         | Medscape Sonucu     | Sistem Kararı          |
 |:----------------------------------|:------------:|:-------------------|:--------------:|:---------------------:|:---------:|:-------------------------|:--------------------|:-----------------------|
-| **warfarin – clarithromycin**     |   `B + J`    | B dosyasında       |  **Bulundu**   | `DDInter1951` + `393` | **Major** | **Major** *(INR artışı)* | **Serious**         | Kırmızı Uyarı (Major)  |
+| **warfarin – clarithromycin**     |   `B + J`    | B dosyasında       |  **Bulundu**   | `DDInter1951` + `393` | **Major** | **Major** ([Şekil 7](../images/sekil07.png)) | **Önemli – Yakından Takip Edin** ([Şekil 14](../images/sekil14.png)) | Kırmızı Uyarı (Major) |
 
-| **warfarin – dexketoprofen**      |   `B + M`    | B dosyasında       | **Bulunmadı**  | `DDInter1951` + `—`   |     —     | **Major** *(GI kanama)*  | **Monitor Closely** | DDInter'da Yok Uyarısı |
+| **warfarin – dexketoprofen**      |   `B + M`    | B dosyasında       | **Bulunmadı**  | `DDInter1951` + `—`   |     —     | Etkileşim verisi sunulmadı ([Şekil 9](../images/sekil09.png), [İngilizce arama](https://www.drugs.com/interaction/list/?searchterm=dexketoprofen)) | İlaç adı eşleşmedi ([Şekil 15](../images/sekil15.png)) | DDInter'da Yok Uyarısı |
 
-| **dexketoprofen – clarithromycin** |   `M + J`    | İki grup da eksik  | **Bulunmadı**  | `—` + `DDInter393`    |     —     | Minor / Bilgi Yok        | **No Interaction**  | Kayıt Yok Uyarısı      |
+| **dexketoprofen – clarithromycin** |   `M + J`    | İki grup da eksik  | **Bulunmadı**  | `—` + `DDInter393`    |     —     | Arveles adıyla veri sunulmadı ([Şekil 10](../images/sekil10.png)) | Test edilmedi | Kayıt Yok Uyarısı |
 
 ---
 
@@ -159,10 +159,10 @@ Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Dekske
 | Hoca Ne Sorabilir? | Vereceğin Net ve Güvenli Cevap |
 |:---|:---|
 | **1. "Arveles ile Coumadin arasındaki etkileşimi sistem neden bulamadı?"**|Arveles'in etken maddesi *Deksketoprofen*'dir. Deksketoprofen Türkiye'de ve Avrupa'da çok yaygın bir molekül olmasına rağmen küresel DDInter kataloğunda tekil molekül olarak yer almamakta, sadece ana rasematı olan *Ketoprofen* bulunmaktadır. Sistemimiz varsayım yapmayıp veritabanında olmadığı için `DDInter'da Yok` uyarısı verdi. Bu şeffaflık şartnamenin temel kuralıdır.
-| **2. "Coumadin – Klacid etkileşimini sistem nasıl buldu?"** | "Coumadin (Varfarin) B grubunda, Klacid (Klaritromisin) J grubundadır. J grubunun indirme dosyası olmamasına rağmen Varfarin B dosyasında yer aldığı için çift B dosyasından başarıyla yakalanmış ve küresel rehberlerle uyumlu olarak **Major** şiddet seviyesinde tespit edilmiştir.
+| **2. "Coumadin – Klacid etkileşimini sistem nasıl buldu?"** | "Coumadin (Varfarin) B grubunda, Klacid (Klaritromisin) J grubundadır. J grubunun indirme dosyası olmamasına rağmen Varfarin B dosyasında yer aldığı için çift B dosyasından başarıyla yakalanmış ve yerel DDInter çıktısında **Major** olarak kaydedilmiştir.
 | **3. "Augmentin senaryosunda neyi kanıtladınız?"** | "Augmentin tek bir ticari ilaç olmasına rağmen kombine bir formülasyondur (Amoksisilin + Klavulanik Asit). Sistemimiz barkod üzerinden bunu iki ayrı bileşene ayırdı ve diğer iki ilaçla kartezyen eşleyerek $(2 X 1) + (2 X 1) + (1 X 1) = 5$ çift üretti. Amoksisilin–Klaritromisin arasındaki **Minor** etkileşimi başarıyla yakaladı." |
 | **4. "Parol ve Cordarone ikisi de DDInter'da varken neden sonuç çıkmadı?"** | "DDInter 14 ATC grubundan sadece 8'i için dosya sunuyor. Parol **N (Sinir)** grubunda, Cordarone ise **C (Kardiyovasküler)** grubundadır. İki ilacın da indirme dosyası olmadığı için indirilen tablolarda yer alamazlar. Sistemimiz bunu `Eksik Grup (Olası Kayıp)` olarak etiketleyerek kayıp analizi modelimizi sahada ispatlamıştır." |
-| **5. "Drugs.com ve Medscape ile karşılaştırdığınızda ne gördünüz?"** | "Varfarin–Klaritromisin çiftinde üç sistem de hemfikirdir (Major). Ancak Deksketoprofen içeren çiftlerde DDInter veri tabanı eksik kalırken Drugs.com ve Medscape uyarı verebilmektedir. Bu durum, 3. haftada eğiteceğimiz Makine Öğrenmesi (GNN) modelinin neden gerekli olduğunu somut olarak ortaya koymaktadır." |
+| **5. "Drugs.com ve Medscape ile karşılaştırdığınızda ne gördünüz?"** | Varfarin–klaritromisin için Drugs.com Major, Medscape yakın takip uyarısı gösterdi. Deksketoprofen–varfarin için Drugs.com etkileşim verisi sunmadı ve Medscape ilacı eşleştiremedi. [İP8 raporu](../IP8_Ilac_Etkilesim_Karsilastirma_Raporu.md) |
 
 ---
 
