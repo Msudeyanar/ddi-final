@@ -54,7 +54,7 @@ class EtkilesimMotoru:
     belleğe yükleyip hızlı ikili etkileşim sorgulaması yapan motor.
     """
 
-    def __init__(self, interim_dir: Path = INTERIM_DIR):
+    def __init__(self, interim_dir: Path = INTERIM_DIR, yol_d_path: Optional[Path] = None):
         self.interim_dir = interim_dir
         self.df_urun: Optional[pd.DataFrame] = None
         self.df_urun_etken: Optional[pd.DataFrame] = None
@@ -62,6 +62,9 @@ class EtkilesimMotoru:
         self.df_etkilesim: Optional[pd.DataFrame] = None
         self._etkilesim_dict: dict[tuple[str, str], dict[str, Any]] = {}
         self._yukle()
+        self._yol_d_bilesenleri = self._yol_d_yukle(
+            yol_d_path if yol_d_path is not None else BASE_DIR / "config" / "yol_d_urun_esleme.csv"
+        )
 
     def _yukle(self):
         """Tüm gerekli ara tabloları yükler ve indeksler."""
@@ -115,6 +118,37 @@ class EtkilesimMotoru:
                 "siddet_celiski": row.get("siddet_celiski", 0),
                 "kaynak_dosyalar": row.get("kaynak_dosyalar", ""),
             }
+
+    def _yol_d_yukle(self, path: Path) -> dict:
+        if not path.exists():
+            return {}
+
+        kararlar = pd.read_csv(path, dtype=str, keep_default_na=False)
+        aktif = kararlar[kararlar["durum"] != "urun_belgesi_bekliyor"].copy()
+        aktif["sira"] = aktif["sira"].astype(int)
+        if aktif.duplicated(["barkod", "sira"]).any():
+            raise ValueError("Yol D dosyasında tekrarlanan barkod ve sıra var.")
+
+        urun_atcleri = {
+            str(int(urun.barkod)): str(urun.atc_final)[:1]
+            for urun in self.df_urun.itertuples(index=False)
+            if pd.notna(urun.barkod) and pd.notna(urun.atc_final)
+        }
+        bilesenler = {}
+        for barkod, grup in aktif.sort_values("sira").groupby("barkod"):
+            bilesenler[barkod] = [
+                {
+                    "bilesen_tr": satir.bilesen,
+                    "ad_en": None,
+                    "atc": None,
+                    "atc_ana": urun_atcleri.get(barkod),
+                    "ddinter_id": satir.ddinter_id or None,
+                    "yol": ("C" if satir.durum == "mevcut_yol_c" else "D")
+                        if satir.ddinter_id else "eslesmedi",
+                }
+                for satir in grup.itertuples(index=False)
+            ]
+        return bilesenler
 
     def urun_bul(self, sorgu: str) -> dict[str, Any]:
         """
@@ -189,9 +223,10 @@ class EtkilesimMotoru:
             urun_adi_gosterim = temsilci["urun_adi"]
 
         bilesen_adlari = self._barkod_bilesen_map.get(barkod, [])
-        bilesen_detaylari = []
+        barkod_anahtari = str(int(barkod)) if pd.notna(barkod) else ""
+        bilesen_detaylari = self._yol_d_bilesenleri.get(barkod_anahtari, [])
 
-        for b_tr in bilesen_adlari:
+        for b_tr in ([] if bilesen_detaylari else bilesen_adlari):
             meta = self._etken_meta_map.get(
                 b_tr,
                 {
@@ -343,7 +378,7 @@ class EtkilesimMotoru:
                             "Etkileşim DDInter web sitesinde mevcut olabilir ancak indirme dosyalarında yer almamaktadır."
                         )
                     else:
-                        durum_str = "Etkileşim Yok"
+                        durum_str = "Kayıt bulunamadı"
                         aciklama_str = "DDInter veritabanında bu iki molekül arasında kayıtlı bir etkileşim bulunmamaktadır."
 
                     sonuclar.append(
