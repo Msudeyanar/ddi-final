@@ -46,7 +46,9 @@ Ne anlamalısınız?: Sistem Augmentin'i tek bir ilaç gibi görüp geçiştirme
 ## 2. Senaryo 1: Standart Referans Senaryo (Arveles + Coumadin + Klacid)
 
 *1. haftada araç karşılaştırmasında kullanılan referans senaryo, uygulamanın ilk uçtan uca testi olarak kullanılmıştır.*  
-**Kullanıcı Girdisi:** `['Arveles', 'Coumadin', 'Klacid']`
+**Tarihsel test girdisi:** `['Arveles', 'Coumadin', 'Klacid']`
+
+**Güncel ürün araması.** 14 Ekim 2026 TİTCK ruhsatlı çalışma kitabında Coumadin adı bulunmadı. Aynı tarihli SKRS dosyasında 5 mg (`8699502013384`) ve 10 mg (`8699502013391`) ürünleri yalnızca `PASİF ÜRÜNLER LİSTESİ` sayfasında bulundu. Notebook 01’in `c5_skrs_add` hücresi sadece aktif SKRS kayıtlarını eklediği için bu barkodlar `urun.csv` dosyasına girmiyor. Aşağıdaki eski motor çıktısı o tarihteki takma ad davranışını belgeliyor. Güncel motor Coumadin için ürün bulunamadığını bildirir. Varfarin veri kaydı sorgulanacaksa mevcut ürün adı doğrudan kullanılabilir. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)
 
 ### Adım 1: Kullanıcı Girişi → Ürün → Etken Madde → DDInter Dosyası
 **Şartname Sayfa 7 gereği üretilen izlenebilirlik tablosu:**

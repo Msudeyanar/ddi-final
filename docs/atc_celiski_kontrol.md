@@ -91,4 +91,4 @@ Bu üç kayıt için Kural 8 uyarınca TİTCK kodunun korunmasını ve `atc_celi
 
 Rystiggo (`L04AG16` → `L04AL02`, 2026), Saphnelo (`L04AA51` → `L04AG11`, 2024), Zeposia’nın iki kaydı (`L04AA38` → `L04AE02`, 2024) ve Tofanzi (`L04AA29` → `L04AF01`, 2024) için kod geçişlerini ve yıllarını resmî listeden doğruladım. [WHO ATC değişiklik listesi](https://atcddd.fhi.no/atc_ddd_alterations__cumulative/atc_alterations/)
 
-İncelenen yerel `urun.csv` kopyasında bu beş kayıt hâlâ eski `atc_final` kodunu ve `atc_celiski = 1` değerini taşıyor. Güncel çıktıda beş kaydın da yeni `atc_final` kodunu ve `atc_celiski = 0` değerini taşıdığı ayrıca teyit edilmeli.
+Notebook 01, 14 Ekim 2026 tarihli TİTCK ve SKRS çalışma kitaplarıyla yeniden çalıştırıldı. Yukarıdaki beş ürünün tamamında `atc_final` yeni kodu taşıdı, `atc_celiski = 0` ve `atc_who_guncellendi = 1` olarak doğrulandı. Portföy sayıları Notebook 01’in `c8_atc_celiski` ve `c10_save_summary` hücre çıktılarından alınmıştır. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)
