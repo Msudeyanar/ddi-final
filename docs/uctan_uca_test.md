@@ -5,7 +5,7 @@
 > **İlgili Görev:** İP7 – Uçtan Uca Test (*Veri Birleştirme Planı*, Sayfa 7–8, 11, 22; *3 Kişilik Görev Dağılımı*, Sayfa 6–7)  
 > **Test Edilen Motor:** `src/etkilesim_kontrol.py`  
 > **Test Edilen Notebook:** `notebooks/04_ddinter_birlestirme.ipynb` (Bölüm 10)  
-> **Doğrulama Durumu:** ✅ 3 Senaryo, 11 İkili Çift, Sıfır Hata (Tüm Testler Başarılı)
+> **Doğrulama durumu:** Notebook 04’ün tarihsel çıktıları ve güncel motor tekrarı aşağıda belgelenmiştir.
 
 ---
 
@@ -13,7 +13,7 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
 
 ### 🎯 4 Temel Çıkarımı:
 
-1. **Uçtan Uca Zincir Çalışıyor:** Kullanıcı ticari müstahzar adını (örn. `Arveles`, `Coumadin`, `Klacid`) küçük veya büyük harfle girdiğinde sistem; ticari adı bulmakta, barkod üzerinden bileşenlerine ayırmakta ve DDInter ID'leri üzerinden etkileşimi saniyeler içinde tespit etmektedir.
+1. **Ürün adı ve kayıt kapsamı:** Motor veri tablosunda bulduğu ürünleri barkod üzerinden bileşenlerine bağlar. Güncel motorda `Coumadin` sorgusu ürün bulunamadı sonucu verir.
 2. **Varfarin – Klaritromisin:** Notebook 04 Bölüm 10’da DDInter sonucu Major. Drugs.com da Major gösterdi. Medscape ve WebMD yakın takip uyarısı verdi. Araçların etiketleri farklı. [İP8 Şekil 7](../images/sekil07.png) · [Şekil 14](../images/sekil14.png) · [Şekil 20](../images/sekil20.png)
 3. **Kombine İlaç Çözümlemesi Başarılı:** `Augmentin` gibi birden fazla etken madde içeren kombine müstahzarlar sistem tarafından otomatik olarak moleküllerine ayrıştırılmakta ve her bileşen bağımsız taranmaktadır:
    - **Augmentin** tek bir kutu olmasına rağmen 2 etken madde içerir: *Amoksisilin* ve *Klavulanik Asit*.
@@ -23,6 +23,38 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
 4. **Veri Tabanı Sınırları ve Kayıp Oranı İspatlandı:**
    - **Katalog Eksikliği:** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir.
    - **Eksik ATC Grubu Kaybı:** `Parol` (N grubu) ve `Cordarone` (C grubu) ilaçlarının her ikisi de DDInter'da olmasına rağmen, DDInter indirme dosyalarında C ve N grupları sunulmadığı için bu etkileşim indirilen dosyalarda tespit edilememiştir. Bu bulgu, İP4'te hesapladığımız **%22,78'lik çift kaybı** (%47,74 madde kaybı) teorisini sahada somut olarak doğrulamıştır.
+
+---
+
+## Güncel motorla tekrar kontrolü
+
+**Tarihsel referans.** Notebook 04 Bölüm 10’un kayıtlı çıktıları üç senaryo için sırasıyla 3, 5 ve 3 satır gösteriyor. **11 çıktı satırı**, üç farklı test listesindeki ürün ve bileşen karşılaştırmalarının toplamı. Senaryo 2’de üç ürün çifti beş bileşen karşılaştırmasına dönüşüyor. Aşağıdaki tarihsel tablolar eski motor davranışını gösterir. [Senaryo 1 hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=d78787e5) · [Senaryo 2 hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=971b93f6) · [Senaryo 3 hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=caa128b4)
+
+**Tekrarın veri dayanağı.** Notebook 01 ve 02 ile yerelde yeniden üretilen ürün ve bileşen tabloları, yerel `etken_madde.csv` ve `etkilesim.csv` kopyaları ve GitHub’daki güncel motor kullanıldı. Sonuçlar bu veri kopyasına aittir. [Test edilen motor](https://github.com/Msudeyanar/ddi-final/blob/27cdbf486b1f7c8ba91c5bf175afe9dd1b3aafe3/src/etkilesim_kontrol.py)
+
+| Girdi | Çıktı satırı | Motorun döndürdüğü sonuç |
+|---|---:|---|
+| Arveles + Coumadin + Klacid | 3 | İki Coumadin çiftinde Ürün Bulunamadı, Arveles–Klacid için DDInter'da Yok |
+| Arveles + VARFARİN 5 MG TABLET, 20 ADET + Klacid | 3 | Varfarin–klaritromisin Major, iki Arveles çiftinde DDInter'da Yok |
+| Augmentin + Klacid + Aspirin | 5 | Bir Minor, iki şiddeti Unknown olan etkileşim kaydı, iki Eksik Grup (Olası Kayıp) |
+| Arveles + Parol + Cordarone | 3 | İki DDInter'da Yok, Parol–Cordarone için bir Eksik Grup (Olası Kayıp) |
+
+Marka adı tek başına girildiğinde güncel genel arama, tarihsel testten farklı ambalaj ve farmasötik formlar seçebilir. Bu tekrarda Klacid için 125 mg/5 mL süspansiyon, Augmentin için 200 mg + 28,5 mg/5 mL süspansiyon, Aspirin için 100 mg tablet ve Parol için 10 mg/mL infüzyon çözeltisi seçildi. Belirli bir ürün formu test edilecekse veri dosyasındaki tam ürün adı girilir.
+
+Tekrarı üretmek için güncel ara CSV’lerle aşağıdaki sorguları çalıştırın.
+
+```python
+from src.etkilesim_kontrol import etkilesim_kontrol
+
+senaryolar = [
+    ["Arveles", "Coumadin", "Klacid"],
+    ["Arveles", "VARFARİN 5 MG TABLET, 20 ADET", "Klacid"],
+    ["Augmentin", "Klacid", "Aspirin"],
+    ["Arveles", "Parol", "Cordarone"],
+]
+for giris in senaryolar:
+    print(etkilesim_kontrol(giris).to_string(index=False))
+```
 
 ---
 
@@ -43,7 +75,7 @@ Ne anlamalısınız?: Sistem Augmentin'i tek bir ilaç gibi görüp geçiştirme
 
 ---
 
-## 2. Senaryo 1: Standart Referans Senaryo (Arveles + Coumadin + Klacid)
+## 2. Tarihsel Senaryo 1: Standart Referans Senaryo (Arveles + Coumadin + Klacid)
 
 *1. haftada araç karşılaştırmasında kullanılan referans senaryo, uygulamanın ilk uçtan uca testi olarak kullanılmıştır.*  
 **Tarihsel test girdisi:** `['Arveles', 'Coumadin', 'Klacid']`
@@ -95,7 +127,7 @@ Ne anlamalısınız?: Sistem Augmentin'i tek bir ilaç gibi görüp geçiştirme
 
 ---
 
-## 3. Senaryo 2: Kombine Ürün Senaryosu (Augmentin + Klacid + Aspirin)
+## 3. Tarihsel Senaryo 2: Kombine Ürün Senaryosu (Augmentin + Klacid + Aspirin)
 
 *Şartname Sayfa 11 kuralı: "Kombine bir ürün içeren 3 ilaçlı bir liste".*  
 Augmentin kombine bir üründür: **Amoksisilin + Klavulanik Asit** (2 etken madde). Klacid (*Klaritromisin*) ve Aspirin (*Asetilsalisilik Asit*) ise 1'er etken maddeli tekil ilaçlardır.  
@@ -130,7 +162,7 @@ Sistem, Augmentin'i TİTCK ruhsat verisindeki 2 bileşenine ayırarak diğer ila
 
 ---
 
-## 4. Senaryo 3: Kayıp / Eksik Ürün Senaryosu (Arveles + Parol + Cordarone)
+## 4. Tarihsel Senaryo 3: Kayıp / Eksik Ürün Senaryosu (Arveles + Parol + Cordarone)
 
 *Şartname Sayfa 11 kuralı: "En az bir ilacı DDInter'da bulunmayan bir liste".*  
 Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Deksketoprofen), hem de DDInter indirme dosyası bulunmayan eksik ATC sınıflarındaki ilaçlar (`Parol`: Parasetamol / N grubu; `Cordarone`: Amiodaron / C grubu) test edilmiştir ($3$ tekil ilaç = $3$ çift).
