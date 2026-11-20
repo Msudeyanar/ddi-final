@@ -16,9 +16,9 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
 1. **Uçtan Uca Zincir Çalışıyor:** Kullanıcı ticari müstahzar adını (örn. `Arveles`, `Klacid`, `Warfmadin`, `Augmentin`) küçük veya büyük harfle girdiğinde sistem; ticari adı bulmakta, barkod üzerinden bileşenlerine ayırmakta ve DDInter ID'leri üzerinden etkileşimi saniyeler içinde tespit etmektedir (NB04 Hücre [10]–[15]).
 2. **Klinik Araçlar Şiddet Konusunda Anlaşmıyor (Önemli Bulgu):** Tıbbi literatürde ölümcül kabul edilen **Varfarin – Klaritromisin** etkileşimi, taranan küresel araçlarda farklı şiddet seviyelerinde etiketlenmiştir (NB04 Hücre [12]):
    - **DDInter:** Major (Dosya A, B - NB04 Hücre [5] ve [12])
-   - **Drugs.com:** Major (INR artışı ve kanama riski — [images/sekil07.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil07.png) / Şekil 7)
-   - **Medscape:** Önemli – Yakından Takip Edin (*Serious – Monitor Closely* — [images/sekil14.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil14.png) / Şekil 14)
-   - **WebMD:** Yakından takip edin (*Monitor Closely* — [images/sekil20.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil20.png) / Şekil 20)  
+   - **Drugs.com:** Major (INR artışı ve kanama riski — [Şekil 7](../images/sekil07.png))
+   - **Medscape:** Önemli – Yakından Takip Edin (*Serious – Monitor Closely* — [Şekil 14](../images/sekil14.png))
+   - **WebMD:** Yakından takip edin (*Monitor Closely* — [Şekil 20](../images/sekil20.png))  
    Bu bulgu, çevrimiçi araçlar arasında şiddet tanımlamalarında tam bir klinik mutabakat olmadığını, her platformun risk eşiğinin farklı olduğunu somut olarak ortaya koymaktadır.
 3. **Kombine İlaç Çözümlemesi Başarılı:** `Augmentin` gibi birden fazla etken madde içeren kombine müstahzarlar sistem tarafından otomatik olarak moleküllerine ayrıştırılmakta ve her bileşen bağımsız taranmaktadır (NB04 Hücre [13]):
    - **Augmentin** tek bir kutu olmasına rağmen 2 etken madde içerir: *Amoksisilin* ve *Klavulanik Asit* (NB04 Hücre [13]).
@@ -26,7 +26,7 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
    - Sistem ilaçları molekül seviyesinde kartezyen eşleştirerek; Augmentin–Klacid ($2 \times 1 = 2$ çift), Augmentin–Aspirin ($2 \times 1 = 2$ çift) ve Klacid–Aspirin ($1 \times 1 = 1$ çift) olmak üzere **toplam 5 farklı ikili etkileşim çifti ($2 + 2 + 1 = 5$)** üretir (NB04 Hücre [13]). Amoksisilin–Klaritromisin arasındaki **Minor** etkileşim tam isabetle yakalanır (NB04 Hücre [13]).
 4. **Veri Tabanı Sınırları ve Kayıp Oranı İspatlandı:**
    - **Ruhsat Gerçeği (Coumadin):** Coumadin markası güncel TİTCK ruhsatlı listesinde yer almamaktadır; Sağlık Bakanlığı SKRS Pasif Ürünler Listesi'nde kayıtlıdır (5 mg: 2022-10-11, 10 mg: 2023-07-11 pasife alınmıştır). Sistem yapay takma ad kullanmayıp dürüstçe `Ürün Bulunamadı` dönmüştür. Bu durum resmi verilerle kanıtlanmıştır (NB04 Hücre [11]). Ruhsatlı aktif Varfarin müstahzarı olan `Warfmadin` ile klinik test başarıyla tekrarlanmıştır (NB04 Hücre [12]).
-   - **Katalog Eksikliği (Deksketoprofen):** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir (NB04 Hücre [10] ve [12]). Drugs.com ([images/sekil09.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil09.png) / Şekil 9), Medscape ([images/sekil15.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil15.png) / Şekil 15) ve WebMD ([images/sekil21.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil21.png) / Şekil 21) araçlarında da ABD pazarı odaklı olmaları nedeniyle Deksketoprofen tanınamamış ve etkileşim doğrulanamamıştır.
+   - **Katalog Eksikliği (Deksketoprofen):** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir (NB04 Hücre [10] ve [12]). Drugs.com ([Şekil 9](../images/sekil09.png)), Medscape ([Şekil 15](../images/sekil15.png)) ve WebMD ([Şekil 21](../images/sekil21.png)) araçlarında da ABD pazarı odaklı olmaları nedeniyle Deksketoprofen tanınamamış ve etkileşim doğrulanamamıştır.
    - **Eksik ATC Grubu Kaybı:** `Parol` (N grubu) ve `Cordarone` (C grubu) ilaçlarının her ikisi de DDInter'da olmasına rağmen, DDInter indirme dosyalarında C ve N grupları sunulmadığı için bu etkileşim indirilen dosyalarda tespit edilememiştir (NB04 Hücre [14]). Bu bulgu, İP4'te hesapladığımız **%22,71'lik çift kaybı** (%47,68 madde kaybı - NB04 Hücre [9]) teorisini sahada somut olarak doğrulamıştır.
 
 ---
@@ -64,13 +64,13 @@ Testler `notebooks/04_ddinter_birlestirme.ipynb` Bölüm 10 üzerinden çalışt
 
 | Çift | ATC Grupları | DDInter Gerçek | DDInter Kimlikleri | DDInter Şiddet | Drugs.com Sonucu | Medscape Sonucu | WebMD Sonucu | Sistem Kararı | Doğrulama Hücresi |
 |:---|:---:|:---:|:---:|:---:|:---|:---|:---|:---|:---:|
-| **warfarin – clarithromycin** | `B + J` | **Bulundu** | `DDInter1951` + `DDInter393` | **Major** | **Major** (Şekil 7) | **Önemli – Yakından Takip Edin** (Şekil 14) | **Yakından takip edin** (Şekil 20) | Kırmızı Uyarı (Major) | (NB04 Hücre [12]) |
-| **warfarin – dexketoprofen** | `B + M` | **Bulunmadı** | `DDInter1951` + `—` | — | **Doğrulanamadı** (Şekil 9) | **Doğrulanamadı** (Şekil 15) | **Doğrulanamadı** (Şekil 21) | DDInter'da Yok Uyarısı | (NB04 Hücre [12]) |
-| **dexketoprofen – clarithromycin** | `M + J` | **Bulunmadı** | `—` + `DDInter393` | — | **Doğrulanamadı** (Şekil 10) | Test edilmedi | Test edilmedi | DDInter'da Yok Uyarısı | (NB04 Hücre [10] ve [12]) |
+| **warfarin – clarithromycin** | `B + J` | **Bulundu** | `DDInter1951` + `DDInter393` | **Major** | **Major** ([Şekil 7](../images/sekil07.png)) | **Önemli – Yakından Takip Edin** ([Şekil 14](../images/sekil14.png)) | **Yakından takip edin** ([Şekil 20](../images/sekil20.png)) | Kırmızı Uyarı (Major) | (NB04 Hücre [12]) |
+| **warfarin – dexketoprofen** | `B + M` | **Bulunmadı** | `DDInter1951` + `—` | — | **Doğrulanamadı** ([Şekil 9](../images/sekil09.png)) | **Doğrulanamadı** ([Şekil 15](../images/sekil15.png)) | **Doğrulanamadı** ([Şekil 21](../images/sekil21.png)) | DDInter'da Yok Uyarısı | (NB04 Hücre [12]) |
+| **dexketoprofen – clarithromycin** | `M + J` | **Bulunmadı** | `—` + `DDInter393` | — | **Doğrulanamadı** ([Şekil 10](../images/sekil10.png)) | Test edilmedi | Test edilmedi | DDInter'da Yok Uyarısı | (NB04 Hücre [10] ve [12]) |
 
 > **Önemli Bulgular:**  
 > 1. **Şiddet Uyuşmazlığı:** Araçlar Varfarin–Klaritromisin etkileşiminin şiddetinde anlaşmamaktadır. Drugs.com **Major** seviyesinde değerlendirirken (Şekil 7), Medscape (Şekil 14) ve WebMD (Şekil 20) **"yakından takip edin"** (*Monitor Closely*) kategorisinde klinik izlem önermektedir.  
-> 2. **Kişi C Görev Notu (Dexketoprofen Araması):** Drugs.com üzerinde yalnızca Türkçe yazım ("Deksketoprofen") denenmiş ve ABD'de bulunmadığı uyarısı alınmıştır (Şekil 9). İngilizce "dexketoprofen" araması Kişi C tarafından canlı araçta tamamlandığında bu sonuç da tabloya işlenecektir.
+> 2. **Dexketoprofen Arama Sonuçları (İP8 Doğrulaması):** Kişi C'nin İP8 raporundaki ([IP8 Raporu](../IP8_Ilac_Etkilesim_Karsilastirma_Raporu.md)) canlı test bulgularına göre; hem Türkçe "deksketoprofen" hem de İngilizce "dexketoprofen" aramalarında ABD odaklı küresel araçlar (Drugs.com, Medscape, WebMD) molekülü tanıyamamış ve etkileşim doğrulanamamıştır ([Şekil 9](../images/sekil09.png), [Şekil 12](../images/sekil12.png), [Şekil 15](../images/sekil15.png), [Şekil 21](../images/sekil21.png)). Canlı araçlarda doğrulanamayan bu sonuç kesinlikle **"etkileşim yok" anlamına gelmez**; yalnızca bu platformların Amerikan pazarı dışındaki molekülleri listelememesinden kaynaklanan bir veri tabanı kısıtıdır.
 
 ---
 
