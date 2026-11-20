@@ -9,6 +9,8 @@
 
 > **Kapsam hunisi yeniden sayımı.** Kapsam hunisindeki 22.417 / 16.841 / 18.066 tarihsel rapor değerleridir. Yerel `urun.csv` üzerinden `kapsam_disi=0` olan 22.883 benzersiz barkod seçildi. İlgili `urun_etken` ve `etken_madde` çıktıları `bilesen_tr` üzerinden karşılaştırılıp dolu `ddinter_id` alanları sayıldı. Yerel ara veride 15.999 barkodun tüm bileşenleri, 17.568 barkodun en az bir bileşeni eşleşti. Yol D motor çıktısında sayılar sırasıyla 16.000 ve 17.570. Tarihsel huni, bu iki veri sürümüyle yeniden üretilemedi.
 
+> **Tarihsel E10 kaynağı.** [Arşiv grafiği](IP6_Tarihsel_E10.png) 22.417 kapsam içi ürün, 20.760 tüm bileşenleri İngilizce adlı ürün, 18.066 en az bir DDInter eşleşmeli ürün ve 16.841 tüm bileşenleri eşleşen ürün gösteriyor. Arşiv Notebook 06’nın 15. hücresi (`In [7]`) yalnızca kapsam içi ruhsatlı ürünlerden bileşen kaydı bulunan barkodları sayıyor. Bu hesap eldeki iki CSV setiyle tekrar çalıştırıldı ve grafikteki dört değer birlikte yeniden üretilemedi. Tablo 12 güncel yerel sayımı gösterir.
+
 ---
 
 ## 🧭 Hızlı Sunum Navigasyonu (Kişi B Sorumluluğundaki Temel Grafikler)
@@ -16,9 +18,9 @@
 | Kod | Grafik Konusu | Sunumdaki Ana Mesaj |
 |:---:|:---|:---|
 | **E05** | [Ruhsatlı ürün sayısına göre ilk 30 bileşen](#1-e05-ruhsatlı-ürün-sayısına-göre-ilk-30-bileşen) | 24 bileşende (%80) DDInter kimliği var |
-| **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Yol A tek başına Türkiye pazarındaki ilaç hacminin %90,9'unu çözdü |
+| **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Tablo 10, eşleme yollarına göre etken madde bazındaki ürün hacmini gösterir |
 | **E09** | [14 ATC Grubunda DDInter Kapsamı](#3-grafik-e09-14-atc-ana-grubunda-ddinter-kapsama-oranı-ve-eksik-gruplar-en-önemli-grafik) | Kanser (%83,9) ve Sinir (%71,1) çok yüksek; eksik 6 grup turuncu çizgili |
-| **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Portföyün %75,1'inde (16.841 ürün) sıfır kayıpla tam etkileşim kontrolü |
+| **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Yerel veride 15.999 barkodun tüm bileşenleri eşleşti |
 | **D01** | [DDInter Şiddet Dağılımı (Kural 9)](#5-grafik-d01-ddinter-şiddet-dağılımı-ham-vs-kural-9) | 62.148 yinelenen satır elendi. 160.235 benzersiz çiftte şiddet etiketi uyuşmazlığı gözlenmedi |
 | **D02** | [Kaynak Dosya Bazında Şiddet Dağılımı](#6-grafik-d02-kaynak-dosyalara-göre-tekrarsız-çift-ve-şiddet-dağılımı) | En büyük hacim L (Kanser) ve A (Sindirim); en yüksek Major risk L'de (%24,3) |
 | **D03** | [İlaç Başına Eş Sayısı (Derece Dağılımı)](#7-grafik-d03-ilaç-başına-farklı-eş-sayısı-dağılımı-derece-analizi) | Sağa çarpık dağılım: Ortalama 165 eş, medyan 125 eş, zirve 910 eş |
@@ -62,7 +64,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 4. **Kör Nokta (Eksik 6 ATC Dosyası):**
 - D06, iki tarafı da eksik gruplarda olan olası çiftleri (%22,78) ve diğer olası çiftleri (%77,22) gösterir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 5. **Eşleşme Yolları (A, B, C, D Mimarisi):**
-   - **Yol A:** Tek bileşenli ürünlerde 7 haneli ATC köprüsü (%62,1 bileşen, %90,9 ürün hacmi).
+   - **Yol A:** Tek bileşenli ürünlerde 7 haneli ATC köprüsü.
    - **Yol B:** Kombine ürünlerde RapidFuzz ile metin ayrıştırma (%2,1 bileşen, %1,4 ürün hacmi).
    - **Yol C:** Türkçe morfolojik/kimyasal 38 kural tabanlı çeviri köprüsü (107 bileşen, %6,2 ürün hacmi).
    - **Yol D:** Otomatik kurallarla çözülemeyen 898 bileşen için uzman incelemesi ve harici veritabanı entegrasyonu.
@@ -110,124 +112,56 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ---
 
-### 2. Grafik E08: Eşleşme Yolları (Yol A, B, C, SKRS, Eşleşmedi) ve Kapsama Dağılımı
+### 2. Grafik E08: Eşleşme Yolları ve Kapsama Dağılımı
 
-![Grafik E08](../figs/E08_esleme_yollari.png)
+#### Tablo 10. Eşleme yollarına göre yerel sayım
 
-#### Tablo 10: Eşleşme Yolları İki Panelli Kapsama Mutabakatı
+| Yol | Bileşen satırı | Ürün hacmi | DDInter kimliği dolu |
+|---|---:|---:|---:|
+| A | 1.904 | 24.627 | 1.219 |
+| B | 66 | 420 | 36 |
+| C | 107 | 1.913 | 107 |
+| SKRS | 90 | 686 | 32 |
+| eslesmedi | 898 | 4.401 | 1 |
+| **Toplam** | **3.065** | **32.047** | **1.395** |
 
-| Eşleşme Yolu | Tekil Bileşen Sayısı | Bileşen Payı (%) | Kapsanan Ürün Hacmi | Ürün Payı (%) | DDInter Eşleşen | Yol İçi Eşleşme Başarısı (%) |
-|:---|---:|:---|---:|:---|---:|:---|
-| **Yol A (Tek Bileşenli ATC)** | 1,887 | %61.57 | 23,353 | %72.87 | 1,219 | %64.60 |
-| **Yol B (Kombine Bölme & RapidFuzz)** | 66 | %2.15 | 420 | %1.31 | 36 | %54.55 |
-| **Yol C (Kural Tabanlı - tr_en_kurallar)** | 106 | %3.46 | 1,860 | %5.80 | 106 | %100.00 |
-| **Yol D (Kişi C - Uzman Manuel İnceleme)** | 24 | %0.78 | 1,455 | %4.54 | 24 | %100.00 |
-| **SKRS (Kural 5/6 Doğrudan)** | 90 | %2.94 | 686 | %2.14 | 32 | %35.56 |
-| **Eşleşmedi (Kalan)** | 892 | %29.10 | 4,273 | %13.33 | 1 | %0.11 |
-| **TOPLAM** | **3,065** | **%100.00** | **32,047\*** | **—** | **1,418** | **%46.26** |
+Kaynak yerel `data/interim/etken_madde.csv`. Yol başına satır sayısı, `urun_sayisi` toplamı ve dolu `ddinter_id` sayısı kullanıldı. Bir ürün birden fazla bileşende sayılabilir.
 
-*\*Not: 32.047, etken madde bazındaki ürün sayılarının toplamıdır. Bir ürün birden fazla etken madde içerdiğinde toplamda birden fazla kez sayılabilir.*
+### 3. Grafik E09: ATC Ana Gruplarında DDInter Eşleşmesi
 
-#### 📌 Grafik E08 Metodolojik ve Analitik Değerlendirmesi:
+#### Tablo 11. Kapsam içi bileşenler
 
-### 📌 Kod Ne İşe Yarıyor?
-- Eşleşme mimarisindeki 6 farklı yolu (`Yol A`, `Yol B`, `Yol C`, `Yol D`, `SKRS`, `Eşleşmedi`) iki boyutta inceler:
-  - **Sol Panel:** Her yolun kapsadığı benzersiz etken madde (bileşen) sayısını ve oranını hesaplar.
-  - **Sağ Panel:** Bu bileşenleri içeren Türkiye ruhsatlı ilaç (ürün) sayısını ve portföy payını hesaplar.
-- İki panelli yan yana çubuk grafik çizerek 300 DPI ile `figs/E08_esleme_yollari.png` dosyasına kaydeder.
+| Grup | Bileşen | DDInter kimliği dolu | Eşleşme oranı | Bağımsız CSV |
+|---|---:|---:|---:|---|
+| A | 468 | 153 | %32.7 | Var |
+| B | 249 | 85 | %34.1 | Var |
+| C | 215 | 122 | %56.7 | Yok |
+| D | 192 | 61 | %31.8 | Var |
+| G | 119 | 62 | %52.1 | Yok |
+| H | 56 | 31 | %55.4 | Var |
+| J | 442 | 181 | %41.0 | Yok |
+| L | 299 | 251 | %83.9 | Var |
+| M | 173 | 65 | %37.6 | Yok |
+| N | 284 | 202 | %71.1 | Yok |
+| P | 31 | 19 | %61.3 | Var |
+| R | 219 | 85 | %38.8 | Var |
+| S | 90 | 38 | %42.2 | Yok |
+| V | 108 | 38 | %35.2 | Var |
 
-**🎯 Grafik Ne İşe Yarıyor?:**
-- Eşleme stratejisinin (doğrudan tekli ATC, kombine ayrıştırma, kural tabanlı çeviri) başarısını karşılaştırır.
-- "Bileşen bazında az görünen bir eşleşme yolu ilaç hacminde ne kadar büyük bir paya ulaşıyor?" sorusunu yanıtlar.
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Bileşen bazında eşleşmenin **%61,6'sı (1.887 / 3.065)** doğrudan Yol A (Tekli ATC) üzerinden çözülürken, ürün hacminde Yol A'nın kapsadığı hacim **23.353'e (%72,9)** ulaşmaktadır. Kişi C'nin eklediği 24 adet Yol D bileşeni ise **1.455 ürünlük** yüksek bir klinik hacmi doğrudan DDInter'a bağlamıştır.
-- **En Önemli Sayı:** Eşleşmeyen 892 bileşen (%29,1) bulunmasına rağmen, bu bileşenlerin büyük kısmı düşük hacimli veya tekil kayıtlardır; portföyün ezici çoğunluğu Yol A, C ve D köprüleriyle çözülmüştür.
-- **Projeye Etkisi:** Tek başına Yol A ve Yol B köprülerinin yüksek ürün kapsamı (%91,5) sistemin ilk sürüm için klinik güvenilirlikle çalışacağını gösterirken; karmaşık kimyasal metin madenciliğine (Yol C/D) yalnızca 898 tekil bileşen ve 2.142 ürünlük dar bir portföy bırakarak projenin minimum efor ve maksimum doğrulukla tamamlanmasını sağlamıştır.
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Bileşen olarak henüz eşleşmemiş görünen 892 madde olsa da, piyasadaki ilaçların ezici çoğunluğu Yol A, C ve Kişi C'nin Yol D çalışmasıyla çözülmüştür. Yol D ile eklenen sadece 24 kritik bileşen, 1.455 ürünlük devasa bir pazar payını sisteme kazandırmıştır."*
-
----
-
-### 3. Grafik E09: 14 ATC Ana Grubunda DDInter Kapsama Oranı ve Eksik Gruplar (⭐ EN ÖNEMLİ GRAFİK)
-
-![Grafik E09](../figs/E09_ddinter_eslesme_atc.png)
-
-#### Tablo 11: 14 ATC Ana Grubunda DDInter ile Eşleşen Türk Etken Maddeleri
-
-| ATC Kodu | ATC Ana Grup Tanımı | Kapsam İçi Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) | DDInter İndirme Dosyası Durumu |
-|:---:|:---|---:|---:|:---|:---|
-| **L** | Antineoplastik & İmmünomodülatörler | 299 | 252 | %84.3 | Mevcut (Dosyası Var) |
-| **N** | Sinir Sistemi | 284 | 204 | %71.8 | **Eksik (Bağımsız Dosya Yok)** |
-| **P** | Antiparaziter Ürünler | 31 | 19 | %61.3 | Mevcut (Dosyası Var) |
-| **H** | Sistemik Hormonlar | 56 | 33 | %58.9 | Mevcut (Dosyası Var) |
-| **C** | Kardiyovasküler Sistem | 215 | 122 | %56.7 | **Eksik (Bağımsız Dosya Yok)** |
-| **G** | Genito-Üriner Sistem | 119 | 62 | %52.1 | **Eksik (Bağımsız Dosya Yok)** |
-| **S** | Duyu Organları | 90 | 38 | %42.2 | **Eksik (Bağımsız Dosya Yok)** |
-| **J** | Sistemik Antiinfektifler | 442 | 183 | %41.4 | **Eksik (Bağımsız Dosya Yok)** |
-| **R** | Solunum Sistemi | 219 | 89 | %40.6 | Mevcut (Dosyası Var) |
-| **M** | Kas-İskelet Sistemi | 173 | 68 | %39.3 | **Eksik (Bağımsız Dosya Yok)** |
-| **V** | Çeşitli | 108 | 40 | %37.0 | Mevcut (Dosyası Var) |
-| **B** | Kan & Kan Yapıcı Organlar | 249\* | 89 | %35.7 | Mevcut (Dosyası Var) |
-| **A** | Sindirim Sistemi & Metabolizma | 468 | 155 | %33.1 | Mevcut (Dosyası Var) |
-| **D** | Dermatolojikler | 192 | 62 | %32.3 | Mevcut (Dosyası Var) |
-
-*\*Not: B grubu toplamı, Kural 4 kapsamında elenen taşıyıcı yağlar ve beslenme emülsiyonları hariç tutularak net 249 kapsam içi bileşen üzerinden hesaplanmıştır.*
-
-#### 📌 Grafik E09 Metodolojik ve Analitik Değerlendirmesi:
-
-### 📌 Kod Ne İşe Yarıyor?
-- 14 ATC grubunda DDInter eşleşme yüzdelerini hesaplar; dosyası olmayan 6 eksik grubu turuncu çizgili desenle (`hatch='//'`) belirginleştirerek çizer.
-
-**🎯 Grafik Ne İşe Yarıyor?:**
-- Projenin klinik sınırlarını çizer: Hangi branşlarda güvenle etkileşim taranabilir, hangi branşlarda harici veritabanı gerekir sorusuna yanıt verir.
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Kapsam içi etken maddelerde DDInter kimlik eşleşme oranı L (Kanser, %83,9), N (Sinir, %71,1), P (Antiparaziter, %61,3), C (Kalp, %56,7) ve H (Hormon, %55,4) gruplarında oldukça yüksekken; A (%32,7) ve D (%31,8) gruplarında daha sınırlı kalmaktadır.
-- **En Önemli Sayı:** DDInter indirme paketlerinde bağımsız dosyası bulunmayan 6 kritik ATC ana grubundan N (%71,1, 202 bileşen) ve C (%56,7, 122 bileşen) grupları, DDInter ilaç fihristinde yüksek oranda tanımlı olmasına rağmen kendi aralarındaki ikili etkileşimleri dosyalarda listelenmemektedir.
-- **Projeye Etkisi:** Bu grafik, uygulamanın hangi terapötik alanlarda güvenle veri sunabileceğini (ör. Kanser ve Hormon tedavileri) netleştirirken; kalp (C) ve psikiyatri/nöroloji (N) ilaçları için ikili etkileşimlerin TDC DrugBank ve Yol D ile desteklenmesinin hayati olduğunu kanıtlamaktadır.
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Hocam, bu raporun en kritik grafiğidir. Onkoloji (L) ilaçlarında %83,9 gibi mükemmel bir kapsama oranına sahibiz. Turuncu çizgili gösterdiğimiz 6 grup ise DDInter'ın eksik dosyalarıdır. Nöroloji ve Kardiyovasküler gruptaki yüksek molekül eşleşmelerimize rağmen dosyalar arası kör noktayı Yol D ile kapatıyoruz."*
-
----
+Kaynak aynı CSV. `kapsam_ici=1` satırları `atc_ana` ile gruplandı. Oran, kimliği dolu satırların grup satır sayısına bölümüdür. Bağımsız dosyalar [Notebook 04 ham veri hücresinde](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=e96b29d2) listelenir.
 
 ### 4. Grafik E10: Kullanıcı Arama ve Entegrasyon Kapsam Hunisi
 
-![Grafik E10](../figs/E10_kapsam_hunisi.png)
+#### Tablo 12. Yerel veride barkod düzeyinde eşleşme
 
-#### Tablo 12: Kullanıcı Arama Kapsam Hunisi Aşamaları
+| Ölçüm | Yerel ara veri | Yol D motor çıktısı |
+|---|---:|---:|
+| Kapsam içi benzersiz barkod | 22.883 | 22.883 |
+| Bileşen satırı bulunan barkod | 22.819 | 22.819 |
+| En az bir bileşeni eşleşen barkod | 17.568 | 17.570 |
+| Tüm bileşenleri eşleşen barkod | 15.999 | 16.000 |
 
-| Huni Aşaması | Aşama Tanımı / Kriter | Kapsanan Ürün Sayısı | Kapsama Oranı (%) | Aşama İçi Korunma Oranı (%) |
-|:---|:---|---:|:---|:---|
-| **1. Kapsam İçi Ruhsatlı Ürünler** | TİTCK ruhsatlı ve kapsam dışı olmayan ilaçlar | 22,417 | %100.00 | %100.00 |
-| **2. Tüm Bileşenleri İngilizce Adlı** | İstisnasız tüm bileşenleri İngilizce'ye çevrilenler | 20,760 | %92.61 | %92.61 |
-| **3. En Az Bir Bileşeni DDInter'da** | En az bir etken maddesi DDInter kimliğine eşleşenler | 18,066 | %80.59 | %87.02 |
-| **4. Tüm Bileşenleri DDInter'da** | Tüm bileşenleri DDInter'da olanlar (Tam Çözüm) | 16,841 | %75.13 | %93.22 |
-
-#### 📌 Grafik E10 Metodolojik ve Analitik Değerlendirmesi:
-
-### 📌 Kod Ne İşe Yarıyor?
-- Kullanıcının reçete sorgulama sürecini 4 aşamalı bir huni olarak modeller:
-  - 1. Aşama: TİTCK ruhsatlı kapsam içi tüm ürünler (22.417 ürün)
-  - 2. Aşama: Tüm bileşenlerinin normalize İngilizce adı bulunan ürünler (20.760 ürün)
-  - 3. Aşama: En az bir bileşeni DDInter'da eşleşen ürünler (18.066 ürün)
-  - 4. Aşama: Tüm bileşenleri DDInter'da eşleşip tam etkileşim kontrolü yapılabilen ürünler (16.841 ürün)
-- Huni çubuk grafiği çizerek 300 DPI çözünürlükle `figs/E10_kapsam_hunisi.png` dosyasına kaydeder.
-
-**🎯 Grafik Ne İşe Yarıyor?:**
-- Bir hekim veya eczacı arama yaptığında sistemin ne oranda tam yanıt verebileceğini belgeler.
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Kapsam içi 22.417 ruhsatlı ilacın **18.066'sında (%80,6)** en az bir bileşen DDInter kütüphanesinde tanımlı olup; **16.841 üründe (%75,1)** tüm etken maddeler eksiksiz DDInter karşılığına sahiptir.
-- **En Önemli Sayı:** Huninin ilk aşamasından son aşamasına geçerken yaşanan toplam ürün kaybı **5.576 üründür (%24,9)**; en büyük korunma %93,2 ile Aşama 3'ten Aşama 4'e geçişte gerçekleşmektedir.
-- Bu rapor çalıştırmasında 22.417 kapsam içi ürünün 16.841’inin tüm bileşenleri, 18.066’sının ise en az bir bileşeni eşleşmiştir. Paylar sırasıyla %75,1 ve %80,6’dır (bu raporun kapsam hunisi tablosu).
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> Kapsam hunisi, ruhsatlı ürün bileşenlerinin eşleşme düzeyini gösterir. Çift bazında etkileşim kaydı kapsamı ayrı bir ölçümdür.
-
----
+Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** notunda yer alır. Bu tablo, bileşenlerin DDInter kimliğiyle eşleşmesini ölçer. İlaç çiftinin etkileşim kaydı kapsamı ayrıca ölçülür.
 
 ## 2. Kısım: DDInter Veri Seti Profilleme ve Etkileşim EDA'sı (İP6-B)
 
@@ -353,13 +287,15 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 #### Tablo 18: DDInter Ağ Derece Dağılım Metrikleri
 
+Kaynak [Notebook 04, ağ özeti hücresi `15b08f7b`](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=15b08f7b). Yerel `etkilesim.csv` dosyasında her çift iki uçtan sayıldı ve ilaç başına benzersiz eş sayısı hesaplandı.
+
 | Metrik | Değer | Klinik / Ağ Anlamı |
 |:---|---:|:---|
 | **Toplam Tekil İlaç Sayısı** | 1,939 | DDInter veritabanında en az 1 etkileşime sahip molekül sayısı |
 | **Ortalama Derece (Eş Sayısı)** | 165.28 | Bir ilacın ortalama etkileştiği farklı ilaç sayısı |
 | **Medyan Derece** | 125.00 | Dağılımın orta noktası (%50'si 125'ten fazla, %50'si az eşe sahip) |
 | **Maksimum Derece** | 910 | Dexamethasone (`DDInter513`) — Sistemdeki en yoğun etkileşen merkez hub |
-| **Minimum Derece** | 1 | Yalnızca 1 etkileşimi bulunan dar spektrumlu moleküller (18 ilaç) |
+| **Minimum Derece** | 1 | Yerel tabloda 61 ilacın bir farklı eşi var |
 | **Az Etkileşen İlaç Sayısı (Derece < 10)** | 74 | Model için fiilen "cold-start / yeni ilaç" riski taşıyanlar |
 
 #### 📌 Grafik D03 Metodolojik ve Analitik Değerlendirmesi:

@@ -82,29 +82,24 @@ Veritabanında en yüksek dereceye (en fazla partner/eş sayısına) sahip ilk 2
 
 ---
 
-## 4. 10 Çiftlik Web Kontrolü ve Dosya Karşılaştırması
+## 4. On çiftin yerel DDInter dosyalarında kontrolü
 
-DDInter web platformu (`http://ddinter.scbdd.com/`) ve indirilen 8 dosyanın kapsamını test etmek amacıyla belirlenen 10 kritik klinik çift incelenmiştir:
+İlaç kimlikleri yerel `ddinter_ilac.csv` fihristinden, çift kaydı, şiddet etiketi ve kaynak dosya bilgisi yerel `etkilesim.csv` tablosundan yeniden doğrulandı. Çiftler kimlik sırasından bağımsız arandı. Tabloların üretimi için [Notebook 04, ilaç fihristi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=d508b3b4) ve [çift tekilleştirme hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=9a82020a).
 
-### Karşılaştırma Tablosu
+| # | İlaç 1 | İlaç 2 | ATC sınıfları | İlaç 1 ID | İlaç 2 ID | Yerel çift kaydı | Şiddet | Kaynak dosyalar | Yerel kontrol |
+|---:|---|---|---|---|---|---|---|---|---|
+| 1 | **dexketoprofen** | **clarithromycin** | M + J | *YOK* | DDInter393 | **HAYIR** | — | — | Yerel fihristte deksketoprofen kimliği bulunamadı. |
+| 2 | **simvastatin** | **clarithromycin** | C + J | DDInter1675 | DDInter393 | **EVET** | Major | `A` | Yerel çift kaydı A dosyasından. |
+| 3 | **amlodipine** | **simvastatin** | C + C | DDInter79 | DDInter1675 | **EVET** | Major | `A` | Yerel çift kaydı A dosyasından. |
+| 4 | **ibuprofen** | **sertraline** | M + N | DDInter900 | DDInter1662 | **EVET** | Moderate | `R` | Yerel çift kaydı R dosyasından. |
+| 5 | **digoxin** | **amiodarone** | C + C | DDInter554 | DDInter76 | **HAYIR** | — | — | İki kimlik fihristte mevcut. Yerel çift kaydı bulunamadı. |
+| 6 | **warfarin** | **clarithromycin** | B + J | DDInter1951 | DDInter393 | **EVET** | Major | `A, B` | Yerel çift kaydı A ve B dosyalarından. |
+| 7 | **warfarin** | **dexketoprofen** | B + M | DDInter1951 | *YOK* | **HAYIR** | — | — | Yerel fihristte deksketoprofen kimliği bulunamadı. |
+| 8 | **ciprofloxacin** | **tizanidine** | J + M | DDInter384 | DDInter1821 | **HAYIR** | — | — | İki kimlik fihristte mevcut. Yerel çift kaydı bulunamadı. |
+| 9 | **tramadol** | **sertraline** | N + N | DDInter1841 | DDInter1662 | **HAYIR** | — | — | İki kimlik fihristte mevcut. Yerel çift kaydı bulunamadı. |
+| 10 | **metformin** | **furosemide** | A + C | DDInter1164 | DDInter790 | **EVET** | Moderate | `A` | Yerel çift kaydı A dosyasından. |
 
-| # | İlaç 1 | İlaç 2 | ATC Sınıfları | İlaç 1 ID | İlaç 2 ID | İndirilen Dosyalarda Durum | Şiddet | Kaynak Dosya(lar) | Web Kontrolü / Nedeni |
-| :---: | :---| :---| :---: | :---: | :---: | :---: | :---: | :---: | :---|
-| 1 | **dexketoprofen** | **clarithromycin** | M + J | *YOK* | DDInter393 | **HAYIR** | — | — | DDInter'da dexketoprofen tanımlı değildir (yalnızca ketoprofen vardır). |
-| 2 | **simvastatin** | **clarithromycin** | C + J | DDInter1675 | DDInter393 | **EVET** | Major | `A` | C ve J eksik gruptur; Simvastatin A dosyasında partner olduğu için yakalanmıştır. |
-| 3 | **amlodipine** | **simvastatin** | C + C | DDInter79 | DDInter1675 | **EVET** | Major | `A` | İkisi de C grubudur; Simvastatin A dosyasında partner olduğu için yakalanmıştır. |
-| 4 | **ibuprofen** | **sertraline** | M + N | DDInter900 | DDInter1662 | **EVET** | Moderate | `R` | M ve N eksik gruptur; İbuprofen Solunum (R) dosyasında yer aldığı için yakalanmıştır. |
-| 5 | **digoxin** | **amiodarone** | C + C | DDInter554 | DDInter76 | **HAYIR** | — | — | İki kalp ilacı da DDInter'da vardır fakat C indirme dosyası olmadığı için çift kayıptır. |
-| 6 | **warfarin** | **clarithromycin** | B + J | DDInter1951 | DDInter393 | **EVET** | Major | `A, B` | Warfarin B grubundadır; bu kritik çift hem A hem de B dosyalarında mevcuttur. |
-| 7 | **warfarin** | **dexketoprofen** | B + M | DDInter1951 | *YOK* | **HAYIR** | — | — | Warfarin mevcuttur ancak Dexketoprofen DDInter fihristinde yer almaz. |
-| 8 | **ciprofloxacin** | **tizanidine** | J + M | DDInter384 | DDInter1821 | **HAYIR** | — | — | İki ilaç da vardır fakat J+M eksik gruplardadır, 8 CSV dosyasında yer almaz. |
-| 9 | **tramadol** | **sertraline** | N + N | DDInter1841 | DDInter1662 | **HAYIR** | — | — | İki ilaç da vardır fakat N+N eksik sinir grubundadır, 8 CSV dosyasında yer almaz. |
-| 10 | **metformin** | **furosemide** | A + C | DDInter1164 | DDInter790 | **EVET** | Moderate | `A` | Metformin A sınıfı dosyasında (code_A.csv) Furosemide (C) ile birlikte yer alır. |
-
-### Web Kontrolü Çıkarımları
-1. **İlaç Varlığı Sorunu (2/10):** Dexketoprofen gibi bazı yaygın Türkiye/Avrupa molekülleri DDInter'da enantiomer bazında yer almamakta, sadece ana molekül (Ketoprofen) bulunmaktadır.
-2. **Eksik Grup Kaybı (3/10):** Digoxin–Amiodarone (C+C), Ciprofloxacin–Tizanidine (J+M) ve Tramadol–Sertraline (N+N) gibi hayati klinik çiftler, her iki ajan da eksik dosya gruplarında kaldığı için indirilen 8 dosyada yer almamaktadır.
-3. **Çapraz Geçiş Kurtarması (5/10):** Eksik gruplarda yer alan bazı ilaçlar (ör. Simvastatin, Amlodipine, Ibuprofen), A veya R dosyalarındaki genişletilmiş partner listeleri sayesinde yakalanabilmiştir.
+Beş çiftin yerel kaydı bulundu. Üç çiftte iki ilaç kimliği de mevcutken çift kaydı bulunamadı. İki çiftte deksketoprofen için yerel ilaç kimliği bulunamadı. Bu sayımlar indirilen dosyalardan üretilen yerel tabloları kapsar. Tarihsel DDInter web aramaları için ekran kanıtı doğrulanamadı.
 
 ---
 
@@ -142,7 +137,7 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
    Türkiye'de TİTCK ruhsatlı ve en çok reçete edilen ilaçların yaklaşık **%50'si** C (Kalp), N (Sinir), J (Antibiyotik) ve M (Ağrı/Kas) gruplarında yoğunlaşmaktadır. Bu durumda beklenen klinik ikili çift kaybı:
    $$P(\text{Klinik Kayıp}) \approx (0,50)^2 \approx \mathbf{\%25,0}$$
 
-3. **Yerel veri ve web örneklemi.** [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) kayıtlı çıktısında 1.418 DDInter eşleşmeli etken madde satırının 677’si (%47,74) bağımsız indirme dosyası olmayan ATC gruplarında. Bu 677 satırdan oluşturulabilen 228.826 çift, 1.004.653 olası çiftin %22,78’ine karşılık gelir. Hesap, olası çiftleri ATC grubuna göre sınıflandırır. İndirilen dosyalardaki gerçek etkileşim kapsamı çift bazında ayrıca kontrol edilir. Web kontrolü ayrı bir örneklemdir. Sonuçları aşağıdaki karşılaştırma tablosunda yer alır.
+3. **Yerel veri ve web örneklemi.** [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) kayıtlı çıktısında 1.418 DDInter eşleşmeli etken madde satırının 677’si (%47,74) bağımsız indirme dosyası olmayan ATC gruplarında. Bu 677 satırdan oluşturulabilen 228.826 çift, 1.004.653 olası çiftin %22,78’ine karşılık gelir. Hesap, olası çiftleri ATC grubuna göre sınıflandırır. İndirilen dosyalardaki gerçek etkileşim kapsamı çift bazında ayrıca kontrol edilir. On çiftin yerel dosya kontrolü Bölüm 4’te yer alır.
 
 ---
 
@@ -158,5 +153,4 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
 1. **İlaç Fihristi Açısından:** 8 dosyanın birleşimi, eksik gruplardaki ilaçlar da `Drug_B` olarak dahil edildiğinden 1.939 benzersiz ilaçla geniş bir kapsayıcılık sağlamaktadır.
 2. **Etkileşim Çiftleri Açısından:** İki tarafı da `C, G, J, M, N, S` gruplarında kalan etkileşimler indirilen tablolarda bulunmamaktadır.
 3. **Uygulama Mimarisi Kararı:**
-   - Türkiye pazarında en sık kullanılan 200–300 etken madde baz alındığında bu eksiklik kullanıcı deneyiminde "etkileşim bulunamadı" uyarısı üretme riskini artırır.
    - Bu nedenle sistemin kural tabanlı olarak veya harici bir açık kaynak kaynaktan (ör. DrugBank / TDC) bu eksik grupları desteklemesi 3. hafta kapsam toplantısında önerilmelidir.

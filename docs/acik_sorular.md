@@ -21,7 +21,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 * **Çözüm / Güncel Durum (✅ Çözüldü):** 
   - Plandaki standart `yol` kategorileri (A, B, C, D, SKRS, eslesmedi) korunmuş; yeni bir 'PubChem' yolu icat edilmemiştir.
   - `etken_madde.csv` tablosuna `ad_en_ham` sütunu eklenerek ilk ATC adı dondurulmuş; `ad_en` sütununa DDInter karşılığı yazılmıştır.
-  - Eşleşme kaynağı ise `eslesme_kaynagi` ('tam_ad', 'pubchem') sütununa kaydedilerek %100 veri izlenebilirliği sağlanmıştır.
+  - Eşleşme kaynağı ise `eslesme_kaynagi` ('tam_ad', 'pubchem') sütununa kaydedilir.
 
 ---
 
@@ -32,7 +32,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
   - `pyridoxine (vit b6)` ➔ DDInter'da `pyridoxine`
   - `thiamine (vit b1)` ➔ DDInter'da `thiamine`
 * **Kural:** Şartname gereğince kontrolsüz parantez budama regex'i işletilmemiş, bu durum açık soru olarak bırakılmıştır.
-* **Açık Soru:** Parantez içindeki açıklamalar için `\s*\(.*?\)` regex'i Adım 2/3 normalizasyonuna resmi bir kural olarak eklenip yaklaşık 40–50 kritik vitamin ve mineral doğrudan kurtarılmalı mıdır, yoksa bu maddeler Kişi C'nin Yol D manuel eşleme sürecine mi bırakılmalıdır?
+* **Açık Soru:** Parantez içindeki açıklamalar için `\s*\(.*?\)` regex'i Adım 2/3 normalizasyonuna resmi bir kural olarak eklenip ilgili bileşenler yeniden değerlendirilmeli midir, yoksa bu maddeler Kişi C'nin Yol D manuel eşleme sürecine mi bırakılmalıdır?
 * **Öneri:** Parantez içini budayan kontrollü bir regex kuralı eklenmeli; orijinal ad `ad_en_ham` içinde saklanmalıdır.
 
 ---
