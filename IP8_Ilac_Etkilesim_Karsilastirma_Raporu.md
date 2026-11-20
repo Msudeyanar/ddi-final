@@ -33,7 +33,7 @@ Test çiftleri:
 |Arveles + varfarin|Doğrulanamadı|Doğrulanamadı|Doğrulanamadı|
 |Arveles + klaritromisin|Doğrulanamadı|Test edilmedi|Test edilmedi|
 
-**RxMediaPharma:** Sisteme erişim sağlanamadığından test yapılamamıştır.
+**RxMediaPharma:** Erişim sağlanamadı ve araç test edilemedi. Kurum lisansının durumu teyit edilmedi.
 
 **BNF:** NICE üzerinden sunulan çevrimiçi hizmet yalnızca Birleşik Krallık’taki uygun kullanıcılara açık olduğundan test yapılamamıştır.
 
@@ -249,7 +249,7 @@ WebMD İlaç Etkileşim Kontrol Aracı’nda dexketoprofen ve warfarin ilaç çi
 
 RxMediaPharma üzerinden ilaç etkileşim kontrolleri gerçekleştirilmek istenmiştir. Ancak test sırasında sisteme erişim sağlanamadığından ilaç çiftleri değerlendirilememiştir.
 
-**Durum:** Erişim sağlanamadı. İlaç etkileşim sonuçları elde edilemediği için araçlar arası karşılaştırmaya dahil edilememiştir.
+**Durum:** Erişim sağlanamadı. Kurum lisansının durumu teyit edilmedi. Bu araç için ilaç çifti sonucu kaydedilmedi.
 
 ### 4.5 BNF (British National Formulary)
 
