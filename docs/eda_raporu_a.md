@@ -41,23 +41,26 @@
 
 | Metrik                                             |   Değer | Kaynak Doğrulama (Kod Hücresi)                                                              |
 |:---------------------------------------------------|--------:|:--------------------------------------------------------------------------------------------|
-| Başlangıç Ruhsatlı İlaç Sayısı                     |  23,801 | `[Notebook 01, In[2]: Bölüm 1 - raw/ruhsatli_2026-10-14.xlsx]`                              |
-| Eklenen SKRS Ürünü (Kural 5)                       |       0 | `[Notebook 01, In[6]: Bölüm 5 - skrs_eklenecek]`                                            |
-| Kapsam Dışı Ürünler (kapsam_disi=1)                |     895 | `[Notebook 01, In[8] (456 V kodu) + Notebook 02, In[4] (439 B05 elektrolit)]`              |
+| TİTCK Başlangıç Satır Sayısı                       |  23,105 | `[Notebook 01, In[2]: TİTCK Ruhsatlı: 23,105 satır]`                                        |
+| Mükerrer Barkod Nedeniyle Elenen (TİTCK)           |      52 | `[Notebook 01, In[3]: Elenen Mükerrer: 52]`                                                 |
+| Eklenen SKRS Ürünü (Kural 5)                       |     851 | `[Notebook 01, In[6]: Eklenen Aktif SKRS Ürün: 851; Toplam Birleştirilmiş: 23,904]`         |
+| Kapsam Dışı Ürünler (kapsam_disi=1)                |     895 | `[Notebook 01, In[9] ve In[11] (V06/V07: 456) + Notebook 02, In[4] (B05 ve ≥5 bileşen: 439)]` |
 | Geçersiz Barkodlar (barkod_gecersiz=1)             |     184 | `[Notebook 01, In[8]: Bölüm 7 - GS1 Checksum / barkod_gecersiz]`                           |
-| SKRS ile Tamamlanan Kayıtlar (Kural 6)             |      14 | `[Notebook 01, In[7]: Bölüm 6 - kural6_mask / Kurtarılan Kayıt (LOXIBIN)]`                 |
-| Eksik Kayıt (eksik_kayit.csv)                      |       0 | `[Notebook 01, In[7]: Bölüm 6 - len(eksik_df) / Analizden Çıkarılan Eksik: 0]`            |
+| SKRS ile Tamamlanan Kayıtlar (Kural 6)             |      14 | `[Notebook 01, In[7]: Kural 6 SKRS Tamamlandı İşaretlenen Satır Sayısı: 14; bunun 1'i LOXIBIN etkin madde tamamlaması]` |
+| Eksik Kayıt (eksik_kayit.csv, analizden çıkarılan) |     103 | `[Notebook 01, In[7]: Analizden Çıkarılan Eksik: 103; Kalan: 23,801]`                       |
 | ATC Çelişkili Ürünler (atc_celiski=1)              |     202 | `[Notebook 01, In[9] ve In[11]: Bölüm 8 - Güncellenmiş Kural 8; who_atc_degisiklik.csv]`   |
 | WHO ile Çözülen ATC Uyuşmazlığı                    |     167 | `[Notebook 01, In[9]: Bölüm 8 - config/who_atc_degisiklik.csv]`                             |
 | Nihai Ürün Sayısı (urun.csv)                       |  23,801 | `[Notebook 01, In[11]: Bölüm 10 - data/interim/urun.csv]`                                   |
 | Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv) |  32,076 | `[Notebook 02, In[3]: Bölüm 2 - data/interim/urun_etken.csv]`                               |
 | Tekil Normalize Etken Madde Sayısı                 |   3,065 | `[Notebook 02, In[6]; Notebook 05, In[7]; Şekil E04]`                                       |
 
+> **Akış (yalnızca notebook çıktıları):** 23,105 − 52 = 23,053 `[NB01 In[3]]`; 23,053 + 851 = 23,904 `[NB01 In[6]]`; 23,904 − 103 = 23,801 `[NB01 In[7]]`.
+
 ### Özet Tablolar Analitik Değerlendirmesi (3 Cümle Kuralı):
 
 1. **Ne Görülüyor?** `urun.csv` tablosunda kritik operasyonel sütunlar (`urun_adi`, `etkin_madde_ham`, `atc_final`, `durum`, `kaynak`) %100 doluluk oranına sahipken, SKRS eşleşmesi bulunmayan ruhsatlı ürünlerden kaynaklı olarak `atc_skrs` ve `atc_adi_skrs` alanlarında beklenen şekilde %47,46 boşluk gözlenmektedir `[Notebook 05, In[3]; Tablo 1]`.
-2. **En Önemli Sayı:** 23.801 ürünün `[Notebook 01, In[2]]` ham etkin madde metinleri `urun_etken.csv` tablosunda 32.076 bileşen satırına `[Notebook 02, In[3]]` ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3.065 tekil etken maddeye** `[Notebook 02, In[6]; Tablo 7]` indirgenmiştir.
-3. **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi `[Notebook 01, In[7]]` ve sıfır veri kaybıyla tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
+2. **En Önemli Sayı:** 23.801 ürünün `[Notebook 01, In[11]]` ham etkin madde metinleri `urun_etken.csv` tablosunda 32.076 bileşen satırına `[Notebook 02, In[3]]` ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3.065 tekil etken maddeye** `[Notebook 02, In[6]; Tablo 7]` indirgenmiştir.
+3. **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi `[Notebook 01, In[7]]` ve 103 eksik kayıt elenerek tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
 
 ---
 
@@ -111,7 +114,7 @@
 #### 📌 Grafik E02 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
 1. **Ne Görülüyor?** Türkiye ruhsatlı ilaç portföyü ağırlıklı olarak Sinir Sistemi (N, %14,8), Sindirim/Metabolizma (A, %12,9), Antienfektifler (J, %12,5), Kan (B, %12,1) ve Kardiyovasküler (C, %11,2) olmak üzere 5 ana grupta (%63,55) yoğunlaşmaktadır `[Notebook 05, In[5]; Tablo 5]`.
-2. **En Önemli Sayı:** DDInter veri tabanında bağımsız etkileşim dosyası bulunmayan 6 kritik ATC ana grubu (N, J, C, M, G, S), toplam 11.926 ürün ile tüm Türk ilaç pazarının **%50.11'ini (yarısından fazlasını)** oluşturmaktadır `[Notebook 05, In[5]]`.
+2. **En Önemli Sayı:** DDInter veri tabanında bağımsız etkileşim dosyası bulunmayan 6 kritik ATC ana grubu (N, J, C, M, G, S), toplam 11.926 ürün ile tüm Türkiye ruhsatlı portföyünün **%50.11'ini (ürün sayısı payı)** oluşturmaktadır `[Notebook 05, In[5]]`.
 3. **Projeye Etkisi:** Pazarın yarısını oluşturan bu eksik grupların varlığı `[Notebook 05, In[5]; Tablo 5]`, DDInter doğrudan birleştirmesinde ciddi bir kapsama kaybı riski doğurmakta; bu nedenle İP5/İP6 hattındaki TDC DrugBank entegrasyonu ve Yol C/D genişletmelerinin ne denli hayati olduğunu ortaya koymaktadır.
 
 ---
@@ -130,6 +133,8 @@
 | 5             | 4. Düzey (Kimyasal / Terapötik Grup) |         1,133 | %4.76      | Kullanamaz (Yol C/D)         | `[Notebook 05, In[6]: E03]`     |
 | 7             | 5. Düzey (Kimyasal Madde Düzeyi)     |        22,237 | %93.43     | Kullanabilir (Yol A / B)     | `[Notebook 05, In[6]: E03]`     |
 | Diğer         | Diğer (Çoklu / Boşluklu Kodlar)      |             4 | %0.02      | Kullanamaz (Yol C/D)         | `[Notebook 05, In[6]: E03]`     |
+
+> **📌 Tablo 6 Yol A Uygunluk Dipnotu:** 22.237 adet 7 basamaklı tam ATC koduna sahip ürünün 88 tanesinde ATC çelişkisi (`atc_celiski = 1`) bulunmaktadır; dolayısıyla Yol A köprüsü üzerinden doğrudan eşleşmeye uygun net ürün sayısı **22.149**'dur (22.237 − 88 = 22.149). Kalan 88 çelişkili ürün ile grup düzeyindeki 1.560 ürün Yol B ve Yol C/D'ye aktarılmıştır `[Notebook 05, In[6]; Notebook 01, In[11]]`.
 
 #### 📌 Grafik E03 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
@@ -177,8 +182,8 @@ Sınıf toplamları ve WHO geçişleri Notebook 01’in `c8_atc_celiski` (`In[9]
 | bos                    | Kaynakların en az birinde ATC kodu eksik                    |        12,161 | %51.09              | -                             | Karşılaştırılamaz (0)                     | Kural 6/7: Mevcut olan kod veya boş atandı                      | `[Notebook 01, In[9]: Bölüm 8]`  |
 
 > **🎯 Güncellenmiş Kural 8 Çelişki Çözüm Kararı `[Notebook 01, In[9] ve In[11]]`:**
-> - **İki Kaynakta da Kod Olup Farklı Olan Toplam Ürün:** **418** (1. Hafta Kaba Tahmini: 411) `[Notebook 01, In[9]]`
-> - **Granülarite Farkı (Sahte Çelişki):** **49** → `duzey_farki`, Kural 8 ile uzun kod alınarak çözülmüştür `[Notebook 01, In[9]]`.
+> - **İki Kaynakta da Kod Olup Farklı Olan Toplam Ürün:** **418** (1. Hafta Kaba Tahmini: 411) `[Notebook 01, In[11]; Notebook 05, In[8]]`
+> - **Granülarite Farkı (Sahte Çelişki):** **49** → `duzey_farki`, Kural 8 ile uzun kod alınarak çözülmüştür `[Notebook 01, In[11]; Notebook 05, In[8]]`.
 > - **WHO Kümülatif Listesiyle Çözülen:** **167** ürün → Eski kod WHO listesinde yeni koda dönüştürülmüş; yeni kod alınmıştır (`atc_celiski = 0`, `atc_who_guncellendi = 1`) `[config/who_atc_degisiklik.csv]`.
 > - **Kalan Gerçek Çelişki:** **202** ürün → Ruhsatlı kod korunmuş, `atc_celiski = 1`, Yol A köprüsü kapatılmıştır `[Notebook 01, In[11]; Tablo 3]`.
 

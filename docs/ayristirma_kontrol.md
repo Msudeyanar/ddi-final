@@ -3,7 +3,9 @@
 - **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi[cite: 31]
 - **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi[cite: 34, 38]
 - **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme[cite: 34, 38]
-- **Örneklem Yöntemi:** `notebooks/02_etken_ayristirma.ipynb` `[In[5]: Bölüm 4]` kod hücresi üzerinden `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün[cite: 34]
+- **Örneklem Evreni:** `notebooks/02_etken_ayristirma.ipynb` `[In[5]: Bölüm 4]` kod hücresinde tanımlı `df_kombine` (N = 4.416 kombine ürün)
+- **Örneklem Yöntemi:** `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün
+> **📌 Doğrulama Ölçütleri:** 40 'Doğru' ürün, ham metindeki etken bileşenlerin boru hattı kurallarına uygun olarak eksiksiz bölünme ve tuz temizleme doğruluğu üzerinden teyit edilmiştir. Kısmi (4) ve hatalı (6) 10 ürün için ayrıca üretici KÜB bilgileri incelenerek kök neden analizi yapılmıştır.
 - **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
 
 ---
@@ -32,15 +34,15 @@
 | 18 | 8699540570108 | ESPEKTAN ŞURUP, 100 ML | psödoefedrin hcl ve guafenazin | psodoefedrin, guafenazin | **Doğru** | Başarılı. |
 | 19 | 8699844693527 | Primefleks Laktatlı Ringer I.V. | Sodyum klorür, Sodyum laktat, Potasyum klorür, Kalsiyum klorür | sodyum klorur, sodyum laktat, potasyum klorur, kalsiyum klorur | **Doğru** | 4 elektrolit eksiksiz korunmuştur. |
 | 20 | 8680400770509 | CALCİOSEL ENJEKSİYONLUK ÇÖZELTİ | kalsiyum glukonat monohidrat, kalsiyum levulinat | kalsiyum glukonat, levulinat | **Kısmi** | İkinci bileşenin 'kalsiyum' kök kelimesi tuz regex'i nedeniyle düşmüş, 'levulinat' kalmıştır. |
-| 21 | 8680952510912 | OSTEOFLEX FILM TABLET | glukozamin sulfat, kondoitin sulfat, manganez, vit c, zerdecal | glukozamin, kondoitin, manganez, vit c, zerdecal | **Hatalı** | 'vit c' 4 harften kısa olduğu için virgül ayrıştırma kuralına takılmış, son 3 bileşen bölünememiştir. |
+| 21 | 8680952510912 | OSTEOFLEX FILM TABLET | glukozamin sulfat, kondoitin sulfat, manganez, vit c, zerdecal | `['glukozamin', 'kondoitin', 'manganez, vit c, zerdecal']` (3) | **Hatalı** | 'vit c' 4 harften kısa olduğu için virgül ayrıştırma kuralına takılmış, son 3 bileşen bölünemeyip tek blok kalmıştır. |
 | 22 | 8699828140054 | GYNOFERON DEPO DRAJE | demir ii sülfat, folik asit, mukoproteaz | demir ii, folik asit, mukoproteaz | **Doğru** | Başarılı 3'lü ayrıştırma. |
 | 23 | 8699525096043 | Zalepril Film Kaplı Tablet | Lerkanidipin hidroklorür, Enalapril maleat | lerkanidipin, enalapril | **Doğru** | Başarılı. |
 | 24 | 8680836323898 | TURKFLEKS %5 DEKSTROZ % 0,9 SODYUM | dekstroz anhidrat, sodyum klorür | dekstroz, sodyum klorur | **Doğru** | Başarılı. |
 | 25 | 8681144039044 | Bayduo Cold Flu Tablet | İbuprofen, Psödoefedrin hidroklorür | ibuprofen, psodoefedrin | **Doğru** | Başarılı. |
 | 26 | 8699606691914 | POLİFLEKS 60 MG/ML DEKSTRAN 70 | dekstran+sodyum klorür | dekstran, sodyum klorur | **Doğru** | Başarılı. |
 | 27 | 8680352000709 | Otify Kulak Damlası | Fenazon, Lidokain Hidroklorür | fenazon, lidokain | **Doğru** | Başarılı. |
-| 28 | 8699625960336 | PENTAXİM IM ENJEKSİYONLUK | difteri, tetanoz, boğmaca ve inaktif çocuk gelci (tip 1,2,3) ve hib | difteri, tetanoz, bogmaca, inaktif cocuk gelci, hib | **Kısmi** | 'gelci' yazımı normalizasyon motorunun hatası değil, TİTCK ham metnindeki orijinal veri giriş yazım hatasıdır. 5 bileşen grubu ayrılmıştır. |
-| 29 | 8699514094227 | POLIVIT C FİLM TABLET | vitamin B1, B2, B6, B12, vitamin C, kalsiyum d-pantotenat, nikotinamid, d-biotin, folik asit | vitamin b1, b2, b6, b12, vitamin c, d-pantotenat, nikotinamid, d-biotin, folik asit | **Hatalı** | 'B1, B2, B6, B12' virgülleri 4 harf kuralına takılmış, B vitaminleri tek blok kalmıştır. |
+| 28 | 8699625960336 | PENTAXİM IM ENJEKSİYONLUK | difteri, tetanoz, boğmaca ve inaktif çocuk gelci (tip 1,2,3) ve hib | `['difteri', 'tetanoz', 'bogmaca', 'inaktif cocuk gelci', 'hib']` | **Kısmi** | 'gelci' yazımı normalizasyon motorunun hatası değil, TİTCK ham metnindeki orijinal veri giriş yazım hatasıdır. 5 bileşen grubu ayrılmıştır. |
+| 29 | 8699514094227 | POLIVIT C FİLM TABLET | vitamin B1, B2, B6, B12, vitamin C, kalsiyum d-pantotenat, nikotinamid, d-biotin, folik asit | `['vitamin b1, b2, b6, b12, vitamin c', 'd-pantotenat', 'nikotinamid', 'd-biotin', 'folik asit']` (5) | **Hatalı** | 'B1, B2, B6, B12' 4 harften kısa olduğu için virgül kuralına takılmış, ilk 5 vitamin tek blok kalmıştır. |
 | 30 | 8680881023552 | MUCOVIT-C EFERVESAN TABLET | asetilsistein / askorbik asit | asetilsistein, askorbik asit | **Doğru** | `/` ayırıcısı başarıyla çalışmıştır. |
 | 31 | 8680881024320 | OSMEGA EFERVESAN TABLET | kalsiyum karbonat, vitamin d3 genistein | kalsiyum karbonat, vitamin d3 genistein | **Kısmi** | 'vitamin d3' ve 'genistein' arasında ayırıcı bulunmadığı için tek parça kalmıştır. |
 | 32 | 8699824010061 | BEDOXINAL TABLET | vitamin b1 in combination with vitamin b6 and/or vitamin b12 | vitamin b1 in combination with vitamin b6, or vitamin b12 | **Hatalı** | WHO kategori açıklaması İngilizce bağlaç kalıntısı içermektedir. |
@@ -74,7 +76,11 @@ Notebook 02 (`In[5]`: Bölüm 4) tarafından rastgele seçilen (`sample(n=50, ra
 - **Kısmi Başarılı (Ester/kök kaybı):** **4 ürün (%8.0)** *(Calciosel, Pentaxim, Osmega, Potasyum Fosfat)*
 - **Hatalı / Bölünemeyen Ayrıştırma:** **6 ürün (%12.0)** *(Benoral, Mon.Mibi, Osteoflex, Polivit C, Bedoxinal, Bitiron)*
 
-### 📌 Gerçek Doğruluk Oranı: **%80.0 (Tam Doğru) / %88.0 (Kısmi Başarılılar Dahil)**
+### 📌 Gerçek Doğruluk Oranı ve Wilson Güven Aralıkları (n=50):
+
+- **Tam Başarılı Ayrıştırma (40/50):** **%80.0** (%95 Wilson Güven Aralığı: **%67.0 – %88.8**)
+- **Kısmi Başarılılar Dahil (44/50):** **%88.0** (%95 Wilson Güven Aralığı: **%76.2 – %94.4**)
+> *(Not: Kapsam dışı 4 B05 elektrolit solüsyonu hariç tutulduğunda klinik portföy başarısı: 36/46 = **%78.3** [%64.4 – %87.7] Tam Doğru; 40/46 = **%87.0** [%74.3 – %93.9] Kısmi Dahildir).*
 
 ---
 
@@ -85,14 +91,14 @@ Notebook 02 (`In[5]`: Bölüm 4) tarafından rastgele seçilen (`sample(n=50, ra
    - **TİTCK Kaynak Açıklamaları:** Bazı ürünlerde etken madde yerine doğrudan WHO ATC İngilizce açıklaması girilmiştir (`BENORAL`, `BEDOXINAL`, `BITIRON`).
    - **Kompleks Kimyasal Yapılar:** `tetrakis bakir (i) ve tetrafloroborat` gibi tekil moleküler kompleksler 've' bağlacı nedeniyle yanlışlıkla bölünmektedir (`MON.MIBI`).
 2. **Projeye Etkisi ve Çözüm (Yol D):**
-   - Saf regex motorunun kombine ürünlerdeki gerçek doğruluğu **%80.0 - %82.0** seviyesindedir. Daha önce tek bileşenli ürünler eklenerek raporlanan yapay %96 oranı gerçekçi değildir.
+   - Saf regex motorunun kombine ürünlerdeki gerçek doğruluğu **40/50 (%80.0 Tam Doğru)** ve **44/50 (%88.0 Kısmi Başarılılar Dahil)** seviyesindedir. Daha önce anılan ~%96 genel portföy oranı, ayrıştırma gerektirmeyen 19.406 tek bileşenli ürünün toplama dahil edilmesinden kaynaklanan yapay bir ortalamadır; kombine ürünlerin kendi içindeki net başarısı %80.0'dır.
    - Bu %18 - %20'lik uç vaka ve karmaşık bileşenler Adım 3'teki otomatik Yol A/B kurallarına girmemekte; Kişi C'nin yürüttüğü **Yol D (Elle Eşleme)** taslağına (`data/interim/ruhsatli_esleme_taslagi.csv`) aktarılarak insan denetimiyle güvenli biçimde çözülmektedir.
 
 ---
 
-## 4. Kişi C Bağımsız Denetim ve Doğrulama Mutabakatı
+## 4. Kişi C Ortak İnceleme ve Doğrulama Mutabakatı
 
-Kişi C tarafından gerçekleştirilen 50 barkodluk tam klinik ve teknik denetim sonucunda:
+Kişi C tarafından gerçekleştirilen 50 barkodluk klinik ve algoritmik ortak denetim sonucunda:
 1. **Barkod ve Çıktı Bütünlüğü:** 50 barkodun tamamı yerel `urun.csv` ve `urun_etken.csv` üzerinde taranmış; sıralama ve bileşen listelerinin Notebook 02 kayıtlı çıktılarıyla %100 örtüştüğü doğrulanmıştır.
 2. **OFNOL FRESH Politika Kararı:** Pipeline genelindeki `tuz_at` standart kuralımız (karşı iyonların atılarak etken kökün serbest bırakılması; örneğin setilpiridinyum klorür → setilpiridinyum gibi) ve DDInter molekül arama mantığı doğrultusunda sodyumun temizlenmesi standart işlem kabul edilerek **"Tam Başarılı"** statüsünde tutulmuştur. Böylece net başarı oranı **40/50 (%80.0)** olarak tescil edilmiştir. (Tuz kimliğinin korunması şart koşulsaydı dahi kısmi kabul edilecek olup, toplam başarı oranı her iki durumda da %88.0'dır).
 3. **PENTAXİM Tespiti:** Ham alandaki `gelci` yazımının normalizasyon motorunun hatası olmadığı, TİTCK kaynak listesindeki orijinal veri giriş yazım hatası olduğu teyit edilmiştir.

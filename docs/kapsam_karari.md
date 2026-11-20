@@ -36,9 +36,9 @@ Bu doküman, DDI karar destek sisteminin hedef kitlesini netleştirmek amacıyla
 
 ---
 
-## 3. Şartname Kriterleri ve "%70 Kapsama Hedefi" Hakkında Ortak Karar (Kişi A, B, C Mutabakatı)
+## 3. Şartname Kriterleri ve "%70 Kapsama Hedefi" Hakkında Ortak Not (Toplantı Hazırlığı)
 
-1. **Şartname Değerlendirmesi:** Disiplinlerarası Proje Şartname PDF'inde ve ikinci hafta çalışma planında "%70 kapsama hedefi" şeklinde katı bir sayısal baraj yer almamaktadır. Şartname gereksinimleri; veri bütünlüğü, etken madde ayrıştırma tutarlılığı ve klinik karar destek çıktılarının izlenebilirliği üzerine kuruludur.
-2. **Literatür Eşiği ve Gerçek Kapsama:** Kişi B'nin EDA raporunda anılan %70 oranı, ilaç etkileşim veri tabanları literatüründeki genel kabul görmüş fiili bir referans değerdir.
-3. **Mevcut Sistem Başarısı:** Sistemimiz Kişi A'nın Kural 8 çözümleri, Kişi B'nin eşleştirme boru hattı ve Kişi C'nin Yol D (Elle Eşleme) doğrulamaları sayesinde Türkiye portföyünde **%80,6 genel kapsama (en az bir bileşeni çözülen ürün oranı)** ve **%75,1 tam kapsama (sıfır kayıpla tüm bileşenleri çözülen ürün oranı)** düzeyine ulaşmıştır.
-4. **Ortak Karar:** Toplantı ve danışman değerlendirmelerinde bu oran bir şartname açığı değil; projenin literatür eşiğinin üzerine çıktığının somut bir başarı kanıtı olarak sunulacaktır.
+1. **Şartname Değerlendirmesi:** Disiplinlerarası Proje Şartname PDF'inde ve ikinci hafta çalışma planında sayısal bir "%70 kapsama hedefi" barajı yer almamaktadır.
+2. **Hedefin Kaynağı:** Açık Sorular Tutanağında (`docs/acik_sorular.md`, Madde 6) belirtildiği üzere; İP11 taslağında yer alan bu oranın dayanağı ve literatür kaynağı yapılacak ekip toplantısında ilk yazan kişi olan Kişi C tarafından açıklanacaktır.
+3. **Mevcut Sistem Başarısı:** Sistemimiz Kişi A'nın Kural 8 çözümleri, Kişi B'nin eşleştirme hattı ve Kişi C'nin Yol D doğrulamaları ile `docs/eda_raporu_b.md` (Grafik E10) verilerine göre kapsam içi ürünlerde **%80,6 genel kapsama** (18.066 / 22.417) ve sıfır kayıpla **%75,1 tam kapsama** (16.841 / 22.417) düzeyine ulaşmıştır.
+4. **Ortak Tutum:** Toplantıda danışman hocaya bu durum bir şartname açığı değil; ekibin iç operasyonel hedefinin (%75,1 tam kapsama ile) üzerine çıkıldığının nesnel bir göstergesi olarak birlikte sunulacaktır.
