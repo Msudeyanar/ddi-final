@@ -287,13 +287,15 @@ Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** n
 
 #### Tablo 18: DDInter Ağ Derece Dağılım Metrikleri
 
+Kaynak [Notebook 04, ağ özeti hücresi `15b08f7b`](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=15b08f7b). Yerel `etkilesim.csv` dosyasında her çift iki uçtan sayıldı ve ilaç başına benzersiz eş sayısı hesaplandı.
+
 | Metrik | Değer | Klinik / Ağ Anlamı |
 |:---|---:|:---|
 | **Toplam Tekil İlaç Sayısı** | 1,939 | DDInter veritabanında en az 1 etkileşime sahip molekül sayısı |
 | **Ortalama Derece (Eş Sayısı)** | 165.28 | Bir ilacın ortalama etkileştiği farklı ilaç sayısı |
 | **Medyan Derece** | 125.00 | Dağılımın orta noktası (%50'si 125'ten fazla, %50'si az eşe sahip) |
 | **Maksimum Derece** | 910 | Dexamethasone (`DDInter513`) — Sistemdeki en yoğun etkileşen merkez hub |
-| **Minimum Derece** | 1 | Yalnızca 1 etkileşimi bulunan dar spektrumlu moleküller (18 ilaç) |
+| **Minimum Derece** | 1 | Yerel tabloda 61 ilacın bir farklı eşi var |
 | **Az Etkileşen İlaç Sayısı (Derece < 10)** | 74 | Model için fiilen "cold-start / yeni ilaç" riski taşıyanlar |
 
 #### 📌 Grafik D03 Metodolojik ve Analitik Değerlendirmesi:
