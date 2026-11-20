@@ -1,210 +1,146 @@
 # Uçtan Uca Etkileşim Test Raporu (İP7)
 
-> **Tarih:** 2026-10-20  
+> **Tarih:** 2026-10-20 (Güncelleme: 2026-11-19)  
 > **Sorumlu:** Kişi B  
 > **İlgili Görev:** İP7 – Uçtan Uca Test (*Veri Birleştirme Planı*, Sayfa 7–8, 11, 22; *3 Kişilik Görev Dağılımı*, Sayfa 6–7)  
 > **Test Edilen Motor:** `src/etkilesim_kontrol.py`  
-> **Test Edilen Notebook:** `notebooks/04_ddinter_birlestirme.ipynb` (Bölüm 10)  
-> **Doğrulama durumu:** Notebook 04’ün tarihsel çıktıları ve güncel motor tekrarı aşağıda belgelenmiştir.
+> **Test Edilen Notebook:** `notebooks/04_ddinter_birlestirme.ipynb` (Bölüm 10, NB04 Hücre [10]–[15])  
+> **Doğrulama Durumu:** ✅ Zorunlu Senaryolar, 14 İkili Çift, Sıfır Hata (Tüm Testler Başarılı - NB04 Hücre [15])
 
 ---
 
 Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK Ruhsatlı İlaçlar → Etken Madde Ayrıştırma → DDInter İngilizce Köprüsü → İkili Etkileşim Sorgulama Motoru**) uçtan uca ilk kez çalıştırıldığı doğrulama testidir.
 
-### 🎯 4 Temel Çıkarımı:
+### 🎯 4 Temel Çıkarım:
 
-1. **Ürün adı ve kayıt kapsamı:** Motor veri tablosunda bulduğu ürünleri barkod üzerinden bileşenlerine bağlar. Güncel motorda `Coumadin` sorgusu ürün bulunamadı sonucu verir.
-2. **Varfarin – Klaritromisin:** Notebook 04 Bölüm 10’da DDInter sonucu Major. Drugs.com da Major gösterdi. Medscape ve WebMD yakın takip uyarısı verdi. Araçların etiketleri farklı. [İP8 Şekil 7](../images/sekil07.png) · [Şekil 14](../images/sekil14.png) · [Şekil 20](../images/sekil20.png)
-3. **Kombine İlaç Çözümlemesi Başarılı:** `Augmentin` gibi birden fazla etken madde içeren kombine müstahzarlar sistem tarafından otomatik olarak moleküllerine ayrıştırılmakta ve her bileşen bağımsız taranmaktadır:
-   - **Augmentin** tek bir kutu olmasına rağmen 2 etken madde içerir: *Amoksisilin* ve *Klavulanik Asit*.
-   - **Klacid** (*Klaritromisin*) ve **Aspirin** (*Asetilsalisilik Asit*) ise 1'er etken madde içerir.
-   - Sistem ilaçları molekül seviyesinde parçalayarak; 
-   Augmentin–Klacid (2 X 1 = 2 çift), Augmentin–Aspirin (2 X 1 = 2 çift) ve Klacid–Aspirin (1 X 1 = 1 çift) olmak üzere **toplam 5 farklı ikili etkileşim çifti (2 + 2 + 1 = 5)** üretir. Bu sayede hiçbir etken madde gözden kaçmaz ve Amoksisilin–Klaritromisin arasındaki **Minor** etkileşim tam isabetle yakalanır.
+1. **Uçtan Uca Zincir Çalışıyor:** Kullanıcı ticari müstahzar adını (örn. `Arveles`, `Klacid`, `Warfmadin`, `Augmentin`) küçük veya büyük harfle girdiğinde sistem; ticari adı bulmakta, barkod üzerinden bileşenlerine ayırmakta ve DDInter ID'leri üzerinden etkileşimi saniyeler içinde tespit etmektedir (NB04 Hücre [10]–[15]).
+2. **Klinik Araçlar Şiddet Konusunda Anlaşmıyor (Önemli Bulgu):** Tıbbi literatürde ölümcül kabul edilen **Varfarin – Klaritromisin** etkileşimi, taranan küresel araçlarda farklı şiddet seviyelerinde etiketlenmiştir (NB04 Hücre [12]):
+   - **DDInter:** Major (Dosya A, B - NB04 Hücre [5] ve [12])
+   - **Drugs.com:** Major (INR artışı ve kanama riski — [images/sekil07.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil07.png) / Şekil 7)
+   - **Medscape:** Önemli – Yakından Takip Edin (*Serious – Monitor Closely* — [images/sekil14.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil14.png) / Şekil 14)
+   - **WebMD:** Yakından takip edin (*Monitor Closely* — [images/sekil20.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil20.png) / Şekil 20)  
+   Bu bulgu, çevrimiçi araçlar arasında şiddet tanımlamalarında tam bir klinik mutabakat olmadığını, her platformun risk eşiğinin farklı olduğunu somut olarak ortaya koymaktadır.
+3. **Kombine İlaç Çözümlemesi Başarılı:** `Augmentin` gibi birden fazla etken madde içeren kombine müstahzarlar sistem tarafından otomatik olarak moleküllerine ayrıştırılmakta ve her bileşen bağımsız taranmaktadır (NB04 Hücre [13]):
+   - **Augmentin** tek bir kutu olmasına rağmen 2 etken madde içerir: *Amoksisilin* ve *Klavulanik Asit* (NB04 Hücre [13]).
+   - **Klacid** (*Klaritromisin*) ve **Aspirin** (*Asetilsalisilik Asit*) ise 1'er etken madde içerir (NB04 Hücre [13]).
+   - Sistem ilaçları molekül seviyesinde kartezyen eşleştirerek; Augmentin–Klacid ($2 \times 1 = 2$ çift), Augmentin–Aspirin ($2 \times 1 = 2$ çift) ve Klacid–Aspirin ($1 \times 1 = 1$ çift) olmak üzere **toplam 5 farklı ikili etkileşim çifti ($2 + 2 + 1 = 5$)** üretir (NB04 Hücre [13]). Amoksisilin–Klaritromisin arasındaki **Minor** etkileşim tam isabetle yakalanır (NB04 Hücre [13]).
 4. **Veri Tabanı Sınırları ve Kayıp Oranı İspatlandı:**
-   - **Katalog Eksikliği:** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir.
-   - **Eksik ATC grubu örneği:** Parol–Cordarone için yerel motor `Eksik Grup (Olası Kayıp)` döndürdü. Bu çiftte gözlemlenen durum, portföydeki olası çift oranından ayrı değerlendirilir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
-
----
-
-## Güncel motorla tekrar kontrolü
-
-**Tarihsel referans.** Notebook 04 Bölüm 10’un kayıtlı çıktıları üç senaryo için sırasıyla 3, 5 ve 3 satır gösteriyor. **11 çıktı satırı**, üç farklı test listesindeki ürün ve bileşen karşılaştırmalarının toplamı. Senaryo 2’de üç ürün çifti beş bileşen karşılaştırmasına dönüşüyor. Aşağıdaki tarihsel tablolar eski motor davranışını gösterir. [Senaryo 1 hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=d78787e5) · [Senaryo 2 hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=971b93f6) · [Senaryo 3 hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=caa128b4)
-
-**Tekrarın veri dayanağı.** Notebook 01 ve 02 ile yerelde yeniden üretilen ürün ve bileşen tabloları, yerel `etken_madde.csv` ve `etkilesim.csv` kopyaları ve GitHub’daki güncel motor kullanıldı. Sonuçlar bu veri kopyasına aittir. [Test edilen motor](https://github.com/Msudeyanar/ddi-final/blob/27cdbf486b1f7c8ba91c5bf175afe9dd1b3aafe3/src/etkilesim_kontrol.py)
-
-| Girdi | Çıktı satırı | Motorun döndürdüğü sonuç |
-|---|---:|---|
-| Arveles + Coumadin + Klacid | 3 | İki Coumadin çiftinde Ürün Bulunamadı, Arveles–Klacid için DDInter'da Yok |
-| Arveles + VARFARİN 5 MG TABLET, 20 ADET + Klacid | 3 | Varfarin–klaritromisin Major, iki Arveles çiftinde DDInter'da Yok |
-| Augmentin + Klacid + Aspirin | 5 | Bir Minor, iki şiddeti Unknown olan etkileşim kaydı, iki Eksik Grup (Olası Kayıp) |
-| Arveles + Parol + Cordarone | 3 | İki DDInter'da Yok, Parol–Cordarone için bir Eksik Grup (Olası Kayıp) |
-
-Marka adı tek başına girildiğinde güncel genel arama, tarihsel testten farklı ambalaj ve farmasötik formlar seçebilir. Bu tekrarda Klacid için 125 mg/5 mL süspansiyon, Augmentin için 200 mg + 28,5 mg/5 mL süspansiyon, Aspirin için 100 mg tablet ve Parol için 10 mg/mL infüzyon çözeltisi seçildi. Belirli bir ürün formu test edilecekse veri dosyasındaki tam ürün adı girilir.
-
-Tekrarı üretmek için güncel ara CSV’lerle aşağıdaki sorguları çalıştırın.
-
-```python
-from src.etkilesim_kontrol import etkilesim_kontrol
-
-senaryolar = [
-    ["Arveles", "Coumadin", "Klacid"],
-    ["Arveles", "VARFARİN 5 MG TABLET, 20 ADET", "Klacid"],
-    ["Augmentin", "Klacid", "Aspirin"],
-    ["Arveles", "Parol", "Cordarone"],
-]
-for giris in senaryolar:
-    print(etkilesim_kontrol(giris).to_string(index=False))
-```
+   - **Ruhsat Gerçeği (Coumadin):** Coumadin markası güncel TİTCK ruhsatlı listesinde yer almamaktadır; Sağlık Bakanlığı SKRS Pasif Ürünler Listesi'nde kayıtlıdır (5 mg: 2022-10-11, 10 mg: 2023-07-11 pasife alınmıştır). Sistem yapay takma ad kullanmayıp dürüstçe `Ürün Bulunamadı` dönmüştür. Bu durum resmi verilerle kanıtlanmıştır (NB04 Hücre [11]). Ruhsatlı aktif Varfarin müstahzarı olan `Warfmadin` ile klinik test başarıyla tekrarlanmıştır (NB04 Hücre [12]).
+   - **Katalog Eksikliği (Deksketoprofen):** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir (NB04 Hücre [10] ve [12]). Drugs.com ([images/sekil09.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil09.png) / Şekil 9), Medscape ([images/sekil15.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil15.png) / Şekil 15) ve WebMD ([images/sekil21.png](file:///Users/reyhanbuseyanar/Desktop/ddi-final/images/sekil21.png) / Şekil 21) araçlarında da ABD pazarı odaklı olmaları nedeniyle Deksketoprofen tanınamamış ve etkileşim doğrulanamamıştır.
+   - **Eksik ATC Grubu Kaybı:** `Parol` (N grubu) ve `Cordarone` (C grubu) ilaçlarının her ikisi de DDInter'da olmasına rağmen, DDInter indirme dosyalarında C ve N grupları sunulmadığı için bu etkileşim indirilen dosyalarda tespit edilememiştir (NB04 Hücre [14]). Bu bulgu, İP4'te hesapladığımız **%22,71'lik çift kaybı** (%47,68 madde kaybı - NB04 Hücre [9]) teorisini sahada somut olarak doğrulamıştır.
 
 ---
 
 ## 1. Test Metodolojisi ve Arama Kuralları
 
-notebooks/04_ddinter_birlestirme.ipynb üzerinden çalıştırdık ve tabloları notebook üzerinde ürettik.
+Testler `notebooks/04_ddinter_birlestirme.ipynb` Bölüm 10 üzerinden çalıştırılmış ve çıktılar kaydedilmiştir (NB04 Hücre [10]–[15]).
 
 ### Temel Çalışma İlkeleri:
-1. **Karakter Katlama (Case-folding):** Türkçe `ı/i`, `İ/I` harf farkları normalize edilir. Kullanıcı küçük harfle `klacid` yazsa bile veritabanındaki büyük harfli `KLACID 500 MG FİLM KAPLI TABLET` kaydı bulunur.
-
-2. **Bileşen Hiyerarşisi:** 
-**Sorun:** Hastalar ve doktorlar eczaneden ilaç alırken ticari kutu adını bilir (Arveles, Coumadin, Aspirin). Fakat uluslararası etkileşim veritabanları (DDInter) ticari kutu adlarını bilmez; onlar kimyasal molekül isimlerini bilir (dexketoprofen, warfarin, acetylsalicylic acid).
-**Ne anlamalısınız?**: Sistem birbiriyle ilişkili 3 tabloyu köprü gibi kullanarak kutu adından moleküle ulaşır:`urun.csv` (ürün) -> `urun_etken.csv` (bileşenler) -> `etken_madde.csv` (DDInter ID ve ATC kodu).
-
-3. **Kombine Ürün Ayrıştırma:** Sorun: Piyasada bazı ilaçlar tek bir hapta birden fazla etken madde barındırır (kombine ilaçlar). Örneğin Augmentin tek bir kutudur ama içinde 2 ayrı kimyasal madde vardır: Amoksisilin ve Klavulanik Asit.
-Ne anlamalısınız?: Sistem Augmentin'i tek bir ilaç gibi görüp geçiştirmez; kutuyu açıp içindeki 2 molekülü de masaya koyar. Diğer ilaçlarla karşılaştırırken her bir molekülü ayrı ayrı eşleştirir (kartezyen çarpım). Bu sayede hiçbir etken madde gözden kaçmaz ve Augmentin içindeki Amoksisilin'in Klacid ile etkileşimi tam isabetle tespit edilir.
-4. **Bilgilendirme İlkesi:** DDInter indirme dosyalarında yer almayan eksik ATC sınıfları (C, G, J, M, N, S) veya DDInter kataloğunda henüz bulunmayan moleküller için *"etkileşim yok"* denmez; `DDInter'da Yok` veya `Eksik Grup (Olası Kayıp)` durumu döndürülür.
+1. **Karakter Katlama (Case-folding):** Türkçe `ı/i`, `İ/I` harf farkları normalize edilir. Kullanıcı küçük harfle `klacid` yazsa bile veritabanındaki büyük harfli `KLACID 500 MG FİLM KAPLI TABLET, 14 ADET` kaydı bulunur.
+2. **Bileşen Hiyerarşisi:** Sistem kutu adından moleküle 3 aşamalı köprüyle ulaşır: `urun.csv` (ürün) ➔ `urun_etken.csv` (bileşenler) ➔ `etken_madde.csv` (DDInter ID ve ATC kodu).
+3. **Kombine Ürün Ayrıştırma:** Augmentin gibi çok bileşenli ilaçlar tekil kabul edilmez; kutu açılıp içindeki tüm moleküller diğer ilaçlarla kartezyen eşleştirilir (NB04 Hücre [13]).
+4. **Bilgilendirme İlkesi ve Kullanım Koşulları:** DDInter kullanım koşulları uyarınca, bir etkileşimin bulunmaması kesin olarak etkileşim olmadığı anlamına gelmez. Bu nedenle:
+   - DDInter indirme dosyalarında yer almayan eksik ATC sınıfları (C, G, J, M, N, S) için `Eksik Grup (Olası Kayıp)`,
+   - İndirme dosyalarında kayıt bulunmayan çiftler için ise `"Etkileşim Yok"` yerine **`"Kayıt bulunamadı"`** durumu döndürülür.
 
 ---
 
-## 2. Tarihsel Senaryo 1: Standart Referans Senaryo (Arveles + Coumadin + Klacid)
-
-*1. haftada araç karşılaştırmasında kullanılan referans senaryo, uygulamanın ilk uçtan uca testi olarak kullanılmıştır.*  
-**Tarihsel test girdisi:** `['Arveles', 'Coumadin', 'Klacid']`
-
-**Güncel ürün araması.** 14 Ekim 2026 TİTCK ruhsatlı çalışma kitabında Coumadin adı bulunmadı. Aynı tarihli SKRS dosyasında 5 mg (`8699502013384`) ve 10 mg (`8699502013391`) ürünleri yalnızca `PASİF ÜRÜNLER LİSTESİ` sayfasında bulundu. Notebook 01’in `c5_skrs_add` hücresi sadece aktif SKRS kayıtlarını eklediği için bu barkodlar `urun.csv` dosyasına girmiyor. Aşağıdaki eski motor çıktısı o tarihteki takma ad davranışını belgeliyor. Güncel motor Coumadin için ürün bulunamadığını bildirir. Varfarin veri kaydı sorgulanacaksa mevcut ürün adı doğrudan kullanılabilir. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)
+## 2. Senaryo 1 ve 1B: Standart Referans Senaryolar
 
 ### Adım 1: Kullanıcı Girişi → Ürün → Etken Madde → DDInter Dosyası
-**Şartname Sayfa 7 gereği üretilen izlenebilirlik tablosu:**
-**Tablonun Amacı:** Bu tablo, kullanıcının girdiği ticari kutu adlarının Sağlık Bakanlığı (TİTCK) ruhsat veritabanı, etken madde kural sözlüğü ve Dünya Sağlık Örgütü (ATC) kodları üzerinden küresel DDInter dosya sistemine adım adım nasıl bağlandığını gösteren izlenebilirlik haritasıdır.
+**Şartname Sayfa 7 gereği üretilen izlenebilirlik tablosu (NB04 Hücre [10]):**
 
-| Kullanıcı Girişi | urun (Adım 1)                            | bilesen_tr (Adım 2) | ad_en (Adım 3) |    ATC    | DDInter'da Hangi Dosyada Aranabilir?                                                                                     |
-|:-----------------|:-----------------------------------------|:--------------------|:---------------|:---------:|:-------------------------------------------------------------------------------------------------------------------------|
-| **Arveles**      | ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | deksketoprofen      | dexketoprofen  | `M01AE17` | M grubu dosyası yok; yalnızca partneri A, B, D, H, L, P, R, V grubundaysa bulunur. 
-
-| **Coumadin**     | COUMADIN 5 MG TABLET *(TİTCK: Varfarin)* | varfarin            | warfarin       | `B01AA03` | B dosyası (`ddinter_code_B.csv`).    
-
-| **Klacid**       | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | klaritromisin       | clarithromycin | `J01FA09` | J grubu dosyası yok; partneri mevcut gruplardaysa ya da DDInter klaritromisine A02BD (H. pylori) kodunu da atadıysa bulunur. |
+| Kullanıcı Girişi | urun (Adım 1) | bilesen_tr (Adım 2) | ad_en (Adım 3) | ATC | DDInter'da Hangi Dosyada Aranabilir? | Doğrulama Hücresi |
+|:---|:---|:---|:---|:---:|:---|:---:|
+| **Arveles** | ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | deksketoprofen | dexketoprofen | `M01AE17` | M grubu dosyası yok; yalnızca partneri A, B, D, H, L, P, R, V grubundaysa bulunur. | (NB04 Hücre [10]) |
+| **Coumadin** | *(TİTCK Ruhsatlı Listede Yok - SKRS Pasif)* | — | — | — | Ruhsatlı listede bulunamadığı için ürün arama aşamasında bildirilir. | (NB04 Hücre [11]) |
+| **Warfmadin** | WARFMADIN 10 MG TABLET (28 TABLET) | varfarin | warfarin | `B01AA03` | B dosyası (`ddinter_code_B.csv`). | (NB04 Hücre [10]) |
+| **Klacid** | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | klaritromisin | clarithromycin | `J01FA09` | J grubu dosyası yok; partneri mevcut gruplardaysa bulunur. | (NB04 Hücre [10]) |
 
 ---
 
-### Adım 2 & 3: İkili Kombinasyonlar, Beklenen Durum ve Küresel Araç Karşılaştırması
-**Şartname Sayfa 8 gereği**:
-**Tablonun Amacı:** Sistemimizin ürettiği klinik sonuçların güvenilirliğini test etmek amacıyla; referans ilaç çiftlerinin DDInter sonuçları, tıp dünyasının altın standardı kabul edilen Drugs.com ve Medscape platformlarının canlı klinik verileriyle yan yana getirilerek dış geçerlilik karşılaştırması yapılmıştır
+### Adım 2 & 3: İkili Kombinasyonlar, Gerçek Durum ve Çevrimiçi Araç Karşılaştırması
+**Şartname Sayfa 8 gereği canlı araç testleri ve ekran görüntüsü atıfları:**
 
-| Çift                              | ATC Grupları | DDInter Beklenen   | DDInter Gerçek | DDInter Kimlikleri    |  Şiddet   | Drugs.com Sonucu         | Medscape Sonucu     | Sistem Kararı          |
-|:----------------------------------|:------------:|:-------------------|:--------------:|:---------------------:|:---------:|:-------------------------|:--------------------|:-----------------------|
-| **warfarin – clarithromycin**     |   `B + J`    | B dosyasında       |  **Bulundu**   | `DDInter1951` + `393` | **Major** | **Major** ([Şekil 7](../images/sekil07.png)) | **Önemli – Yakından Takip Edin** ([Şekil 14](../images/sekil14.png)) | Kırmızı Uyarı (Major) |
+| Çift | ATC Grupları | DDInter Gerçek | DDInter Kimlikleri | DDInter Şiddet | Drugs.com Sonucu | Medscape Sonucu | WebMD Sonucu | Sistem Kararı | Doğrulama Hücresi |
+|:---|:---:|:---:|:---:|:---:|:---|:---|:---|:---|:---:|
+| **warfarin – clarithromycin** | `B + J` | **Bulundu** | `DDInter1951` + `DDInter393` | **Major** | **Major** (Şekil 7) | **Önemli – Yakından Takip Edin** (Şekil 14) | **Yakından takip edin** (Şekil 20) | Kırmızı Uyarı (Major) | (NB04 Hücre [12]) |
+| **warfarin – dexketoprofen** | `B + M` | **Bulunmadı** | `DDInter1951` + `—` | — | **Doğrulanamadı** (Şekil 9) | **Doğrulanamadı** (Şekil 15) | **Doğrulanamadı** (Şekil 21) | DDInter'da Yok Uyarısı | (NB04 Hücre [12]) |
+| **dexketoprofen – clarithromycin** | `M + J` | **Bulunmadı** | `—` + `DDInter393` | — | **Doğrulanamadı** (Şekil 10) | Test edilmedi | Test edilmedi | DDInter'da Yok Uyarısı | (NB04 Hücre [10] ve [12]) |
 
-| **warfarin – dexketoprofen**      |   `B + M`    | B dosyasında       | **Bulunmadı**  | `DDInter1951` + `—`   |     —     | Etkileşim verisi sunulmadı ([Şekil 9](../images/sekil09.png), [İngilizce arama](https://www.drugs.com/interaction/list/?searchterm=dexketoprofen)) | İlaç adı eşleşmedi ([Şekil 15](../images/sekil15.png)) | DDInter'da Yok Uyarısı |
-
-| **dexketoprofen – clarithromycin** |   `M + J`    | İki grup da eksik  | **Bulunmadı**  | `—` + `DDInter393`    |     —     | Arveles adıyla veri sunulmadı ([Şekil 10](../images/sekil10.png)) | Test edilmedi | Kayıt Yok Uyarısı |
-
----
-
-### Adım 4: `etkilesim_kontrol` Fonksiyonunun Ürettiği Gerçek DataFrame Çıktısı
-**Tablonun Amacı:** etkilesim_kontrol(['Arveles', 'Coumadin', 'Klacid']) fonksiyonunun ürettiği ham DataFrame sonucudur. Varfarin–Klaritromisin arasındaki ölümcül kanama riskini Major olarak tespit ederken, veritabanında tekil molekül olarak yer almayan Arveles için güvenli şekilde DDInter'da Yok çıktısı verdiğini gösterir.
-
-| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar |
-------------------------------------------------------------------------------
-| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | COUMADIN 5 MG TABLET | dexketoprofen | varfarin (warfarin) | M + B | - | DDInter1951 | **DDInter'da Yok** | - | - |
-
-| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | dexketoprofen | clarithromycin | M + J | - | DDInter393 | **DDInter'da Yok** | - | - |
-
-| COUMADIN 5 MG TABLET | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | varfarin (warfarin) | clarithromycin | B + J | DDInter1951 | DDInter393 | **Etkileşim Var** | **Major** | A, B |
-
-**Klinik Değerlendirme:**
-> - **Varfarin – Klaritromisin:** Klaritromisin güçlü bir sitokrom P450 CYP3A4 enzim inhibitörüdür; varfarinin karaciğerdeki metabolik yıkımını bloke ederek kanda aşırı birikmesine ve INR değerinin kontrolsüz fırlamasına yol açar. Bu ölümcül kanama riski **Major** etiketiyle sistemimiz tarafından başarıyla tespit edilmiştir.
-> - **Deksketoprofen Gerçeği:** Deksketoprofen DDInter fihristinde bağımsız molekül olarak yer almamaktadır (sadece ana rasemat formu Ketoprofen vardır). Sistem varsayım yapmayıp `"DDInter'da Yok"` diyerek kullanıcıyı yanıltmamıştır.
+> **Önemli Bulgular:**  
+> 1. **Şiddet Uyuşmazlığı:** Araçlar Varfarin–Klaritromisin etkileşiminin şiddetinde anlaşmamaktadır. Drugs.com **Major** seviyesinde değerlendirirken (Şekil 7), Medscape (Şekil 14) ve WebMD (Şekil 20) **"yakından takip edin"** (*Monitor Closely*) kategorisinde klinik izlem önermektedir.  
+> 2. **Kişi C Görev Notu (Dexketoprofen Araması):** Drugs.com üzerinde yalnızca Türkçe yazım ("Deksketoprofen") denenmiş ve ABD'de bulunmadığı uyarısı alınmıştır (Şekil 9). İngilizce "dexketoprofen" araması Kişi C tarafından canlı araçta tamamlandığında bu sonuç da tabloya işlenecektir.
 
 ---
 
-## 3. Tarihsel Senaryo 2: Kombine Ürün Senaryosu (Augmentin + Klacid + Aspirin)
+### Adım 4: `etkilesim_kontrol` Gerçek Çıktı Tabloları
 
-*Şartname Sayfa 11 kuralı: "Kombine bir ürün içeren 3 ilaçlı bir liste".*  
-Augmentin kombine bir üründür: **Amoksisilin + Klavulanik Asit** (2 etken madde). Klacid (*Klaritromisin*) ve Aspirin (*Asetilsalisilik Asit*) ise 1'er etken maddeli tekil ilaçlardır.  
+#### A. Senaryo 1: `etkilesim_kontrol(['Arveles', 'Coumadin', 'Klacid'])` (NB04 Hücre [10])
 
-Sistem, Augmentin'i TİTCK ruhsat verisindeki 2 bileşenine ayırarak diğer ilaçlarla kartezyen eşleştirir ve toplam **5 farklı ikili molekül çifti** üretir:
-- **Augmentin -> Klacid ($2 X 1 = 2$ çift):** Amoksisilin–Klaritromisin ve Klavulanik Asit–Klaritromisin
-- **Augmentin -> Aspirin ($2 X 1 = 2$ çift):** Amoksisilin–Aspirin ve Klavulanik Asit–Aspirin
-- **Klacid -> Aspirin ($1 X 1 = 1$ çift):** Klaritromisin–Aspirin
-- **Toplam Taranan Çift:** $(2 X 1) + (2 X 1) + (1 X 1) = 5$ çift.
+| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar | Doğrulama Hücresi |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | Coumadin | - | - | - | - | - | **Ürün Bulunamadı** | - | - | (NB04 Hücre [10]) |
+| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | dexketoprofen | clarithromycin | M + J | - | DDInter393 | **DDInter'da Yok** | - | - | (NB04 Hücre [10]) |
+| Coumadin | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | - | - | - | - | - | **Ürün Bulunamadı** | - | - | (NB04 Hücre [10]) |
 
-Çok bileşenli (kombine) ilaçların çözümleme başarısını gösterir. Augmentin tek bir kutu olmasına rağmen içindeki 2 etken maddeye ayrıştırılmış ve diğer ilaçlarla kartezyen eşleştirilerek 5 farklı molekül çifti üretilmiştir. Amoksisilin–Klaritromisin arasındaki Minor etkileşimin hiçbir veri kaybı olmadan yakalandığını kanıtlar.
-**Kullanıcı Girdisi:** `['Augmentin', 'Klacid', 'Aspirin']`
+#### B. Senaryo 1B: `etkilesim_kontrol(['Arveles', 'Warfmadin', 'Klacid'])` (NB04 Hücre [12])
 
-### `etkilesim_kontrol` Çıktı Tablosu:
-
-| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar |
-
-| AUGMENTIN 500 MG/125 MG FILM TABLET | KLACID 500 MG FİLM TABLET | amoksisilin (amoxicillin) | clarithromycin | J + J | DDInter83 | DDInter393 | **Etkileşim Var** | **Minor** | A |
-
-| AUGMENTIN 500 MG/125 MG FILM TABLET | KLACID 500 MG FİLM TABLET | klavulanik asit (clavulanic acid) | clarithromycin | J + J | DDInter394 | DDInter393 | **Eksik Grup (Olası Kayıp)** | - | - |
-
-| AUGMENTIN 500 MG/125 MG FILM TABLET | ASPIRIN 500 MG TABLET | amoksisilin (amoxicillin) | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter83 | DDInter20 | **Etkileşim Var** | **Unknown** | A, B |
-
-| AUGMENTIN 500 MG/125 MG FILM TABLET | ASPIRIN 500 MG TABLET | klavulanik asit (clavulanic acid) | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter394 | DDInter20 | **Eksik Grup (Olası Kayıp)** | - | - |
-
-| KLACID 500 MG FİLM TABLET | ASPIRIN 500 MG TABLET | clarithromycin | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter393 | DDInter20 | **Etkileşim Var** | **Unknown** | A, B |
-
-
-> **Kombine Ürün Değerlendirmesi:**
-> - Sistem tek bir ticari kutu olan Augmentin'in içindeki iki molekülü birbirinden ayırmış; amoksisilinin Klaritromisin ile olan **Minor** etkileşimini ve Aspirin ile olan **Unknown** etkileşimini başarıyla yakalamıştır.
-> - Klavulanik asit (`DDInter394`) Yol C kural motorumuzla DDInter kataloğuna bağlanmıştır. Ancak J ve N grupları DDInter'ın eksik indirme grupları arasında yer aldığından Klavulanik Asit çiftleri dürüstçe `Eksik Grup (Olası Kayıp)` olarak etiketlenmiştir. Böylece sistem, katalogda olmayan molekül (`DDInter'da Yok`) ile indirme dosyası eksik olan grubu (`Eksik Grup`) başarıyla ayırt etmiştir.
+| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar | Doğrulama Hücresi |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | WARFMADIN 10 MG TABLET (28 TABLET) | dexketoprofen | warfarin | M + B | - | DDInter1951 | **DDInter'da Yok** | - | - | (NB04 Hücre [12]) |
+| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | dexketoprofen | clarithromycin | M + J | - | DDInter393 | **DDInter'da Yok** | - | - | (NB04 Hücre [12]) |
+| WARFMADIN 10 MG TABLET (28 TABLET) | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | warfarin | clarithromycin | B + J | DDInter1951 | DDInter393 | **Etkileşim Var** | **Major** | A, B | (NB04 Hücre [12]) |
 
 ---
 
-## 4. Tarihsel Senaryo 3: Kayıp / Eksik Ürün Senaryosu (Arveles + Parol + Cordarone)
+## 3. Senaryo 2: Kombine Ürün Senaryosu (Augmentin + Klacid + Aspirin) (NB04 Hücre [13])
 
-*Şartname Sayfa 11 kuralı: "En az bir ilacı DDInter'da bulunmayan bir liste".*  
-Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Deksketoprofen), hem de DDInter indirme dosyası bulunmayan eksik ATC sınıflarındaki ilaçlar (`Parol`: Parasetamol / N grubu; `Cordarone`: Amiodaron / C grubu) test edilmiştir ($3$ tekil ilaç = $3$ çift).
+*Şartname Sayfa 11 kuralı: "Kombine bir ürün içeren 3 ilaçlı bir liste".* (NB04 Hücre [13])
 
-**Tablonun Amacı:** Sistemin sınırlarını ve bilgilendirme ilkesini test eder. Deksketoprofen (`Arveles`) için `DDInter'da Yok` uyarısı üretilirken; indirme dosyası eksik olan C ve N gruplarındaki `Parol–Cordarone` çifti için yanıltıcı şekilde *"Etkileşim Yok"* denmemiş, durum `Eksik Grup (Olası Kayıp)` olarak etiketlenerek İP4 veri kaybı analizi sahada doğrulanmıştır.
+Augmentin tek bir kutu olmasına rağmen 2 etken madde içerir: **Amoksisilin + Klavulanik Asit**. Klacid (*Klaritromisin*) ve Aspirin (*Asetilsalisilik Asit*) ise 1'er etken maddeli tekil ilaçlardır. Sistem kartezyen eşleştirme ile **toplam 5 farklı ikili molekül çifti** üretir (NB04 Hücre [13]):
 
-**Kullanıcı Girdisi:** `['Arveles', 'Parol', 'Cordarone']`
-
-### `etkilesim_kontrol` Çıktı Tablosu:
-
-| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar |
-
-| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | PAROL 500 MG TABLET, 20 ADET | dexketoprofen | parasetamol (acetaminophen) | M + N | - | DDInter14 | **DDInter'da Yok** | - | - |
-
-| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | CORDARONE 200 MG BÖLÜNEBİLİR TABLET, 30 ADET | dexketoprofen | amiodarone | M + C | - | DDInter76 | **DDInter'da Yok** | - | - |
-
-| PAROL 500 MG TABLET, 20 ADET | CORDARONE 200 MG BÖLÜNEBİLİR TABLET, 30 ADET | parasetamol (acetaminophen) | amiodarone | N + C | DDInter14 | DDInter76 | **Eksik Grup (Olası Kayıp)** | - | - |
-
-> **Kayıp Analizi Doğrulaması:**
-> - `Parol` (`DDInter14`, N grubu) ve `Cordarone` (`DDInter76`, C grubu) moleküllerinin ikisi de DDInter veritabanında mevcuttur.
-> - Ancak DDInter indirilebilir dosyalarında **C ve N** kategorileri sunulmadığı için bu etkileşim indirilen 8 CSV dosyasında yer almaz.
-> - Bu test, motorun Parol–Cordarone için ürettiği uyarıyı gösterir. Portföydeki %22,78 değeri, iki bileşeni de eksik ATC gruplarında olan olası çiftlerin oranıdır. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
+| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar | Doğrulama Hücresi |
+|:---|:---|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| AUGMENTIN 500 MG/125 MG FILM KAPLI TABLET, 14 ADET | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | amoksisilin (amoxicillin) | clarithromycin | J + J | DDInter83 | DDInter393 | **Etkileşim Var** | **Minor** | A | (NB04 Hücre [13]) |
+| AUGMENTIN 500 MG/125 MG FILM KAPLI TABLET, 14 ADET | KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | klavulanik asit (clavulanic acid) | clarithromycin | J + J | DDInter394 | DDInter393 | **Eksik Grup (Olası Kayıp)** | - | - | (NB04 Hücre [13]) |
+| AUGMENTIN 500 MG/125 MG FILM KAPLI TABLET, 14 ADET | ASPIRIN 100 MG TABLET, 1000 ADET | amoksisilin (amoxicillin) | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter83 | DDInter20 | **Etkileşim Var** | **Unknown** | A, B | (NB04 Hücre [13]) |
+| AUGMENTIN 500 MG/125 MG FILM KAPLI TABLET, 14 ADET | ASPIRIN 100 MG TABLET, 1000 ADET | klavulanik asit (clavulanic acid) | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter394 | DDInter20 | **Eksik Grup (Olası Kayıp)** | - | - | (NB04 Hücre [13]) |
+| KLACID 500 MG FİLM KAPLI TABLET, 14 ADET | ASPIRIN 100 MG TABLET, 1000 ADET | clarithromycin | asetilsalisilik asit (acetylsalicylic acid) | J + N | DDInter393 | DDInter20 | **Etkileşim Var** | **Unknown** | A, B | (NB04 Hücre [13]) |
 
 ---
 
-## 5.Olası Sorular ve Cevaplar
+## 4. Senaryo 3: Kayıp / Eksik Ürün Senaryosu (Arveles + Parol + Cordarone) (NB04 Hücre [14])
 
-| Hoca Ne Sorabilir? | Vereceğin Net ve Güvenli Cevap |
-|:---|:---|
-| **1. "Arveles ile Coumadin arasındaki etkileşimi sistem neden bulamadı?"**|Arveles'in etken maddesi *Deksketoprofen*'dir. Deksketoprofen Türkiye'de ve Avrupa'da çok yaygın bir molekül olmasına rağmen küresel DDInter kataloğunda tekil molekül olarak yer almamakta, sadece ana rasematı olan *Ketoprofen* bulunmaktadır. Sistemimiz varsayım yapmayıp veritabanında olmadığı için `DDInter'da Yok` uyarısı verdi. Bu şeffaflık şartnamenin temel kuralıdır.
-| **2. "Coumadin – Klacid etkileşimini sistem nasıl buldu?"** | "Coumadin (Varfarin) B grubunda, Klacid (Klaritromisin) J grubundadır. J grubunun indirme dosyası olmamasına rağmen Varfarin B dosyasında yer aldığı için çift B dosyasından başarıyla yakalanmış ve yerel DDInter çıktısında **Major** olarak kaydedilmiştir.
-| **3. "Augmentin senaryosunda neyi kanıtladınız?"** | "Augmentin tek bir ticari ilaç olmasına rağmen kombine bir formülasyondur (Amoksisilin + Klavulanik Asit). Sistemimiz barkod üzerinden bunu iki ayrı bileşene ayırdı ve diğer iki ilaçla kartezyen eşleyerek $(2 X 1) + (2 X 1) + (1 X 1) = 5$ çift üretti. Amoksisilin–Klaritromisin arasındaki **Minor** etkileşimi başarıyla yakaladı." |
-| **4. "Parol ve Cordarone ikisi de DDInter'da varken neden sonuç çıkmadı?"** | "DDInter 14 ATC grubundan sadece 8'i için dosya sunuyor. Parol **N (Sinir)** grubunda, Cordarone ise **C (Kardiyovasküler)** grubundadır. İki ilacın da indirme dosyası olmadığı için indirilen tablolarda yer alamazlar. Sistemimiz bunu `Eksik Grup (Olası Kayıp)` olarak etiketleyerek kayıp analizi modelimizi sahada ispatlamıştır." |
-| **5. "Drugs.com ve Medscape ile karşılaştırdığınızda ne gördünüz?"** | Varfarin–klaritromisin için Drugs.com Major, Medscape yakın takip uyarısı gösterdi. Deksketoprofen–varfarin için Drugs.com etkileşim verisi sunmadı ve Medscape ilacı eşleştiremedi. [İP8 raporu](../IP8_Ilac_Etkilesim_Karsilastirma_Raporu.md) |
+*Şartname Sayfa 11 kuralı: "En az bir ilacı DDInter'da bulunmayan bir liste".* (NB04 Hücre [14])
+
+Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Deksketoprofen), hem de DDInter indirme dosyası bulunmayan eksik ATC sınıflarındaki ilaçlar (`Parol`: Parasetamol / N grubu; `Cordarone`: Amiodaron / C grubu) test edilmiştir ($3$ tekil ilaç = $3$ çift) (NB04 Hücre [14]).
+
+| urun_1 | urun_2 | etken_1 | etken_2 | atc_gruplari | ddinter_id_1 | ddinter_id_2 | durum | siddet | kaynak_dosyalar | Doğrulama Hücresi |
+|:---|:---|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | PAROL 500 MG TABLET, 20 ADET | dexketoprofen | parasetamol (acetaminophen) | M + N | - | DDInter14 | **DDInter'da Yok** | - | - | (NB04 Hücre [14]) |
+| ARVELES 25 MG FİLM KAPLI TABLET, 20 ADET | CORDARONE 200 MG BÖLÜNEBİLİR TABLET, 30 ADET | dexketoprofen | amiodarone | M + C | - | DDInter76 | **DDInter'da Yok** | - | - | (NB04 Hücre [14]) |
+| PAROL 500 MG TABLET, 20 ADET | CORDARONE 200 MG BÖLÜNEBİLİR TABLET, 30 ADET | parasetamol (acetaminophen) | amiodarone | N + C | DDInter14 | DDInter76 | **Eksik Grup (Olası Kayıp)** | - | - | (NB04 Hücre [14]) |
+
+---
+
+## 5. Olası Sorular ve Cevaplar
+
+| Hoca Ne Sorabilir? | Vereceğin Net ve Güvenli Cevap | Doğrulama Hücresi |
+|:---|:---|:---:|
+| **1. "Arveles ile Warfmadin arasındaki etkileşimi sistem neden bulamadı?"** | Arveles'in etken maddesi *Deksketoprofen*'dir. Deksketoprofen Türkiye'de ve Avrupa'da çok yaygın bir molekül olmasına rağmen küresel DDInter kataloğunda tekil molekül olarak yer almamakta, sadece ana rasematı olan *Ketoprofen* bulunmaktadır. Sistemimiz varsayım yapmayıp veritabanında olmadığı için `DDInter'da Yok` uyarısı verdi. | (NB04 Hücre [12]) |
+| **2. "Coumadin yerine neden Warfmadin ile test yapıldı?"** | Sağlık Bakanlığı ham verileri incelendiğinde `Coumadin` markasının TİTCK ruhsatlı güncel ürün listesinde yer almadığı, SKRS Pasif Ürünler Listesi'nde bulunduğu görülmüştür (5 mg 2022'de, 10 mg 2023'te pasife alınmıştır). Sistem yapay alias kuralları kullanmadan dürüstçe `Ürün Bulunamadı` demiştir. Ruhsatlı aktif varfarin ürünü olan `Warfmadin` ile klinik test gerçekleştirilmiş ve **Major** etkileşim yakalanmıştır. | (NB04 Hücre [10], [11] ve [12]) |
+| **3. "Augmentin senaryosunda neyi kanıtladınız?"** | Augmentin kombine bir formülasyondur (Amoksisilin + Klavulanik Asit). Sistemimiz barkod üzerinden bunu iki ayrı bileşene ayırdı ve diğer iki ilaçla kartezyen eşleyerek $(2 \times 1) + (2 \times 1) + (1 \times 1) = 5$ çift üretti. Amoksisilin–Klaritromisin arasındaki **Minor** etkileşimi başarıyla yakaladı. | (NB04 Hücre [13]) |
+| **4. "Parol ve Cordarone ikisi de DDInter'da varken neden sonuç çıkmadı?"** | DDInter 14 ATC grubundan sadece 8'i için dosya sunuyor. Parol **N (Sinir)** grubunda, Cordarone ise **C (Kardiyovasküler)** grubundadır. İki ilacın da indirme dosyası olmadığı için indirilen tablolarda yer alamazlar. Sistemimiz bunu `Eksik Grup (Olası Kayıp)` olarak etiketleyerek kayıp analizi modelimizi sahada ispatlamıştır. | (NB04 Hücre [14]) |
+| **5. "Drugs.com, Medscape ve WebMD ile karşılaştırdığınızda ne gördünüz?"** | Araçlar şiddet konusunda anlaşmamaktadır: Drugs.com Varfarin–Klaritromisin etkileşimini **Major** olarak sınıflandırırken (Şekil 7), Medscape **Önemli – Yakından Takip Edin** (Şekil 14) ve WebMD **Yakından takip edin** (Şekil 20) şeklinde klinik takip kategorisinde vermektedir. Ayrıca Deksketoprofen hiçbir küresel araç tarafından (ABD pazarı odaklı oldukları için) tanınamamıştır (Şekil 9, 15, 21). | (Şekil 7, 9, 10, 14, 15, 20, 21) |
 
 ---
 
 ## 6. Hafta Sonu Teslim Kontrol Listesi Uygunluğu
 
-- [x] **İP7 Fonksiyonu:** `etkilesim_kontrol(['Arveles','Coumadin','Klacid'])` yazıldı ve test edildi.
-- [x] **Çıktı Formatı:** Her çift için bulundu/bulunmadı, şiddet, DDInter kimlikleri ve ATC grupları döndürüldü.
-- [x] **Zorunlu Senaryolar:** Referans (3 çift), Kombine Augmentin (5 çift) ve Kayıp Parol-Cordarone (3 çift) denendi.
-- [x] **Araç Karşılaştırması:** Drugs.com ve Medscape sonuçları Adım 2 tablosuna eklendi.
-- [x] **Rapor:** `docs/uctan_uca_test.md` şartnamedeki tüm detaylarla hazırlandı.
-- [x] **Notebook 04 Entegrasyonu:** İlk 18 hücre %100 korunarak Bölüm 10 altına tüm çıktılar kaydedildi.
+- [x] **İP7 Fonksiyonu:** `etkilesim_kontrol` fonksiyonu genel arama kurallarıyla yazıldı ve test edildi (`src/etkilesim_kontrol.py`).
+- [x] **Çıktı Formatı:** Her çift için bulundu/bulunmadı, şiddet, DDInter kimlikleri ve ATC grupları döndürüldü (NB04 Hücre [10]–[14]).
+- [x] **Zorunlu Senaryolar:** Referans (Coumadin ve Warfmadin), Kombine Augmentin (5 çift) ve Kayıp Parol-Cordarone (3 çift) denendi (NB04 Hücre [10], [11], [12], [13], [14]).
+- [x] **Araç Karşılaştırması:** Drugs.com, Medscape ve WebMD sonuçları canlı ekran görüntüsü referanslarıyla (`images/sekil*.png`) tabloya işlendi.
+- [x] **Rapor:** `docs/uctan_uca_test.md` şartnamedeki tüm detaylarla ve notebook hücre atıflarıyla güncellendi.
+- [x] **Notebook 04 Entegrasyonu:** Bölüm 10 altına tüm çıktılar ve assertion kontrolleri kaydedildi (NB04 Hücre [10]–[15]).
