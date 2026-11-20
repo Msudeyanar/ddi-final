@@ -9,6 +9,11 @@ Yazar: Kişi B
 - Karakter Katlama: ı ile i, İ ile I aynı harf sayılır.
 - Girdi: Ticari ürün adları (örn. ['Arveles', 'Coumadin', 'Klacid'])
 - Çıktı: Her ikili çift için etken maddeler, DDInter kimlikleri, bulundu/bulunmadı durumu ve şiddet tablosu (DataFrame).
+
+Danışman ve Kullanım Koşulları Uyumu:
+- Kayıt bulunamayan çiftler için "Etkileşim Yok" yerine "Kayıt bulunamadı" yazılır.
+- Test ilaçlarına özel puanlama ve marka takma adları (alias) kullanılmaz; genel ve nesnel ürün seçimi uygulanır.
+- Gerçekte seçilen ürünün adı gösterilir.
 """
 
 from __future__ import annotations
@@ -23,12 +28,6 @@ import pandas as pd
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 INTERIM_DIR = BASE_DIR / "data" / "interim"
-
-# Tarihsel/jenerik marka eşanlamlıları (TİTCK'te Varfarin olarak geçen Coumadin vb.)
-MARKA_TAKMA_ADLARI: dict[str, str] = {
-    "coumadin": "varfarin",
-    "kumadin": "varfarin",
-}
 
 # DDInter indirme dosyası bulunmayan eksik ATC sınıfları (Kayıp analizi kuralı: C, G, J, M, N, S)
 EKSIK_ATC_GRUPLARI = frozenset({"C", "G", "J", "M", "N", "S"})
@@ -119,28 +118,34 @@ class EtkilesimMotoru:
     def urun_bul(self, sorgu: str) -> dict[str, Any]:
         """
         Kullanıcı girdisini arar.
-        Önce ürün adında eşleşme arar, bulunamazsa takma ad (alias) haritasına bakar.
-        Standart tekil tablet formülasyonlarını PLUS/COMPLEX/hot gibi karma ürünlere tercih eder.
+        Hiçbir ilaca özel istisna veya takma ad içermez; genel ve nesnel kurallarla arama yapar:
+        1. Önce tam kelime sınırı ile arama yapılır (\bsorgu\b).
+        2. Bulunamazsa alt dize (substring) araması yapılır.
+        3. Birden fazla aday varsa genel farmasötik sıralama uygulanır:
+           - Tam kelime sınırı eşleşmesi önceliklidir.
+           - İsmin sorgu ile başlaması önceliklidir.
+           - Standart katı oral formlar (tablet, kapsül, film kaplı) önceliklidir.
+           - Eşitlik durumunda alfabetik ürün adı esas alınır.
         """
         katli_sorgu = katla(sorgu)
-        is_alias = katli_sorgu in MARKA_TAKMA_ADLARI
-        hedef_arama = MARKA_TAKMA_ADLARI.get(katli_sorgu, katli_sorgu)
+        if not katli_sorgu:
+            return {
+                "girdi": sorgu,
+                "bulundu": False,
+                "urun_adi": None,
+                "barkod": None,
+                "aday_sayisi": 0,
+                "bilesenler": [],
+            }
 
         # 1. Kelime sınırı ile arama
         mask = self.df_urun["urun_adi_katlanmis"].str.contains(
-            rf"\b{re.escape(hedef_arama)}\b", regex=True, na=False
+            rf"\b{re.escape(katli_sorgu)}\b", regex=True, na=False
         )
         if not mask.any():
-            # Alt dize araması
+            # 2. Alt dize araması
             mask = self.df_urun["urun_adi_katlanmis"].str.contains(
-                re.escape(hedef_arama), regex=False, na=False
-            )
-
-        # 2. Takma ad karşılığı varsa ve hala bulunamadıysa
-        if not mask.any() and is_alias:
-            alias = MARKA_TAKMA_ADLARI[katli_sorgu]
-            mask = self.df_urun["urun_adi_katlanmis"].str.contains(
-                re.escape(alias), regex=False, na=False
+                re.escape(katli_sorgu), regex=False, na=False
             )
 
         if not mask.any():
@@ -149,44 +154,29 @@ class EtkilesimMotoru:
                 "bulundu": False,
                 "urun_adi": None,
                 "barkod": None,
+                "aday_sayisi": 0,
                 "bilesenler": [],
             }
 
         adaylar = self.df_urun[mask].copy()
+        aday_sayisi = len(adaylar)
 
-        # En uygun standart ürünü seçmek için puanlama (Ranking Score):
-        # Kullanıcı 'Aspirin' dediğinde 'ASPIRIN COMPLEX' yerine 'ASPIRIN 500 MG TABLET' gelsin;
-        # 'Parol' dediğinde 'PAROL PLUS' yerine 'PAROL 500 MG TABLET' gelsin.
-        def puanla(row):
-            name = row["urun_adi_katlanmis"]
-            p = 0
-            # Sık kullanılan temel ilaçlarda gereksiz 'plus', 'complex', 'hot', 'mr' varyantlarını cezalandır
-            if katli_sorgu in ["arveles", "klacid", "aspirin", "parol", "cordarone"]:
-                if any(w in name for w in ["plus", "complex", "hot", " mr ", "-k "]):
-                    p -= 60
-            if "tablet" in name:
-                p += 25
-            if "film kapli" in name:
-                p += 15
-            # Bileşen sayısı: Augmentin kombine beklenir (2), diğerleri tekil beklenir (1)
-            b_sayisi = len(self._barkod_bilesen_map.get(row["barkod"], []))
-            if katli_sorgu == "augmentin":
-                if b_sayisi == 2:
-                    p += 40
-            else:
-                if b_sayisi == 1:
-                    p += 40
-            return p
+        # Genel ve nesnel aday sıralama kriterleri:
+        adaylar["_is_word"] = adaylar["urun_adi_katlanmis"].str.contains(
+            rf"\b{re.escape(katli_sorgu)}\b", regex=True, na=False
+        )
+        adaylar["_starts_with"] = adaylar["urun_adi_katlanmis"].str.startswith(katli_sorgu)
+        adaylar["_is_tablet_kapsul"] = adaylar["urun_adi_katlanmis"].str.contains(
+            r"\b(?:tablet|kapsul|film kapli)\b", regex=True, na=False
+        )
 
-        adaylar["puan"] = adaylar.apply(puanla, axis=1)
-        temsilci = adaylar.sort_values(by="puan", ascending=False).iloc[0]
+        sirali = adaylar.sort_values(
+            by=["_is_word", "_starts_with", "_is_tablet_kapsul", "urun_adi"],
+            ascending=[False, False, False, True],
+        )
+        temsilci = sirali.iloc[0]
         barkod = temsilci["barkod"]
-        
-        # Görüntüleme adı: Coumadin gibi jenerik adı TİTCK'te Varfarin geçen ilaçlar için
-        if is_alias:
-            urun_adi_gosterim = f"COUMADIN 5 MG TABLET"
-        else:
-            urun_adi_gosterim = temsilci["urun_adi"]
+        urun_adi_gosterim = temsilci["urun_adi"]
 
         bilesen_adlari = self._barkod_bilesen_map.get(barkod, [])
         bilesen_detaylari = []
@@ -210,6 +200,7 @@ class EtkilesimMotoru:
             "bulundu": True,
             "urun_adi": urun_adi_gosterim,
             "barkod": barkod,
+            "aday_sayisi": aday_sayisi,
             "bilesenler": bilesen_detaylari,
         }
 
@@ -232,8 +223,8 @@ class EtkilesimMotoru:
 
             sonuclar.append(
                 {
-                    "urun_1": urun_info_1["girdi"],
-                    "urun_2": urun_info_2["girdi"],
+                    "urun_1": urun_info_1["girdi"] if not urun_info_1["bulundu"] else urun_info_1["urun_adi"],
+                    "urun_2": urun_info_2["girdi"] if not urun_info_2["bulundu"] else urun_info_2["urun_adi"],
                     "etken_1": "-",
                     "etken_2": "-",
                     "atc_gruplari": "-",
@@ -242,7 +233,7 @@ class EtkilesimMotoru:
                     "durum": "Ürün Bulunamadı",
                     "siddet": "-",
                     "kaynak_dosyalar": "-",
-                    "aciklama": f"Şu ilaçlar TİTCK ruhsatlı listesinde bulunamadı: {', '.join(bulunamayan)}",
+                    "aciklama": f"Şu ilaç(lar) TİTCK ruhsatlı listesinde bulunamadı: {', '.join(bulunamayan)}.",
                 }
             )
             return sonuclar
@@ -275,15 +266,15 @@ class EtkilesimMotoru:
                 atc_1 = c1.get("atc_ana") or "-"
                 atc_2 = c2.get("atc_ana") or "-"
 
-                ad_tr_1 = c1['bilesen_tr']
-                ad_en_1 = c1.get('ad_en')
+                ad_tr_1 = c1["bilesen_tr"]
+                ad_en_1 = c1.get("ad_en")
                 if ad_en_1 and ad_en_1.lower() != ad_tr_1.lower():
                     etken_str_1 = f"{ad_tr_1} ({ad_en_1})"
                 else:
                     etken_str_1 = ad_tr_1 if not ad_en_1 else ad_en_1
 
-                ad_tr_2 = c2['bilesen_tr']
-                ad_en_2 = c2.get('ad_en')
+                ad_tr_2 = c2["bilesen_tr"]
+                ad_en_2 = c2.get("ad_en")
                 if ad_en_2 and ad_en_2.lower() != ad_tr_2.lower():
                     etken_str_2 = f"{ad_tr_2} ({ad_en_2})"
                 else:
@@ -335,7 +326,7 @@ class EtkilesimMotoru:
                         }
                     )
                 else:
-                    # İki ID de var ama tabloda etkileşim yok
+                    # İki ID de var ama indirme dosyalarında kayıt yok
                     if atc_1 in EKSIK_ATC_GRUPLARI and atc_2 in EKSIK_ATC_GRUPLARI:
                         durum_str = "Eksik Grup (Olası Kayıp)"
                         aciklama_str = (
@@ -343,8 +334,11 @@ class EtkilesimMotoru:
                             "Etkileşim DDInter web sitesinde mevcut olabilir ancak indirme dosyalarında yer almamaktadır."
                         )
                     else:
-                        durum_str = "Etkileşim Yok"
-                        aciklama_str = "DDInter veritabanında bu iki molekül arasında kayıtlı bir etkileşim bulunmamaktadır."
+                        durum_str = "Kayıt bulunamadı"
+                        aciklama_str = (
+                            "DDInter indirme dosyalarında bu çift için kayıt bulunamadı; "
+                            "bu, etkileşim olmadığı anlamına gelmez (DDInter kullanım koşulları)."
+                        )
 
                     sonuclar.append(
                         {
@@ -397,7 +391,14 @@ def etkilesim_kontrol(urun_listesi: list[str]) -> pd.DataFrame:
         )
 
     motor = get_motor()
-    urun_bilgileri = [motor.urun_bul(u) for u in urun_listesi]
+    urun_bilgileri = []
+    for u in urun_listesi:
+        info = motor.urun_bul(u)
+        urun_bilgileri.append(info)
+        if info["bulundu"]:
+            print(f"🔍 [Arama: '{u}'] -> {info['aday_sayisi']} aday arasından seçildi: '{info['urun_adi']}' (Barkod: {info['barkod']})")
+        else:
+            print(f"⚠️ [Arama: '{u}'] -> TİTCK ruhsatlı listesinde bulunamadı (0 aday).")
 
     tum_sonuclar: list[dict[str, Any]] = []
     for info1, info2 in itertools.combinations(urun_bilgileri, 2):
@@ -412,19 +413,26 @@ if __name__ == "__main__":
     pd.set_option("display.width", 1000)
 
     print("\n" + "=" * 80)
-    print("SENARYO 1: Standart Senaryo (Arveles, Coumadin, Klacid)")
+    print("SENARYO 1: Standart Referans Senaryo (Arveles, Coumadin, Klacid)")
+    print("Not: Coumadin TİTCK ruhsatlı listesinde pasif olduğundan bulunamaz.")
     print("=" * 80)
     df1 = etkilesim_kontrol(["Arveles", "Coumadin", "Klacid"])
-    print(df1[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet"]])
+    print(df1[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet", "aciklama"]])
+
+    print("\n" + "=" * 80)
+    print("SENARYO 1B: Ruhsatlı Varfarin ile Referans Senaryo (Arveles, Warfmadin, Klacid)")
+    print("=" * 80)
+    df1b = etkilesim_kontrol(["Arveles", "Warfmadin", "Klacid"])
+    print(df1b[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet", "aciklama"]])
 
     print("\n" + "=" * 80)
     print("SENARYO 2: Kombine Ürün Senaryosu (Augmentin, Klacid, Aspirin)")
     print("=" * 80)
     df2 = etkilesim_kontrol(["Augmentin", "Klacid", "Aspirin"])
-    print(df2[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet"]])
+    print(df2[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet", "aciklama"]])
 
     print("\n" + "=" * 80)
     print("SENARYO 3: Kayıp / Eksik Ürün Senaryosu (Arveles, Parol, Cordarone)")
     print("=" * 80)
     df3 = etkilesim_kontrol(["Arveles", "Parol", "Cordarone"])
-    print(df3[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet"]])
+    print(df3[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet", "aciklama"]])

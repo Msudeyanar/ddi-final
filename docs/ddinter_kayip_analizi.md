@@ -1,6 +1,6 @@
 # DDInter Veri Dağılımı, Birleştirme ve Kayıp Analizi Raporu
 
-**Tarih:** 2026-10-25  
+**Tarih:** 2026-11-20  
 **İlgili İş Paketi:** İP4 (DDInter Birleştirme ve Kayıp Analizi)  
 **Notebook:** `notebooks/04_ddinter_birlestirme.ipynb`  
 **Üretilen Veriler:** `data/interim/ddinter_ilac.csv`, `data/interim/etkilesim.csv`  
@@ -123,11 +123,11 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
 
 | Parametre / Metrik | Değer | Açıklama |
 | :--- | :---: | :--- |
-| **DDInter ile Eşleşen Türk Etken Maddesi ($N$)** | **1.418** | DDInter ile eşleşen tüm tekil etken maddeler (Yol A, B, C, SKRS ve PubChem dahil) |
-| **Eksik Gruptaki Etken Maddeler ($K$)** | **677** | ATC ana grubu $C, G, J, M, N$ veya $S$ olanlar (%47,74) |
-| **Olası Tüm İkili Çift Kombinasyonu** | **1.004.653** | $\binom{1.418}{2} = \frac{1.418 \times (1.418 - 1)}{2}$ |
+| **DDInter ile Eşleşen Türk Etken Maddesi ($N$)** | **1.420** | DDInter ile eşleşen tüm tekil etken maddeler (Yol A, B, C, SKRS ve PubChem dahil) |
+| **Eksik Gruptaki Etken Maddeler ($K$)** | **677** | ATC ana grubu $C, G, J, M, N$ veya $S$ olanlar (%47,68) |
+| **Olası Tüm İkili Çift Kombinasyonu** | **1.007.490** | $\binom{1.420}{2} = \frac{1.420 \times (1.420 - 1)}{2}$ |
 | **Kapsam Dışı / Kayıp Çift Sayısı** | **228.826** | $\binom{677}{2} = \frac{677 \times (677 - 1)}{2}$ (İki tarafı da eksik grupta olanlar) |
-| **Ampirik Gerçek Kayıp Oranı** | **%22,78** | 228.826 / 1.004.653 \times 100 |
+| **Ampirik Gerçek Kayıp Oranı** | **%22,71** | 228.826 / 1.007.490 \times 100 |
 
 ### C. Teorik Model ile Ampirik Sonuçların Karşılaştırması
 1. **Eşit Dağılım Varsayımı (Teorik):**  
@@ -140,7 +140,7 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
    $$P(\text{Klinik Kayıp}) \approx (0,50)^2 \approx \mathbf{\%25,0}$$
 
 3. **Ampirik Doğrulama:**  
-   Gerçek Türkiye verisinde eksik gruptaki etken madde oranı **%47,74** (677 / 1.418) çıkmış ve ikili çift kaybı **%22,78** olarak gerçekleşmiştir. Bu sonuç, klinik ağırlıklı teorik modelimizle (%25,0) mükemmel bir uyum göstermektedir. Ayrıca 10 çiftlik klinik test örneğimizde de 10 çiftten 3 tanesi (%30,0) doğrudan eksik grup kombinasyonu nedeniyle indirilen dosyalarda bulunamamıştır.
+   Gerçek Türkiye verisinde eksik gruptaki etken madde oranı **%47,68** (677 / 1.420) çıkmış ve ikili çift kaybı **%22,71** olarak gerçekleşmiştir. Bu sonuç, klinik ağırlıklı teorik modelimizle (%25,0) mükemmel bir uyum göstermektedir. Ayrıca 10 çiftlik klinik test örneğimizde de 10 çiftten 3 tanesi (%30,0) doğrudan eksik grup kombinasyonu nedeniyle indirilen dosyalarda bulunamamıştır.
 
 ---
 

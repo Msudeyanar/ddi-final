@@ -1,29 +1,29 @@
 # İP3: DDInter İlaç Eşleşme Raporu
 
-> **Özet:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,416 / 2,945), kapsam içi ruhsatlı ürünlerin %80.4'inin (18,067 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
-> *(Tüm Bileşenler Bazında: %46.3 (1,418 / 3,065) — Tüm Ruhsatlı Ürünler Bazında: %80.6 (18,474 / 22,927))*
+> **Özet:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,418 / 2,945), kapsam içi ruhsatlı ürünlerin %80.5'inin (18,081 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
+> *(Tüm Bileşenler Bazında: %46.3 (1,420 / 3,065) — Tüm Ruhsatlı Ürünler Bazında: %80.6 (18,488 / 22,927))*
 
 ## 1. Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Dağılımı
 | Eşleşme Yolu | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) | Açıklama |
 | :--- | :---: | :---: | :---: | :--- |
-| **Yol A (Tek Bileşenli ATC)** | 1,887 | 1,219 | %64.6 | Tek bileşenli ürünlerin SKRS ATC sözlüğünden İngilizce adı |
-| **Yol B (Kombine Bölme & RapidFuzz)** | 66 | 36 | %54.5 | Kombine ürünlerin ATC adından ayrıştırılan bileşenler |
-| **Yol C (Kural Tabanlı - tr_en_kurallar)** | 106 | 106 | %100.0 | Türkçe kural tabanlı çeviri motoru ile eşleşenler |
+| **Yol A (Tek Bileşenli ATC)** | 1,904 | 1,234 | %64.8 | Tek bileşenli ürünlerin SKRS ATC sözlüğünden İngilizce adı |
+| **Yol B (Kombine Bölme & RapidFuzz)** | 68 | 37 | %54.4 | Kombine ürünlerin ATC adından ayrıştırılan bileşenler |
+| **Yol C (Kural Tabanlı - tr_en_kurallar)** | 92 | 92 | %100.0 | Türkçe kural tabanlı çeviri motoru ile eşleşenler |
 | **SKRS (Kural 5/6)** | 90 | 32 | %35.6 | SKRS'ten doğrudan İngilizce gelen ürünler |
 | **Yol D (Kişi C - Uzman Manuel İnceleme)** | 24 | 24 | %100.0 | Kişi C tarafından en sık eşleşmeyenlerden doğrulanarak bağlanan bileşenler |
-| **Eşleşmedi (Kalan)** | 892 | 1 | %0.1 | Kural motoru ve Yol D sonrasında eşleşmeyen bileşenler |
-| **TOPLAM** | **3,065** | **1,418** | **%46.3** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |
-> **Not (Yol D ve PubChem Doğrulaması):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden 17 tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve 24 satıra yayılmıştır. Örneğin 376 ürünlü parasetamol → DDInter14 (acetaminophen). Adım 5 kapsamında ise Kişi C tarafından en sık 100 eşleşmeyen bileşen incelenmiş; 23 bileşen DDInter kimliklerine bağlanmış ve 20 İngilizce ad düzeltmesi yapılarak toplam 24 bileşen Yol D statüsüne kavuşturulmuştur. Kalan 892 bileşen sonraki aşamalara devredilmiştir.
+| **Eşleşmedi (Kalan)** | 887 | 1 | %0.1 | Kural motoru ve Yol D sonrasında eşleşmeyen bileşenler |
+| **TOPLAM** | **3,065** | **1,420** | **%46.3** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |
+> **Not (Yol D ve PubChem Doğrulaması):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden 17 tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve 24 satıra yayılmıştır. Örneğin 376 ürünlü parasetamol → DDInter14 (acetaminophen). Adım 5 kapsamında ise Kişi C tarafından en sık 100 eşleşmeyen bileşen incelenmiş; 23 bileşen DDInter kimliklerine bağlanmış ve 20 İngilizce ad düzeltmesi yapılarak toplam 24 bileşen Yol D statüsüne kavuşturulmuştur. Kalan 887 bileşen sonraki aşamalara devredilmiştir.
 
 ## 2. DDInter Eşleşme Oranı Özeti
 | Metrik Düzeyi | Toplam Büyüklük | DDInter'da Bulunan | Kapsama Oranı (%) |
 | :--- | :---: | :---: | :--- |
-| **Kapsam İçi Etken Madde Bazında** | 2,945 | 1,416 | %48.1 |
-| **Kapsam İçi Ruhsatlı Ürün Bazında (En Az 1 Bileşen)** | 22,470 | 18,067 | %80.4 |
-| **Tüm Etken Maddeler Bazında** | 3,065 | 1,418 | %46.3 |
-| **Tüm Ruhsatlı Ürünler Bazında (En Az 1 Bileşen)** | 22,927 | 18,474 | %80.6 |
+| **Kapsam İçi Etken Madde Bazında** | 2,945 | 1,418 | %48.1 |
+| **Kapsam İçi Ruhsatlı Ürün Bazında (En Az 1 Bileşen)** | 22,470 | 18,081 | %80.5 |
+| **Tüm Etken Maddeler Bazında** | 3,065 | 1,420 | %46.3 |
+| **Tüm Ruhsatlı Ürünler Bazında (En Az 1 Bileşen)** | 22,927 | 18,488 | %80.6 |
 
-> **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen 1,418 etken madde kaydı, toplam **896 benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).
+> **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen 1,420 etken madde kaydı, toplam **898 benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).
 
 ## 3. ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)
 | ATC Ana Grubu | Grup Açıklaması | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) |
@@ -35,7 +35,7 @@
 | **G** | Genito-Üriner Sistem ve Cinsiyet Hormonları | 119 | 62 | %52.1 |
 | **H** | Sistemik Hormonal Preparatlar | 56 | 33 | %58.9 |
 | **J** | Sistemik Antiinfektifler (Antibiyotikler vb.) | 442 | 183 | %41.4 |
-| **L** | Antineoplastik ve İmmünomodülatör Ajanlar | 299 | 252 | %84.3 |
+| **L** | Antineoplastik ve İmmünomodülatör Ajanlar | 299 | 254 | %84.9 |
 | **M** | Kas-İskelet Sistemi | 173 | 68 | %39.3 |
 | **N** | Sinir Sistemi | 284 | 204 | %71.8 |
 | **P** | Antiparaziter Ürünler | 31 | 19 | %61.3 |
