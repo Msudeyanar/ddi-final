@@ -33,3 +33,13 @@ Bu doküman, DDI karar destek sisteminin hedef kitlesini netleştirmek amacıyla
 
 2. **İkinci Faz (Genişleme) — Eczacı / Sağlık Profesyoneli Modu:**
    - Sistem ve yerel veri tabanı olgunlaştığında arayüze "Profesyonel / Eczacı Modu" geçişi eklenerek; 86 etkileşim tipinin farmakolojik mekanizmaları, CYP enzim inhibisyonu/indüksiyonu detayları, alternatif etken madde önerileri ve çoklu reçete etkileşim matrisi sağlık çalışanlarının kullanımına açılacaktır.
+
+---
+
+## 3. %70 kapsama ifadesi ve toplantı yanıtı
+
+İkinci hafta görev dağılımının İP11 bölümünde (s. 9) ve veri birleştirme planının İP11 bölümünde (s. 12) %70 kapsama hedefi yer almıyor. Veri birleştirme planının 24. sayfasında geçen %70/%10/%20, TDC veri bölme oranıdır. Eski rapora %70 kapsama ifadesinin hangi kaynaktan girdiği doğrulanamadı.
+
+**Toplantıda verilecek ortak yanıt:** İncelediğimiz planlarda %70 kapsama hedefi bulunmuyor. Eski taslaktaki ifadeyi destekleyen bir kaynak saptayamadığımız için kaldırdık. Elde bulunan verilerle hesaplanan ürün eşleşme sayıları ve kullanılan payda İP6 raporunun Tablo 12’sinde yer alıyor. [İP6 raporu](eda_raporu_b.md#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi)
+
+Bu metin toplantı hazırlığıdır. Ekibin toplantıda verdiği karar, toplantı sonrasında kaydedilir.

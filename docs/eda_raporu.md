@@ -1,12 +1,14 @@
 # Keşifsel Veri Analizi (EDA) Raporu
 
+> **Hesap kaynakları:** [Notebook 05](../notebooks/05_eda_titck.ipynb) içinde E01 [`5d307533`](../notebooks/05_eda_titck.ipynb#cell-id=5d307533), E02 [`174eb525`](../notebooks/05_eda_titck.ipynb#cell-id=174eb525), E03 [`9b040e10`](../notebooks/05_eda_titck.ipynb#cell-id=9b040e10), E04 [`a4b481d5`](../notebooks/05_eda_titck.ipynb#cell-id=a4b481d5) ve E07 [`d11de057`](../notebooks/05_eda_titck.ipynb#cell-id=d11de057) hücreleri ilgili grafiklerin hesabını gösterir.
+
 *Bu rapor, TİTCK Ruhsatlı İlaçlar ve SKRS verilerinin temizlik ve birleştirme çıktıları (`data/interim/`) üzerinden PDF şartnamesine tam uyumlu olarak üretilmiştir.*
 
 ## A. Türk İlaç Verisi (TİTCK + SKRS) EDA
 
 ### 1. Özet Profil Tabloları
 
-#### Tablo 1: urun.csv Özet Profili (Toplam Satır: 23,801, Sütun: 14)
+#### Tablo 1: urun.csv Özet Profili (Toplam Satır: 23,801, Sütun: 15)
 
 | Sütun Adı                    | Veri Tipi   |   Boş Sayısı | Boş Oranı (%)   |   Benzersiz Sayısı | Örnek Değer                         |
 |:-----------------------------|:------------|-------------:|:----------------|-------------------:|:------------------------------------|
@@ -18,12 +20,13 @@
 | atc_adi_skrs                 | object      |       11,297 | %47.46          |              1,498 | thiocolchicoside                    |
 | durum                        | object      |            0 | %0.00           |                  2 | Aktif                               |
 | kaynak                       | object      |            0 | %0.00           |                  2 | Ruhsatlı                            |
-| atc_final                    | object      |            0 | %0.00           |              1,934 | L01EA01                             |
+| atc_final                    | object      |            0 | %0.00           |              1,938 | L01EA01                             |
 | atc_celiski                  | object      |            0 | %0.00           |                  2 | 0                                   |
 | kapsam_disi                  | object      |            0 | %0.00           |                  2 | 0                                   |
 | barkod_gecersiz              | object      |            0 | %0.00           |                  2 | 0                                   |
 | kural_6_skrs_tamamlandi      | object      |            0 | %0.00           |                  2 | 0                                   |
 | atc_kaynak_hatasi_duzeltildi | object      |            0 | %0.00           |                  2 | 0                                   |
+| atc_who_guncellendi          | object      |            0 | %0.00           |                  2 | 0                                   |
 
 #### Tablo 2: urun_etken.csv Özet Profili (Toplam Satır: 32,076, Sütun: 4)
 
@@ -34,17 +37,21 @@
 | bilesen_ham | object      |            0 | %0.00           |              3,698 | imatinib mesilat |
 | bilesen_tr  | object      |            0 | %0.00           |              3,065 | imatinib         |
 
+Tablo 1–2, yerel `urun_guncel.csv` ve `urun_etken.csv` üzerinden metin tipinde yeniden sayıldı. Boş değerler benzersiz değer hesabına alınmadı.
+
 #### Tablo 3: Veri Entegrasyonu ve Ayrıştırma Mutabakat Tablosu
+
+Kaynaklar: [Notebook 01 nihai sayımlar](../notebooks/01_titck_temizlik.ipynb#cell-id=c10_save_summary), [Kural 6](../notebooks/01_titck_temizlik.ipynb#cell-id=c6_kural6_eksik) ve [Notebook 02 bileşen çıktısı](../notebooks/02_etken_ayristirma.ipynb#cell-id=a55eea71). Kapsam dışı ve geçersiz barkod sayıları nihai yerel ürün tablosundaki ilgili bayrakların toplamıdır.
 
 | Metrik                                             |   Değer |
 |:---------------------------------------------------|--------:|
-| Başlangıç Ruhsatlı İlaç Sayısı                     |  23,801 |
-| Eklenen SKRS Ürünü (Kural 5)                       |       0 |
+| Başlangıç TİTCK satır sayısı | 23.105 |
+| Eklenen aktif SKRS ürünü (Kural 5) | 851 |
 | Kapsam Dışı Ürünler (kapsam_disi=1)                |     895 |
 | Geçersiz Barkodlar (barkod_gecersiz=1)             |     184 |
 | SKRS ile Tamamlanan Kayıtlar (Kural 6)             |      14 |
-| Eksik Kayıt (eksik_kayit.csv)                      |       0 |
-| ATC Çelişkili Ürünler (atc_celiski=1)              |     369 |
+| Analizden çıkarılan eksik kayıt (`eksik_kayit.csv`) | 103 |
+| ATC Çelişkili Ürünler (atc_celiski=1)              |     202 |
 | Nihai Ürün Sayısı (urun.csv)                       |  23,801 |
 | Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv) |  32,076 |
 | Tekil Normalize Etken Madde Sayısı                 |   3,065 |
@@ -52,8 +59,8 @@
 ### Özet Tablolar Analitik Değerlendirmesi (3 Cümle Kuralı):
 
 1. **Ne Görülüyor?** `urun.csv` tablosunda kritik operasyonel sütunlar (`urun_adi`, `etkin_madde_ham`, `atc_final`, `durum`, `kaynak`) %100 doluluk oranına sahipken, SKRS eşleşmesi bulunmayan ruhsatlı ürünlerden kaynaklı olarak `atc_skrs` ve `atc_adi_skrs` alanlarında beklenen şekilde %47,46 boşluk gözlenmektedir.
-2. **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri `urun_etken.csv` tablosunda 32.076 bileşen satırına ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3,065 tekil etken maddeye** indirgenmiştir.
-3. **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi ve sıfır veri kaybıyla tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
+2. **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri `urun_etken.csv` tablosunda 32,076 bileşen satırına ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3,065 tekil etken maddeye** indirgenmiştir.
+3. **Projeye etkisi:** Notebook 01, analizden çıkarılan eksik kayıtları `eksik_kayit.csv` dosyasında saklar. Ürün ve bileşen tabloları eşleme adımlarının girdisidir.
 
 ### 2. Grafik E01: Bileşen Sayısı Dağılımı
 
@@ -73,9 +80,11 @@
 
 #### 📌 Grafik E01 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
-1. **Ne Görülüyor?** TİTCK ruhsatlı ilaç portföyünün %81,26'sı (19.341 ürün) tek bir etken maddeden oluşurken, 5 ve daha fazla bileşen içeren formülasyonların ezici çoğunluğu (439 ürün) Kural 4 kapsamında elenen B05 grubu serum/elektrolit solüsyonlarıdır.
-2. **En Önemli Sayı:** Toplam 4.460 kombine ürün (%18,74, n=23.801) tespit edilmiş olup, bu değer 1. haftadaki kaba tahminden (4.572 kombine) yalnızca 112 ürün (%2,45) daha düşüktür; fark, tuz/hidrat eklerinin temizlenmesiyle giderilen yapay bileşen fazlalıklarından kaynaklanmaktadır.
-3. **Projeye Etkisi:** Analiz kapsamında kalan 4.011 kombine ürün Yol B (rapidfuzz ile ATC adı ayrıştırma) ve Yol C/D için hedef kümeyi belirlerken, 18.895 tekli ürün doğrudan Yol A (ATC köprüsü) üzerinden hızlıca DDInter eşleştirmesine aktarılacaktır.
+1. **Bileşen dağılımı.** E01 sayımında 23,801 kaydın 19,406 tanesi tek bileşenli, 4,395 tanesi kombinedir.
+2. **Sayım yöntemi.** Bileşen sayısı barkod üzerinden hesaplanır. Barkodu eksik olanlarda ham metin kullanılır ve diğer eşleşmeyen kayıtlarda varsayılan sayı 1 olarak alınır. Yüzdelerin paydası tüm ürün kayıtlarıdır.
+3. **Kapsam içi dağılım.** 18,960 tek bileşenli ve 3,946 kombine kayıt vardır. Yol A uygunluğu ATC ve eşleme kurallarına bağlıdır.
+
+[Notebook 05, E01 hücresi](../notebooks/05_eda_titck.ipynb#cell-id=5d307533)
 
 ### 3. Grafik E02: 14 ATC Ana Grubu ve SKRS Durumu Dağılımı
 
@@ -146,27 +155,30 @@
 2. **En Önemli Sayı:** En büyük tekil indirgemeyi **864 farklı metni (%20.90)** tekilleştiren tuz ve hidrat arındırma adımı sağlarken, 4 aşama sonunda toplamda **1,552 metin elenerek (%33.61 genel indirgeme)** veri kümesi net 3,065 tekil etken maddeye indirgenmiştir.
 3. **Projeye Etkisi:** Yüzde 33'lük bu devasa indirgeme, downstream aşamalarda yapılacak bulanık eşleştirme (rapidfuzz) ve PubChem/DDInter sorgularının arama uzayını üçte bir oranında daraltarak hem işlem hızını hem de eşleşme doğruluğunu maksimize etmiştir.
 
-### 6. Grafik E07: ATC Çelişki Sınıfları Dağılımı ve Gerçek Çelişki Analizi
+### 6. Grafik E07: ATC Çelişki Sınıfları Dağılımı ve Güncellenmiş Kural 8 Analizi
 
 ![Grafik E07](../figs/E07_celiski_siniflari.png)
 
-#### Tablo 8: ATC Çelişki Sınıfları ve Gerçek Çelişki Dağılımı
+#### Tablo 8: ATC Çelişki Sınıfları ve Güncellenmiş Kural 8 Dağılımı
 
-| Çelişki Sınıfı         | Tanım / Kriter                                              |   Ürün Sayısı | Portföy Oranı (%)   | İki Kaynaklı Ürün Oranı (%)   | Çelişki Durumu (atc_celiski)   | Uygulanan Çözüm Kuralı                       |
-|:-----------------------|:------------------------------------------------------------|--------------:|:--------------------|:------------------------------|:-------------------------------|:---------------------------------------------|
-| bosluk                 | Boşluk/karakter temizliği sonrası tam eşit kodlar           |        11,222 | %47.15              | %96.41                        | Çelişki Yok (0)                | Ruhsatlı kod onaylandı                       |
-| duzey_farki            | Biri diğerinin başlangıcı / ön eki (örn. N02B vs N02BE01)   |            49 | %0.21               | %0.42                         | Sahte Çelişki (0)              | Kural 8: Uzun olan (ayrıntılı) kod seçildi   |
-| ayni_grup_farkli_madde | İlk 5 hane aynı, son 2 hane farklı (kimyasal alt grup aynı) |            27 | %0.11               | %0.23                         | Gerçek Çelişki (1)             | Ruhsatlı kod alındı, Yol A köprüsü kapatıldı |
-| farkli_grup            | İlk 5 hane tamamen farklı grup                              |           342 | %1.44               | %2.94                         | Gerçek Çelişki (1)             | Ruhsatlı kod alındı, Yol A köprüsü kapatıldı |
-| bos                    | Kaynakların en az birinde ATC kodu eksik                    |        12,161 | %51.09              | -                             | Karşılaştırılamaz (0)          | Kural 6/7: Mevcut olan kod veya boş atandı   |
+**Sınıf bazında doğrulama:** Yerel `atc_celiski_siniflari.csv` ve `urun_guncel.csv` tabloları barkodla eşleştirildi. WHO ile çözülen 167 kaydın tamamı `farkli_grup` sınıfındadır. [Notebook 01, Kural 8](../notebooks/01_titck_temizlik.ipynb#cell-id=c8_atc_celiski).
 
-> **🎯 "411 Çelişkinin Kaçı Gerçek?" Analitik Kararı:**
+| Çelişki Sınıfı         | Tanım / Kriter                                              |   Ürün Sayısı | Portföy Oranı (%)   | İki Kaynaklı Ürün Oranı (%)   | Çelişki Durumu (atc_celiski)              | Uygulanan Çözüm Kuralı                                          |
+|:-----------------------|:------------------------------------------------------------|--------------:|:--------------------|:------------------------------|:------------------------------------------|:----------------------------------------------------------------|
+| bosluk                 | Boşluk/karakter temizliği sonrası tam eşit kodlar           |        11,222 | %47.15              | %96.41                        | Çelişki Yok (0)                           | Ruhsatlı kod onaylandı                                          |
+| duzey_farki            | Biri diğerinin başlangıcı / ön eki (örn. N02B vs N02BE01)   |            49 | %0.21               | %0.42                         | Sahte Çelişki (0)                         | Kural 8: Uzun olan (ayrıntılı) kod seçildi                      |
+| ayni_grup_farkli_madde | İlk 5 hane aynı, son 2 hane farklı (kimyasal alt grup aynı) |            27 | %0.11               | %0.23                         | WHO ile çözülen: 0 / Kalan çelişki: 27  | WHO listesinde varsa yeni kod; yoksa ruhsatlı kod, Yol A kapalı |
+| farkli_grup            | İlk 5 hane tamamen farklı grup                              |           342 | %1.44               | %2.94                         | WHO ile Çözülen: 167 / Kalan Çelişki: 175 | WHO listesinde varsa yeni kod; yoksa ruhsatlı kod, Yol A kapalı |
+| bos                    | Kaynakların en az birinde ATC kodu eksik                    |        12,161 | %51.09              | -                             | Karşılaştırılamaz (0)                     | Kural 6/7: Mevcut olan kod veya boş atandı                      |
+
+> **🎯 Güncellenmiş Kural 8 Çelişki Çözüm Kararı:**
 > - **İki Kaynakta da Kod Olup Farklı Olan Toplam Ürün:** **418** (1. Hafta Kaba Tahmini: 411)
-> - **Gerçek Çelişki Sayısı:** **369** (%88.28) -> `farkli_grup` (342) + `ayni_grup_farkli_madde` (27).
-> - **Granülarite Farkı (Sahte Çelişki):** **49** (%11.72) -> `duzey_farki` (Biri diğerinin hiyerarşik üst düzeyi olup Kural 8 ile detaylı kod alınarak sorunsuz çözülmüştür).
+> - **Granülarite Farkı (Sahte Çelişki):** **49** → `duzey_farki`, Kural 8 ile uzun kod alınarak çözülmüştür.
+> - **WHO Kümülatif Listesiyle Çözülen:** **167** ürün → Eski kod WHO listesinde yeni koda dönüştürülmüş; yeni kod alınmıştır (`atc_celiski = 0`).
+> - **Kalan Gerçek Çelişki:** **202** ürün → Ruhsatlı kod korunmuş, `atc_celiski = 1`, Yol A köprüsü kapatılmıştır.
 
 #### 📌 Grafik E07 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
 1. **Ne Görülüyor?** TİTCK Ruhsatlı İlaçlar Listesi ile SKRS E-Reçete Listesi karşılaştırıldığında, her iki kaynakta da ATC kodu bulunan 11.640 ürünün %96,4'ü (11.222 ürün) boşluk temizliği sonrası birebir tam uyumludur.
-2. **En Önemli Sayı:** 1. haftadaki 411 kaba tahmine karşılık detaylı analizle tespit edilen 418 kod farklılığından yalnızca **369 adedi (%88,3, tüm portföyün %1,55'i)** gerçek çelişki niteliğinde olup (`farkli_grup`: 342, `ayni_grup_farkli_madde`: 27); geriye kalan 49 ürün ise birinin diğerinin ön eki olduğu granülarite farkıdır (`duzey_farki`) ve Kural 8 ile çözülmüştür.
-3. **Projeye Etkisi:** Gerçek çelişki tespit edilen 369 ürün için ruhsatlı liste resmi kayıt olarak kabul edilmekle birlikte, klinik eşleştirme güvenliğini garanti altına almak amacıyla bu ürünlerde Yol A (ATC köprüsü) devre dışı bırakılmış ve doğrudan etkin madde metin madenciliği (Yol C/D) zorunlu kılınmıştır.
+2. **En Önemli Sayı:** 418 kod farklılığının 49'i granülarite farkı (sahte çelişki), 167'si WHO kümülatif listesiyle çözülmüş olup yalnızca **202 ürün** gerçek çelişki olarak kalmıştır (tüm portföyün %0.85'i).
+3. **Projeye Etkisi:** Kalan 202 çelişkili ürün için ruhsatlı kod korunarak Yol A (ATC köprüsü) devre dışı bırakılmış, doğrudan etkin madde metin madenciliği (Yol C/D) zorunlu kılınmıştır. WHO güncellemesiyle çözülen 167 ürün ise artık `atc_celiski = 0` olduğu için Yol A/B eşleştirmesine dahil edilmiştir.

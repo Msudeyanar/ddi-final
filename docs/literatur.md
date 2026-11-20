@@ -1,41 +1,15 @@
-# Literatür İncelemesi: Cold-Start DDI Tahmini ve Bölme Protokolleri
+# Literatür İncelemesi
 
-Bu doküman, ilaç-ilaç etkileşimi (DDI) tahmininde cold-start (yeni ilaç) senaryolarını ele alan EmerGNN ve DDI-Ben makalelerinin özetlerini ve 1. hafta çalışmalarıyla birleştirilmiş sonuç tablosunu içerir.
+## EmerGNN
 
----
+S0 iki mevcut ilacın, S1 bir yeni ve bir mevcut ilacın, S2 iki yeni ilacın etkileşim tahminini ölçer. DrugBank için aşağıdaki skorlar makalede yüzde ölçeğinde raporlanan test ortalamalarıdır.
 
-## 1. EmerGNN (Nature Computational Science / arXiv)
+| Model | Veri seti | Bölme | Metrik | Sonuç | Kaynak |
+|---|---|---|---|---:|---|
+| EmerGNN | DrugBank | S0 | Macro-F1 | 94,4 | [Ek Tablo 3](https://arxiv.org/html/2311.09261#A3.T3) |
+| EmerGNN | DrugBank | S1 | Macro-F1 | 62,0 | [Tablo 1](https://arxiv.org/html/2311.09261#S6.T1) |
+| EmerGNN | DrugBank | S2 | Macro-F1 | 25,0 | [Tablo 1](https://arxiv.org/html/2311.09261#S6.T1) |
 
-- **Cold-Start (Yeni İlaç) Tanımı:** 
-  Makalede cold-start senaryoları iki seviyede tanımlanmıştır:
-  - **S1 (Biri Yeni):** Etkileşim çiftindeki ilaçlardan biri eğitim kümesinde bulunurken, diğeri yalnızca test kümesinde yer alan "yeni" bir ilaçtır.
-  - **S2 (İkisi de Yeni):** Etkileşim çiftindeki her iki ilaç da eğitim kümesinde hiç görülmemiş, tamamen test kümesine ayrılmış ilaçlardır. (T06 grafiğindeki S1 ve S2 tanımları bu adlandırmaya dayanmaktadır).
-- **İlaçların Bölünmesi:** 
-  İlaç kümesi rastgele bölünerek eğitim ve test ilaçları ayrılmıştır.
-- **Performans Düşüşü:** 
-  Standart rastgele çift bölmesine (S0) kıyasla, S1 senaryosunda AUC ve F1 skorlarında %8-15 arası düşüş görülürken; S2 (çift kör / ikisi yeni) senaryosunda yapısal bilgi aktarımı zorlaştığı için performans düşüşü %25-40 seviyelerine kadar çıkmaktadır.
+S0’a göre düşüş S1’de **32,4 yüzde puanı** (94,4 − 62,0), S2’de **69,4 yüzde puanı** (94,4 − 25,0). [Makale ve ek tablolar](https://arxiv.org/html/2311.09261)
 
----
-
-## 2. DDI-Ben (Bioinformatics, 2025)
-
-- **Cold-Start (Yeni İlaç) Tanımı:** 
-  Dağılım değişimi (distribution shift) altında genelleştirme yeteneği olarak tanımlanır. Yeni onaylanan moleküllerin kimyasal iskelet (scaffold) ve özellik uzayındaki farklılıklarının modele etkisi değerlendirilir.
-- **İlaçların Bölünmesi:** 
-  Yalnızca rastgele ilaç bölmesi değil; Murcko scaffold (kimyasal çekirdek) bazlı bölme yapılarak yapısal olarak eğitimden tamamen farklı ilaçların testte kalması sağlanmıştır.
-- **Performans Düşüşü:** 
-  Scaffold bazlı cold-start testlerinde modellerin çoğunda rastgele bölmeye kıyasla belirgin performans kaybı (F1 ve AUPR'de %20'nin üzerinde düşüş) raporlanmıştır.
-
----
-
-## 3. Literatür Sonuç Tablosu
-
-| Makale | Veri Seti | Bölme Yöntemi | Metrik | Değer |
-| :--- | :--- | :--- | :--- | :--- |
-| **EmerGNN** | DrugBank DDI | S0 (Rastgele çift) | Macro-F1 | 0.884 |
-| **EmerGNN** | DrugBank DDI | S1 (Biri yeni) | Macro-F1 | 0.762 |
-| **EmerGNN** | DrugBank DDI | S2 (İkisi de yeni) | Macro-F1 | 0.615 |
-| **DDI-Ben** | DrugBank DDI | Scaffold Split | ROC-AUC | 0.741 |
-| **MRCGNN** | DrugBank DDI (Ryu) | S0 (Rastgele çift) | Accuracy | 0.923 |
-| **CASTER** | DrugBank DDI | S0 (Rastgele çift) | ROC-AUC | 0.861 |
-| **DeepDDI** | DrugBank DDI (Ryu) | S0 (Rastgele çift) | Accuracy | 0.892 |
+DDI-Ben ve önceki hafta incelenen çalışmalar için [literatür kaynak tablosuna](literatur_tablo.md) bakın. Kaynak tablo veya bölümle doğrulanabilen sayısal değerler raporlanır.

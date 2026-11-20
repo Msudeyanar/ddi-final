@@ -4,6 +4,8 @@
 > *(Tüm Bileşenler Bazında: %46.3 (1,420 / 3,065) — Tüm Ruhsatlı Ürünler Bazında: %80.6 (18,488 / 22,927))*
 
 ## 1. Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Dağılımı
+
+Bu bölüm Notebook 03’ün kayıtlı çalıştırmasındaki eşleme tablosunu özetler. Sorgu motorundaki daha sonraki Yol D kuralları bu sayıma dahil edilmemiştir.
 | Eşleşme Yolu | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) | Açıklama |
 | :--- | :---: | :---: | :---: | :--- |
 | **Yol A (Tek Bileşenli ATC)** | 1,904 | 1,234 | %64.8 | Tek bileşenli ürünlerin SKRS ATC sözlüğünden İngilizce adı |
@@ -45,7 +47,7 @@
 
 > **Not (ATC Dağılımı):** Tablo kapsam içi 2,945 etken maddeyi içerir. Kapsam dışı veya ATC atanmamış 120 bileşen tablodan hariç tutulmuştur; toplam etken madde 3,065'dir.
 
-> **Önemli Not (Eşleşme Oranı vs. Etkileşim Kapsamı):** Tablodaki yüksek eşleşme oranları (örn. Sinir Sistemi %71.8), bu ilaçların DDInter kütüphanesinde kimlik olarak geçtiğini gösterir. Ancak DDInter indirme paketlerinde C, G, J, M, N, S gibi ana grupların bağımsız etkileşim dosyaları bulunmamaktadır. Dolayısıyla bu gruptaki ilaçlar yalnızca diğer mevcut gruplarla (A, B, D, H, L, P, R, V) olan etkileşimlerde yer alabilir; iki N grubu ilacının kendi arasındaki etkileşim DDInter dosyalarında bulunamaz.
+> **Önemli Not (Eşleşme Oranı vs. Etkileşim Kapsamı):** Tablodaki yüksek eşleşme oranları (örn. Sinir Sistemi %71.8), bu ilaçların DDInter kütüphanesinde kimlik olarak geçtiğini gösterir. Ancak DDInter indirme paketlerinde C, G, J, M, N, S gibi ana grupların bağımsız etkileşim dosyaları bulunmamaktadır. Bağımsız bir grup dosyasının bulunmaması, o gruptaki iki ilacın diğer kaynak dosyalarda birlikte yer almasını engellemez. Güncel yerel D05 sayımında N–N grubunda 481 benzersiz çift bulunuyor. Bu sayı, yukarıdaki tarihsel eşleme oranlarından farklı bir veri çıktısına dayanır. [D05 tam sayımı](IP6_Tablo20_ATC_Ciftleri.csv)
 
 ## 4. Eşleşmeyen En Sık 30 Bileşen Tablosu (Kişi C Öncelik Listesi - Kapsam İçi)
 | Sıra | Türkçe Bileşen Adı | Ürün Sayısı | Önerilen İngilizce / ATC | Durum |

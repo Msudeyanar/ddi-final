@@ -2,6 +2,17 @@
 
 *Bu rapor; TİTCK Ruhsatlı İlaçlar, SKRS-3 ve DDInter veritabanları üzerinden PDF şartnamesine tam uyumlu olarak Kişi B tarafından hazırlanmış; DDInter etkileşim ağı, eşleşme köprüsü kapsamı, kayıp analizi, analitik tablolar ve hoca/jüri sunum kartlarını içerir.*
 
+
+> **DDInter sayılarının kaynağı.** [Notebook 04](../notebooks/04_ddinter_birlestirme.ipynb) hücreleri `e96b29d2` (dosya ve ham satır sayıları), `d508b3b4` (ilaç fihristi), `9a82020a` (sayısal kimlik sıralaması, tekilleştirme ve etiket çelişkileri), `15b08f7b` (nihai şiddet dağılımı ve ağ ölçümleri). Ham şiddet adetleri `e96b29d2` çıktısındaki birleştirilmiş satırlarda `Level` alanının sayımından elde edildi. Sekiz yerel CSV ile yeniden sayım bu değerleri doğruladı.
+
+> **Veri sürümleri.** Tablo 10–12 eldeki CSV’lerden yeniden hesaplandı. Notebook 04’ün `926ce095` hücresindeki 1.418 eşleşmeli satır, yalnızca D06’daki tarihsel ATC hesabının girdisidir. Tablo 10’un yerel eşleme sayısı 1.395’tir.
+
+> **Kapsam hunisi yeniden sayımı.** Kapsam hunisindeki 22.417 / 16.841 / 18.066 tarihsel rapor değerleridir. Yerel `urun.csv` üzerinden `kapsam_disi=0` olan 22.883 benzersiz barkod seçildi. İlgili `urun_etken` ve `etken_madde` çıktıları `bilesen_tr` üzerinden karşılaştırılıp dolu `ddinter_id` alanları sayıldı. Yerel ara veride 15.999 barkodun tüm bileşenleri, 17.568 barkodun en az bir bileşeni eşleşti. Yol D motor çıktısında sayılar sırasıyla 16.000 ve 17.570. Tarihsel huni, bu iki veri sürümüyle yeniden üretilemedi.
+
+> **Tarihsel E10 kaynağı.** [Arşiv grafiği](IP6_Tarihsel_E10.png) 22.417 kapsam içi ürün, 20.760 tüm bileşenleri İngilizce adlı ürün, 18.066 en az bir DDInter eşleşmeli ürün ve 16.841 tüm bileşenleri eşleşen ürün gösteriyor. Arşiv Notebook 06’nın 15. hücresi (`In [7]`) yalnızca kapsam içi ruhsatlı ürünlerden bileşen kaydı bulunan barkodları sayıyor. Bu hesap eldeki iki CSV setiyle tekrar çalıştırıldı ve grafikteki dört değer birlikte yeniden üretilemedi. Tablo 12 güncel yerel sayımı gösterir.
+
+> **Aynı E10 yöntemiyle yeniden hesap.** 20 Kasım tarihli `ddi-veri-20261120T174422Z-1-001.zip` arşivindeki üç CSV, Notebook 06’nın ruhsatlı ve kapsam içi barkod filtresiyle işlendi. Bileşen kaydı olan 22.417 barkodun 20.697’sinde tüm bileşenlerin İngilizce adı vardı. 17.373’ünde en az bir, 15.811’inde tüm bileşenler DDInter kimliğiyle eşleşti. Tablo 12 farklı bir kapsam tanımı kullanır.
+
 ---
 
 ## 🧭 Hızlı Sunum Navigasyonu (Kişi B Sorumluluğundaki Temel Grafikler)
@@ -65,9 +76,40 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ## 1. Kısım: Eşleme ve Portföy Kapsama EDA'sı (İP6-B)
 
-### 1. Grafik E05: En Sık Kullanılan 30 Etken Madde ve DDInter Durumu
+### 1. E05: Ruhsatlı ürün sayısına göre ilk 30 bileşen
 
-![Grafik E05](../figs/E05_en_sik_bilesenler.png)
+| Sıra | Bileşen | Ürün sayısı | DDInter kimliği |
+|---:|---|---:|---|
+| 1 | sodyum klorur | 1059 | DDInter1685 |
+| 2 | dekstroz | 720 | — |
+| 3 | kalsiyum klorur | 409 | DDInter272 |
+| 4 | potasyum klorur | 387 | DDInter1497 |
+| 5 | hidroklorotiyazid | 379 | DDInter883 |
+| 6 | parasetamol | 376 | DDInter14 |
+| 7 | metformin | 319 | DDInter1164 |
+| 8 | sodyum laktat | 315 | — |
+| 9 | magnezyum klorur | 300 | DDInter1114 |
+| 10 | amlodipin | 278 | DDInter79 |
+| 11 | other non therapeutic auxiliary products | 258 | — |
+| 12 | rosuvastatin | 249 | DDInter1622 |
+| 13 | ketiapin | 228 | DDInter1553 |
+| 14 | ibuprofen | 214 | DDInter900 |
+| 15 | valsartan | 208 | DDInter1915 |
+| 16 | pregabalin | 201 | DDInter1516 |
+| 17 | memantin | 187 | DDInter1146 |
+| 18 | olmesartan | 187 | DDInter1330 |
+| 19 | glukoz | 180 | — |
+| 20 | atorvastatin | 174 | DDInter133 |
+| 21 | asetilsistein | 166 | DDInter19 |
+| 22 | flutikazon | 156 | DDInter766 |
+| 23 | tiyokolsikosid | 155 | — |
+| 24 | olanzapin | 154 | DDInter1326 |
+| 25 | montelukast | 153 | DDInter1242 |
+| 26 | donepezil | 150 | DDInter583 |
+| 27 | tadalafil | 144 | DDInter1736 |
+| 28 | sodyum asetat | 140 | DDInter1681 |
+| 29 | deksketoprofen | 131 | — |
+| 30 | lidokain | 130 | DDInter1066 |
 
 #### Tablo 9: Türkiye'de En Sık Kullanılan 30 Etken Madde ve Eşleşme Durumu (NB06 Hücre [4], NB03 Hücre [16])
 
@@ -122,9 +164,9 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ---
 
-### 2. Grafik E08: Eşleşme Yolları (Yol A, B, C, SKRS, Eşleşmedi) ve Kapsama Dağılımı
+### 2. Grafik E08: Eşleşme Yolları ve Kapsama Dağılımı
 
-![Grafik E08](../figs/E08_esleme_yollari.png)
+#### Tablo 10. Eşleme yollarına göre yerel sayım
 
 #### Tablo 10: Eşleşme Yolları İki Panelli Kapsama Mutabakatı (NB03 Hücre [15] ve [16], NB06 Hücre [5])
 
@@ -141,7 +183,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 *\*Not 1: Bir ilaç birden fazla etken madde içerebildiğinden (ör. amlodipin + valsartan), tekil ilaç sayıları toplamı 23.801'i aşar; yüzdeler 23.801 ruhsatlı ilaç portföyüne oranlanmıştır.*
 *\*Not 2: Ürün-Etken Satır Hacmi, `urun_etken.csv` tablosundaki toplam 32.076 satır bazındaki kümülatif dağılımdır.*
 
-#### 📌 Grafik E08 Metodolojik ve Analitik Değerlendirmesi:
+#### Tablo 11. Kapsam içi bileşenler
 
 ### 📌 Kod Ne İşe Yarıyor?
 - Eşleşme mimarisindeki 6 farklı yolu (`Yol A`, `Yol B`, `Yol C`, `Yol D`, `SKRS`, `Eşleşmedi`) iki boyutta inceler (NB06 Hücre [5]):
@@ -192,7 +234,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ### 4. Grafik E10: Kullanıcı Arama ve Entegrasyon Kapsam Hunisi
 
-![Grafik E10](../figs/E10_kapsam_hunisi.png)
+#### Tablo 12. Yerel veride barkod düzeyinde eşleşme
 
 #### Tablo 12: Kullanıcı Arama Kapsam Hunisi Aşamaları (NB06 Hücre [7])
 
@@ -360,7 +402,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ### 9. Grafik D05: 14x14 ATC Ana Grupları Arası Çapraz Etkileşim Isı Haritası
 
-![Grafik D05](../figs/D05_atc_isi_haritasi.png)
+#### Tablo 20. En çok etkileşim kaydı bulunan ATC grup çiftleri
 
 #### Tablo 20: Türkiye Listesiyle Eşleşen İlaçların En Yoğun ATC Çapraz Etkileşim Kümeleri (NB06 Hücre [12])
 

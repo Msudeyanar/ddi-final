@@ -7,21 +7,21 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 ## 1. DDInter Veri Dengesizliği ve Eksik ATC Grupları (İP4 / İP6)
 * **Durum:** DDInter indirme paketlerinde yalnızca 8 ana grup (A, B, D, H, L, P, R, V) bağımsız CSV olarak sunulmaktadır. Türkiye'de en çok reçetelenen Kardiyovasküler (C), Sinir Sistemi (N), Kas/İskelet (M) ve Antibiyotik (J) gibi 6 kritik grubun bağımsız indirme dosyası bulunmamaktadır.
 * **Sayısal ve Analitik Boyut (D05 & D06):**
-  - Eşleşen 1.418 Türk etken maddesinin oluşturabileceği $C(1418, 2) = 1.004.653$ olası çiftin **775.827'si (%77,22) mevcut 8 dosya üzerinden başarıyla kontrol edilebilmektedir**.
+  - [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) kayıtlı çıktısında 1.418 DDInter eşleşmeli etken madde satırının 677’si (%47,74) bağımsız indirme dosyası olmayan ATC gruplarında. Bu 677 satırdan oluşturulabilen 228.826 çift, 1.004.653 olası çiftin %22,78’ine karşılık gelir. Hesap, olası çiftleri ATC grubuna göre sınıflandırır. İndirilen dosyalardaki gerçek etkileşim kapsamı çift bazında ayrıca kontrol edilir.
   - D05 ısı haritasında görüldüğü üzere, Kalp (C) ve Sinir (N) ilaçları diğer mevcut dosyalarla (C-L: 3.079 çift, L-N: 4.862 çift, A-C: 2.303 çift) güçlü çapraz köprüler kurmuştur.
-  - Ancak iki ilacı da eksik grupta olan **228.826 çift (%22,78)** sistemde kontrol edilememektedir (Örn: Amlodipin [C] + Ramipril [C] veya Paroksetin [N] + Tramadol [N]).
+  - Geriye kalan 775.827 olası çiftte en az bir bileşen indirme dosyası bulunan bir ATC grubunda.
 * **Açık Soru ve Arayüz Tasarımı:** Kullanıcı reçetesinde iki ilaç da eksik grupta çıktığında, sistem kullanıcıyı yanıltarak *"Etkileşim Yok"* mu demelidir, yoksa *"Bu ilaç kombinasyonu DDInter indirme paketlerinde yer almayan C/N gruplarında olduğundan etkileşim verisi bulunamamaktadır (Veri Kısıtı)"* şeklinde şeffaf bir uyarı mı vermelidir?
 * **Öneri:** Klinik güvenilirlik açısından şeffaf uyarı bayrağı (`veri_yetersiz_uyarisi = True`) dönülmesi zorunlu olmalıdır.
 
 ---
 
 ## 2. PubChem ile Kurtarılan Bileşenlerin Yol Sınıflandırması ve İzlenebilirlik (`ad_en_ham`) (İP3)
-* **Durum:** En sık eşleşmeyen 100 kapsam içi bileşenden 14 tanesi (parasetamol, olmesartan, kolekalsiferol, glibenklamid, ipratropium vb.) PubChem API eş anlamlıları üzerinden DDInter kimliğine başarıyla bağlanmıştır.
+* **Durum:** Notebook 03’ün kayıtlı PubChem taramasında kapsam içi ilk 100 eşleşmeyen bileşenden 17’sine doğrudan DDInter kimliği atanmış ve aynı ham ada sahip 24 ek bileşen satırına eşleşme aktarılmıştır. [Notebook 03, PubChem hücresi](https://github.com/Msudeyanar/ddi-final/blob/main/notebooks/03_kopru_ddinter.ipynb#cell-id=3c300ca4)
 * **Tasarım Çelişkisi:** PubChem eşleştirmesi doğrudan `ad_en` üzerine yazıldığında, Yol A'dan gelen resmi WHO ATC adı (örn. `paracetamol`) ezilmekte ve veri izlenebilirliği (traceability) kaybolmaktadır.
 * **Çözüm / Güncel Durum (✅ Çözüldü):** 
   - Plandaki standart `yol` kategorileri (A, B, C, D, SKRS, eslesmedi) korunmuş; yeni bir 'PubChem' yolu icat edilmemiştir.
   - `etken_madde.csv` tablosuna `ad_en_ham` sütunu eklenerek ilk ATC adı dondurulmuş; `ad_en` sütununa DDInter karşılığı yazılmıştır.
-  - Eşleşme kaynağı ise `eslesme_kaynagi` ('tam_ad', 'pubchem') sütununa kaydedilerek %100 veri izlenebilirliği sağlanmıştır.
+  - Eşleşme kaynağı ise `eslesme_kaynagi` ('tam_ad', 'pubchem') sütununa kaydedilir.
 
 ---
 
@@ -32,7 +32,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
   - `pyridoxine (vit b6)` ➔ DDInter'da `pyridoxine`
   - `thiamine (vit b1)` ➔ DDInter'da `thiamine`
 * **Kural:** Şartname gereğince kontrolsüz parantez budama regex'i işletilmemiş, bu durum açık soru olarak bırakılmıştır.
-* **Açık Soru:** Parantez içindeki açıklamalar için `\s*\(.*?\)` regex'i Adım 2/3 normalizasyonuna resmi bir kural olarak eklenip yaklaşık 40–50 kritik vitamin ve mineral doğrudan kurtarılmalı mıdır, yoksa bu maddeler Kişi C'nin Yol D manuel eşleme sürecine mi bırakılmalıdır?
+* **Açık Soru:** Parantez içindeki açıklamalar için `\s*\(.*?\)` regex'i Adım 2/3 normalizasyonuna resmi bir kural olarak eklenip ilgili bileşenler yeniden değerlendirilmeli midir, yoksa bu maddeler Kişi C'nin Yol D manuel eşleme sürecine mi bırakılmalıdır?
 * **Öneri:** Parantez içini budayan kontrollü bir regex kuralı eklenmeli; orijinal ad `ad_en_ham` içinde saklanmalıdır.
 
 ---
@@ -82,7 +82,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 * **Durum:** Türkiye'de serum ve infüzyonlarda en çok kullanılan `dekstroz` (720 ürün) ve `glukoz` (180 ürün) için Yol A resmi ATC sözlüğünden `carbohydrates` adını getirmekteydi. `carbohydrates` bir ATC sınıf adıdır, tekil ilaç adı değildir ve DDInter'da bulunmaz. Bu durum 900 ürünlük devasa bir hasta hacminin etkileşim kontrolü dışı kalmasına yol açmaktaydı.
 * **Çözüm / Güncel Durum (✅ Çözüldü - Kişi C Yol D Entegrasyonu):** 
   - Kişi C tarafından Yol D ilk 100 incelemesinde bu iki bileşen kaynakta düzeltilmiş; `dekstroz` ➔ `dextrose` ve `glukoz` ➔ `glucose` olarak `DDInter529` kimliğine bağlanmıştır.
-  - Bu düzeltme ile **693 yeni ruhsatlı ürün** sisteme kazandırılmış ve en az bir bileşen kapsama oranımız %77,50'den %80,59'a yükselerek %70 şartname hedefini aşmıştır.
+  - İkinci hafta planında %70 kapsama hedefi bulunmuyor. Eski taslaktaki oranın kökeni doğrulanamadı ve değer hedef olarak kaldırıldı. Plan sayfaları ve toplantı yanıtı [kapsam kararı belgesinde](kapsam_karari.md) yer alır.
 
 ---
 
@@ -145,9 +145,9 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 ---
 
 ## 17. İki İlacı da Eksik Grupta Olan Çiftlerin Kapsamı (İP6 - D05 & D06)
-* **Durum:** DDInter'da bağımsız indirme dosyası bulunmayan Kalp (C) grubu, diğer mevcut 8 dosya ile (C-L: 3.079, A-C: 2.303) kurduğu çapraz köprülerle 64.760 çiftlik matriste güçlü bir varlık göstermiştir. Ancak iki ilacı da C grubunda olan kombinasyonlar (örneğin Amlodipin + Ramipril) taranamamakta ve **228.826 kayıp çiftin (%22,78)** merkezini oluşturmaktadır.
+* **Durum:** C, bağımsız indirme dosyası bulunmayan ATC gruplarından biridir. Olası çiftlerin %22,78’i için iki bileşen de bu gruplardadır. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 * **Açık Soru:** İki ilacı da eksik grupta olan bu kritik kardiyovasküler çiftlerin taranabilmesi için 3. haftada Kişi C'nin TDC DrugBank ve harici kaynak entegrasyonu mu devreye alınmalıdır?
-* **Öneri:** 3. haftada Kişi C tarafından DrugBank üzerinden sadece bu 6 eksik ATC grubu (özellikle C-C ve N-N ikilileri) çekilerek kayıp %22,78'lik kör nokta kapatılmalıdır.
+* **Öneri:** Eksik ATC gruplarındaki öncelikli çiftlerin ek veri kaynaklarıyla eşlenebilirliğini ve kaynakların kapsama farkını ayrı değerlendirin.
 
 ---
 
@@ -155,3 +155,21 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 * **Durum:** DDInter veri tabanındaki 160.235 tekil çiftin **%60,33'ü (96.675) Moderate**, **%18,61'i (29.813) Unknown** seviyesindedir. Minor düzeyi ise yalnızca %4,26'dır.
 * **Açık Soru:** DDInter kaynaklarında şiddet seviyesi belirtilmemiş (Unknown) olan 29.813 çift arayüzde kullanıcıya nasıl yansıtılmalıdır?
 * **Öneri:** Hekime yanlış güven vermemek veya panik yaratmamak adına "Etkileşim Var — Klinik Kanıt Düzeyi Belirsiz" şeklinde özel sarı/gri bir uyarı etiketiyle sunulmalı; hekime hastayı klinik olarak gözlemlemesi tavsiye edilmelidir.
+
+---
+
+## 16a. Tek Kaynaklı Ürünlerde Eski WHO ATC Kodu (Kişi A - Kural 8 Kapsamı Dışı)
+* **Gözlem (Kişi A):** Güncellenmiş Kural 8 ile WHO kümülatif değişiklik listesinde yer alan çelişkili 167 ürün yeni koda çekilmiştir. Ancak SKRS'te karşılığı bulunmayan (`bos` sınıfı) 154 üründe `atc_final` hâlâ eski WHO kodunu taşımaktadır. Bu ürünlerin 89'u pregabalin (N03AX16), 16'sı gabapentin (N03AX12), geri kalanı fingolimod, barisitinib, sirolimus vb. etken maddelerdir.
+* **Neden Dokunulmadı:** Güncellenmiş Kural 8 yalnızca iki kaynak arasında çelişki bulunan ürünleri kapsamaktadır. Bu 154 üründe bir çelişki (karşı tarafta kod) olmadığından kural devreye girmemektedir. Ayrıca Sabit Kural 1 ("Ürün adı, etkin madde ve ATC için Ruhsatlı Liste esas alınır") gereği ruhsatlı koddaki değişiklik için danışman onayı gerekmektedir.
+* **Olası Etki:** Aynı etken madde (ör. pregabalin) veri setinde iki farklı ATC koduyla (N03AX16 ve N02BF02) görünmektedir. Bu durum ATC bazlı analizlerde (ör. ATC ana grubu dağılımı, Yol A eşleştirmesi) bölünmeye yol açabilir.
+* **Karar / Soru:** WHO eşlemesi bu 154 tek kaynaklı ürüne de uygulanmalı mıdır, yoksa yalnızca çelişki kuralı kapsamında mı kalmalıdır?
+
+---
+
+## 17a. TİTCK ATC Kodlarındaki Karakter Hataları (CONTUBEL `DO3AX` ve Benzerleri) (Kişi A)
+* **Gözlem (Kişi A):** TİTCK Ruhsatlı İlaçlar Listesinde az sayıda üründe ATC kodu karakter düzeyinde hatalı girilmiştir. Tespit edilen örnekler:
+  - **CONTUBEL** (barkod `8699540019614`): ATC kodu `DO3AX` olarak girilmiş; sıfır (`0`) yerine İngilizce büyük harf `O` yazılmıştır. Doğru kod `D03AX` (other cicatrizants) olmalıdır.
+  - Benzer potansiyel hatalar: `M02A A15` (fazla boşluk), `S03CA0L` (sıfır/L karışıklığı), `N06AX2I` (rakam/harf karışıklığı).
+* **Mevcut Durum:** CONTUBEL şu anda `atc_final = DO3AX` ve `atc_celiski = 1` olarak işaretlidir. Güncellenmiş Kural 8 (WHO kümülatif değişiklik listesi) bu tür karakter hatalarını kapsamamaktadır çünkü `DO3AX` → `D03AX` bir WHO kod değişikliği değildir.
+* **Olası Etki:** `DO3AX` geçerli bir ATC kodu olmadığı için bu ürün Yol A (ATC köprüsü) eşleştirmesine giremez ve ATC ana grubu dağılımında `D` grubu yerine sınıflandırma dışı kalır.
+* **Karar / Soru:** Bu tür karakter hataları `src/normalize.py` veya Notebook 01'deki ATC temizleme adımına bir düzeltme regex'i eklenerek otomatik mi düzeltilmelidir (ör. `DO3AX` → `D03AX`), yoksa mevcut `atc_kaynak_hatasi_duzeltildi` mekanizması (TEKNAZOL örneğinde olduğu gibi) kullanılarak elle mi müdahale edilmelidir?
