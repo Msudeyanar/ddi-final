@@ -5,11 +5,13 @@
 
 > **DDInter sayılarının kaynağı.** [Notebook 04](../notebooks/04_ddinter_birlestirme.ipynb) hücreleri `e96b29d2` (dosya ve ham satır sayıları), `d508b3b4` (ilaç fihristi), `9a82020a` (sayısal kimlik sıralaması, tekilleştirme ve etiket çelişkileri), `15b08f7b` (nihai şiddet dağılımı ve ağ ölçümleri). Ham şiddet adetleri `e96b29d2` çıktısındaki birleştirilmiş satırlarda `Level` alanının sayımından elde edildi. Sekiz yerel CSV ile yeniden sayım bu değerleri doğruladı.
 
-> **Eşleme verisinin sürümü.** Bu rapordaki eşleme ve ürün kapsamı tabloları kayıtlı İP6 çalıştırmasını yansıtır. Eşleşen 1.418 etken madde satırı [Notebook 04, `926ce095` hücresinde](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) de görülür. Tablo 10’daki 32.047, eşleme yollarına göre verilen ürün hacimlerinin toplamıdır. Yerel `etken_madde.csv` dosyasındaki `urun_sayisi` sütunu da 32.047 eder. Yol bazındaki dağılım yerel dosyada farklıdır. Yerel `urun_etken.csv` dosyasında 32.076 satır vardır.
+> **Veri sürümleri.** Tablo 10–12 eldeki CSV’lerden yeniden hesaplandı. Notebook 04’ün `926ce095` hücresindeki 1.418 eşleşmeli satır, yalnızca D06’daki tarihsel ATC hesabının girdisidir. Tablo 10’un yerel eşleme sayısı 1.395’tir.
 
 > **Kapsam hunisi yeniden sayımı.** Kapsam hunisindeki 22.417 / 16.841 / 18.066 tarihsel rapor değerleridir. Yerel `urun.csv` üzerinden `kapsam_disi=0` olan 22.883 benzersiz barkod seçildi. İlgili `urun_etken` ve `etken_madde` çıktıları `bilesen_tr` üzerinden karşılaştırılıp dolu `ddinter_id` alanları sayıldı. Yerel ara veride 15.999 barkodun tüm bileşenleri, 17.568 barkodun en az bir bileşeni eşleşti. Yol D motor çıktısında sayılar sırasıyla 16.000 ve 17.570. Tarihsel huni, bu iki veri sürümüyle yeniden üretilemedi.
 
 > **Tarihsel E10 kaynağı.** [Arşiv grafiği](IP6_Tarihsel_E10.png) 22.417 kapsam içi ürün, 20.760 tüm bileşenleri İngilizce adlı ürün, 18.066 en az bir DDInter eşleşmeli ürün ve 16.841 tüm bileşenleri eşleşen ürün gösteriyor. Arşiv Notebook 06’nın 15. hücresi (`In [7]`) yalnızca kapsam içi ruhsatlı ürünlerden bileşen kaydı bulunan barkodları sayıyor. Bu hesap eldeki iki CSV setiyle tekrar çalıştırıldı ve grafikteki dört değer birlikte yeniden üretilemedi. Tablo 12 güncel yerel sayımı gösterir.
+
+> **Aynı E10 yöntemiyle yeniden hesap.** 20 Kasım tarihli `ddi-veri-20261120T174422Z-1-001.zip` arşivindeki üç CSV, Notebook 06’nın ruhsatlı ve kapsam içi barkod filtresiyle işlendi. Bileşen kaydı olan 22.417 barkodun 20.697’sinde tüm bileşenlerin İngilizce adı vardı. 17.373’ünde en az bir, 15.811’inde tüm bileşenler DDInter kimliğiyle eşleşti. Tablo 12 farklı bir kapsam tanımı kullanır.
 
 ---
 
@@ -42,7 +44,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 | **Kapsam İçi Ürünler** | Analize Alınan Terapötik İlaç | **22,470** | Kural 4 ile elenen serum/radyofarmasötikler hariç |
 | **Bileşen Ayrıştırma** | Nihai Ayrıştırılmış Bileşen Kaydı | **32,076** | Sahte sıfatlar elenerek temizlenen bileşen kaydı |
 | **Tekil Etken Madde** | Normalize Benzersiz Türk Etken Maddesi | **3,065** | 4 aşamalı normalizasyonla %33,61 indirgeme |
-| **Yol A Ürün Kapsamı** | Tek Bileşenli ATC Köprüsüyle Çözülen Ürün | **21,642 (%90.9)** | Türkiye pazarının ezici çoğunluğu doğrudan kapsandı |
+| **Yol A ürün hacmi** | Etken madde başına ürün sayılarının toplamı | **24.627** | Yerel `etken_madde.csv`, Tablo 10 |
 | **Yol A+B Kapsamı** | Kural Tabanlı Çözülen Toplam Ürün | **21,985 (%92.4)** | Klinik karar destek motorunun ilk sürüm omurgası |
 | **DDInter Eşleşen Bileşen** | DDInter Kimliği Kazanan Türk Etken Maddesi | **1,395 (%45.5)** | Kapsam içi etken maddelerde %47.3 |
 | **DDInter Net Etkileşim** | Kural 9 Sonrası Tekilleştirilmiş Çift | **160,235** | 62.148 yinelenen satır elendi, şiddet etiketi uyuşmazlığı gözlenmedi |
