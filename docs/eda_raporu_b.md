@@ -17,7 +17,7 @@
 | **D03** | [İlaç Başına Eş Sayısı (Derece Dağılımı)](#7-grafik-d03-ilaç-başına-farklı-eş-sayısı-dağılımı-derece-analizi) | Sağa çarpık dağılım: Ortalama 165 eş, medyan 125 eş, zirve 910 eş |
 | **D04** | [En Çok Etkileşen İlk 20 İlaç](#8-grafik-d04-en-çok-etkileşen-ilk-20-ilaç-ve-şiddet-dağılımı) | 1. Dexamethasone (910), 2. Tacrolimus (866), 3. Warfarin (864) |
 | **D05** | [14x14 ATC Çapraz Etkileşim Haritası](#9-grafik-d05-14x14-atc-ana-grupları-arası-çapraz-etkileşim-isı-haritası) | En yoğun risk L-L (6.547) ve L-N (4.815); 196 hücrenin tümü dolu |
-| **D06** | [Eksik ATC Dosyaları Kayıp Analizi](#10-grafik-d06-eksik-atc-gruplarından-kaynaklanan-veri-kayıp-analizi) | Olası 1.004.653 çiftin %77,22'si kontrol edilebilir; %22,78 kör nokta (Yol D) |
+| **D06** | [Eksik ATC Dosyaları Kayıp Analizi](#10-grafik-d06-eksik-atc-gruplarından-kaynaklanan-veri-kayıp-analizi) | İki bileşeni de eksik gruplarda olan olası çiftlerin oranı %22,78 |
 
 ---
 
@@ -53,7 +53,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 3. **Granülarite (ATC Kod Ayrıntı Düzeyi):**
    - WHO ATC kodunun hiyerarşik basamak sayısıdır. 7 haneli kodlar spesifik bir molekülü (örn. `N02BE01` = Parasetamol) tanımlarken; 3-5 haneli kodlar yalnızca ilaç grubunu tanımlar.
 4. **Kör Nokta (Eksik 6 ATC Dosyası):**
-   - DDInter indirme paketinde 14 gruptan 6'sının bağımsız CSV dosyası yoktur (`C, G, J, M, N, S`). İki ilacı da bu eksik 6 grupta yer alan çiftler (örn. Kalp-Kalp `C-C`) sistemin kör noktasıdır ($C(677, 2) = 228.826$ çift, %22,78).
+- D06, iki tarafı da eksik gruplarda olan olası çiftleri (%22,78) ve diğer olası çiftleri (%77,22) gösterir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 5. **Eşleşme Yolları (A, B, C, D Mimarisi):**
    - **Yol A:** Tek bileşenli ürünlerde 7 haneli ATC köprüsü (%62,1 bileşen, %90,9 ürün hacmi).
    - **Yol B:** Kombine ürünlerde RapidFuzz ile metin ayrıştırma (%2,1 bileşen, %1,4 ürün hacmi).
@@ -487,15 +487,17 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ![Grafik D06](../figs/D06_kayip_analizi.png)
 
-#### Tablo 21: DDInter Veri Kayıp Analizi Ampirik ve Teorik Sonuçları
+#### Tablo 21: ATC gruplarına göre olası çiftler
+
+[Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) kayıtlı çıktısında 1.418 DDInter eşleşmeli etken madde satırının 677’si (%47,74) bağımsız indirme dosyası olmayan ATC gruplarında. Bu 677 satırdan oluşturulabilen 228.826 çift, 1.004.653 olası çiftin %22,78’ine karşılık gelir. Hesap, olası çiftleri ATC grubuna göre sınıflandırır. İndirilen dosyalardaki gerçek etkileşim kapsamı çift bazında ayrıca kontrol edilir.
 
 | Analiz Parametresi / Kategori | Değer / Sayı | Oran (%) | Metodolojik ve Matematiksel Açıklama |
 |:---|---:|:---|:---|
 | **Eşleşen Türk Etken Maddesi ($N$)** | 1,418 | %100.00 | DDInter kimliği kazanan benzersiz bileşenler |
 | **Eksik Gruptaki Etken Madde ($K$)** | 677 | %47.74 | ATC ana grubu C, G, J, M, N veya S olanlar |
 | **Olası Tüm İkili Çift Kombinasyonu** | 1,004,653 | %100.00 | C(1418, 2) = (1418 × 1417) / 2 |
-| **En Az Biri Mevcut Grupta (Kontrol Edilebilir)** | 775,827 | %77.22 | İndirilen 8 dosya üzerinden taranabilen olası çiftler |
-| **İkisi de Eksik Grupta (Kayıp Çiftler)** | 228,826 | %22.78 | C(677, 2) = (677 × 676) / 2 (İndirilemeyen kombinasyonlar) |
+| **En az bir bileşeni dosyası bulunan grupta olan olası çiftler** | 775,827 | %77.22 | 1.004.653 − 228.826 |
+| **İki tarafı da eksik gruplarda olan olası çiftler** | 228,826 | %22.78 | C(677, 2) = (677 × 676) / 2 |
 | **Eşit Dağılım Teorik Kayıp Tahmini** | — | %18.37 | (6/14)² ≈ (0.4286)² ≈ %18.37 |
 | **Klinik Reçete Ağırlıklı Teorik Kayıp Tahmini** | — | %25.00 | (0.50)² = 0.25 = %25.00 |
 | **10 Çiftlik Web Kontrolü Gerçek Kaybı** | 3 / 10 | %30.00 | Digoxin-Amiodarone, Cipro-Tizanidine, Tramadol-Sertraline |
@@ -503,18 +505,18 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 #### 📌 Grafik D06 Metodolojik ve Analitik Değerlendirmesi:
 
 ### 📌 Kod Ne İşe Yarıyor?
-- 1.418 etken maddenin oluşturabileceği 1.004.653 olası çifti kontrol edilebilir (%77,2) ve kör nokta (%22,8) olarak ikiye bölüp çubuk grafik çizer.
+- D06, iki tarafı da eksik gruplarda olan olası çiftleri (%22,78) ve diğer olası çiftleri (%77,22) gösterir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 
 **🎯 Grafik Ne İşe Yarıyor?:**
 - Eksik 6 ATC dosyasının sisteme getirdiği teorik bilgi kaybını kesin matematiksel formülle sayısallaştırır.
 
 ### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** DDInter eşleşmeli Türk etken maddelerinin oluşturabileceği 1.004.653 olası çiftin **%77,22'si (775.827 çift)** mevcut 8 dosya ile taranabilirken; **%22,78'i (228.826 çift)** eksik 6 grup nedeniyle kontrol edilemez durumdadır.
-- **En Önemli Sayı:** Kayıp 228.826 çiftin ezici çoğunluğu Türkiye'de en yaygın reçetelenen Kardiyovasküler (C) ve Sinir Sistemi (N) ilaçlarının kendi aralarındaki (C-C, C-N, N-N) kombinasyonlarından kaynaklanmaktadır.
-- **Projeye Etkisi:** Bu analiz, sistemin ilk sürümde %77,0 kapsamla güvenle yayına alınabileceğini; ancak %23,0'lük kör noktayı kapatmak için Kişi C'nin TDC DrugBank ve harici kaynaklarla yürüteceği Yol D stratejisinin zorunlu olduğunu belgeler.
+- D06, iki tarafı da eksik gruplarda olan olası çiftleri (%22,78) ve diğer olası çiftleri (%77,22) gösterir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
+- **En önemli sayı:** 228.826 olası çiftin iki tarafı da eksik gruplarda. ATC alt çiftlerinin payı bu toplamdan tek başına çıkarılamaz. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
+- **Projeye etkisi:** Bu dağılım, ek veri kaynaklarıyla hangi ATC gruplarının öncelikli incelenebileceğini gösterir. Ölçülen etkileşim kapsamı için çiftlerin indirilen etkileşim tablosuyla ayrıca karşılaştırılması gerekir.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Kombinasyon matematiğine göre ($C(1418,2)$), eşleşen ilaçlarımızla 1.004.653 çift oluşturulabilir. Mevcut 8 dosyamızla bu çiftlerin %77,2'sini başarıyla kontrol edebiliyoruz. Kalan %22,8'lik kör noktayı ise TDC DrugBank entegrasyonuyla 2. haftada sıfıra yaklaştıracağız."*
+> Olası çiftlerin %22,78’inde iki bileşen de bağımsız indirme dosyası bulunmayan gruplarda. Çift bazında etkileşim kapsamı ayrıca ölçülür. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 
 ---
 
@@ -524,7 +526,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 - **Cevap:** *"Hocam, 1. haftadaki 411 kaba bir ön incelemeydi. Detaylı analizimizde 418 kod farkı saptadık. Ancak bunların 49 adedi sadece granülarite farkıydı (biri N02B yazmış, diğeri N02BE01; yani aynı ilacın uzun kodu). Gerçek klinik çelişki sayısı net 369'dur (portföyün sadece %1,5'i). Biz bu 369 ilacı riske atmamak için ATC köprüsü yerine doğrudan etken madde metin madenciliğine (Yol C/D) sevk ettik."*
 
 ### ❓ Soru 2: "DDInter'da 6 grup eksikse sisteminiz güvenilir sayılır mı?"
-- **Cevap:** *"Evet çünkü etkileşim iki ilaç arasında gerçekleşir. İki ilaçtan biri bile bizim elimizdeki 8 dosyada varsa o etkileşimi yakalayabiliyoruz. D06 analizimizde ispatladığımız gibi, olası kombinasyonların %77,22'si şu an tam kontrol altındadır. Kalan %22,78'lik kör noktayı ise Kişi C arkadaşımızın hazırladığı TDC DrugBank veritabanı ile kapatıyoruz."*
+> Olası çiftlerin %22,78’inde iki bileşen de bağımsız indirme dosyası bulunmayan gruplarda. Çift bazında etkileşim kapsamı ayrıca ölçülür. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 
 ### ❓ Soru 3: "Ham dosyalardaki 222 bin kayıttan 160 bine düşerken veri kaybetmediniz mi?"
 - **Cevap:** *"Kesinlikle veri kaybetmedik hocam. İlaç etkileşimi simetriktir ($A \leftrightarrow B$). Ham dosyalarda A ilacı B ilacıyla, B ilacı da A ilacıyla ayrı satırlarda yazılmıştı veya birden fazla dosyada yinelenmişti. Kural 9 ile bu mükerrerleri eledik. En önemli kanıtımız: Birden fazla dosyada geçen 43.826 çiftin hiçbirinde şiddet çelişkisi çıkmadı (`siddet_celiski = 0`)."*

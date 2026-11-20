@@ -22,7 +22,7 @@ Bu rapor, projenin ilk 2 haftasında inşa edilen veri boru hattının (**TİTCK
    Augmentin–Klacid (2 X 1 = 2 çift), Augmentin–Aspirin (2 X 1 = 2 çift) ve Klacid–Aspirin (1 X 1 = 1 çift) olmak üzere **toplam 5 farklı ikili etkileşim çifti (2 + 2 + 1 = 5)** üretir. Bu sayede hiçbir etken madde gözden kaçmaz ve Amoksisilin–Klaritromisin arasındaki **Minor** etkileşim tam isabetle yakalanır.
 4. **Veri Tabanı Sınırları ve Kayıp Oranı İspatlandı:**
    - **Katalog Eksikliği:** Deksketoprofen (`Arveles`), küresel DDInter veritabanında tekil molekül olarak bulunmadığı için sistem *"etkileşim yok"* yanılgısına düşmemiş, `DDInter'da Yok` uyarısı vermiştir.
-   - **Eksik ATC Grubu Kaybı:** `Parol` (N grubu) ve `Cordarone` (C grubu) ilaçlarının her ikisi de DDInter'da olmasına rağmen, DDInter indirme dosyalarında C ve N grupları sunulmadığı için bu etkileşim indirilen dosyalarda tespit edilememiştir. Bu bulgu, İP4'te hesapladığımız **%22,78'lik çift kaybı** (%47,74 madde kaybı) teorisini sahada somut olarak doğrulamıştır.
+   - **Eksik ATC grubu örneği:** Parol–Cordarone için yerel motor `Eksik Grup (Olası Kayıp)` döndürdü. Bu çiftte gözlemlenen durum, portföydeki olası çift oranından ayrı değerlendirilir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 
 ---
 
@@ -184,7 +184,7 @@ Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Dekske
 > **Kayıp Analizi Doğrulaması:**
 > - `Parol` (`DDInter14`, N grubu) ve `Cordarone` (`DDInter76`, C grubu) moleküllerinin ikisi de DDInter veritabanında mevcuttur.
 > - Ancak DDInter indirilebilir dosyalarında **C ve N** kategorileri sunulmadığı için bu etkileşim indirilen 8 CSV dosyasında yer almaz.
-> - Sistemimiz bu durumu `"Eksik Grup (Olası Kayıp)"` olarak doğru teşhis etmiş ve İP4'te hesaplanan **%47,74 madde kaybı / %22,78 çift kaybı** teorisini sahada kanıtlamıştır.
+> - Bu test, motorun Parol–Cordarone için ürettiği uyarıyı gösterir. Portföydeki %22,78 değeri, iki bileşeni de eksik ATC gruplarında olan olası çiftlerin oranıdır. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 
 ---
 

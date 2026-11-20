@@ -7,9 +7,9 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 ## 1. DDInter Veri Dengesizliği ve Eksik ATC Grupları (İP4 / İP6)
 * **Durum:** DDInter indirme paketlerinde yalnızca 8 ana grup (A, B, D, H, L, P, R, V) bağımsız CSV olarak sunulmaktadır. Türkiye'de en çok reçetelenen Kardiyovasküler (C), Sinir Sistemi (N), Kas/İskelet (M) ve Antibiyotik (J) gibi 6 kritik grubun bağımsız indirme dosyası bulunmamaktadır.
 * **Sayısal ve Analitik Boyut (D05 & D06):**
-  - Eşleşen 1.418 Türk etken maddesinin oluşturabileceği $C(1418, 2) = 1.004.653$ olası çiftin **775.827'si (%77,22) mevcut 8 dosya üzerinden başarıyla kontrol edilebilmektedir**.
+  - [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) kayıtlı çıktısında 1.418 DDInter eşleşmeli etken madde satırının 677’si (%47,74) bağımsız indirme dosyası olmayan ATC gruplarında. Bu 677 satırdan oluşturulabilen 228.826 çift, 1.004.653 olası çiftin %22,78’ine karşılık gelir. Hesap, olası çiftleri ATC grubuna göre sınıflandırır. İndirilen dosyalardaki gerçek etkileşim kapsamı çift bazında ayrıca kontrol edilir.
   - D05 ısı haritasında görüldüğü üzere, Kalp (C) ve Sinir (N) ilaçları diğer mevcut dosyalarla (C-L: 3.079 çift, L-N: 4.862 çift, A-C: 2.303 çift) güçlü çapraz köprüler kurmuştur.
-  - Ancak iki ilacı da eksik grupta olan **228.826 çift (%22,78)** sistemde kontrol edilememektedir (Örn: Amlodipin [C] + Ramipril [C] veya Paroksetin [N] + Tramadol [N]).
+  - Geriye kalan 775.827 olası çiftte en az bir bileşen indirme dosyası bulunan bir ATC grubunda.
 * **Açık Soru ve Arayüz Tasarımı:** Kullanıcı reçetesinde iki ilaç da eksik grupta çıktığında, sistem kullanıcıyı yanıltarak *"Etkileşim Yok"* mu demelidir, yoksa *"Bu ilaç kombinasyonu DDInter indirme paketlerinde yer almayan C/N gruplarında olduğundan etkileşim verisi bulunamamaktadır (Veri Kısıtı)"* şeklinde şeffaf bir uyarı mı vermelidir?
 * **Öneri:** Klinik güvenilirlik açısından şeffaf uyarı bayrağı (`veri_yetersiz_uyarisi = True`) dönülmesi zorunlu olmalıdır.
 
@@ -145,9 +145,9 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 ---
 
 ## 17. İki İlacı da Eksik Grupta Olan Çiftlerin Kapsamı (İP6 - D05 & D06)
-* **Durum:** DDInter'da bağımsız indirme dosyası bulunmayan Kalp (C) grubu, diğer mevcut 8 dosya ile (C-L: 3.079, A-C: 2.303) kurduğu çapraz köprülerle 64.760 çiftlik matriste güçlü bir varlık göstermiştir. Ancak iki ilacı da C grubunda olan kombinasyonlar (örneğin Amlodipin + Ramipril) taranamamakta ve **228.826 kayıp çiftin (%22,78)** merkezini oluşturmaktadır.
+* **Durum:** C, bağımsız indirme dosyası bulunmayan ATC gruplarından biridir. Olası çiftlerin %22,78’i için iki bileşen de bu gruplardadır. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 * **Açık Soru:** İki ilacı da eksik grupta olan bu kritik kardiyovasküler çiftlerin taranabilmesi için 3. haftada Kişi C'nin TDC DrugBank ve harici kaynak entegrasyonu mu devreye alınmalıdır?
-* **Öneri:** 3. haftada Kişi C tarafından DrugBank üzerinden sadece bu 6 eksik ATC grubu (özellikle C-C ve N-N ikilileri) çekilerek kayıp %22,78'lik kör nokta kapatılmalıdır.
+* **Öneri:** Eksik ATC gruplarındaki öncelikli çiftlerin ek veri kaynaklarıyla eşlenebilirliğini ve kaynakların kapsama farkını ayrı değerlendirin.
 
 ---
 
