@@ -5,6 +5,8 @@
 
 > **DDInter sayılarının kaynağı.** [Notebook 04](../notebooks/04_ddinter_birlestirme.ipynb) hücreleri `e96b29d2` (dosya ve ham satır sayıları), `d508b3b4` (ilaç fihristi), `9a82020a` (sayısal kimlik sıralaması, tekilleştirme ve etiket çelişkileri), `15b08f7b` (nihai şiddet dağılımı ve ağ ölçümleri). Ham şiddet adetleri `e96b29d2` çıktısındaki birleştirilmiş satırlarda `Level` alanının sayımından elde edildi. Sekiz yerel CSV ile yeniden sayım bu değerleri doğruladı.
 
+> **Eşleme verisinin sürümü.** Bu rapordaki eşleme ve ürün kapsamı tabloları kayıtlı İP6 çalıştırmasını yansıtır. Eşleşen 1.418 etken madde satırı [Notebook 04, `926ce095` hücresinde](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) de görülür. 32.047 ürün–bileşen satırı ve ilk 30’dan 26 eşleşme için aynı çalıştırmanın ara veri dosyaları henüz doğrulanmadı. İncelenen yerel ara veri ve Yol D motor çıktısında ilk 30’dan 24 eşleşme bulundu.
+
 ---
 
 ## 🧭 Hızlı Sunum Navigasyonu (Kişi B Sorumluluğundaki Temel Grafikler)
@@ -112,15 +114,15 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 - Türkiye'de en çok ürün içeren ilk 30 molekülü sıralar; DDInter'da eşleşenleri yeşil (`#2ca02c`), eşleşmeyenleri kırmızı (`#d62728`) renkle yatay çubuk grafik çizer.
 
 **🎯 Grafik Ne İşe Yarıyor?:**
-- Türkiye'de en sık reçetelenen moleküllerin DDInter'da bulunma oranını ve acil Yol D adaylarını gösterir.
+- Ruhsatlı ürün sayısına göre sıralanan bileşenlerin DDInter'da bulunma oranını ve acil Yol D adaylarını gösterir.
 
 ### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Türkiye pazarında en sık kullanılan 30 etken maddenin **26'sı (%86,7)** DDInter kütüphanesinde tam olarak tanımlanmış olup; Yol C kural motorumuz ve Kişi C'nin Yol D entegrasyonuyla kalsiyum klorür, dekstroz, glukoz, hidroklorotiyazid, magnezyum klorür ve sodyum asetat gibi kritik bileşenler DDInter kimliğine bağlanmıştır. Yalnızca sodyum laktat, tiyokolsikosid, deksketoprofen ve yardımcı ürünler olmak üzere **4 bileşen (%13,3)** DDInter'da doğrudan yer almamaktadır.
-- **En Önemli Sayı:** 1.059 ruhsatlı üründe yer alan sodyum klorür (`DDInter1685`), 377 ürünlü parasetamol (`DDInter14`), 319 ürünlü metformin (`DDInter1164`), 278 ürünlü amlodipin (`DDInter79`), 400 ürünlü kalsiyum klorür (`DDInter272`) ve 379 ürünlü hidroklorotiyazid (`DDInter883`) gibi klinik olarak en yaygın reçetelenen kritik moleküller %100 kapsanmaktadır.
+- **Ne Görüyorsun?:** Bu rapor çalıştırmasında ruhsatlı ürün sayısına göre ilk 30 bileşenin **26'sı (%86,7)** DDInter kütüphanesinde tam olarak tanımlanmış olup; Yol C kural motorumuz ve Kişi C'nin Yol D entegrasyonuyla kalsiyum klorür, dekstroz, glukoz, hidroklorotiyazid, magnezyum klorür ve sodyum asetat gibi kritik bileşenler DDInter kimliğine bağlanmıştır. Yalnızca sodyum laktat, tiyokolsikosid, deksketoprofen ve yardımcı ürünler olmak üzere **4 bileşen (%13,3)** DDInter'da doğrudan yer almamaktadır.
+- **En Önemli Sayı:** 1.059 ruhsatlı üründe yer alan sodyum klorür (`DDInter1685`), 377 ürünlü parasetamol (`DDInter14`), 319 ürünlü metformin (`DDInter1164`), 278 ürünlü amlodipin (`DDInter79`), 400 ürünlü kalsiyum klorür (`DDInter272`) ve 379 ürünlü hidroklorotiyazid (`DDInter883`) bu rapor çalıştırmasında DDInter kimliğiyle eşleşmiştir.
 - **Projeye Etkisi:** En sık 30 bileşenin beşte dördünün (%80,0) doğrudan bulunması, Türkiye'deki hasta etkileşim sorgularının ezici çoğunluğunun sistem tarafından başarıyla yanıtlanabilmesini güvence altına alırken; eşleşmeyen 6 bileşen için Yol D uzman incelemesinin (Kişi C) ve harici veritabanı (DrugBank/TDC) desteğinin odak alanını netleştirmektedir.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Türkiye'de en çok reçete edilen ilk 30 molekülün %86,7'si (26/30 - Parasetamol, Metformin, Amlodipin, İbuprofen, Kalsiyum Klorür, Dekstroz vb.) DDInter veri tabanımızda %100 mevcuttur. Eşleşmeyen yalnızca 4 madde kalmıştır (sodyum laktat, deksketoprofen, tiyokolsikosid ve yardımcı taşıyıcılar)."*
+> *"Bu rapor çalıştırmasında ruhsatlı ürün sayısına göre ilk 30 bileşenin %86,7'si (26/30 - Parasetamol, Metformin, Amlodipin, İbuprofen, Kalsiyum Klorür, Dekstroz vb.) DDInter veri tabanımızda %100 mevcuttur. Eşleşmeyen yalnızca 4 madde kalmıştır (sodyum laktat, deksketoprofen, tiyokolsikosid ve yardımcı taşıyıcılar)."*
 
 ---
 
@@ -236,10 +238,10 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 ### 💡 Çıktıdan Ne Anlamam Lazım?
 - **Ne Görüyorsun?:** Kapsam içi 22.417 ruhsatlı ilacın **18.066'sında (%80,6)** en az bir bileşen DDInter kütüphanesinde tanımlı olup; **16.841 üründe (%75,1)** tüm etken maddeler eksiksiz DDInter karşılığına sahiptir.
 - **En Önemli Sayı:** Huninin ilk aşamasından son aşamasına geçerken yaşanan toplam ürün kaybı **5.576 üründür (%24,9)**; en büyük korunma %93,2 ile Aşama 3'ten Aşama 4'e geçişte gerçekleşmektedir.
-- **Projeye Etkisi:** Ürün portföyünün %75,1'inde sıfır veri kaybıyla tam etkileşim kontrolü yapılabileceğini tescil ederken; Kişi C'nin Yol D entegrasyonuyla %70 hedefinin aşılarak %80,6 kapsamaya ulaşıldığını kanıtlar.
+- Bu rapor çalıştırmasında 22.417 kapsam içi ürünün 16.841’inin tüm bileşenleri, 18.066’sının ise en az bir bileşeni eşleşmiştir. Paylar sırasıyla %75,1 ve %80,6’dır (bu raporun kapsam hunisi tablosu).
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Kullanıcı reçete girdiğinde, piyasadaki ürünlerin %75,1'inde (16.841 ürün) sıfır kayıpla tam kontrol sağlayabiliyoruz; %80,6'sında (18.066 ürün) ise en az bir bileşeni yakalıyoruz. Kişi C'nin Yol D katkısıyla %70 barajı çok güçlü bir şekilde (%80,6) aşılmıştır."*
+> Kapsam hunisi, ruhsatlı ürün bileşenlerinin eşleşme düzeyini gösterir. Çift bazında etkileşim kaydı kapsamı ayrı bir ölçümdür.
 
 ---
 
