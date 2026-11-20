@@ -37,16 +37,20 @@
 | bilesen_ham | object      |            0 | %0.00           |              3,698 | imatinib mesilat |
 | bilesen_tr  | object      |            0 | %0.00           |              3,065 | imatinib         |
 
+Tablo 1–2, yerel `urun_guncel.csv` ve `urun_etken.csv` üzerinden metin tipinde yeniden sayıldı. Boş değerler benzersiz değer hesabına alınmadı.
+
 #### Tablo 3: Veri Entegrasyonu ve Ayrıştırma Mutabakat Tablosu
+
+Kaynaklar: [Notebook 01 nihai sayımlar](../notebooks/01_titck_temizlik.ipynb#cell-id=c10_save_summary), [Kural 6](../notebooks/01_titck_temizlik.ipynb#cell-id=c6_kural6_eksik) ve [Notebook 02 bileşen çıktısı](../notebooks/02_etken_ayristirma.ipynb#cell-id=a55eea71). Kapsam dışı ve geçersiz barkod sayıları nihai yerel ürün tablosundaki ilgili bayrakların toplamıdır.
 
 | Metrik                                             |   Değer |
 |:---------------------------------------------------|--------:|
-| Başlangıç Ruhsatlı İlaç Sayısı                     |  23,801 |
-| Eklenen SKRS Ürünü (Kural 5)                       |       0 |
+| Başlangıç TİTCK satır sayısı | 23.105 |
+| Eklenen aktif SKRS ürünü (Kural 5) | 851 |
 | Kapsam Dışı Ürünler (kapsam_disi=1)                |     895 |
 | Geçersiz Barkodlar (barkod_gecersiz=1)             |     184 |
 | SKRS ile Tamamlanan Kayıtlar (Kural 6)             |      14 |
-| Eksik Kayıt (eksik_kayit.csv)                      |       0 |
+| Analizden çıkarılan eksik kayıt (`eksik_kayit.csv`) | 103 |
 | ATC Çelişkili Ürünler (atc_celiski=1)              |     202 |
 | Nihai Ürün Sayısı (urun.csv)                       |  23,801 |
 | Nihai Ayrıştırılmış Bileşen Kaydı (urun_etken.csv) |  32,076 |
@@ -56,7 +60,7 @@
 
 1. **Ne Görülüyor?** `urun.csv` tablosunda kritik operasyonel sütunlar (`urun_adi`, `etkin_madde_ham`, `atc_final`, `durum`, `kaynak`) %100 doluluk oranına sahipken, SKRS eşleşmesi bulunmayan ruhsatlı ürünlerden kaynaklı olarak `atc_skrs` ve `atc_adi_skrs` alanlarında beklenen şekilde %47,46 boşluk gözlenmektedir.
 2. **En Önemli Sayı:** 23.801 ürünün ham etkin madde metinleri `urun_etken.csv` tablosunda 32,076 bileşen satırına ayrıştırılmış ve uygulanan kimyasal temizlik/normalizasyon neticesinde **3,065 tekil etken maddeye** indirgenmiştir.
-3. **Projeye Etkisi:** Boş ATC kayıtlarının Kural 6 ile giderilmesi ve sıfır veri kaybıyla tamamlanan bileşen ayrıştırması, Yol A/B ve DDInter eşleştirme adımları için eksiksiz ve güvenilir bir veri omurgası oluşturmuştur.
+3. **Projeye etkisi:** Notebook 01, analizden çıkarılan eksik kayıtları `eksik_kayit.csv` dosyasında saklar. Ürün ve bileşen tabloları eşleme adımlarının girdisidir.
 
 ### 2. Grafik E01: Bileşen Sayısı Dağılımı
 
