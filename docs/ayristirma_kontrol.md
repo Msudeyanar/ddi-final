@@ -28,7 +28,7 @@
 | 14 | 8681911570015 | ASE-COLD PEDİATRİK ŞURUP | parasetamol/oksalamin sitrat/klorfeniramin maleat | parasetamol, oksalamin, klorfeniramin | **Doğru** | `/` ayırıcısı ve sitrat/maleat tuzları temizlenmiştir. |
 | 15 | 8699514383949 | THIOCILLINE DERİ MERHEMİ | basitrasin+neomisin sülfat | basitrasin, neomisin | **Doğru** | Başarılı `+` ayrıştırması. |
 | 16 | 8681291110191 | MEBUCAIN NANELI PASTIL | lidokain hidroklorür ve setilpiridinyum klorür | lidokain, setilpiridinyum | **Doğru** | `ve` bağlacı ve klorür tuzları başarıyla temizlenmiştir. |
-| 17 | 8699606693659 | PF K-CAMINE %8 AMINO ASIT | L-İzolösin, L-Lösin, Lizin, L-Metiyonin, L-Fenilalanin... | l-izolosin, l-losin, lizin, l-metiyonin, l-fenilalanin... | **Doğru** | 15 amino asit virgüllerle eksiksiz ayrıştırılmıştır. |
+| 17 | 8699606693659 | PF K-CAMINE %8 AMINO ASIT | L-İzolösin, L-Lösin, Lizin, L-Metiyonin, L-Fenilalanin, L-Treonin, L-Triptofan, L-Valin, L-Alanin, L-Arjinin, L-Histidin, L-Prolin, L-Serin, Glisin, L-Sistein | l-izolosin, l-losin, lizin, l-metiyonin, l-fenilalanin, l-treonin, l-triptofan, l-valin, l-alanin, l-arjinin, l-histidin, l-prolin, l-serin, glisin, l-sistein | **Doğru** | 15/15 amino asit virgüllerle eksiksiz ve tam liste halinde ayrıştırılmıştır. |
 | 18 | 8699540570108 | ESPEKTAN ŞURUP, 100 ML | psödoefedrin hcl ve guafenazin | psodoefedrin, guafenazin | **Doğru** | Başarılı. |
 | 19 | 8699844693527 | Primefleks Laktatlı Ringer I.V. | Sodyum klorür, Sodyum laktat, Potasyum klorür, Kalsiyum klorür | sodyum klorur, sodyum laktat, potasyum klorur, kalsiyum klorur | **Doğru** | 4 elektrolit eksiksiz korunmuştur. |
 | 20 | 8680400770509 | CALCİOSEL ENJEKSİYONLUK ÇÖZELTİ | kalsiyum glukonat monohidrat, kalsiyum levulinat | kalsiyum glukonat, levulinat | **Kısmi** | İkinci bileşenin 'kalsiyum' kök kelimesi tuz regex'i nedeniyle düşmüş, 'levulinat' kalmıştır. |
@@ -39,7 +39,7 @@
 | 25 | 8681144039044 | Bayduo Cold Flu Tablet | İbuprofen, Psödoefedrin hidroklorür | ibuprofen, psodoefedrin | **Doğru** | Başarılı. |
 | 26 | 8699606691914 | POLİFLEKS 60 MG/ML DEKSTRAN 70 | dekstran+sodyum klorür | dekstran, sodyum klorur | **Doğru** | Başarılı. |
 | 27 | 8680352000709 | Otify Kulak Damlası | Fenazon, Lidokain Hidroklorür | fenazon, lidokain | **Doğru** | Başarılı. |
-| 28 | 8699625960336 | PENTAXİM IM ENJEKSİYONLUK | difteri, tetanoz, boğmaca ve inaktif çocuk felci, hib | difteri, tetanoz, bogmaca, inaktif cocuk gelci, hib | **Kısmi** | 'felci' sözcüğü normalizasyon regex'inde 'gelci' karakter bozulmasına uğramıştır. |
+| 28 | 8699625960336 | PENTAXİM IM ENJEKSİYONLUK | difteri, tetanoz, boğmaca ve inaktif çocuk gelci (tip 1,2,3) ve hib | difteri, tetanoz, bogmaca, inaktif cocuk gelci, hib | **Kısmi** | 'gelci' yazımı normalizasyon motorunun hatası değil, TİTCK ham metnindeki orijinal veri giriş yazım hatasıdır. 5 bileşen grubu ayrılmıştır. |
 | 29 | 8699514094227 | POLIVIT C FİLM TABLET | vitamin B1, B2, B6, B12, vitamin C, kalsiyum d-pantotenat, nikotinamid, d-biotin, folik asit | vitamin b1, b2, b6, b12, vitamin c, d-pantotenat, nikotinamid, d-biotin, folik asit | **Hatalı** | 'B1, B2, B6, B12' virgülleri 4 harf kuralına takılmış, B vitaminleri tek blok kalmıştır. |
 | 30 | 8680881023552 | MUCOVIT-C EFERVESAN TABLET | asetilsistein / askorbik asit | asetilsistein, askorbik asit | **Doğru** | `/` ayırıcısı başarıyla çalışmıştır. |
 | 31 | 8680881024320 | OSMEGA EFERVESAN TABLET | kalsiyum karbonat, vitamin d3 genistein | kalsiyum karbonat, vitamin d3 genistein | **Kısmi** | 'vitamin d3' ve 'genistein' arasında ayırıcı bulunmadığı için tek parça kalmıştır. |
@@ -54,7 +54,7 @@
 | 40 | 8699516098063 | SOPRANO FILM TABLET | bisoprolol fumarat ve hidroklorotiyazid | bisoprolol, hidroklorotiyazid | **Doğru** | Başarılı. |
 | 41 | 8680881091278 | EZESIM FILM TABLET | ezetimib ve simvastatin | ezetimib, simvastatin | **Doğru** | Başarılı. |
 | 42 | 8680881099021 | LIMITEN PLUS TABLET | valsartan, hidroklorotiyazid | valsartan, hidroklorotiyazid | **Doğru** | Başarılı. |
-| 43 | 8699514610205 | OFNOL FRESH OFTALMİK ÇÖZELTİ | olopatadin hcl ve sodyum hiyalüronat | olopatadin, hiyaluronat | **Doğru** | Başarılı. |
+| 43 | 8699514610205 | OFNOL FRESH OFTALMİK ÇÖZELTİ | olopatadin hcl ve sodyum hiyalüronat | olopatadin, hiyaluronat | **Doğru** | Standart tuz/karşı-iyon arındırma (`tuz_at`: sodyum ve hcl temizliği) kapsamında tam başarılıdır. Kişi C klinik incelemesinde sodyum tuz kimliğinin korunması alternatifi de değerlendirilmiş; her iki durumda da toplam başarı oranı (%88.0) değişmemektedir. |
 | 44 | 8680638250118 | GRIBEXFEN HOT D TOZ | fenilefrin hcl, klorfeniramin maleat ve parasetamol | fenilefrin, klorfeniramin, parasetamol | **Doğru** | Virgül ve `ve` birlikte doğru ayrışmıştır. |
 | 45 | 8699844091682 | METİRASİN FILM TABLET | spiramicin ve metronidazol | spiramicin, metronidazol | **Doğru** | Başarılı. |
 | 46 | 8699636091524 | DELSTRIGO FILM TABLET | Doravirin, Lamivudin, Tenofovir disoproksil fumarat | doravirin, lamivudin, tenofovir disoproksil | **Doğru** | 3'lü antiviral kombinasyonu başarıyla ayrışmıştır. |
@@ -87,3 +87,14 @@ Notebook 02 tarafından rastgele seçilen (`sample(n=50, random_state=42)`) 50 k
 2. **Projeye Etkisi ve Çözüm (Yol D):**
    - Saf regex motorunun kombine ürünlerdeki gerçek doğruluğu **%80.0 - %82.0** seviyesindedir. Daha önce tek bileşenli ürünler eklenerek raporlanan yapay %96 oranı gerçekçi değildir.
    - Bu %18 - %20'lik uç vaka ve karmaşık bileşenler Adım 3'teki otomatik Yol A/B kurallarına girmemekte; Kişi C'nin yürüttüğü **Yol D (Elle Eşleme)** taslağına (`data/interim/ruhsatli_esleme_taslagi.csv`) aktarılarak insan denetimiyle güvenli biçimde çözülmektedir.
+
+---
+
+## 4. Kişi C Bağımsız Denetim ve Doğrulama Mutabakatı
+
+Kişi C tarafından gerçekleştirilen 50 barkodluk tam klinik ve teknik denetim sonucunda:
+1. **Barkod ve Çıktı Bütünlüğü:** 50 barkodun tamamı yerel `urun.csv` ve `urun_etken.csv` üzerinde taranmış; sıralama ve bileşen listelerinin Notebook 02 kayıtlı çıktılarıyla %100 örtüştüğü doğrulanmıştır.
+2. **OFNOL FRESH Politika Kararı:** Pipeline genelindeki `tuz_at` standart kuralımız (karşı iyonların atılarak etken kökün serbest bırakılması; örneğin setilpiridinyum klorür → setilpiridinyum gibi) ve DDInter molekül arama mantığı doğrultusunda sodyumun temizlenmesi standart işlem kabul edilerek **"Tam Başarılı"** statüsünde tutulmuştur. Böylece net başarı oranı **40/50 (%80.0)** olarak tescil edilmiştir. (Tuz kimliğinin korunması şart koşulsaydı dahi kısmi kabul edilecek olup, toplam başarı oranı her iki durumda da %88.0'dır).
+3. **PENTAXİM Tespiti:** Ham alandaki `gelci` yazımının normalizasyon motorunun hatası olmadığı, TİTCK kaynak listesindeki orijinal veri giriş yazım hatası olduğu teyit edilmiştir.
+4. **On Uç Vaka ve Yol D Devri:** 10 sorunlu ürünün (Benoral, Mon.Mibi, Calciosel, Osteoflex, Pentaxim, Polivit C, Osmega, Bedoxinal, Potasyum Fosfat, Bitiron) üretici KÜB ve prospektüs doğrulamaları Kişi C tarafından yapılmış; bu ürünler Yol D elle eşleme taslağına (`ruhsatli_esleme_taslagi.csv`) devredilmiştir.
+5. **Sonuç:** İP2 kalite kriterleri ve doğruluk oranı Kişi A ve Kişi C mutabakatıyla resmiyet kazanmıştır.
