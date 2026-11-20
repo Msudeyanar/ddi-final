@@ -2,7 +2,7 @@
 
 Kişi A ve Kişi C’nin ortak kontrolünde Notebook 02’nin `sample(n=50, random_state=42)` çıktısındaki barkodlar, yerel ham etkin madde ve bileşen listeleriyle tek tek karşılaştırıldı. Örneklem, ayrıştırıcının en az iki bileşen çıkardığı ürünlerle sınırlıdır. [Notebook 02, örneklem ve elle kontrol hücresi](../notebooks/02_etken_ayristirma.ipynb)
 
-**Sonuç:** 39/50 tam (%78), 5/50 kısmi (%10), 6/50 hatalı (%12). Oranlar aşağıdaki elle kontrol tablosundaki etiketlerden ve Notebook 02’deki aynı barkod etiketlerinden hesaplanır. OFNOL FRESH, ürün bilgisinde açıkça tanımlanan sodyum tuzunun adı kaybolduğu için kısmi sayıldı. [OFNOL FRESH KÜB](https://www.abdiibrahim.com.tr/Uploads/Product/prospektus/ofnol/ofnol-fresh-01-015-goz-damlasi-cozelti.pdf)
+**Sonuç:** 40/50 tam (%80), 4/50 kısmi (%8), 6/50 hatalı (%12). Kısmi kayıtlar dahil edildiğinde 44/50 (%88). Oranlar aşağıdaki elle kontrol tablosundan ve Notebook 02’nin `62e06900` hücresindeki aynı barkod etiketlerinden hesaplandı.
 
 | # | Barkod | Ürün | Yerel ham etkin madde | Notebook bileşen listesi | Elle karar | Açıklama |
 |---:|---|---|---|---|---|---|
@@ -48,7 +48,7 @@ Kişi A ve Kişi C’nin ortak kontrolünde Notebook 02’nin `sample(n=50, rand
 | 40 | 8699516098063 | SOPRANO FILM TABLET | bisoprolol fumarat ve hidroklorotiyazid | `bisoprolol` + `hidroklorotiyazid` | **Doğru** | Başarılı. |
 | 41 | 8680881091278 | EZESIM FILM TABLET | ezetimib ve simvastatin | `ezetimib` + `simvastatin` | **Doğru** | Başarılı. |
 | 42 | 8680881099021 | LIMITEN PLUS TABLET | valsartan, hidroklorotiyazid | `valsartan` + `hidroklorotiyazid` | **Doğru** | Başarılı. |
-| 43 | 8699514610205 | OFNOL FRESH OFTALMİK ÇÖZELTİ | olopatadin hcl ve sodyum hiyalüronat | `olopatadin` + `hiyaluronat` | **Kısmi** | Sodyum hiyalüronat adı kısaldı. Tam tuz kimliği ölçütüyle kısmi. |
+| 43 | 8699514610205 | OFNOL FRESH OFTALMİK ÇÖZELTİ | olopatadin hcl ve sodyum hiyalüronat | `olopatadin` + `hiyaluronat` | **Doğru** | İki bileşen ayrıldı. Projenin karşı iyon sadeleştirme ölçütüyle tam doğru. |
 | 44 | 8680638250118 | GRIBEXFEN HOT D TOZ | fenilefrin hcl, klorfeniramin maleat ve parasetamol | `fenilefrin` + `klorfeniramin` + `parasetamol` | **Doğru** | Virgül ve `ve` birlikte doğru ayrışmıştır. |
 | 45 | 8699844091682 | METİRASİN FILM TABLET | spiramicin ve metronidazol | `spiramicin` + `metronidazol` | **Doğru** | Başarılı. |
 | 46 | 8699636091524 | DELSTRIGO FILM TABLET | Doravirin, Lamivudin, Tenofovir disoproksil fumarat | `doravirin` + `lamivudin` + `tenofovir disoproksil` | **Doğru** | 3'lü antiviral kombinasyonu başarıyla ayrışmıştır. |
@@ -58,3 +58,12 @@ Kişi A ve Kişi C’nin ortak kontrolünde Notebook 02’nin `sample(n=50, rand
 | 50 | 8699514012016 | BITIRON TABLET | combinations of levothyroxine and liothyronine | `combinations of levothyroxine` + `liothyronine` | **Hatalı** | 'combinations of' WHO kategori metni kalıntısı kalmıştır. |
 
 Bileşim kaynakları ve ayrıntılı Yol D kararları [barkod bazlı eşleme tablosunda](../config/yol_d_urun_esleme.csv) yer alır.
+
+
+## Kişi C inceleme notu
+
+Notebook 02’deki 50 barkodu ham ürün metni ve ayrıştırılmış bileşen listeleriyle karşılaştırdım. Kişi A ile mutabakatımıza göre OFNOL FRESH, `tuz_at` kuralının karşı iyonları sadeleştirdiği değerlendirme kapsamında tam doğru sayıldı. Ürün belgesinde ikinci etkin madde **sodyum hiyalüronat**, eşleme çıktısında **hiyaluronat** olarak yer alır. Bu ayrım, tam tuz kimliği gereken kullanımlar için kaydedildi. [OFNOL FRESH KÜB](https://www.abdiibrahim.com.tr/Uploads/Product/prospektus/ofnol/ofnol-fresh-01-015-goz-damlasi-cozelti.pdf)
+
+PF K-CAMINE satırında 15 amino asidin tamamı gösterildi. PENTAXİM’de `gelci` yazımı, 14 Ekim 2026 tarihli TİTCK ham Excel dosyasının `RUHSATLI ÜRÜNLER LİSTESİ` sayfasında, 11795. satırda zaten mevcut. Ayrıştırma çıktısında beş bileşen grubu bulunuyor. [PF K-CAMINE KÜB](https://www.polifarma.com.tr/media/3617/pf-k-camine-8-057_kub_02-11-06-2020.pdf) · [Notebook 02](../notebooks/02_etken_ayristirma.ipynb)
+
+On uç vakanın sorunlu bileşenleri yerel Yol D taslağında doğrulandı. Bileşim incelemesinde erişilebilen ürün belgeleri kullanıldı. BEDOXINAL için özgün ürün belgesi bekleniyor. [Yol D eşleme kararları](../config/yol_d_urun_esleme.csv)
