@@ -36,9 +36,10 @@ Bu doküman, DDI karar destek sisteminin hedef kitlesini netleştirmek amacıyla
 
 ---
 
-## 3. Şartname Kriterleri ve "%70 Kapsama Hedefi" Hakkında Ortak Not (Toplantı Hazırlığı)
+## 3. %70 kapsama ifadesi ve toplantı yanıtı
 
-1. **Şartname Değerlendirmesi:** Disiplinlerarası Proje Şartname PDF'inde ve ikinci hafta çalışma planında sayısal bir "%70 kapsama hedefi" barajı yer almamaktadır.
-2. **Hedefin Kaynağı:** Açık Sorular Tutanağında (`docs/acik_sorular.md`, Madde 6) belirtildiği üzere; İP11 taslağında yer alan bu oranın dayanağı ve literatür kaynağı yapılacak ekip toplantısında ilk yazan kişi olan Kişi C tarafından açıklanacaktır.
-3. **Mevcut Sistem Başarısı:** Sistemimiz Kişi A'nın Kural 8 çözümleri, Kişi B'nin eşleştirme hattı ve Kişi C'nin Yol D doğrulamaları ile `docs/eda_raporu_b.md` (Grafik E10) verilerine göre kapsam içi ürünlerde **%80,6 genel kapsama** (18.066 / 22.417) ve sıfır kayıpla **%75,1 tam kapsama** (16.841 / 22.417) düzeyine ulaşmıştır.
-4. **Ortak Tutum:** Toplantıda danışman hocaya bu durum bir şartname açığı değil; ekibin iç operasyonel hedefinin (%75,1 tam kapsama ile) üzerine çıkıldığının nesnel bir göstergesi olarak birlikte sunulacaktır.
+İkinci hafta görev dağılımının İP11 bölümünde (s. 9) ve veri birleştirme planının İP11 bölümünde (s. 12) %70 kapsama hedefi yer almıyor. Veri birleştirme planının 24. sayfasında geçen %70/%10/%20, TDC veri bölme oranıdır. Eski rapora %70 kapsama ifadesinin hangi kaynaktan girdiği doğrulanamadı.
+
+**Toplantıda verilecek ortak yanıt:** İncelediğimiz planlarda %70 kapsama hedefi bulunmuyor. Eski taslaktaki ifadeyi destekleyen bir kaynak saptayamadığımız için kaldırdık. Elde bulunan verilerle hesaplanan ürün eşleşme sayıları ve kullanılan payda İP6 raporunun Tablo 12’sinde yer alıyor. [İP6 raporu](eda_raporu_b.md#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi)
+
+Bu metin toplantı hazırlığıdır. Ekibin toplantıda verdiği karar, toplantı sonrasında kaydedilir.

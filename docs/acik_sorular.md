@@ -82,7 +82,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 * **Durum:** Türkiye'de serum ve infüzyonlarda en çok kullanılan `dekstroz` (720 ürün) ve `glukoz` (180 ürün) için Yol A resmi ATC sözlüğünden `carbohydrates` adını getirmekteydi. `carbohydrates` bir ATC sınıf adıdır, tekil ilaç adı değildir ve DDInter'da bulunmaz. Bu durum 900 ürünlük devasa bir hasta hacminin etkileşim kontrolü dışı kalmasına yol açmaktaydı.
 * **Çözüm / Güncel Durum (✅ Çözüldü - Kişi C Yol D Entegrasyonu):** 
   - Kişi C tarafından Yol D ilk 100 incelemesinde bu iki bileşen kaynakta düzeltilmiş; `dekstroz` ➔ `dextrose` ve `glukoz` ➔ `glucose` olarak `DDInter529` kimliğine bağlanmıştır.
-  - Kapsama oranı ile ilgili proje hedefi için görev dağılımı ve kapsam kararına bakılır. İkinci hafta görev planında %70 kapsama eşiği belirtilmediği için bu değer şartname hedefi olarak kullanılmaz. [Kapsam kararı](kapsam_karari.md)
+  - İkinci hafta planında %70 kapsama hedefi bulunmuyor. Eski taslaktaki oranın kökeni doğrulanamadı ve değer hedef olarak kaldırıldı. Plan sayfaları ve toplantı yanıtı [kapsam kararı belgesinde](kapsam_karari.md) yer alır.
 
 ---
 
