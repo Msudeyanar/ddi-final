@@ -324,6 +324,8 @@ Kaynak [Notebook 04, ağ özeti hücresi `15b08f7b`](../notebooks/04_ddinter_bir
 
 #### Tablo 19: En Yüksek Dereceye Sahip İlk 20 İlaç ve Şiddet Kırılımı
 
+Sayim kaynagi: yerel `etkilesim.csv`. Her benzersiz cift iki ilac icin de kendi `siddet` etiketiyle sayildi. [Notebook 04, cift tablosu](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=9a82020a).
+
 | Sıra | DDInter ID | İlaç Adı | Toplam Eş | Major | Moderate | Minor | Unknown | Birincil Klinik Grubu | Farmakolojik Etkileşim Mekanizması |
 |:---:|:---|:---|---:|---:|---:|---:|---:|:---|:---|
 | 1 | `DDInter513` | **Dexamethasone** | 910 | 106 | 470 | 47 | 287 | Sistemik Kortikosteroid | Güçlü CYP3A4 indükleyicisi, immünsüpresyon |
@@ -331,21 +333,21 @@ Kaynak [Notebook 04, ağ özeti hücresi `15b08f7b`](../notebooks/04_ddinter_bir
 | 3 | `DDInter1951` | **Warfarin** | 864 | 133 | 370 | 63 | 298 | Oral Antikoagülan | Çok dar indeks (INR), CYP2C9/VKORC1 |
 | 4 | `DDInter1533` | **Promethazine** | 832 | 70 | 554 | 12 | 196 | Antihistaminik / Sedatif | Santral depresyon, antikolinerjik yük |
 | 5 | `DDInter393` | **Clarithromycin** | 822 | 205 | 361 | 46 | 210 | Makrolid Antibiyotik | Çok güçlü CYP3A4 ve P-gp inhibitörü, QT uzaması |
-| 6 | `DDInter458` | **Cyclosporine** | 816 | 174 | 451 | 18 | 173 | Kalsinörin İnhibitörü | Nefrotoksisite, CYP3A4/P-gp substrat/inhibitörü |
-| 7 | `DDInter1515` | **Prednisone** | 805 | 102 | 412 | 47 | 244 | Sistemik Kortikosteroid | CYP3A4 metabolizması, GIS kanama riski |
-| 8 | `DDInter1789` | **Thalidomide** | 785 | 126 | 506 | 4 | 149 | İmmünomodülatör / Onkoloji | Periferik nöropati, derin ven trombozu |
-| 9 | `DDInter743` | **Fluconazole** | 783 | 149 | 363 | 39 | 232 | Triazol Antifungal | Güçlü CYP2C9 ve orta CYP3A4 inhibitörü |
-| 10 | `DDInter1174` | **Methotrexate** | 781 | 158 | 398 | 26 | 199 | Antimetabolit / İmmünsüpresif | Kemik iliği baskılanması, renal klirens yarışı |
-| 11 | `DDInter670` | **Erythromycin** | 754 | 178 | 329 | 43 | 204 | Makrolid Antibiyotik | CYP3A4 inhibisyonu, QT aralığı uzaması |
-| 12 | `DDInter1632` | **Salbutamol** | 753 | 64 | 483 | 12 | 194 | Beta-2 Agonist (Solunum) | Taşikardi, hipokalemi, sempatomimetik etki |
-| 13 | `DDInter1513` | **Prednisolone** | 751 | 89 | 393 | 44 | 225 | Sistemik Kortikosteroid | İmmünsüpresyon, elektrolit dengesizliği |
-| 14 | `DDInter593` | **Doxepin** | 734 | 120 | 460 | 9 | 145 | Trisiklik Antidepresan | QT uzaması, sedasyon, antikolinerjik toksisite |
-| 15 | `DDInter1376` | **Ozanimod** | 733 | 114 | 486 | 2 | 131 | S1P Reseptör Modülatörü | Bradikardi, immünsüpresyon, hepatotoksisite |
-| 16 | `DDInter885` | **Hydrocortisone** | 722 | 87 | 370 | 45 | 220 | Sistemik Kortikosteroid | Steroid toksisitesi, NSAİİ ile GIS ülseri |
-| 17 | `DDInter1244` | **Morphine** | 718 | 74 | 485 | 11 | 148 | Opioid Analjezik | Solunum depresyonu, santral sinir baskılanması |
-| 18 | `DDInter1675` | **Simvastatin** | 695 | 135 | 319 | 48 | 193 | Statin (Kolesterol) | CYP3A4 substratı, rabdomiyoliz ve miyopati |
-| 19 | `DDInter1855` | **Triamcinolone** | 695 | 86 | 360 | 42 | 207 | Sistemik Kortikosteroid | Adrenal baskılanma, hiperglisemi |
-| 20 | `DDInter905` | **Idelalisib** | 693 | 133 | 424 | 4 | 132 | PI3K İnhibitörü (Onkoloji) | Şiddetli diyare/kolit, hepatotoksisite |
+| 6 | `DDInter458` | **Cyclosporine** | 816 | 123 | 462 | 37 | 194 | Kalsinörin İnhibitörü | Nefrotoksisite, CYP3A4/P-gp substrat/inhibitörü |
+| 7 | `DDInter1515` | **Prednisone** | 805 | 51 | 371 | 36 | 347 | Sistemik Kortikosteroid | CYP3A4 metabolizması, GIS kanama riski |
+| 8 | `DDInter1789` | **Thalidomide** | 785 | 147 | 520 | 0 | 118 | İmmünomodülatör / Onkoloji | Periferik nöropati, derin ven trombozu |
+| 9 | `DDInter743` | **Fluconazole** | 783 | 140 | 338 | 33 | 272 | Triazol Antifungal | Güçlü CYP2C9 ve orta CYP3A4 inhibitörü |
+| 10 | `DDInter1174` | **Methotrexate** | 781 | 105 | 411 | 16 | 249 | Antimetabolit / İmmünsüpresif | Kemik iliği baskılanması, renal klirens yarışı |
+| 11 | `DDInter670` | **Erythromycin** | 754 | 173 | 348 | 53 | 180 | Makrolid Antibiyotik | CYP3A4 inhibisyonu, QT aralığı uzaması |
+| 12 | `DDInter1632` | **Salbutamol** | 753 | 20 | 359 | 17 | 357 | Beta-2 Agonist (Solunum) | Taşikardi, hipokalemi, sempatomimetik etki |
+| 13 | `DDInter1513` | **Prednisolone** | 751 | 52 | 369 | 38 | 292 | Sistemik Kortikosteroid | İmmünsüpresyon, elektrolit dengesizliği |
+| 14 | `DDInter593` | **Doxepin** | 734 | 121 | 469 | 25 | 119 | Trisiklik Antidepresan | QT uzaması, sedasyon, antikolinerjik toksisite |
+| 15 | `DDInter1376` | **Ozanimod** | 733 | 469 | 262 | 2 | 0 | S1P Reseptör Modülatörü | Bradikardi, immünsüpresyon, hepatotoksisite |
+| 16 | `DDInter885` | **Hydrocortisone** | 722 | 59 | 378 | 31 | 254 | Sistemik Kortikosteroid | Steroid toksisitesi, NSAİİ ile GIS ülseri |
+| 17 | `DDInter1244` | **Morphine** | 718 | 116 | 289 | 6 | 307 | Opioid Analjezik | Solunum depresyonu, santral sinir baskılanması |
+| 18 | `DDInter1675` | **Simvastatin** | 695 | 56 | 207 | 10 | 422 | Statin (Kolesterol) | CYP3A4 substratı, rabdomiyoliz ve miyopati |
+| 19 | `DDInter1855` | **Triamcinolone** | 695 | 76 | 344 | 30 | 245 | Sistemik Kortikosteroid | Adrenal baskılanma, hiperglisemi |
+| 20 | `DDInter905` | **Idelalisib** | 693 | 182 | 494 | 17 | 0 | PI3K İnhibitörü (Onkoloji) | Şiddetli diyare/kolit, hepatotoksisite |
 
 #### 📌 Grafik D04 Metodolojik ve Analitik Değerlendirmesi:
 
