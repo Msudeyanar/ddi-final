@@ -1,9 +1,9 @@
 # İP3: DDInter İlaç Eşleşme Raporu
 
-> **Tarihsel rapor özeti:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,418 / 2,945), kapsam içi ruhsatlı ürünlerin %80.5'inin (18,081 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
+> **Rapor özeti:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,418 / 2,945), kapsam içi ruhsatlı ürünlerin %80.5'inin (18,081 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
 > *(Tüm Bileşenler Bazında: %46.3 (1,420 / 3,065) — Tüm Ruhsatlı Ürünler Bazında: %80.6 (18,488 / 22,927))*
 
-> **Notebook 03’ün ana daldaki kayıtlı özeti.** [Özet hücresi](../notebooks/03_kopru_ddinter.ipynb#cell-id=d9715d76), kapsam içi bileşenlerde **1.418 / 2.945**, kapsam içi ruhsatlı ürünlerde en az bir eşleşme için **18.081 / 22.470**, tüm bileşenlerde **1.420 / 3.065**, tüm ruhsatlı ürünlerde en az bir eşleşme için **18.488 / 22.927** verir. Bu değerler yukarıdaki tarihsel rapor sayımından ve Bölüm 1’de bağlantısı verilen entegrasyon hücresinin çıktısından farklıdır. Kayıtlı çıktıların aynı girdi sürümüne ait olduğu doğrulanamadı.
+> **Notebook 03’ün ana daldaki kayıtlı özeti.** [Özet hücresi](../notebooks/03_kopru_ddinter.ipynb#cell-id=d9715d76), kapsam içi bileşenlerde **1.418 / 2.945**, kapsam içi ruhsatlı ürünlerde en az bir eşleşme için **18.081 / 22.470**, tüm bileşenlerde **1.420 / 3.065**, tüm ruhsatlı ürünlerde en az bir eşleşme için **18.488 / 22.927** verir. Bu değerler yukarıdaki özetle eşleşir. Bölüm 4 eldeki yerel CSV’ye dayanır.
 
 ## 1. Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Dağılımı
 
@@ -19,7 +19,7 @@ Bu bölüm Notebook 03’ün kayıtlı çalıştırmasındaki eşleme tablosunu 
 | **TOPLAM** | **3,065** | **1,420** | **%46.3** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |
 > **Not (Yol D ve PubChem Doğrulaması):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden 17 tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve 24 satıra yayılmıştır. Örneğin 376 ürünlü parasetamol → DDInter14 (acetaminophen). Adım 5 kapsamında ise Kişi C tarafından en sık 100 eşleşmeyen bileşen incelenmiş; 23 bileşen DDInter kimliklerine bağlanmış ve 20 İngilizce ad düzeltmesi yapılarak toplam 24 bileşen Yol D statüsüne kavuşturulmuştur. Kalan 887 bileşen sonraki aşamalara devredilmiştir.
 
-## 2. Tarihsel DDInter Eşleşme Oranı Özeti
+## 2. DDInter Eşleşme Oranı Özeti
 | Metrik Düzeyi | Toplam Büyüklük | DDInter'da Bulunan | Kapsama Oranı (%) |
 | :--- | :---: | :---: | :--- |
 | **Kapsam İçi Etken Madde Bazında** | 2,945 | 1,418 | %48.1 |
@@ -29,7 +29,7 @@ Bu bölüm Notebook 03’ün kayıtlı çalıştırmasındaki eşleme tablosunu 
 
 > **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen 1,420 etken madde kaydı, toplam **898 benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).
 
-## 3. Tarihsel ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)
+## 3. ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)
 | ATC Ana Grubu | Grup Açıklaması | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) |
 | :---: | :--- | :---: | :--- | :---: |
 | **A** | Sindirim Sistemi ve Metabolizma | 468 | 155 | %33.1 |
@@ -51,36 +51,39 @@ Bu bölüm Notebook 03’ün kayıtlı çalıştırmasındaki eşleme tablosunu 
 
 > **Önemli Not (Eşleşme Oranı vs. Etkileşim Kapsamı):** Tablodaki yüksek eşleşme oranları (örn. Sinir Sistemi %71.8), bu ilaçların DDInter kütüphanesinde kimlik olarak geçtiğini gösterir. Ancak DDInter indirme paketlerinde C, G, J, M, N, S gibi ana grupların bağımsız etkileşim dosyaları bulunmamaktadır. Bağımsız bir grup dosyasının bulunmaması, o gruptaki iki ilacın diğer kaynak dosyalarda birlikte yer almasını engellemez. Güncel yerel D05 sayımında N–N grubunda 481 benzersiz çift bulunuyor. Bu sayı, yukarıdaki tarihsel eşleme oranlarından farklı bir veri çıktısına dayanır. [D05 tam sayımı](IP6_Tablo20_ATC_Ciftleri.csv)
 
-## 4. Eşleşmeyen En Sık 30 Bileşen Tablosu (Kişi C Öncelik Listesi - Kapsam İçi)
-| Sıra | Türkçe Bileşen Adı | Ürün Sayısı | Önerilen İngilizce / ATC | Durum |
-| :---: | :--- | :---: | :--- | :--- |
-| 1 | `sodyum laktat` | 315 | - (-) | Eşleşmedi |
-| 2 | `tiyokolsikosid` | 155 | thiocolchicoside (M03BX05) | Eşleşmedi |
-| 3 | `deksketoprofen` | 131 | dexketoprofen (M01AE17) | Eşleşmedi |
-| 4 | `kandesartan` | 103 | candesartan (C09CA06) | Eşleşmedi |
-| 5 | `glisin` | 100 | glycine (B05CX03) | Eşleşmedi |
-| 6 | `vildagliptin` | 87 | vildagliptin (A10BH02) | Eşleşmedi |
-| 7 | `l-losin` | 76 | - (-) | Eşleşmedi |
-| 8 | `sulbaktam` | 62 | sulbactam (J01CG01) | Eşleşmedi |
-| 9 | `benzidamin` | 60 | benzydamine (A01AD02) | Eşleşmedi |
-| 10 | `metamizol` | 55 | metamizole (N02BB02) | Eşleşmedi |
-| 11 | `gliklazid` | 54 | gliclazide (A10BB09) | Eşleşmedi |
-| 12 | `allergen extracts` | 53 | allergen extracts (-) | Eşleşmedi |
-| 13 | `diuretics` | 51 | diuretics (C09BA04) | Eşleşmedi |
-| 14 | `peritoneal dialytics` | 48 | peritoneal dialytics (-) | Eşleşmedi |
-| 15 | `dapoksetin` | 47 | dapoxetine (G04BX14) | Eşleşmedi |
-| 16 | `mometazon` | 47 | mometasone (R01AD09) | Eşleşmedi |
-| 17 | `other cold preparations` | 47 | codeine and paracetamol (N02AJ06) | Eşleşmedi |
-| 18 | `carbohydrates` | 44 | carbohydrates (B05BA03) | Eşleşmedi |
-| 19 | `nimesulid` | 43 | nimesulide (M02AA26) | Eşleşmedi |
-| 20 | `aljinik asit` | 41 | alginic acid (A02BX13) | Eşleşmedi |
-| 21 | `enzyme inhibitor` | 41 | enzyme inhibitor (J01CR02) | Eşleşmedi |
-| 22 | `fusidik asit` | 41 | fusidic acid (D06AX01) | Eşleşmedi |
-| 23 | `electrolytes with carbohydrates` | 40 | electrolytes with carbohydrates (B05BB02) | Eşleşmedi |
-| 24 | `tenofovir disoproksil` | 38 | tenofovir disoproxil (J05AF07) | Eşleşmedi |
-| 25 | `sultamicillin` | 35 | sultamicillin (J01CR04) | Eşleşmedi |
-| 26 | `butamirat` | 32 | butamirate (R05DB13) | Eşleşmedi |
-| 27 | `pinaveryum` | 32 | pinaverium (A03AX04) | Eşleşmedi |
-| 28 | `hypertonic solutions` | 29 | - (-) | Eşleşmedi |
-| 29 | `dekspantenol` | 28 | dexpanthenol (D03AX03) | Eşleşmedi |
-| 30 | `karbidopa` | 28 | - (-) | Eşleşmedi |
+## 4. Yerel CSV’de eşleşmeyen ilk 30 kapsam içi bileşen
+
+Yerel `data/interim/etken_madde.csv` dosyasında `kapsam_ici=1` ve `ddinter_id` boş olan satırlar seçildi. `urun_sayisi` azalan, eşitlikte `bilesen_tr` artan sırada ilk 30 satır alındı. İngilizce ad ve ATC alanları CSV’deki kayıtları gösterir. [Sayım CSV’si](IP3_Ilk30_Yerel_Sayim.csv)
+
+| Sıra | Bileşen | Ürün sayısı | İngilizce ad | ATC |
+|---:|---|---:|---|---|
+| 1 | `dekstroz` | 720 | carbohydrates | B05BA03 |
+| 2 | `sodyum laktat` | 315 | — | — |
+| 3 | `glukoz` | 180 | carbohydrates | B05BA03 |
+| 4 | `tiyokolsikosid` | 155 | thiocolchicoside | M03BX05 |
+| 5 | `deksketoprofen` | 131 | dexketoprofen | M01AE17 |
+| 6 | `kandesartan` | 103 | candesartan | C09CA06 |
+| 7 | `glisin` | 100 | glycine | B05CX03 |
+| 8 | `vildagliptin` | 87 | vildagliptin | A10BH02 |
+| 9 | `l-losin` | 76 | — | — |
+| 10 | `simetikon` | 63 | silicones | A03AX13 |
+| 11 | `sulbaktam` | 62 | sulbactam | J01CG01 |
+| 12 | `benzidamin` | 60 | benzydamine | A01AD02 |
+| 13 | `metamizol` | 55 | metamizole sodium | N02BB02 |
+| 14 | `gliklazid` | 54 | gliclazide | A10BB09 |
+| 15 | `levotiroksin` | 54 | levothyroxine sodium | H03AA01 |
+| 16 | `allergen extracts` | 53 | allergen extracts | — |
+| 17 | `diuretics` | 51 | diuretics | C09BA04 |
+| 18 | `glikoz` | 48 | — | — |
+| 19 | `peritoneal dialytics` | 48 | peritoneal dialytics | — |
+| 20 | `dapoksetin` | 47 | dapoxetine | G04BX14 |
+| 21 | `mometazon` | 47 | mometasone | R01AD09 |
+| 22 | `other cold preparations` | 47 | codeine and paracetamol | N02AJ06 |
+| 23 | `carbohydrates` | 44 | carbohydrates | B05BA03 |
+| 24 | `nimesulid` | 43 | nimesulide | M02AA26 |
+| 25 | `aljinik asit` | 41 | alginic acid | A02BX13 |
+| 26 | `enzyme inhibitor` | 41 | enzyme inhibitor | J01CR02 |
+| 27 | `fusidik asit` | 41 | fusidic acid | D06AX01 |
+| 28 | `beklometazon` | 40 | beclometasone | R01AD01 |
+| 29 | `electrolytes with carbohydrates` | 40 | electrolytes with carbohydrates | B05BB02 |
+| 30 | `tenofovir disoproksil` | 38 | tenofovir disoproxil | J05AF07 |
