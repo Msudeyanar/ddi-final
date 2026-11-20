@@ -8,7 +8,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 * **Durum:** DDInter indirme paketlerinde yalnızca 8 ana grup (A, B, D, H, L, P, R, V) bağımsız CSV olarak sunulmaktadır. Türkiye'de en çok reçetelenen Kardiyovasküler (C), Sinir Sistemi (N), Kas/İskelet (M) ve Antibiyotik (J) gibi 6 kritik grubun bağımsız indirme dosyası bulunmamaktadır.
 * **Sayısal ve Analitik Boyut (D05 & D06):**
   - [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) kayıtlı çıktısında 1.418 DDInter eşleşmeli etken madde satırının 677’si (%47,74) bağımsız indirme dosyası olmayan ATC gruplarında. Bu 677 satırdan oluşturulabilen 228.826 çift, 1.004.653 olası çiftin %22,78’ine karşılık gelir. Hesap, olası çiftleri ATC grubuna göre sınıflandırır. İndirilen dosyalardaki gerçek etkileşim kapsamı çift bazında ayrıca kontrol edilir.
-  - D05 ısı haritasında görüldüğü üzere, Kalp (C) ve Sinir (N) ilaçları diğer mevcut dosyalarla (C-L: 3.079 çift, L-N: 4.862 çift, A-C: 2.303 çift) güçlü çapraz köprüler kurmuştur.
+  - Yerel D05 sayımında C–L için 3.079, L–N için 4.850 ve A–C için 2.266 benzersiz etkileşim çifti bulunuyor. [D05 sayım CSV’si](IP6_Tablo20_ATC_Ciftleri.csv)
   - Geriye kalan 775.827 olası çiftte en az bir bileşen indirme dosyası bulunan bir ATC grubunda.
 * **Açık Soru ve Arayüz Tasarımı:** Kullanıcı reçetesinde iki ilaç da eksik grupta çıktığında, sistem kullanıcıyı yanıltarak *"Etkileşim Yok"* mu demelidir, yoksa *"Bu ilaç kombinasyonu DDInter indirme paketlerinde yer almayan C/N gruplarında olduğundan etkileşim verisi bulunamamaktadır (Veri Kısıtı)"* şeklinde şeffaf bir uyarı mı vermelidir?
 * **Öneri:** Klinik güvenilirlik açısından şeffaf uyarı bayrağı (`veri_yetersiz_uyarisi = True`) dönülmesi zorunlu olmalıdır.
@@ -159,6 +159,8 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 ---
 
 ## 16a. Tek Kaynaklı Ürünlerde Eski WHO ATC Kodu (Kişi A - Kural 8 Kapsamı Dışı)
+
+**Sayım kaynağı:** Yerel `urun_guncel.csv` tablosunda `atc_skrs` boş ve `atc_final` değeri [WHO eşleme tablosunun](../config/who_atc_degisiklik.csv) `eski_kod` alanında bulunan 154 satır yeniden sayıldı. [Notebook 01 nihai ürün tablosu](../notebooks/01_titck_temizlik.ipynb#cell-id=c10_save_summary).
 * **Gözlem (Kişi A):** Güncellenmiş Kural 8 ile WHO kümülatif değişiklik listesinde yer alan çelişkili 167 ürün yeni koda çekilmiştir. Ancak SKRS'te karşılığı bulunmayan (`bos` sınıfı) 154 üründe `atc_final` hâlâ eski WHO kodunu taşımaktadır. Bu ürünlerin 89'u pregabalin (N03AX16), 16'sı gabapentin (N03AX12), geri kalanı fingolimod, barisitinib, sirolimus vb. etken maddelerdir.
 * **Neden Dokunulmadı:** Güncellenmiş Kural 8 yalnızca iki kaynak arasında çelişki bulunan ürünleri kapsamaktadır. Bu 154 üründe bir çelişki (karşı tarafta kod) olmadığından kural devreye girmemektedir. Ayrıca Sabit Kural 1 ("Ürün adı, etkin madde ve ATC için Ruhsatlı Liste esas alınır") gereği ruhsatlı koddaki değişiklik için danışman onayı gerekmektedir.
 * **Olası Etki:** Aynı etken madde (ör. pregabalin) veri setinde iki farklı ATC koduyla (N03AX16 ve N02BF02) görünmektedir. Bu durum ATC bazlı analizlerde (ör. ATC ana grubu dağılımı, Yol A eşleştirmesi) bölünmeye yol açabilir.
