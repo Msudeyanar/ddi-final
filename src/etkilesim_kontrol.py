@@ -98,6 +98,16 @@ class EtkilesimMotoru:
                 "yol": row.get("yol") if pd.notna(row.get("yol")) else "eslesmedi",
             }
 
+        yol_d_tam_ad = BASE_DIR / "config" / "yol_d_bilesen_esleme.csv"
+        if yol_d_tam_ad.exists():
+            kurallar = pd.read_csv(yol_d_tam_ad, dtype=str, keep_default_na=False)
+            if kurallar["bilesen_tr"].duplicated().any():
+                raise ValueError("Yol D bileşen tablosunda yinelenen ad var.")
+            for kural in kurallar.itertuples(index=False):
+                meta = self._etken_meta_map.get(kural.bilesen_tr)
+                if meta is not None and not meta["ddinter_id"]:
+                    meta.update(ad_en=kural.ad_en, ddinter_id=kural.ddinter_id, yol="D")
+
         # Etkileşim çiftleri hızlı sorgu sözlüğü: (min_id, max_id) -> row dict
         for _, row in self.df_etkilesim.iterrows():
             id_a = str(row["id_1"]).strip()
