@@ -277,6 +277,8 @@ Genel olarak araçlar arasında ortak bir etkileşim uyarısı gözlemlenmiş; a
 
 20 Kasım 2026’da Drugs.com etkileşim denetleyicisinde `dexketoprofen` arandı. Araç, ilacın ABD’de bulunmadığını ve etkileşim verisi sunamadığını bildirdi. Uluslararası ilaç kaydına bağlantı gösterildi. Varfarin–deksketoprofen çifti için şiddet etiketi elde edilemedi. [Drugs.com arama sonucu](https://www.drugs.com/interaction/list/?searchterm=dexketoprofen) · [İlk test, Şekil 9](images/sekil09.png)
 
+![Drugs.com etkileşim denetleyicisinde dexketoprofen arama sonucu, 20 Kasım 2026](IP8_DrugsCom_Dexketoprofen_2026-11-20.png)
+
 ## 6\. Sınırlılıklar
 
 * RxMediaPharma’ya erişilememiş, BNF coğrafi erişim kısıtı nedeniyle test edilememiştir; karşılaştırma üç araçla sınırlıdır.
