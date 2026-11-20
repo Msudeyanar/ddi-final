@@ -6,7 +6,8 @@
 - **Görev:** İP1 — `farkli_grup` sınıfından 20 ürünün incelenmesi
 - **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme
 - **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
-- **İnceleme Kapsamı:** Notebook 01'de `farkli_grup` sınıfından çekilen 20 ürünün TİTCK ve SKRS kaynaklarındaki barkod, ürün adı, etkin madde ve ATC kodlarının karşılaştırılması
+- **İnceleme Kapsamı:** `notebooks/01_titck_temizlik.ipynb` `[In[10]: Bölüm 9]` kod hücresinde `farkli_grup` sınıfından çekilen 20 ürünün TİTCK ve SKRS kaynaklarındaki barkod, ürün adı, etkin madde ve ATC kodlarının karşılaştırılması
+> **📌 Örneklem Notu:** İncelenen 20 ürün, Notebook 01'deki `farkli_grup` sınıfının dosya sırasındaki ilk 20 kaydıdır (`head(20)`). Pilot nitelikteki bu inceleme Kural 8'in doğruluğunu teyit etmekte olup, portföydeki kalan 187 çelişkinin (202 − 15) birebir incelemesi Yol D aşamasında yürütülmektedir.
 
 ---
 
@@ -24,7 +25,7 @@ Proje yönergesindeki Kural 8 doğrultusunda ve danışman kararıyla yürürlü
 
 ## 2. Notebook 01'den Alınan 20 Ürünün İnceleme Tablosu
 
-Aşağıdaki tablo, `notebooks/01_titck_temizlik.ipynb` (Hücre 19) çıktısındaki `farkli_grup` sınıfından listelenen 20 ürünün detaylı klinik ve sınıflandırma incelemesini içermektedir:
+Aşağıdaki tablo, `notebooks/01_titck_temizlik.ipynb` (In[10]: Bölüm 9) çıktısındaki `farkli_grup` sınıfından listelenen 20 ürünün detaylı klinik ve sınıflandırma incelemesini içermektedir:
 
 | # | Barkod | Ürün Adı | Etkin Madde / Ham Metin | TİTCK ATC | SKRS ATC | İnceleme ve Çelişki Nedeni | Güncellenmiş Kural 8 Kararı |
 |---|---|---|---|---|---|---|---|
@@ -61,7 +62,7 @@ Bu ürünler için SKRS'teki yeni kodun alınması klinik açıdan zorunludur ve
 ### 3.2. SKRS Veri Giriş Hataları (Ruhsatlı Kodun Korunmasını Zorunlu Kılan Durumlar)
 Tablodaki **4. madde (Admiraz - Siponimod)**, **5. madde (ATOMINEX - Atomoksetin)** ve **9. madde (Nimejel Plus)** örnekleri SKRS'in otomatik olarak üstün tutulamayacağını kanıtlamaktadır:
 - **Admiraz (Siponimod):** Bir MS ilacı olmasına karşın SKRS'te hipertansiyon kombinasyonu (`C09DX04`) atanmıştır.
-- **ATOMINEX (Atomoksetin):** Bir DEHB psikostimülanı olmasına karşın SKRS'te antibiyotik amoksisilin (`J01CA04`) atanmıştır.
+- **ATOMINEX (Atomoksetin):** Bir DEHB ilacı (noradrenalin geri alım inhibitörü) olmasına karşın SKRS'te antibiyotik amoksisilin (`J01CA04`) atanmıştır.
 - **Nimejel Plus:** Bir antiinflamatuar kas jeli olmasına karşın SKRS'te akne antibiyotiği (`D10AF05`) atanmıştır.
 
 Bu ölümcül veri hataları, **"SKRS kodu her zaman günceldir" varsayımının geçersiz olduğunu** ve danışman kararıyla getirilen *"Yalnızca WHO kümülatif değişiklik listesinde belgelenmiş olan kodlar yeniye çevrilir, diğer tüm çelişkilerde resmî Ruhsatlı kod korunur"* kuralının doğruluğunu tartışmasız biçimde ortaya koymaktadır.
@@ -72,7 +73,7 @@ Bu ölümcül veri hataları, **"SKRS kodu her zaman günceldir" varsayımının
 
 1. Notebook 01'den gelen 20 ürünün incelemesi sonucunda 5 ürünün WHO güncellemesi olduğu doğrulanmış ve yeni kod seçilerek çelişki kaldırılmıştır (`atc_celiski = 0`, `atc_who_guncellendi = 1`). Kalan 15 ürün ise SKRS veri giriş hataları (Admiraz, ATOMINEX, Nimejel Plus), endikasyon/kombinasyon farklılıkları veya TİTCK yazım hatası (`DO3AX`) nedeniyle resmî Ruhsatlı kodda korunmuş ve çelişki olarak (`atc_celiski = 1`) işaretlenmiştir.
 2. Tüm portföyde 369 çelişkinin **167 adedi WHO kuralıyla çözülmüş**, kalan **202 ürün ise güvenli tarafta kalınarak `atc_celiski = 1` ile işaretlenmiş** ve Yol A köprüsünden çıkarılmıştır.
-3. İP1 kalite kriterleri ve Kural 8 mutabakatı eksiksiz sağlanmıştır.
+3. İP1 kalite kriterleri ve Kural 8 çalışma mantığı pilot incelemede doğrulanmış; kalan 187 çelişki Yol D klinik incelemesine devredilmiştir[cite: 31, 33].
 
 
 ---
@@ -93,4 +94,4 @@ Bu üç kayıt için Kural 8 uyarınca TİTCK kodunun korunmasını ve `atc_celi
 
 Rystiggo (`L04AG16` → `L04AL02`, 2026), Saphnelo (`L04AA51` → `L04AG11`, 2024), Zeposia’nın iki kaydı (`L04AA38` → `L04AE02`, 2024) ve Tofanzi (`L04AA29` → `L04AF01`, 2024) için kod geçişlerini ve yıllarını resmî listeden doğruladım. [WHO ATC değişiklik listesi](https://atcddd.fhi.no/atc_ddd_alterations__cumulative/atc_alterations/)
 
-Notebook 01, 14 Ekim 2026 tarihli TİTCK ve SKRS çalışma kitaplarıyla yeniden çalıştırıldı. Yukarıdaki beş ürünün tamamında `atc_final` yeni kodu taşıdı, `atc_celiski = 0` ve `atc_who_guncellendi = 1` olarak doğrulandı. Portföy sayıları Notebook 01’in `c8_atc_celiski` ve `c10_save_summary` hücre çıktılarından alınmıştır. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)
+Notebook 01, 14 Ekim 2026 tarihli TİTCK ve SKRS çalışma kitaplarıyla yeniden çalıştırıldı. Yukarıdaki beş ürünün tamamında `atc_final` yeni kodu taşıdı, `atc_celiski = 0` ve `atc_who_guncellendi = 1` olarak doğrulandı. Portföy sayıları Notebook 01’in `c8_atc_celiski` (In[9]) ve `c10_save_summary` (In[11]) kod hücre çıktılarından alınmıştır. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)

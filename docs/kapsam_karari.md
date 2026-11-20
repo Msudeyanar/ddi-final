@@ -33,3 +33,12 @@ Bu doküman, DDI karar destek sisteminin hedef kitlesini netleştirmek amacıyla
 
 2. **İkinci Faz (Genişleme) — Eczacı / Sağlık Profesyoneli Modu:**
    - Sistem ve yerel veri tabanı olgunlaştığında arayüze "Profesyonel / Eczacı Modu" geçişi eklenerek; 86 etkileşim tipinin farmakolojik mekanizmaları, CYP enzim inhibisyonu/indüksiyonu detayları, alternatif etken madde önerileri ve çoklu reçete etkileşim matrisi sağlık çalışanlarının kullanımına açılacaktır.
+
+---
+
+## 3. Şartname Kriterleri ve "%70 Kapsama Hedefi" Hakkında Ortak Not (Toplantı Hazırlığı)
+
+1. **Şartname Değerlendirmesi:** Disiplinlerarası Proje Şartname PDF'inde ve ikinci hafta çalışma planında sayısal bir "%70 kapsama hedefi" barajı yer almamaktadır.
+2. **Hedefin Kaynağı:** Açık Sorular Tutanağında (`docs/acik_sorular.md`, Madde 6) belirtildiği üzere; İP11 taslağında yer alan bu oranın dayanağı ve literatür kaynağı yapılacak ekip toplantısında ilk yazan kişi olan Kişi C tarafından açıklanacaktır.
+3. **Mevcut Sistem Başarısı:** Sistemimiz Kişi A'nın Kural 8 çözümleri, Kişi B'nin eşleştirme hattı ve Kişi C'nin Yol D doğrulamaları ile `docs/eda_raporu_b.md` (Grafik E10) verilerine göre kapsam içi ürünlerde **%80,6 genel kapsama** (18.066 / 22.417) ve sıfır kayıpla **%75,1 tam kapsama** (16.841 / 22.417) düzeyine ulaşmıştır.
+4. **Ortak Tutum:** Toplantıda danışman hocaya bu durum bir şartname açığı değil; ekibin iç operasyonel hedefinin (%75,1 tam kapsama ile) üzerine çıkıldığının nesnel bir göstergesi olarak birlikte sunulacaktır.
