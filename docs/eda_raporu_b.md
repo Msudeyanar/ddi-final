@@ -27,7 +27,7 @@
 | **D02** | [Kaynak Dosya Bazında Şiddet Dağılımı](#6-grafik-d02-kaynak-dosyalara-göre-tekrarsız-çift-ve-şiddet-dağılımı) | En büyük hacim L (Kanser) ve A (Sindirim); en yüksek Major risk L'de (%24,3) |
 | **D03** | [İlaç Başına Eş Sayısı (Derece Dağılımı)](#7-grafik-d03-ilaç-başına-farklı-eş-sayısı-dağılımı-derece-analizi) | Sağa çarpık dağılım: Ortalama 165 eş, medyan 125 eş, zirve 910 eş |
 | **D04** | [En Çok Etkileşen İlk 20 İlaç](#8-grafik-d04-en-çok-etkileşen-ilk-20-ilaç-ve-şiddet-dağılımı) | 1. Dexamethasone (910), 2. Tacrolimus (866), 3. Warfarin (864) |
-| **D05** | [14x14 ATC Çapraz Etkileşim Haritası](#9-grafik-d05-14x14-atc-ana-grupları-arası-çapraz-etkileşim-isı-haritası) | En yoğun risk L-L (6.547) ve L-N (4.815); 196 hücrenin tümü dolu |
+| **D05** | [14x14 ATC Çapraz Etkileşim Haritası](#9-grafik-d05-14x14-atc-ana-grupları-arası-çapraz-etkileşim-isı-haritası) | Yerel sayımda L–L (6.547) ve L–N (4.850) en sık görülen grup çiftleri |
 | **D06** | [Eksik ATC Dosyaları Kayıp Analizi](#10-grafik-d06-eksik-atc-gruplarından-kaynaklanan-veri-kayıp-analizi) | İki bileşeni de eksik gruplarda olan olası çiftlerin oranı %22,78 |
 
 ---
@@ -370,47 +370,26 @@ Sayim kaynagi: yerel `etkilesim.csv`. Her benzersiz cift iki ilac icin de kendi 
 
 ### 9. Grafik D05: 14x14 ATC Ana Grupları Arası Çapraz Etkileşim Isı Haritası
 
-![Grafik D05](../figs/D05_atc_isi_haritasi.png)
+#### Tablo 20. En çok etkileşim kaydı bulunan ATC grup çiftleri
 
-#### Tablo 20: Türkiye Listesiyle Eşleşen İlaçların En Yoğun ATC Çapraz Etkileşim Kümeleri
+| ATC grup çifti | Benzersiz etkileşim çifti |
+|---|---:|
+| L–L | 6.547 |
+| L–N | 4.850 |
+| J–L | 3.471 |
+| C–L | 3.079 |
+| A–N | 2.788 |
+| A–L | 2.432 |
+| A–C | 2.266 |
+| N–R | 1.997 |
+| A–J | 1.844 |
+| G–L | 1.447 |
+| L–M | 1.210 |
+| B–N | 1.131 |
+| L–R | 1.111 |
+| B–L | 1.094 |
 
-| Çapraz ATC Grup Çifti | Grup 1 Tanımı | Grup 2 Tanımı | Etkileşim Çifti Sayısı | Klinik Önem Düzeyi | Tipik Çapraz Risk Örneği |
-|:---:|:---|:---|---:|:---|:---|
-| **L – L** | Antineoplastikler (Kanser) | Antineoplastikler (Kanser) | 6,547 | Hayati Risk | Kombine kemoterapi kemik iliği toksisitesi |
-| **L – N** | Antineoplastikler (Kanser) | Sinir Sistemi | 4,815 | Çok Yüksek Risk | Kanser ağrısı / Antiemetik / Nörotoksisite |
-| **J – L** | Sistemik Antiinfektifler | Antineoplastikler (Kanser) | 3,423 | Kritik Risk | Febril nötropeni antibiyoterapisi ve CYP3A4 |
-| **C – L** | Kardiyovasküler Sistem | Antineoplastikler (Kanser) | 3,077 | Hayati Risk | Kemoterapiye bağlı hipertansiyon / Kardiyotoksisite |
-| **A – N** | Sindirim & Metabolizma | Sinir Sistemi | 2,664 | Yüksek Risk | Antidiyabetik ilaçlar ile psikotrop etkileşimi |
-| **A – L** | Sindirim & Metabolizma | Antineoplastikler (Kanser) | 2,361 | Yüksek Risk | Proton pompa inhibitörlerinin emilime etkisi |
-| **A – C** | Sindirim & Metabolizma | Kardiyovasküler Sistem | 2,110 | Çok Yüksek Risk | Metabolik sendrom (Diyabet + Hipertansiyon) |
-| **N – R** | Sinir Sistemi | Solunum Sistemi | 2,005 | Yüksek Risk | Sedatif / Opioid ile solunum depresyonu |
-| **A – J** | Sindirim & Metabolizma | Sistemik Antiinfektifler | 1,695 | Yüksek Risk | Metal katyonlar (antiasit) ile antibiyotik şelasyonu |
-| **G – L** | Genito-Üriner Sistem | Antineoplastikler (Kanser) | 1,424 | Yüksek Risk | Hormon duyarlı tümörler ve ürolojik tedaviler |
-| **B – C** | Kan & Kan Yapıcı | Kardiyovasküler Sistem | 887 | Hayati Risk | Antikoagülan (Warfarin) ve ACE inhibitörleri |
-| **A – A** | Sindirim Sistemi | Sindirim Sistemi | 748 | Orta Risk | Çoklu dahiliye / Mide ilaçları polifarmasisi |
-| **C – C** | Kardiyovasküler Sistem | Kardiyovasküler Sistem | 201 | Eksik Dosya Kaybı | Kalp ilaçlarının kendi aralarındaki eksik verisi |
-| **G – G** | Genito-Üriner Sistem | Genito-Üriner Sistem | 78 | Eksik Dosya Kaybı | Ürolojik ilaçların kendi aralarındaki eksik verisi |
-
-#### 📌 Grafik D05 Metodolojik ve Analitik Değerlendirmesi:
-
-### 📌 Kod Ne İşe Yarıyor?
-- Yalnızca her iki ilacı da Türkiye listesiyle eşleşen çiftleri filtreler (61.387 çift).
-- Her ilacın birincil ATC ana grubunu `etken_madde.csv` üzerinden belirler.
-- 14x14 simetrik çapraz etkileşim matrisini oluşturur; logaritmik renk skalasıyla (`LogNorm`) çizer.
-- Grafiği 300 DPI ile `figs/D05_atc_isi_haritasi.png` dosyasına kaydeder.
-
-**🎯 Grafik Ne İşe Yarıyor?:**
-- Farklı organ sistemlerinin birbiriyle olan klinik çakışma riskini ve kümelenmelerini tek bakışta haritalandırır.
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Türkiye listesiyle eşleşen 61.387 etkileşim çiftinde en yoğun kümelenme haritanın en koyu renkli bölgeleri olan **L (Kanser, L-L: 6.547)**, **N (Sinir Sistemi, L-N: 4.815)**, **J (Enfeksiyon, J-L: 3.423)** ve **C (Kalp, C-L: 3.077)** grupları arasında gerçekleşmektedir.
-- **En Önemli Sayı:** İndirme dosyası bulunmayan eksik 6 gruptan biri olan **C (Kardiyovasküler / Kalp)** grubu, diğer mevcut dosyalarla kurduğu çapraz köprülerde **3.077 çift (C-L)** ve **2.110 çift (A-C)** gibi çok yüksek bir etkileşim hacmine ulaşmış olup; 14x14 matrisin tüm 196 hücresinde en az 1 etkileşim yakalanmıştır (sıfır olan hiçbir hücre yoktur, minimum değer 3'tür).
-- **Projeye Etkisi:** Kanser (L), Kalp (C), Sinir (N) ve Mide/Dahiliye (A) ilaçlarının birden fazla ilaç kullanan polifarmasi hastalarında en yüksek etkileşim yükünü oluşturduğunu kanıtlar; klinik karar destek motorunun alarmları özellikle bu 4 ana grup üzerinde hassasiyetle yapılandırması gerektiğini gösterir.
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Haritada en koyu renkli alanlar Kanser-Kanser (6.547 çift) ve Kanser-Sinir (4.815 çift) etkileşimleridir. Matrisin 196 hücresinin tamamında etkileşim tespit edilmiştir (sıfır olan tek bir hücre bile yoktur). Eksik dosya olan Kardiyovasküler (C) grubu bile diğer gruplarla 3.000'den fazla köprü kurmuştur."*
-
----
+Yerel `etken_madde.csv` ve `etkilesim.csv` kullanıldı. Arşivdeki Notebook 06 D05 yöntemine göre her DDInter kimliği, geçerli ATC ana grupları arasından `urun_sayisi` en yüksek bileşen satırının grubuna bağlandı. İki ucu da eşlenen **62.827** benzersiz çift sırasız ATC grup çiftlerine göre sayıldı. [Tam sayım tablosu](IP6_Tablo20_ATC_Ciftleri.csv). Çift sayısı, yerel veri kapsamını gösterir.
 
 ### 10. Grafik D06: Eksik ATC Gruplarından (C, G, J, M, N, S) Kaynaklanan Veri Kayıp Analizi
 
