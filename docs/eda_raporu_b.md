@@ -2,6 +2,9 @@
 
 *Bu rapor; TİTCK Ruhsatlı İlaçlar, SKRS-3 ve DDInter veritabanları üzerinden PDF şartnamesine tam uyumlu olarak Kişi B tarafından hazırlanmış; DDInter etkileşim ağı, eşleşme köprüsü kapsamı, kayıp analizi, analitik tablolar ve hoca/jüri sunum kartlarını içerir.*
 
+
+> **DDInter sayılarının kaynağı.** [Notebook 04](../notebooks/04_ddinter_birlestirme.ipynb) hücreleri `e96b29d2` (dosya ve ham satır sayıları), `d508b3b4` (ilaç fihristi), `9a82020a` (sayısal kimlik sıralaması, tekilleştirme ve etiket çelişkileri), `15b08f7b` (nihai şiddet dağılımı ve ağ ölçümleri). Ham şiddet adetleri `e96b29d2` çıktısındaki birleştirilmiş satırlarda `Level` alanının sayımından elde edildi. Sekiz yerel CSV ile yeniden sayım bu değerleri doğruladı.
+
 ---
 
 ## 🧭 Hızlı Sunum Navigasyonu (Kişi B Sorumluluğundaki Temel Grafikler)
@@ -12,7 +15,7 @@
 | **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Yol A tek başına Türkiye pazarındaki ilaç hacminin %90,9'unu çözdü |
 | **E09** | [14 ATC Grubunda DDInter Kapsamı](#3-grafik-e09-14-atc-ana-grubunda-ddinter-kapsama-oranı-ve-eksik-gruplar-en-önemli-grafik) | Kanser (%83,9) ve Sinir (%71,1) çok yüksek; eksik 6 grup turuncu çizgili |
 | **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Portföyün %75,1'inde (16.841 ürün) sıfır kayıpla tam etkileşim kontrolü |
-| **D01** | [DDInter Şiddet Dağılımı (Kural 9)](#5-grafik-d01-ddinter-şiddet-dağılımı-ham-vs-kural-9) | 62.148 mükerrer çift elendi; 160.235 net çiftte sıfır çelişki sağlandı |
+| **D01** | [DDInter Şiddet Dağılımı (Kural 9)](#5-grafik-d01-ddinter-şiddet-dağılımı-ham-vs-kural-9) | 62.148 yinelenen satır elendi. 160.235 benzersiz çiftte şiddet etiketi uyuşmazlığı gözlenmedi |
 | **D02** | [Kaynak Dosya Bazında Şiddet Dağılımı](#6-grafik-d02-kaynak-dosyalara-göre-tekrarsız-çift-ve-şiddet-dağılımı) | En büyük hacim L (Kanser) ve A (Sindirim); en yüksek Major risk L'de (%24,3) |
 | **D03** | [İlaç Başına Eş Sayısı (Derece Dağılımı)](#7-grafik-d03-ilaç-başına-farklı-eş-sayısı-dağılımı-derece-analizi) | Sağa çarpık dağılım: Ortalama 165 eş, medyan 125 eş, zirve 910 eş |
 | **D04** | [En Çok Etkileşen İlk 20 İlaç](#8-grafik-d04-en-çok-etkileşen-ilk-20-ilaç-ve-şiddet-dağılımı) | 1. Dexamethasone (910), 2. Tacrolimus (866), 3. Warfarin (864) |
@@ -36,8 +39,8 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 | **Yol A Ürün Kapsamı** | Tek Bileşenli ATC Köprüsüyle Çözülen Ürün | **21,642 (%90.9)** | Türkiye pazarının ezici çoğunluğu doğrudan kapsandı |
 | **Yol A+B Kapsamı** | Kural Tabanlı Çözülen Toplam Ürün | **21,985 (%92.4)** | Klinik karar destek motorunun ilk sürüm omurgası |
 | **DDInter Eşleşen Bileşen** | DDInter Kimliği Kazanan Türk Etken Maddesi | **1,395 (%45.5)** | Kapsam içi etken maddelerde %47.3 |
-| **DDInter Net Etkileşim** | Kural 9 Sonrası Tekilleştirilmiş Çift | **160,235** | 62.148 mükerrer elendi, **%100 tutarlılık (0 çelişki)** |
-| **En Yüksek Risk (Major)** | Hayati Risk Taşıyan Benzersiz Etkileşim | **26,914 (%16.8)** | Acil klinik müdahale gerektiren çiftler |
+| **DDInter Net Etkileşim** | Kural 9 Sonrası Tekilleştirilmiş Çift | **160,235** | 62.148 yinelenen satır elendi, şiddet etiketi uyuşmazlığı gözlenmedi |
+| **Major etiketi** | Major olarak etiketlenen benzersiz çift | **26,914 (%16.8)** | DDInter şiddet etiketi |
 | **Kontrol Edilebilir Çift** | Mevcut 8 Dosyayla Taranabilen İkili Kombinasyon | **748,200 (%76.95)** | Eşleşen Türk ilaçlarının oluşturabileceği çiftler |
 | **Kör Nokta (Veri Kaybı)** | Eksik 6 ATC Dosyası Arasında Kalan Çift | **224,115 (%23.05)** | Kişi C / Yol D ve TDC DrugBank ile kapatılacak alan |
 
@@ -47,7 +50,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 1. **Mükerrer Kayıt (Duplicate / Symmetric Interaction):**
    - İlaç-ilaç etkileşimlerinde yön önemsizdir ($A \leftrightarrow B$ çift yönlü simetriktir).
-   - Ham dosyalarda hem $A \rightarrow B$ hem de $B \rightarrow A$ olarak ters yönde veya farklı organ sistemi dosyalarında birden fazla kez yer alan aynı çiftlere "mükerrer kayıt" denir. Kural 9 ile çiftler alfabetik sıralanarak (`id_1 < id_2`) 62.148 mükerrer kayıt elenmiş ve net 160.235 benzersiz çift elde edilmiştir.
+   - Ham dosyalarda hem $A \rightarrow B$ hem de $B \rightarrow A$ olarak ters yönde veya farklı organ sistemi dosyalarında birden fazla kez yer alan aynı çiftlere "mükerrer kayıt" denir. Kural 9 ile çiftlerin kimliklerindeki sayısal son ekler küçükten büyüğe sıralanarak 62.148 mükerrer kayıt elenmiş ve net 160.235 benzersiz çift elde edilmiştir.
 2. **Hub Molekül (Ağ Merkez İlacı):**
    - Graf teorisinde yüzlerce farklı ilaçla etkileşime girerek ağın merkezinde duran yüksek dereceli moleküllerdir (örn. Dexamethasone: 910 eş, Tacrolimus: 866 eş, Warfarin: 864 eş). Bu ilaçlar reçetelerde en çok uyarı üreten moleküllerdir.
 3. **Granülarite (ATC Kod Ayrıntı Düzeyi):**
@@ -297,7 +300,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 |:---|---:|:---|---:|:---|---:|:---|:---|
 | **Moderate** | 130,367 | %58.62 | 96,675 | %60.33 | 33,692 | %25.84 | Orta Risk (Klinik Takip / Doz Ayarı) |
 | **Unknown** | 47,182 | %21.22 | 29,813 | %18.61 | 17,369 | %36.81 | Bilinmeyen / Belirtilmemiş Şiddet |
-| **Major** | 33,896 | %15.24 | 26,914 | %16.80 | 6,982 | %20.60 | **Hayati Risk (Kombinasyondan Kaçın)** |
+| **Major** | 33,896 | %15.24 | 26,914 | %16.80 | 6,982 | %20.60 | DDInter Major etiketi |
 | **Minor** | 10,938 | %4.92 | 6,833 | %4.26 | 4,105 | %37.53 | Düşük Risk (Hafif Yan Etki) |
 | **TOPLAM** | **222,383** | **%100.00** | **160,235** | **%100.00** | **62,148** | **%27.95** | — |
 
@@ -311,11 +314,11 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ### 💡 Çıktıdan Ne Anlamam Lazım?
 - **Ne Görüyorsun?:** Ham dosyalardaki 222.383 kayıttan 62.148 mükerrer (ters yönlü ve farklı dosyalarda yinelenen) çift elenerek net 160.235 benzersiz çift elde edilmiş; şiddet düzeyleri arasındaki oransal hiyerarşi tekrar temizliği öncesi ve sonrasında neredeyse birebir korunmuştur.
-- **En Önemli Sayı:** Veri setinin %60,33'ünü (96.675 çift) oluşturan Moderate etkileşimler baskın çoğunluğu oluştururken, klinik açıdan en kritik olan **Major şiddetindeki 26.914 çift (%16,80)** ve şiddeti belirtilmemiş **29.813 Unknown çift (%18,61)** veri tabanında yer almaktadır.
-- **Projeye Etkisi:** Farklı dosyalarda mükerrer yer alan 43.826 çiftin hiçbirinde şiddet uyuşmazlığı yaşanmaması (`siddet_celiski = 0`), Kural 9 filtrelemesinin veri kaybına ve klinik bilgi bozulmasına yol açmadan tam tutarlılıkla tamamlandığını tescillemiştir.
+- **En Önemli Sayı:** Veri setinin %60,33'ünü (96.675 çift) oluşturan Moderate etkileşimler baskın çoğunluğu oluştururken, **Major şiddetindeki 26.914 çift (%16,80)** ve şiddeti belirtilmemiş **29.813 Unknown çift (%18,61)** veri tabanında yer almaktadır.
+- **Projeye Etkisi:** Birden fazla dosyada yer alan 43.826 çift için farklı şiddet etiketi gözlenmedi (`siddet_celiski = 0`). Bu sonuç incelenen sekiz dosyadaki etiket karşılaştırmasına dayanır.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"DDInter ham dosyalarındaki 62.148 mükerrer ve ters yönlü kaydı ayıkladık. Çok kritik bir bulgumuz var: Birden fazla dosyada geçen 43.826 çiftin hiçbirinde şiddet çelişkisi çıkmadı (`siddet_celiski=0`). 160.235 net çiftimiz %100 klinik tutarlılığa sahiptir."*
+> *"DDInter ham dosyalarındaki 62.148 mükerrer ve ters yönlü kaydı ayıkladık. Çok kritik bir bulgumuz var: Birden fazla dosyada geçen 43.826 çiftin hiçbirinde şiddet çelişkisi çıkmadı (`siddet_celiski=0`). Bu gözlem sekiz ham dosyanın etiketleriyle sınırlıdır."*
 
 ---
 
@@ -529,7 +532,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 > Olası çiftlerin %22,78’inde iki bileşen de bağımsız indirme dosyası bulunmayan gruplarda. Çift bazında etkileşim kapsamı ayrıca ölçülür. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 
 ### ❓ Soru 3: "Ham dosyalardaki 222 bin kayıttan 160 bine düşerken veri kaybetmediniz mi?"
-- **Cevap:** *"Kesinlikle veri kaybetmedik hocam. İlaç etkileşimi simetriktir ($A \leftrightarrow B$). Ham dosyalarda A ilacı B ilacıyla, B ilacı da A ilacıyla ayrı satırlarda yazılmıştı veya birden fazla dosyada yinelenmişti. Kural 9 ile bu mükerrerleri eledik. En önemli kanıtımız: Birden fazla dosyada geçen 43.826 çiftin hiçbirinde şiddet çelişkisi çıkmadı (`siddet_celiski = 0`)."*
+- **Cevap:** *"Tekilleştirme çift kimliğini yön sırasından bağımsız ele aldı. Ham dosyalarda A ilacı B ilacıyla, B ilacı da A ilacıyla ayrı satırlarda yazılmıştı veya birden fazla dosyada yinelenmişti. Kural 9 ile bu mükerrerleri eledik. Birden fazla dosyada geçen 43.826 çiftin hiçbirinde şiddet çelişkisi çıkmadı (`siddet_celiski = 0`)."*
 
 ### ❓ Soru 4: "Neden en çok etkileşen ilaç Ciprofloxacin değil de Dexamethasone çıktı?"
 - **Cevap:** *"1. haftadaki ön raporda ham dosya bazlı kaba bir sayım yapılmıştı. Kural 9 ile tüm dosyalar birleştirilip mükerrerler temizlendiğinde ve iki yönlü ağ derecesi hesaplandığında, sistemik kortikosteroid olan Dexamethasone'un 910 benzersiz eş ile kesin merkez hub olduğu matematiksel olarak kanıtlandı. Farmakolojik olarak da Dexamethasone güçlü bir CYP3A4 indükleyicisidir."*

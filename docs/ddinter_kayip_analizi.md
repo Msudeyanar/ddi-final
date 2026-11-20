@@ -5,6 +5,9 @@
 **Notebook:** `notebooks/04_ddinter_birlestirme.ipynb`  
 **Üretilen Veriler:** `data/interim/ddinter_ilac.csv`, `data/interim/etkilesim.csv`  
 
+
+> **DDInter sayılarının kaynağı.** [Notebook 04](../notebooks/04_ddinter_birlestirme.ipynb) hücreleri `e96b29d2` (dosya ve ham satır sayıları), `d508b3b4` (ilaç fihristi), `9a82020a` (sayısal kimlik sıralaması, tekilleştirme ve etiket çelişkileri), `15b08f7b` (nihai şiddet dağılımı ve ağ ölçümleri). Ham şiddet adetleri `e96b29d2` çıktısındaki birleştirilmiş satırlarda `Level` alanının sayımından elde edildi. Sekiz yerel CSV ile yeniden sayım bu değerleri doğruladı.
+
 ---
 
 ## 1. Yönetici Özeti ve Temel Çıktılar
@@ -46,7 +49,7 @@ Farklı dosyalarda farklı şiddet etiketine sahip olan kayıtlar için `siddet_
 | **Toplam** | **160.235** | **%100,00** | — |
 
 > **Önemli Bulgu (`siddet_celiski`):**  
-> Veri setinde 43.826 çift birden fazla dosyada tekrar etmesine rağmen, hiçbir çiftte şiddet uyuşmazlığı tespit edilmemiştir (`siddet_celiski = 0`). Bu durum, DDInter veritabanının farklı ATC kategorileri arasında tutarlı bir şiddet etiketleme protokolü kullandığını kanıtlamaktadır.
+> Veri setinde 43.826 çift birden fazla dosyada tekrar etmesine rağmen, hiçbir çiftte şiddet uyuşmazlığı tespit edilmemiştir (`siddet_celiski = 0`). Bulgular, indirilen sekiz dosyada aynı çiftin kayıtlı şiddet etiketlerinin karşılaştırılmasıyla sınırlıdır.
 
 ---
 
