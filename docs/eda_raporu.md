@@ -74,9 +74,11 @@
 
 #### 📌 Grafik E01 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
-1. **Ne Görülüyor?** TİTCK ruhsatlı ilaç portföyünün %81,26'sı (19.341 ürün) tek bir etken maddeden oluşurken, 5 ve daha fazla bileşen içeren formülasyonların ezici çoğunluğu (439 ürün) Kural 4 kapsamında elenen B05 grubu serum/elektrolit solüsyonlarıdır.
-2. **En Önemli Sayı:** Toplam 4.460 kombine ürün (%18,74, n=23.801) tespit edilmiş olup, bu değer 1. haftadaki kaba tahminden (4.572 kombine) yalnızca 112 ürün (%2,45) daha düşüktür; fark, tuz/hidrat eklerinin temizlenmesiyle giderilen yapay bileşen fazlalıklarından kaynaklanmaktadır.
-3. **Projeye Etkisi:** Analiz kapsamında kalan 4.011 kombine ürün Yol B (rapidfuzz ile ATC adı ayrıştırma) ve Yol C/D için hedef kümeyi belirlerken, 18.895 tekli ürün doğrudan Yol A (ATC köprüsü) üzerinden hızlıca DDInter eşleştirmesine aktarılacaktır.
+1. **Bileşen dağılımı.** E01’in sayım kuralıyla 23.801 ürün kaydının 19.406’sı tek bileşenli (%81,53), 4.395’i kombine (%18,47).
+2. **Sayım yöntemi.** E01 bileşenleri barkoda göre sayar. Barkodu boş kayıtlarda ham maddeden bileşen sayısını hesaplar ve eşleşmeyen diğer kayıtlarda varsayılan sayı olarak 1 kullanır. Yüzdelerin paydası tüm ürün kayıtlarıdır.
+3. **Kapsam içi dağılım.** E01 çapraz tablosuna göre kapsam içinde 18.960 tek bileşenli ve 3.946 kombine ürün kaydı var. Yol A uygunluğu ayrıca ATC ve eşleme koşullarıyla belirlenir.
+
+[Notebook 05, E01 hücresi](../notebooks/05_eda_titck.ipynb#cell-id=5d307533)
 
 ### 3. Grafik E02: 14 ATC Ana Grubu ve SKRS Durumu Dağılımı
 
@@ -153,11 +155,13 @@
 
 #### Tablo 8: ATC Çelişki Sınıfları ve Güncellenmiş Kural 8 Dağılımı
 
+Sınıf toplamları ve WHO geçişleri Notebook 01’in `c8_atc_celiski` ve `c10_save_summary` hücrelerine dayanır. Yeniden çalıştırılan `urun.csv` çıktısı `atc_celiski_siniflari.csv` ile barkod üzerinden birleştirildiğinde 167 geçişin tamamı `farkli_grup` sınıfında yer alır. [Notebook 01](https://github.com/Msudeyanar/ddi-final/blob/main/notebooks/01_titck_temizlik.ipynb)
+
 | Çelişki Sınıfı         | Tanım / Kriter                                              |   Ürün Sayısı | Portföy Oranı (%)   | İki Kaynaklı Ürün Oranı (%)   | Çelişki Durumu (atc_celiski)              | Uygulanan Çözüm Kuralı                                          |
 |:-----------------------|:------------------------------------------------------------|--------------:|:--------------------|:------------------------------|:------------------------------------------|:----------------------------------------------------------------|
 | bosluk                 | Boşluk/karakter temizliği sonrası tam eşit kodlar           |        11,222 | %47.15              | %96.41                        | Çelişki Yok (0)                           | Ruhsatlı kod onaylandı                                          |
 | duzey_farki            | Biri diğerinin başlangıcı / ön eki (örn. N02B vs N02BE01)   |            49 | %0.21               | %0.42                         | Sahte Çelişki (0)                         | Kural 8: Uzun olan (ayrıntılı) kod seçildi                      |
-| ayni_grup_farkli_madde | İlk 5 hane aynı, son 2 hane farklı (kimyasal alt grup aynı) |            27 | %0.11               | %0.23                         | WHO ile Çözülen: 167 / Kalan Çelişki: 27  | WHO listesinde varsa yeni kod; yoksa ruhsatlı kod, Yol A kapalı |
+| ayni_grup_farkli_madde | İlk 5 hane aynı, son 2 hane farklı (kimyasal alt grup aynı) |            27 | %0.11               | %0.23                         | WHO ile Çözülen: 0 / Kalan Çelişki: 27  | WHO listesinde varsa yeni kod; yoksa ruhsatlı kod, Yol A kapalı |
 | farkli_grup            | İlk 5 hane tamamen farklı grup                              |           342 | %1.44               | %2.94                         | WHO ile Çözülen: 167 / Kalan Çelişki: 175 | WHO listesinde varsa yeni kod; yoksa ruhsatlı kod, Yol A kapalı |
 | bos                    | Kaynakların en az birinde ATC kodu eksik                    |        12,161 | %51.09              | -                             | Karşılaştırılamaz (0)                     | Kural 6/7: Mevcut olan kod veya boş atandı                      |
 

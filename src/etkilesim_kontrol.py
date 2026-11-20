@@ -24,12 +24,6 @@ import pandas as pd
 BASE_DIR = Path(__file__).resolve().parent.parent
 INTERIM_DIR = BASE_DIR / "data" / "interim"
 
-# Tarihsel/jenerik marka eşanlamlıları (TİTCK'te Varfarin olarak geçen Coumadin vb.)
-MARKA_TAKMA_ADLARI: dict[str, str] = {
-    "coumadin": "varfarin",
-    "kumadin": "varfarin",
-}
-
 # DDInter indirme dosyası bulunmayan eksik ATC sınıfları (Kayıp analizi kuralı: C, G, J, M, N, S)
 EKSIK_ATC_GRUPLARI = frozenset({"C", "G", "J", "M", "N", "S"})
 
@@ -54,7 +48,7 @@ class EtkilesimMotoru:
     belleğe yükleyip hızlı ikili etkileşim sorgulaması yapan motor.
     """
 
-    def __init__(self, interim_dir: Path = INTERIM_DIR):
+    def __init__(self, interim_dir: Path = INTERIM_DIR, yol_d_path: Optional[Path] = None):
         self.interim_dir = interim_dir
         self.df_urun: Optional[pd.DataFrame] = None
         self.df_urun_etken: Optional[pd.DataFrame] = None
@@ -62,6 +56,9 @@ class EtkilesimMotoru:
         self.df_etkilesim: Optional[pd.DataFrame] = None
         self._etkilesim_dict: dict[tuple[str, str], dict[str, Any]] = {}
         self._yukle()
+        self._yol_d_bilesenleri = self._yol_d_yukle(
+            yol_d_path if yol_d_path is not None else BASE_DIR / "config" / "yol_d_urun_esleme.csv"
+        )
 
     def _yukle(self):
         """Tüm gerekli ara tabloları yükler ve indeksler."""
@@ -101,6 +98,16 @@ class EtkilesimMotoru:
                 "yol": row.get("yol") if pd.notna(row.get("yol")) else "eslesmedi",
             }
 
+        yol_d_tam_ad = BASE_DIR / "config" / "yol_d_bilesen_esleme.csv"
+        if yol_d_tam_ad.exists():
+            kurallar = pd.read_csv(yol_d_tam_ad, dtype=str, keep_default_na=False)
+            if kurallar["bilesen_tr"].duplicated().any():
+                raise ValueError("Yol D bileşen tablosunda yinelenen ad var.")
+            for kural in kurallar.itertuples(index=False):
+                meta = self._etken_meta_map.get(kural.bilesen_tr)
+                if meta is not None and not meta["ddinter_id"]:
+                    meta.update(ad_en=kural.ad_en, ddinter_id=kural.ddinter_id, yol="D")
+
         # Etkileşim çiftleri hızlı sorgu sözlüğü: (min_id, max_id) -> row dict
         for _, row in self.df_etkilesim.iterrows():
             id_a = str(row["id_1"]).strip()
@@ -116,34 +123,51 @@ class EtkilesimMotoru:
                 "kaynak_dosyalar": row.get("kaynak_dosyalar", ""),
             }
 
+    def _yol_d_yukle(self, path: Path) -> dict:
+        if not path.exists():
+            return {}
+
+        kararlar = pd.read_csv(path, dtype=str, keep_default_na=False)
+        aktif = kararlar[kararlar["durum"] != "urun_belgesi_bekliyor"].copy()
+        aktif["sira"] = aktif["sira"].astype(int)
+        if aktif.duplicated(["barkod", "sira"]).any():
+            raise ValueError("Yol D dosyasında tekrarlanan barkod ve sıra var.")
+
+        urun_atcleri = {
+            str(int(urun.barkod)): str(urun.atc_final)[:1]
+            for urun in self.df_urun.itertuples(index=False)
+            if pd.notna(urun.barkod) and pd.notna(urun.atc_final)
+        }
+        bilesenler = {}
+        for barkod, grup in aktif.sort_values("sira").groupby("barkod"):
+            bilesenler[barkod] = [
+                {
+                    "bilesen_tr": satir.bilesen,
+                    "ad_en": None,
+                    "atc": None,
+                    "atc_ana": urun_atcleri.get(barkod),
+                    "ddinter_id": satir.ddinter_id or None,
+                    "yol": ("C" if satir.durum == "mevcut_yol_c" else "D")
+                        if satir.ddinter_id else "eslesmedi",
+                }
+                for satir in grup.itertuples(index=False)
+            ]
+        return bilesenler
+
     def urun_bul(self, sorgu: str) -> dict[str, Any]:
-        """
-        Kullanıcı girdisini arar.
-        Önce ürün adında eşleşme arar, bulunamazsa takma ad (alias) haritasına bakar.
-        Standart tekil tablet formülasyonlarını PLUS/COMPLEX/hot gibi karma ürünlere tercih eder.
-        """
+        """Ürünü verideki gerçek adıyla, genel ad eşleşmesine göre seçer."""
         katli_sorgu = katla(sorgu)
-        is_alias = katli_sorgu in MARKA_TAKMA_ADLARI
-        hedef_arama = MARKA_TAKMA_ADLARI.get(katli_sorgu, katli_sorgu)
-
-        # 1. Kelime sınırı ile arama
-        mask = self.df_urun["urun_adi_katlanmis"].str.contains(
-            rf"\b{re.escape(hedef_arama)}\b", regex=True, na=False
-        )
-        if not mask.any():
-            # Alt dize araması
-            mask = self.df_urun["urun_adi_katlanmis"].str.contains(
-                re.escape(hedef_arama), regex=False, na=False
-            )
-
-        # 2. Takma ad karşılığı varsa ve hala bulunamadıysa
-        if not mask.any() and is_alias:
-            alias = MARKA_TAKMA_ADLARI[katli_sorgu]
-            mask = self.df_urun["urun_adi_katlanmis"].str.contains(
-                re.escape(alias), regex=False, na=False
-            )
-
-        if not mask.any():
+        adlar = self.df_urun["urun_adi_katlanmis"]
+        adaylar = self.df_urun.iloc[0:0]
+        if katli_sorgu:
+            adaylar = self.df_urun[adlar == katli_sorgu]
+            if adaylar.empty:
+                adaylar = self.df_urun[adlar.str.contains(
+                    rf"\b{re.escape(katli_sorgu)}\b", regex=True, na=False
+                )]
+            if adaylar.empty:
+                adaylar = self.df_urun[adlar.str.contains(katli_sorgu, regex=False, na=False)]
+        if adaylar.empty:
             return {
                 "girdi": sorgu,
                 "bulundu": False,
@@ -152,46 +176,17 @@ class EtkilesimMotoru:
                 "bilesenler": [],
             }
 
-        adaylar = self.df_urun[mask].copy()
-
-        # En uygun standart ürünü seçmek için puanlama (Ranking Score):
-        # Kullanıcı 'Aspirin' dediğinde 'ASPIRIN COMPLEX' yerine 'ASPIRIN 500 MG TABLET' gelsin;
-        # 'Parol' dediğinde 'PAROL PLUS' yerine 'PAROL 500 MG TABLET' gelsin.
-        def puanla(row):
-            name = row["urun_adi_katlanmis"]
-            p = 0
-            # Sık kullanılan temel ilaçlarda gereksiz 'plus', 'complex', 'hot', 'mr' varyantlarını cezalandır
-            if katli_sorgu in ["arveles", "klacid", "aspirin", "parol", "cordarone"]:
-                if any(w in name for w in ["plus", "complex", "hot", " mr ", "-k "]):
-                    p -= 60
-            if "tablet" in name:
-                p += 25
-            if "film kapli" in name:
-                p += 15
-            # Bileşen sayısı: Augmentin kombine beklenir (2), diğerleri tekil beklenir (1)
-            b_sayisi = len(self._barkod_bilesen_map.get(row["barkod"], []))
-            if katli_sorgu == "augmentin":
-                if b_sayisi == 2:
-                    p += 40
-            else:
-                if b_sayisi == 1:
-                    p += 40
-            return p
-
-        adaylar["puan"] = adaylar.apply(puanla, axis=1)
-        temsilci = adaylar.sort_values(by="puan", ascending=False).iloc[0]
+        aktif = adaylar[adaylar["durum"] == "Aktif"] if "durum" in adaylar else adaylar
+        secenekler = aktif if not aktif.empty else adaylar
+        temsilci = secenekler.sort_values(["urun_adi_katlanmis", "barkod"], kind="stable").iloc[0]
         barkod = temsilci["barkod"]
-        
-        # Görüntüleme adı: Coumadin gibi jenerik adı TİTCK'te Varfarin geçen ilaçlar için
-        if is_alias:
-            urun_adi_gosterim = f"COUMADIN 5 MG TABLET"
-        else:
-            urun_adi_gosterim = temsilci["urun_adi"]
+        urun_adi_gosterim = temsilci["urun_adi"]
 
         bilesen_adlari = self._barkod_bilesen_map.get(barkod, [])
-        bilesen_detaylari = []
+        barkod_anahtari = str(int(barkod)) if pd.notna(barkod) else ""
+        bilesen_detaylari = self._yol_d_bilesenleri.get(barkod_anahtari, [])
 
-        for b_tr in bilesen_adlari:
+        for b_tr in ([] if bilesen_detaylari else bilesen_adlari):
             meta = self._etken_meta_map.get(
                 b_tr,
                 {
@@ -343,7 +338,7 @@ class EtkilesimMotoru:
                             "Etkileşim DDInter web sitesinde mevcut olabilir ancak indirme dosyalarında yer almamaktadır."
                         )
                     else:
-                        durum_str = "Etkileşim Yok"
+                        durum_str = "Kayıt bulunamadı"
                         aciklama_str = "DDInter veritabanında bu iki molekül arasında kayıtlı bir etkileşim bulunmamaktadır."
 
                     sonuclar.append(
