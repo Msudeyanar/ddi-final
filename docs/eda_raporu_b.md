@@ -5,7 +5,7 @@
 
 > **DDInter sayılarının kaynağı.** [Notebook 04](../notebooks/04_ddinter_birlestirme.ipynb) hücreleri `e96b29d2` (dosya ve ham satır sayıları), `d508b3b4` (ilaç fihristi), `9a82020a` (sayısal kimlik sıralaması, tekilleştirme ve etiket çelişkileri), `15b08f7b` (nihai şiddet dağılımı ve ağ ölçümleri). Ham şiddet adetleri `e96b29d2` çıktısındaki birleştirilmiş satırlarda `Level` alanının sayımından elde edildi. Sekiz yerel CSV ile yeniden sayım bu değerleri doğruladı.
 
-> **Eşleme verisinin sürümü.** Bu rapordaki eşleme ve ürün kapsamı tabloları kayıtlı İP6 çalıştırmasını yansıtır. Eşleşen 1.418 etken madde satırı [Notebook 04, `926ce095` hücresinde](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) de görülür. 32.047 ürün–bileşen satırı ve ilk 30’dan 26 eşleşme için aynı çalıştırmanın ara veri dosyaları henüz doğrulanmadı. İncelenen yerel ara veri ve Yol D motor çıktısında ilk 30’dan 24 eşleşme bulundu.
+> **Eşleme verisinin sürümü.** Bu rapordaki eşleme ve ürün kapsamı tabloları kayıtlı İP6 çalıştırmasını yansıtır. Eşleşen 1.418 etken madde satırı [Notebook 04, `926ce095` hücresinde](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) de görülür. Tablo 10’daki 32.047, eşleme yollarına göre verilen ürün hacimlerinin toplamıdır. Yerel `etken_madde.csv` dosyasındaki `urun_sayisi` sütunu da 32.047 eder. Yol bazındaki dağılım yerel dosyada farklıdır. Yerel `urun_etken.csv` dosyasında 32.076 satır vardır.
 
 ---
 
@@ -117,12 +117,12 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 - Ruhsatlı ürün sayısına göre sıralanan bileşenlerin DDInter'da bulunma oranını ve acil Yol D adaylarını gösterir.
 
 ### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Bu rapor çalıştırmasında ruhsatlı ürün sayısına göre ilk 30 bileşenin **26'sı (%86,7)** DDInter kütüphanesinde tam olarak tanımlanmış olup; Yol C kural motorumuz ve Kişi C'nin Yol D entegrasyonuyla kalsiyum klorür, dekstroz, glukoz, hidroklorotiyazid, magnezyum klorür ve sodyum asetat gibi kritik bileşenler DDInter kimliğine bağlanmıştır. Yalnızca sodyum laktat, tiyokolsikosid, deksketoprofen ve yardımcı ürünler olmak üzere **4 bileşen (%13,3)** DDInter'da doğrudan yer almamaktadır.
+- Yerel `etken_madde.csv` ve Yol D motor çıktısı `etken_madde_yol_d_motor.csv` ayrı ayrı kontrol edildi. `urun_sayisi` azalan, eşitlikte `bilesen_tr` alfabetik sıralandı. İlk 30 satırın 24’ünde DDInter kimliği dolu (%80). Kimliği boş bileşenler dekstroz, sodyum laktat, `other non therapeutic auxiliary products`, glukoz, tiyokolsikosid ve deksketoprofendir. Görseldeki tarihsel 26/30 değeri, o çalıştırmanın eşleme tablosu olmadan doğrulanamadı.
 - **En Önemli Sayı:** 1.059 ruhsatlı üründe yer alan sodyum klorür (`DDInter1685`), 377 ürünlü parasetamol (`DDInter14`), 319 ürünlü metformin (`DDInter1164`), 278 ürünlü amlodipin (`DDInter79`), 400 ürünlü kalsiyum klorür (`DDInter272`) ve 379 ürünlü hidroklorotiyazid (`DDInter883`) bu rapor çalıştırmasında DDInter kimliğiyle eşleşmiştir.
 - **Projeye Etkisi:** En sık 30 bileşenin beşte dördünün (%80,0) doğrudan bulunması, Türkiye'deki hasta etkileşim sorgularının ezici çoğunluğunun sistem tarafından başarıyla yanıtlanabilmesini güvence altına alırken; eşleşmeyen 6 bileşen için Yol D uzman incelemesinin (Kişi C) ve harici veritabanı (DrugBank/TDC) desteğinin odak alanını netleştirmektedir.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> *"Bu rapor çalıştırmasında ruhsatlı ürün sayısına göre ilk 30 bileşenin %86,7'si (26/30 - Parasetamol, Metformin, Amlodipin, İbuprofen, Kalsiyum Klorür, Dekstroz vb.) DDInter veri tabanımızda %100 mevcuttur. Eşleşmeyen yalnızca 4 madde kalmıştır (sodyum laktat, deksketoprofen, tiyokolsikosid ve yardımcı taşıyıcılar)."*
+> Yerel iki çıktıda ruhsatlı ürün sayısına göre ilk 30 bileşenin 24’ü DDInter kimliğiyle eşleşti.
 
 ---
 
@@ -142,7 +142,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 | **Eşleşmedi (Kalan)** | 892 | %29.10 | 4,273 | %13.33 | 1 | %0.11 |
 | **TOPLAM** | **3,065** | **%100.00** | **32,047\*** | **—** | **1,418** | **%46.26** |
 
-*\*Not: Bir ürün birden fazla yoldan gelen bileşenleri içerebildiğinden ürün toplamları tekil ürün sayısından büyüktür.*
+*\*Not: 32.047, etken madde bazındaki ürün sayılarının toplamıdır. Bir ürün birden fazla etken madde içerdiğinde toplamda birden fazla kez sayılabilir.*
 
 #### 📌 Grafik E08 Metodolojik ve Analitik Değerlendirmesi:
 
