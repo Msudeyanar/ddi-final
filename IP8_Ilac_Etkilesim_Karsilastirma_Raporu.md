@@ -26,9 +26,9 @@ Test çiftleri:
 |Deksketoprofen|Etkileşim verisi sunulmadı ([Şekil 9](images/sekil09.png), [İngilizce tekrar araması](https://www.drugs.com/interaction/list/?searchterm=dexketoprofen))|Eşleşme yok (“dexketoprofen”)|Eşleşme yok|
 |Deksketoprofen trometamol|Eşleşme yok|Test edilmedi|Test edilmedi|
 |Klacid (marka)|Tanınmadı|Test edilmedi|Marka adıyla eşleşmedi|
-|Klaritromisin|Tanındı (763 ilaç, 5 hastalık, 1 alkol/besin etkileşimi)|Varfarin sayfasındaki etkileşim listesinde yer aldı|Tanındı|
+|Klaritromisin|Tanındı (763 ilaç, 5 hastalık, 1 alkol/besin etkileşimi) ([Şekil 6](images/sekil06.png))|Varfarin sayfasındaki etkileşim listesinde yer aldı|Tanındı|
 |Coumadin|Varfarin ile kontrol edilebildi|Varfarin olarak eşleşti (Jantoven ile birlikte)|Marka adıyla eşleşmedi; varfarin tanındı|
-|Varfarin + klaritromisin|Major; kanama riski, PT/INR’ye göre doz ayarı|Önemli – Yakından Takip Edin; INR daha sık izlenmeli|Yakından takip edin; 2 etkileşim bildirildi|
+|Varfarin + klaritromisin|Major; kanama riski, PT/INR’ye göre doz ayarı|Önemli – Yakından Takip Edin; INR daha sık izlenmeli|Yakından takip edin; 2 etkileşim bildirildi ([Şekil 20](images/sekil20.png))|
 |Deksketoprofen + varfarin|Doğrulanamadı|Doğrulanamadı|Doğrulanamadı|
 |Arveles + varfarin|Doğrulanamadı|Doğrulanamadı|Doğrulanamadı|
 |Arveles + klaritromisin|Doğrulanamadı|Test edilmedi|Test edilmedi|
@@ -91,9 +91,9 @@ Drugs.com üzerinde “Klacid” marka adıyla arama yapılmıştır. Araç, bu 
 
 *Şekil 6. Drugs.com – Klaritromisin etkileşim sayfası*
 
-Drugs.com üzerinde “clarithromycin” (klaritromisin) adıyla arama yapılmıştır. Araç, klaritromisin ile etkileşime girdiği bilinen 763 ilaç, 5 hastalık etkileşimi ve 1 alkol/besin etkileşimi bulunduğunu bildirmiştir. İlaç etkileşimlerinin 302’si ciddi, 403’ü orta ve 58’i hafif olarak sınıflandırılmıştır.
+Drugs.com üzerinde “clarithromycin” (klaritromisin) adıyla arama yapılmıştır. Araç, klaritromisin ile etkileşime girdiği bilinen 763 ilaç, 5 hastalık etkileşimi ve 1 alkol/besin etkileşimi bulunduğunu bildirmiştir. İlaç etkileşimlerinin 302’si ciddi, 403’ü orta ve 58’i hafif olarak sınıflandırılmıştır (302 + 403 + 58 = 763). [Şekil 6](images/sekil06.png)
 
-Araç ayrıca kolit, hepatotoksisite, böbrek fonksiyon bozukluğu, miyastenia gravis ve QT uzaması olmak üzere beş hastalık etkileşimi listelemiştir.
+Araç ayrıca kolit, hepatotoksisite, böbrek fonksiyon bozukluğu, miyastenia gravis ve QT uzaması olmak üzere beş hastalık etkileşimi listelemiştir. [Şekil 6](images/sekil06.png)
 
 **Sonuç:** Klaritromisin etken madde adıyla tanınmış ve genel etkileşim bilgileri görüntülenmiştir. Ancak bu sayfadaki toplam etkileşim sayıları, test senaryosundaki diğer ilaçlarla etkileşimin doğrulandığı anlamına gelmez. Bunun için ilaç çiftleri ayrı ayrı kontrol edilmelidir.
 
