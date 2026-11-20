@@ -256,7 +256,7 @@ Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** n
 
 | Kaynak Dosya | ATC Grubu ve Tanımı | Toplam Tekrarsız Çift | Major Sayısı (%) | Moderate Sayısı (%) | Minor Sayısı (%) | Unknown Sayısı (%) | Klinik Ciddiyet Profili |
 |:---:|:---|---:|---:|---:|---:|---:|:---|
-| **L** | L – Antineoplastikler & İmmünomodülatörler | 65,389 | 15,915 (%24.3) | 39,985 (%61.2) | 2,076 (%3.2) | 7,413 (%11.3) | En Yüksek Major Hacmi (Onkoloji) |
+| **L** | L – Antineoplastikler & İmmünomodülatörler | 65,389 | 15,915 (%24.3) | 39,985 (%61.1) | 2,076 (%3.2) | 7,413 (%11.3) | En Yüksek Major Hacmi (Onkoloji) |
 | **A** | A – Sindirim Sistemi & Metabolizma | 56,367 | 4,906 (%8.7) | 33,057 (%58.6) | 3,637 (%6.5) | 14,767 (%26.2) | En Yüksek Moderate Hacmi |
 | **R** | R – Solunum Sistemi | 30,563 | 2,617 (%8.6) | 19,675 (%64.4) | 1,138 (%3.7) | 7,133 (%23.3) | Yüksek Moderate Oranı (%64,4) |
 | **D** | D – Dermatolojikler | 25,681 | 2,314 (%9.0) | 13,519 (%52.6) | 2,015 (%7.8) | 7,833 (%30.5) | Yüksek Unknown Oranı (%30,5) |
@@ -299,10 +299,10 @@ Kaynak [Notebook 04, ağ özeti hücresi `15b08f7b`](../notebooks/04_ddinter_bir
 |:---|---:|:---|
 | **Toplam Tekil İlaç Sayısı** | 1,939 | DDInter veritabanında en az 1 etkileşime sahip molekül sayısı |
 | **Ortalama Derece (Eş Sayısı)** | 165.28 | Bir ilacın ortalama etkileştiği farklı ilaç sayısı |
-| **Medyan Derece** | 125.00 | Dağılımın orta noktası (%50'si 125'ten fazla, %50'si az eşe sahip) |
+| **Medyan Derece** | 125.00 | 966 ilaç 125’ten az, 7 ilaç tam 125, 966 ilaç 125’ten fazla eşe sahip. |
 | **Maksimum Derece** | 910 | Dexamethasone (`DDInter513`) — Sistemdeki en yoğun etkileşen merkez hub |
 | **Minimum Derece** | 1 | Yerel tabloda 61 ilacın bir farklı eşi var |
-| **Az Etkileşen İlaç Sayısı (Derece < 10)** | 74 | Model için fiilen "cold-start / yeni ilaç" riski taşıyanlar |
+| **Derecesi 10’dan küçük ilaç sayısı** | 204 | Yerel veride 1–9 farklı eşi olan ilaçlar |
 
 #### 📌 Grafik D03 Metodolojik ve Analitik Değerlendirmesi:
 
@@ -313,7 +313,7 @@ Kaynak [Notebook 04, ağ özeti hücresi `15b08f7b`](../notebooks/04_ddinter_bir
 - İlaçların etkileşim yoğunluklarını modeller: Çoğu ilacın az sayıda etkileşime mi sahip olduğunu, yoksa yüzlerce etkileşime sahip "hub" moleküllerin mi bulunduğunu test eder.
 
 ### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** İlaç başına etkileşim eş sayısı dağılımı belirgin biçimde sağa çarpıktır; ilaçların büyük kısmı 50–200 arasında etkileşime sahipken, küçük bir grup ilaç yüzlerce molekülle etkileşmektedir.
+- **Ne Görüyorsun?:** İlaç başına etkileşim eş sayısı dağılımı belirgin biçimde sağa çarpıktır; 1.939 ilacın 784’ü 50–200 arasında farklı eşe sahiptir (uçlar dahil).
 - **En Önemli Sayı:** DDInter veri tabanındaki ilaçlar için ortalama etkileşen eş sayısı **165,3**; medyan eş sayısı ise **125,0** olup, en yüksek etkileşime sahip merkez (hub) molekül **910 eş ile Dexamethasone**'dur (`DDInter513`).
 - **Projeye Etkisi:** Medyanın (125,0) ortalamadan (165,3) belirgin şekilde düşük olması, polifarmasi hastalarında özellikle hub ilaçlar reçetelendiğinde etkileşim alarmı patlaması yaşanacağını; klinik arayüzde şiddet filtrelemesinin ve derece ağırlıklı örneklemenin şart olduğunu gösterir.
 
