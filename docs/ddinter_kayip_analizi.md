@@ -158,5 +158,4 @@ DDInter indirme sayfasında Dünya Sağlık Örgütü'nün (WHO) 14 ana ATC grub
 1. **İlaç Fihristi Açısından:** 8 dosyanın birleşimi, eksik gruplardaki ilaçlar da `Drug_B` olarak dahil edildiğinden 1.939 benzersiz ilaçla geniş bir kapsayıcılık sağlamaktadır.
 2. **Etkileşim Çiftleri Açısından:** İki tarafı da `C, G, J, M, N, S` gruplarında kalan etkileşimler indirilen tablolarda bulunmamaktadır.
 3. **Uygulama Mimarisi Kararı:**
-   - Türkiye pazarında en sık kullanılan 200–300 etken madde baz alındığında bu eksiklik kullanıcı deneyiminde "etkileşim bulunamadı" uyarısı üretme riskini artırır.
    - Bu nedenle sistemin kural tabanlı olarak veya harici bir açık kaynak kaynaktan (ör. DrugBank / TDC) bu eksik grupları desteklemesi 3. hafta kapsam toplantısında önerilmelidir.

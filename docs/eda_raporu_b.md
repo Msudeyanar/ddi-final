@@ -18,7 +18,7 @@
 | **E05** | [Ruhsatlı ürün sayısına göre ilk 30 bileşen](#1-e05-ruhsatlı-ürün-sayısına-göre-ilk-30-bileşen) | 24 bileşende (%80) DDInter kimliği var |
 | **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Tablo 10, eşleme yollarına göre etken madde bazındaki ürün hacmini gösterir |
 | **E09** | [14 ATC Grubunda DDInter Kapsamı](#3-grafik-e09-14-atc-ana-grubunda-ddinter-kapsama-oranı-ve-eksik-gruplar-en-önemli-grafik) | Kanser (%83,9) ve Sinir (%71,1) çok yüksek; eksik 6 grup turuncu çizgili |
-| **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Portföyün %75,1'inde (16.841 ürün) sıfır kayıpla tam etkileşim kontrolü |
+| **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Yerel veride 15.999 barkodun tüm bileşenleri eşleşti |
 | **D01** | [DDInter Şiddet Dağılımı (Kural 9)](#5-grafik-d01-ddinter-şiddet-dağılımı-ham-vs-kural-9) | 62.148 yinelenen satır elendi. 160.235 benzersiz çiftte şiddet etiketi uyuşmazlığı gözlenmedi |
 | **D02** | [Kaynak Dosya Bazında Şiddet Dağılımı](#6-grafik-d02-kaynak-dosyalara-göre-tekrarsız-çift-ve-şiddet-dağılımı) | En büyük hacim L (Kanser) ve A (Sindirim); en yüksek Major risk L'de (%24,3) |
 | **D03** | [İlaç Başına Eş Sayısı (Derece Dağılımı)](#7-grafik-d03-ilaç-başına-farklı-eş-sayısı-dağılımı-derece-analizi) | Sağa çarpık dağılım: Ortalama 165 eş, medyan 125 eş, zirve 910 eş |
@@ -195,39 +195,16 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ### 4. Grafik E10: Kullanıcı Arama ve Entegrasyon Kapsam Hunisi
 
-![Grafik E10](../figs/E10_kapsam_hunisi.png)
+#### Tablo 12. Yerel veride barkod düzeyinde eşleşme
 
-#### Tablo 12: Kullanıcı Arama Kapsam Hunisi Aşamaları
+| Ölçüm | Yerel ara veri | Yol D motor çıktısı |
+|---|---:|---:|
+| Kapsam içi benzersiz barkod | 22.883 | 22.883 |
+| Bileşen satırı bulunan barkod | 22.819 | 22.819 |
+| En az bir bileşeni eşleşen barkod | 17.568 | 17.570 |
+| Tüm bileşenleri eşleşen barkod | 15.999 | 16.000 |
 
-| Huni Aşaması | Aşama Tanımı / Kriter | Kapsanan Ürün Sayısı | Kapsama Oranı (%) | Aşama İçi Korunma Oranı (%) |
-|:---|:---|---:|:---|:---|
-| **1. Kapsam İçi Ruhsatlı Ürünler** | TİTCK ruhsatlı ve kapsam dışı olmayan ilaçlar | 22,417 | %100.00 | %100.00 |
-| **2. Tüm Bileşenleri İngilizce Adlı** | İstisnasız tüm bileşenleri İngilizce'ye çevrilenler | 20,760 | %92.61 | %92.61 |
-| **3. En Az Bir Bileşeni DDInter'da** | En az bir etken maddesi DDInter kimliğine eşleşenler | 18,066 | %80.59 | %87.02 |
-| **4. Tüm Bileşenleri DDInter'da** | Tüm bileşenleri DDInter'da olanlar (Tam Çözüm) | 16,841 | %75.13 | %93.22 |
-
-#### 📌 Grafik E10 Metodolojik ve Analitik Değerlendirmesi:
-
-### 📌 Kod Ne İşe Yarıyor?
-- Kullanıcının reçete sorgulama sürecini 4 aşamalı bir huni olarak modeller:
-  - 1. Aşama: TİTCK ruhsatlı kapsam içi tüm ürünler (22.417 ürün)
-  - 2. Aşama: Tüm bileşenlerinin normalize İngilizce adı bulunan ürünler (20.760 ürün)
-  - 3. Aşama: En az bir bileşeni DDInter'da eşleşen ürünler (18.066 ürün)
-  - 4. Aşama: Tüm bileşenleri DDInter'da eşleşip tam etkileşim kontrolü yapılabilen ürünler (16.841 ürün)
-- Huni çubuk grafiği çizerek 300 DPI çözünürlükle `figs/E10_kapsam_hunisi.png` dosyasına kaydeder.
-
-**🎯 Grafik Ne İşe Yarıyor?:**
-- Bir hekim veya eczacı arama yaptığında sistemin ne oranda tam yanıt verebileceğini belgeler.
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Kapsam içi 22.417 ruhsatlı ilacın **18.066'sında (%80,6)** en az bir bileşen DDInter kütüphanesinde tanımlı olup; **16.841 üründe (%75,1)** tüm etken maddeler eksiksiz DDInter karşılığına sahiptir.
-- **En Önemli Sayı:** Huninin ilk aşamasından son aşamasına geçerken yaşanan toplam ürün kaybı **5.576 üründür (%24,9)**; en büyük korunma %93,2 ile Aşama 3'ten Aşama 4'e geçişte gerçekleşmektedir.
-- Bu rapor çalıştırmasında 22.417 kapsam içi ürünün 16.841’inin tüm bileşenleri, 18.066’sının ise en az bir bileşeni eşleşmiştir. Paylar sırasıyla %75,1 ve %80,6’dır (bu raporun kapsam hunisi tablosu).
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> Kapsam hunisi, ruhsatlı ürün bileşenlerinin eşleşme düzeyini gösterir. Çift bazında etkileşim kaydı kapsamı ayrı bir ölçümdür.
-
----
+Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** notunda yer alır. Bu tablo, bileşenlerin DDInter kimliğiyle eşleşmesini ölçer. İlaç çiftinin etkileşim kaydı kapsamı ayrıca ölçülür.
 
 ## 2. Kısım: DDInter Veri Seti Profilleme ve Etkileşim EDA'sı (İP6-B)
 
