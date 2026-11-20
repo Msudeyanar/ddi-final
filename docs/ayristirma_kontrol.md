@@ -2,9 +2,9 @@
 
 > **Sayısal kaynak:** [Notebook 02, örneklem ve doğruluk hücresi `62e06900`](../notebooks/02_etken_ayristirma.ipynb#cell-id=62e06900). Ürün bazındaki elle inceleme sonuçları Bölüm 1’de, 40 doğru, 4 kısmi ve 6 hatalı kayıt ile bunların oranları Bölüm 2’dedir.
 
-- **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi[cite: 31]
-- **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi[cite: 34, 38]
-- **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme[cite: 34, 38]
+- **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi
+- **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi
+- **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme
 - **Örneklem Evreni:** `notebooks/02_etken_ayristirma.ipynb` `[In[5]: Bölüm 4]` kod hücresinde tanımlı `df_kombine` (N = 4.416 kombine ürün)
 - **Örneklem Yöntemi:** `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün
 > **📌 Doğrulama Ölçütleri:** 40 'Doğru' ürün, ham metindeki etken bileşenlerin boru hattı kurallarına uygun olarak eksiksiz bölünme ve tuz temizleme doğruluğu üzerinden teyit edilmiştir. Kısmi (4) ve hatalı (6) 10 ürün için ayrıca üretici KÜB bilgileri incelenerek kök neden analizi yapılmıştır.

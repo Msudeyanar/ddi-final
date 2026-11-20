@@ -7,7 +7,7 @@
 - **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme
 - **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
 - **İnceleme Kapsamı:** `notebooks/01_titck_temizlik.ipynb` `[In[10]: Bölüm 9]` kod hücresinde `farkli_grup` sınıfından çekilen 20 ürünün TİTCK ve SKRS kaynaklarındaki barkod, ürün adı, etkin madde ve ATC kodlarının karşılaştırılması
-> **📌 Örneklem Notu:** İncelenen 20 ürün, Notebook 01'deki `farkli_grup` sınıfının dosya sırasındaki ilk 20 kaydıdır (`head(20)`). Pilot nitelikteki bu inceleme Kural 8'in doğruluğunu teyit etmekte olup, portföydeki kalan 187 çelişkinin (202 − 15) birebir incelemesi Yol D aşamasında yürütülmektedir.
+> **📌 Örneklem Notu:** İncelenen 20 ürün, Notebook 01'deki `farkli_grup` sınıfının dosya sırasındaki ilk 20 kaydıdır (`head(20)`). Pilot nitelikteki bu inceleme Kural 8'in doğruluğunu teyit etmekte olup, portföyde pilot dışında 187 çelişki (202 − 15) kalmıştır.
 
 ---
 
@@ -73,7 +73,7 @@ Bu ölümcül veri hataları, **"SKRS kodu her zaman günceldir" varsayımının
 
 1. Notebook 01'den gelen 20 ürünün incelemesi sonucunda 5 ürünün WHO güncellemesi olduğu doğrulanmış ve yeni kod seçilerek çelişki kaldırılmıştır (`atc_celiski = 0`, `atc_who_guncellendi = 1`). Kalan 15 ürün ise SKRS veri giriş hataları (Admiraz, ATOMINEX, Nimejel Plus), endikasyon/kombinasyon farklılıkları veya TİTCK yazım hatası (`DO3AX`) nedeniyle resmî Ruhsatlı kodda korunmuş ve çelişki olarak (`atc_celiski = 1`) işaretlenmiştir.
 2. Tüm portföyde 369 çelişkinin **167 adedi WHO kuralıyla çözülmüş**, kalan **202 ürün ise güvenli tarafta kalınarak `atc_celiski = 1` ile işaretlenmiş** ve Yol A köprüsünden çıkarılmıştır.
-3. İP1 kalite kriterleri ve Kural 8 çalışma mantığı pilot incelemede doğrulanmış; kalan 187 çelişki Yol D klinik incelemesine devredilmiştir[cite: 31, 33].
+3. İP1 kalite kriterleri ve Kural 8 çalışma mantığı pilot incelemede doğrulanmış; pilot dışında 187 çelişki kalmıştır. [Notebook 01, nihai sayım](../notebooks/01_titck_temizlik.ipynb#cell-id=c10_save_summary).
 
 
 ---
