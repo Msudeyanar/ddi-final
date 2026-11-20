@@ -7,6 +7,8 @@
 
 > **Eşleme verisinin sürümü.** Bu rapordaki eşleme ve ürün kapsamı tabloları kayıtlı İP6 çalıştırmasını yansıtır. Eşleşen 1.418 etken madde satırı [Notebook 04, `926ce095` hücresinde](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095) de görülür. Tablo 10’daki 32.047, eşleme yollarına göre verilen ürün hacimlerinin toplamıdır. Yerel `etken_madde.csv` dosyasındaki `urun_sayisi` sütunu da 32.047 eder. Yol bazındaki dağılım yerel dosyada farklıdır. Yerel `urun_etken.csv` dosyasında 32.076 satır vardır.
 
+> **Kapsam hunisi yeniden sayımı.** Kapsam hunisindeki 22.417 / 16.841 / 18.066 tarihsel rapor değerleridir. Yerel `urun.csv` üzerinden `kapsam_disi=0` olan 22.883 benzersiz barkod seçildi. İlgili `urun_etken` ve `etken_madde` çıktıları `bilesen_tr` üzerinden karşılaştırılıp dolu `ddinter_id` alanları sayıldı. Yerel ara veride 15.999 barkodun tüm bileşenleri, 17.568 barkodun en az bir bileşeni eşleşti. Yol D motor çıktısında sayılar sırasıyla 16.000 ve 17.570. Tarihsel huni, bu iki veri sürümüyle yeniden üretilemedi.
+
 ---
 
 ## 🧭 Hızlı Sunum Navigasyonu (Kişi B Sorumluluğundaki Temel Grafikler)
