@@ -1,7 +1,9 @@
 # İP3: DDInter İlaç Eşleşme Raporu
 
-> **Özet:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,418 / 2,945), kapsam içi ruhsatlı ürünlerin %80.5'inin (18,081 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
+> **Tarihsel rapor özeti:** Türkiye'deki kapsam içi etken maddelerin %48.1'i (1,418 / 2,945), kapsam içi ruhsatlı ürünlerin %80.5'inin (18,081 / 22,470) en az bir bileşeni DDInter'da bulunuyor.
 > *(Tüm Bileşenler Bazında: %46.3 (1,420 / 3,065) — Tüm Ruhsatlı Ürünler Bazında: %80.6 (18,488 / 22,927))*
+
+> **Notebook 03’ün ana daldaki kayıtlı özeti.** [Özet hücresi](../notebooks/03_kopru_ddinter.ipynb#cell-id=d9715d76), kapsam içi bileşenlerde **1.418 / 2.945**, kapsam içi ruhsatlı ürünlerde en az bir eşleşme için **18.081 / 22.470**, tüm bileşenlerde **1.420 / 3.065**, tüm ruhsatlı ürünlerde en az bir eşleşme için **18.488 / 22.927** verir. Bu değerler yukarıdaki tarihsel rapor sayımından ve Bölüm 1’de bağlantısı verilen entegrasyon hücresinin çıktısından farklıdır. Kayıtlı çıktıların aynı girdi sürümüne ait olduğu doğrulanamadı.
 
 ## 1. Yol Bazında Bileşen Sayısı ve DDInter Eşleşme Dağılımı
 
@@ -17,7 +19,7 @@ Bu bölüm Notebook 03’ün kayıtlı çalıştırmasındaki eşleme tablosunu 
 | **TOPLAM** | **3,065** | **1,420** | **%46.3** | TİTCK ruhsatlı listedeki tüm benzersiz bileşenler |
 > **Not (Yol D ve PubChem Doğrulaması):** Adım 4 kapsamında en sık 100 eşleşmeyen kapsam içi bileşenden 17 tanesi PubChem eş anlamlılarıyla doğrudan DDInter kimliğine bağlanmış ve 24 satıra yayılmıştır. Örneğin 376 ürünlü parasetamol → DDInter14 (acetaminophen). Adım 5 kapsamında ise Kişi C tarafından en sık 100 eşleşmeyen bileşen incelenmiş; 23 bileşen DDInter kimliklerine bağlanmış ve 20 İngilizce ad düzeltmesi yapılarak toplam 24 bileşen Yol D statüsüne kavuşturulmuştur. Kalan 887 bileşen sonraki aşamalara devredilmiştir.
 
-## 2. DDInter Eşleşme Oranı Özeti
+## 2. Tarihsel DDInter Eşleşme Oranı Özeti
 | Metrik Düzeyi | Toplam Büyüklük | DDInter'da Bulunan | Kapsama Oranı (%) |
 | :--- | :---: | :---: | :--- |
 | **Kapsam İçi Etken Madde Bazında** | 2,945 | 1,418 | %48.1 |
@@ -27,7 +29,7 @@ Bu bölüm Notebook 03’ün kayıtlı çalıştırmasındaki eşleme tablosunu 
 
 > **Not (Benzersiz İlaç Kimliği):** DDInter ile eşleşen 1,420 etken madde kaydı, toplam **898 benzersiz DDInter kimliğine** (`ddinter_id`) karşılık gelmektedir (örn. `vitamin d3` ve `kolekalsiferol` her ikisi de `DDInter367` kimliğine bağlanmıştır).
 
-## 3. ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)
+## 3. Tarihsel ATC Ana Grubuna Göre DDInter Eşleşme Oranı (14 Satır - Kapsam İçi)
 | ATC Ana Grubu | Grup Açıklaması | Toplam Bileşen | DDInter Eşleşen | Eşleşme Oranı (%) |
 | :---: | :--- | :---: | :--- | :---: |
 | **A** | Sindirim Sistemi ve Metabolizma | 468 | 155 | %33.1 |
