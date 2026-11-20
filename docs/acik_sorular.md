@@ -16,7 +16,7 @@ Bu doküman, proje geliştirme sürecinde (İP1–İP7) karşılaşılan veri ka
 ---
 
 ## 2. PubChem ile Kurtarılan Bileşenlerin Yol Sınıflandırması ve İzlenebilirlik (`ad_en_ham`) (İP3)
-* **Durum:** En sık eşleşmeyen 100 kapsam içi bileşenden 14 tanesi (parasetamol, olmesartan, kolekalsiferol, glibenklamid, ipratropium vb.) PubChem API eş anlamlıları üzerinden DDInter kimliğine başarıyla bağlanmıştır.
+* **Durum:** Notebook 03’ün kayıtlı PubChem taramasında kapsam içi ilk 100 eşleşmeyen bileşenden 17’sine doğrudan DDInter kimliği atanmış ve aynı ham ada sahip 24 ek bileşen satırına eşleşme aktarılmıştır. [Notebook 03, PubChem hücresi](https://github.com/Msudeyanar/ddi-final/blob/main/notebooks/03_kopru_ddinter.ipynb#cell-id=3c300ca4)
 * **Tasarım Çelişkisi:** PubChem eşleştirmesi doğrudan `ad_en` üzerine yazıldığında, Yol A'dan gelen resmi WHO ATC adı (örn. `paracetamol`) ezilmekte ve veri izlenebilirliği (traceability) kaybolmaktadır.
 * **Çözüm / Güncel Durum (✅ Çözüldü):** 
   - Plandaki standart `yol` kategorileri (A, B, C, D, SKRS, eslesmedi) korunmuş; yeni bir 'PubChem' yolu icat edilmemiştir.
