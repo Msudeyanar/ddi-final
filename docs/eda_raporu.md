@@ -74,9 +74,11 @@
 
 #### 📌 Grafik E01 Analitik Değerlendirmesi (3 Cümle Kuralı):
 
-1. **Ne Görülüyor?** TİTCK ruhsatlı ilaç portföyünün %81,26'sı (19.341 ürün) tek bir etken maddeden oluşurken, 5 ve daha fazla bileşen içeren formülasyonların ezici çoğunluğu (439 ürün) Kural 4 kapsamında elenen B05 grubu serum/elektrolit solüsyonlarıdır.
-2. **En Önemli Sayı:** Toplam 4.460 kombine ürün (%18,74, n=23.801) tespit edilmiş olup, bu değer 1. haftadaki kaba tahminden (4.572 kombine) yalnızca 112 ürün (%2,45) daha düşüktür; fark, tuz/hidrat eklerinin temizlenmesiyle giderilen yapay bileşen fazlalıklarından kaynaklanmaktadır.
-3. **Projeye Etkisi:** Analiz kapsamında kalan 4.011 kombine ürün Yol B (rapidfuzz ile ATC adı ayrıştırma) ve Yol C/D için hedef kümeyi belirlerken, 18.895 tekli ürün doğrudan Yol A (ATC köprüsü) üzerinden hızlıca DDInter eşleştirmesine aktarılacaktır.
+1. **Bileşen dağılımı.** E01’in sayım kuralıyla 23.801 ürün kaydının 19.406’sı tek bileşenli (%81,53), 4.395’i kombine (%18,47).
+2. **Sayım yöntemi.** E01 bileşenleri barkoda göre sayar. Barkodu boş kayıtlarda ham maddeden bileşen sayısını hesaplar ve eşleşmeyen diğer kayıtlarda varsayılan sayı olarak 1 kullanır. Yüzdelerin paydası tüm ürün kayıtlarıdır.
+3. **Kapsam içi dağılım.** E01 çapraz tablosuna göre kapsam içinde 18.960 tek bileşenli ve 3.946 kombine ürün kaydı var. Yol A uygunluğu ayrıca ATC ve eşleme koşullarıyla belirlenir.
+
+[Notebook 05, E01 hücresi](../notebooks/05_eda_titck.ipynb#cell-id=5d307533)
 
 ### 3. Grafik E02: 14 ATC Ana Grubu ve SKRS Durumu Dağılımı
 
