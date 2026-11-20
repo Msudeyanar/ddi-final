@@ -171,18 +171,20 @@ Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** n
 
 #### Tablo 13: etken_madde.csv Özet Profili (Toplam Satır: 3,065, Sütun: 10)
 
+**Tablo 13–15 kaynağı:** Yerel `etken_madde.csv`, `ddinter_ilac.csv` ve `etkilesim.csv`. Sütun bazında boş değerler ve boş olmayan benzersiz değerler yeniden sayıldı.
+
 | Sütun Adı | Veri Tipi | Boş Sayısı | Boş Oranı (%) | Benzersiz Sayısı | Örnek Değer |
 |:---|:---|---:|:---|---:|:---|
 | bilesen_tr | object | 0 | %0.00 | 3,065 | sodyum klorur |
-| ad_en | object | 891 | %29.07 | 1,362 | sodium chloride |
+| ad_en | metin | 897 | %29,27 | 1.343 | sodium chloride |
 | ad_en_ham | object | 898 | %29.30 | 1,345 | sodium chloride |
 | atc | object | 1,095 | %35.73 | 1,244 | B05XA03 |
 | atc_ana | object | 0 | %0.00 | 14 | B |
-| yol | object | 0 | %0.00 | 6 | A |
+| yol | metin | 0 | %0.00 | 5 | A |
 | urun_sayisi | int64 | 0 | %0.00 | 124 | 1059 |
-| ddinter_id | object | 1,647 | %53.74 | 896 | DDInter1685 |
+| ddinter_id | metin | 1.670 | %54,49 | 877 | DDInter1685 |
 | kapsam_ici | int64 | 0 | %0.00 | 2 | 1 |
-| eslesme_kaynagi | object | 1,647 | %53.74 | 4 | tam_ad |
+| eslesme_kaynagi | metin | 1.670 | %54,49 | 3 | tam_ad |
 
 #### Tablo 14: ddinter_ilac.csv Özet Profili (Toplam Satır: 1,939, Sütun: 3)
 
@@ -206,9 +208,9 @@ Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** n
 
 #### 💡 Özet Tablolar Analitik Değerlendirmesi:
 
-- **Ne Görüyorsun?:** `ddinter_ilac.csv` ve `etkilesim.csv` tablolarında sıfır boş değerle tam veri doluluğu sağlanmışken; `etken_madde.csv` tablosunda kural motorundan geçmeyip Kişi C uzman incelemesine ayrılan 898 bileşen (%29,30) beklenen şekilde `ad_en` ve `ddinter_id` alanlarında boşluk taşımaktadır.
+- Yerel `etken_madde.csv` dosyasında 897 satırın İngilizce adı ve 1.670 satırın DDInter kimliği boş. Tablo 13 bu yerel sürümü kullanır.
 - **En Önemli Sayı:** 8 ham dosyadan tekilleştirilen **160.235 benzersiz etkileşim çiftinde** hiçbir şiddet uyuşmazlığı yaşanmamış (`siddet_celiski = 0`) ve 1.939 tekil ilaç fihristi oluşturulmuştur.
-- **Projeye Etkisi:** Sıfır çelişkiyle inşa edilen bu tablolar, downstream aşamada geliştirilecek etkileşim arama motoru ve grafik sinir ağı modelleri için tamamen tutarlı, deterministik ve hatasız bir veri zemini oluşturmaktadır.
+- Yerel etkileşim tablosunda aynı çift için farklı şiddet etiketi gözlenmedi.
 
 ---
 
@@ -249,6 +251,8 @@ Kaynak ve sayım yöntemi rapor başındaki **Kapsam hunisi yeniden sayımı** n
 ![Grafik D02](../figs/D02_dosya_siddet.png)
 
 #### Tablo 17: Ham 8 DDInter Dosyasında Tekrarsız Çift ve Şiddet Dağılımı
+
+**Sayım kaynağı:** Sekiz ham `ddinter_code_*.csv` dosyası, [Notebook 04 ham dosya hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=e96b29d2). Her dosyada sırasız kimlik çiftleri ve dört şiddet etiketi yeniden sayıldı.
 
 | Kaynak Dosya | ATC Grubu ve Tanımı | Toplam Tekrarsız Çift | Major Sayısı (%) | Moderate Sayısı (%) | Minor Sayısı (%) | Unknown Sayısı (%) | Klinik Ciddiyet Profili |
 |:---:|:---|---:|---:|---:|---:|---:|:---|
