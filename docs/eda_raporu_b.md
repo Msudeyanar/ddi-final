@@ -13,7 +13,7 @@
 
 | Kod | Grafik Konusu | Sunumdaki Ana Mesaj |
 |:---:|:---|:---|
-| **E05** | [En Sık 30 Etken Madde](#1-grafik-e05-en-sık-kullanılan-30-etken-madde-ve-ddinter-durumu) | En yaygın 30 molekülün 24'ü (%80,0) DDInter'da tanımlı; Yol C elektrolitleri bağladı |
+| **E05** | [Ruhsatlı ürün sayısına göre ilk 30 bileşen](#1-e05-ruhsatlı-ürün-sayısına-göre-ilk-30-bileşen) | 24 bileşende (%80) DDInter kimliği var |
 | **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Yol A tek başına Türkiye pazarındaki ilaç hacminin %90,9'unu çözdü |
 | **E09** | [14 ATC Grubunda DDInter Kapsamı](#3-grafik-e09-14-atc-ana-grubunda-ddinter-kapsama-oranı-ve-eksik-gruplar-en-önemli-grafik) | Kanser (%83,9) ve Sinir (%71,1) çok yüksek; eksik 6 grup turuncu çizgili |
 | **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Portföyün %75,1'inde (16.841 ürün) sıfır kayıpla tam etkileşim kontrolü |
@@ -69,60 +69,42 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 ## 1. Kısım: Eşleme ve Portföy Kapsama EDA'sı (İP6-B)
 
-### 1. Grafik E05: En Sık Kullanılan 30 Etken Madde ve DDInter Durumu
+### 1. E05: Ruhsatlı ürün sayısına göre ilk 30 bileşen
 
-![Grafik E05](../figs/E05_en_sik_bilesenler.png)
+| Sıra | Bileşen | Ürün sayısı | DDInter kimliği |
+|---:|---|---:|---|
+| 1 | sodyum klorur | 1059 | DDInter1685 |
+| 2 | dekstroz | 720 | — |
+| 3 | kalsiyum klorur | 409 | DDInter272 |
+| 4 | potasyum klorur | 387 | DDInter1497 |
+| 5 | hidroklorotiyazid | 379 | DDInter883 |
+| 6 | parasetamol | 376 | DDInter14 |
+| 7 | metformin | 319 | DDInter1164 |
+| 8 | sodyum laktat | 315 | — |
+| 9 | magnezyum klorur | 300 | DDInter1114 |
+| 10 | amlodipin | 278 | DDInter79 |
+| 11 | other non therapeutic auxiliary products | 258 | — |
+| 12 | rosuvastatin | 249 | DDInter1622 |
+| 13 | ketiapin | 228 | DDInter1553 |
+| 14 | ibuprofen | 214 | DDInter900 |
+| 15 | valsartan | 208 | DDInter1915 |
+| 16 | pregabalin | 201 | DDInter1516 |
+| 17 | memantin | 187 | DDInter1146 |
+| 18 | olmesartan | 187 | DDInter1330 |
+| 19 | glukoz | 180 | — |
+| 20 | atorvastatin | 174 | DDInter133 |
+| 21 | asetilsistein | 166 | DDInter19 |
+| 22 | flutikazon | 156 | DDInter766 |
+| 23 | tiyokolsikosid | 155 | — |
+| 24 | olanzapin | 154 | DDInter1326 |
+| 25 | montelukast | 153 | DDInter1242 |
+| 26 | donepezil | 150 | DDInter583 |
+| 27 | tadalafil | 144 | DDInter1736 |
+| 28 | sodyum asetat | 140 | DDInter1681 |
+| 29 | deksketoprofen | 131 | — |
+| 30 | lidokain | 130 | DDInter1066 |
 
-#### Tablo 9: Türkiye'de En Sık Kullanılan 30 Etken Madde ve Eşleşme Durumu
-
-| Sıra | Türkçe Etken Madde | Ürün Sayısı | Portföy Payı (%) | İngilizce Adı (ad_en) | DDInter ID | DDInter Durumu | Eşleşme Yolu |
-|:---:|:---|---:|---:|:---|:---:|:---:|:---:|
-| 1 | `sodyum klorur` | 1,059 | %4.45 | sodium chloride | `DDInter1685` | **VAR** | Yol A |
-| 2 | `dekstroz` | 720 | %3.03 | dextrose | `DDInter529` | **VAR** | Yol D |
-| 3 | `kalsiyum klorur` | 400 | %1.68 | calcium chloride | `DDInter272` | **VAR** | Yol C |
-| 4 | `potasyum klorur` | 393 | %1.65 | potassium chloride | `DDInter1501` | **VAR** | Yol A |
-| 5 | `hidroklorotiyazid` | 379 | %1.59 | hydrochlorothiazide | `DDInter883` | **VAR** | Yol C |
-| 6 | `parasetamol` | 377 | %1.58 | acetaminophen | `DDInter14` | **VAR** | Yol A (PubChem) |
-| 7 | `metformin` | 319 | %1.34 | metformin | `DDInter1164` | **VAR** | Yol A |
-| 8 | `sodyum laktat` | 315 | %1.32 | sodium lactate | — | **YOK** | Eşleşmedi |
-| 9 | `magnezyum klorur` | 293 | %1.23 | magnesium chloride | `DDInter1114` | **VAR** | Yol C |
-| 10 | `amlodipin` | 278 | %1.17 | amlodipine | `DDInter79` | **VAR** | Yol A |
-| 11 | `other non therapeutic auxiliary products` | 292 | %1.23 | other non therapeutic auxiliary products | — | **YOK** | SKRS |
-| 12 | `rosuvastatin` | 243 | %1.02 | rosuvastatin | `DDInter1622` | **VAR** | Yol A |
-| 13 | `ketiapin` | 239 | %1.00 | quetiapine | `DDInter1562` | **VAR** | Yol A |
-| 14 | `ibuprofen` | 234 | %0.98 | ibuprofen | `DDInter900` | **VAR** | Yol A |
-| 15 | `valsartan` | 225 | %0.95 | valsartan | `DDInter1915` | **VAR** | Yol A |
-| 16 | `pregabalin` | 223 | %0.94 | pregabalin | `DDInter1516` | **VAR** | Yol A |
-| 17 | `memantin` | 211 | %0.89 | memantine | `DDInter1142` | **VAR** | Yol A |
-| 18 | `olmesartan` | 204 | %0.86 | olmesartan | `DDInter1338` | **VAR** | Yol A (PubChem) |
-| 19 | `glukoz` | 180 | %0.76 | glucose | `DDInter529` | **VAR** | Yol D |
-| 20 | `atorvastatin` | 179 | %0.75 | atorvastatin | `DDInter135` | **VAR** | Yol A |
-| 21 | `asetilsistein` | 171 | %0.72 | acetylcysteine | `DDInter22` | **VAR** | Yol A |
-| 22 | `flutikazon` | 158 | %0.66 | fluticasone | `DDInter757` | **VAR** | Yol A |
-| 23 | `tiyokolsikosid` | 155 | %0.65 | thiocolchicoside | — | **YOK** | Yol A |
-| 24 | `olanzapin` | 154 | %0.65 | olanzapine | `DDInter1336` | **VAR** | Yol A |
-| 25 | `montelukast` | 152 | %0.64 | montelukast | `DDInter1238` | **VAR** | Yol A |
-| 26 | `donepezil` | 151 | %0.63 | donepezil | `DDInter584` | **VAR** | Yol A |
-| 27 | `tadalafil` | 151 | %0.63 | tadalafil | `DDInter1737` | **VAR** | Yol A |
-| 28 | `sodyum asetat` | 148 | %0.62 | sodium acetate | `DDInter1683` | **VAR** | Yol C |
-| 29 | `deksketoprofen` | 131 | %0.55 | dexketoprofen | — | **YOK** | Yol A |
-| 30 | `lidokain` | 129 | %0.54 | lidocaine | `DDInter1059` | **VAR** | Yol A |
-
-#### 📌 Grafik E05 Metodolojik ve Analitik Değerlendirmesi:
-
-### 📌 Kod Ne İşe Yarıyor?
-- Türkiye'de en çok ürün içeren ilk 30 molekülü sıralar; DDInter'da eşleşenleri yeşil (`#2ca02c`), eşleşmeyenleri kırmızı (`#d62728`) renkle yatay çubuk grafik çizer.
-
-**🎯 Grafik Ne İşe Yarıyor?:**
-- Ruhsatlı ürün sayısına göre sıralanan bileşenlerin DDInter'da bulunma oranını ve acil Yol D adaylarını gösterir.
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- Yerel `etken_madde.csv` ve Yol D motor çıktısı `etken_madde_yol_d_motor.csv` ayrı ayrı kontrol edildi. `urun_sayisi` azalan, eşitlikte `bilesen_tr` alfabetik sıralandı. İlk 30 satırın 24’ünde DDInter kimliği dolu (%80). Kimliği boş bileşenler dekstroz, sodyum laktat, `other non therapeutic auxiliary products`, glukoz, tiyokolsikosid ve deksketoprofendir. Görseldeki tarihsel 26/30 değeri, o çalıştırmanın eşleme tablosu olmadan doğrulanamadı.
-- **En Önemli Sayı:** 1.059 ruhsatlı üründe yer alan sodyum klorür (`DDInter1685`), 377 ürünlü parasetamol (`DDInter14`), 319 ürünlü metformin (`DDInter1164`), 278 ürünlü amlodipin (`DDInter79`), 400 ürünlü kalsiyum klorür (`DDInter272`) ve 379 ürünlü hidroklorotiyazid (`DDInter883`) bu rapor çalıştırmasında DDInter kimliğiyle eşleşmiştir.
-- **Projeye Etkisi:** En sık 30 bileşenin beşte dördünün (%80,0) doğrudan bulunması, Türkiye'deki hasta etkileşim sorgularının ezici çoğunluğunun sistem tarafından başarıyla yanıtlanabilmesini güvence altına alırken; eşleşmeyen 6 bileşen için Yol D uzman incelemesinin (Kişi C) ve harici veritabanı (DrugBank/TDC) desteğinin odak alanını netleştirmektedir.
-
-**🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
-> Yerel iki çıktıda ruhsatlı ürün sayısına göre ilk 30 bileşenin 24’ü DDInter kimliğiyle eşleşti.
+**24/30 (%80).** Yerel `data/interim/etken_madde.csv` dosyası `urun_sayisi` azalan, eşitlikte `bilesen_tr` alfabetik sıralandı. İlk 30 satırda dolu `ddinter_id` alanları sayıldı. Yol D motor çıktısı aynı 24/30 sonucunu verdi.
 
 ---
 
