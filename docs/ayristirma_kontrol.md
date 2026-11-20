@@ -1,9 +1,11 @@
 # İP2: Etkin Madde Ayrıştırma Doğruluk Kontrol Raporu — 50 Rastgele Kombine Ürün İncelemesi
 
-- **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi[cite: 31]
-- **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi[cite: 34, 38]
-- **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme[cite: 34, 38]
-- **Örneklem Yöntemi:** `notebooks/02_etken_ayristirma.ipynb` üzerinden `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün[cite: 34]
+> **Sayısal kaynak:** [Notebook 02, örneklem ve doğruluk hücresi `62e06900`](../notebooks/02_etken_ayristirma.ipynb#cell-id=62e06900). Ürün bazındaki elle inceleme sonuçları Bölüm 1’de, 40 doğru, 4 kısmi ve 6 hatalı kayıt ile bunların oranları Bölüm 2’dedir.
+
+- **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi
+- **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi
+- **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme
+- **Örneklem Yöntemi:** `notebooks/02_etken_ayristirma.ipynb` üzerinden `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün
 - **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
 
 ---
@@ -23,7 +25,7 @@
 | 9 | 8699512007212 | GRIMEL TABLET, 20 ADET | parasetamol, klorfeniramin | parasetamol, klorfeniramin | **Doğru** | Virgül ayrıştırması başarılı. |
 | 10 | 8699788698077 | BİOFLEKS %5 DEKSTROZ RİNGER LAKTAT | dekstroz monohidrat, sodyum klorür, sodyum laktat, potasyum klorür, kalsiyum klorür | dekstroz, sodyum klorur, sodyum laktat, potasyum klorur, kalsiyum klorur | **Doğru** | 5 bileşen eksiksiz ayrışmıştır. |
 | 11 | 8699523010133 | BEVITOL TABLET, 20 ADET | vitamin b1,vitamin b6 | vitamin b1, vitamin b6 | **Doğru** | Boşluksuz virgül başarıyla ayrıştırılmıştır. |
-| 12 | 8699569280279 | KLAMOKS 312.5 MG FORT SÜSPANSİYON | amoksisilin ve klavulanik asit | amoksisilin, klavulanik asit | **Doğru** | `ve` bağlacı başarıyla ayrıştırılmıştır[cite: 33]. |
+| 12 | 8699569280279 | KLAMOKS 312.5 MG FORT SÜSPANSİYON | amoksisilin ve klavulanik asit | amoksisilin, klavulanik asit | **Doğru** | `ve` bağlacı başarıyla ayrıştırılmıştır. |
 | 13 | 8698923793516 | MON.MIBI KIT, 1.0 MG/FLAKON IV | tetrakis bakir (i) ve tetrafloroborat (mibi) | tetrakis bakir, tetrafloroborat | **Hatalı** | Tekil koordinasyon kompleksi (MIBI), aradaki 've' bağlacı nedeniyle ikiye bölünmüştür. |
 | 14 | 8681911570015 | ASE-COLD PEDİATRİK ŞURUP | parasetamol/oksalamin sitrat/klorfeniramin maleat | parasetamol, oksalamin, klorfeniramin | **Doğru** | `/` ayırıcısı ve sitrat/maleat tuzları temizlenmiştir. |
 | 15 | 8699514383949 | THIOCILLINE DERİ MERHEMİ | basitrasin+neomisin sülfat | basitrasin, neomisin | **Doğru** | Başarılı `+` ayrıştırması. |

@@ -1,5 +1,7 @@
 # Keşifsel Veri Analizi (EDA) Raporu
 
+> **Hesap kaynakları:** [Notebook 05](../notebooks/05_eda_titck.ipynb) içinde E01 [`5d307533`](../notebooks/05_eda_titck.ipynb#cell-id=5d307533), E02 [`174eb525`](../notebooks/05_eda_titck.ipynb#cell-id=174eb525), E03 [`9b040e10`](../notebooks/05_eda_titck.ipynb#cell-id=9b040e10), E04 [`a4b481d5`](../notebooks/05_eda_titck.ipynb#cell-id=a4b481d5) ve E07 [`d11de057`](../notebooks/05_eda_titck.ipynb#cell-id=d11de057) hücreleri ilgili grafiklerin hesabını gösterir.
+
 *Bu rapor, TİTCK Ruhsatlı İlaçlar ve SKRS verilerinin temizlik ve birleştirme çıktıları (`data/interim/`) üzerinden PDF şartnamesine tam uyumlu olarak üretilmiştir.*
 
 ## A. Türk İlaç Verisi (TİTCK + SKRS) EDA
