@@ -16,7 +16,7 @@
 | Kod | Grafik Konusu | Sunumdaki Ana Mesaj |
 |:---:|:---|:---|
 | **E05** | [Ruhsatlı ürün sayısına göre ilk 30 bileşen](#1-e05-ruhsatlı-ürün-sayısına-göre-ilk-30-bileşen) | 24 bileşende (%80) DDInter kimliği var |
-| **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Yol A tek başına Türkiye pazarındaki ilaç hacminin %90,9'unu çözdü |
+| **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Tablo 10, eşleme yollarına göre etken madde bazındaki ürün hacmini gösterir |
 | **E09** | [14 ATC Grubunda DDInter Kapsamı](#3-grafik-e09-14-atc-ana-grubunda-ddinter-kapsama-oranı-ve-eksik-gruplar-en-önemli-grafik) | Kanser (%83,9) ve Sinir (%71,1) çok yüksek; eksik 6 grup turuncu çizgili |
 | **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Portföyün %75,1'inde (16.841 ürün) sıfır kayıpla tam etkileşim kontrolü |
 | **D01** | [DDInter Şiddet Dağılımı (Kural 9)](#5-grafik-d01-ddinter-şiddet-dağılımı-ham-vs-kural-9) | 62.148 yinelenen satır elendi. 160.235 benzersiz çiftte şiddet etiketi uyuşmazlığı gözlenmedi |
@@ -62,7 +62,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 4. **Kör Nokta (Eksik 6 ATC Dosyası):**
 - D06, iki tarafı da eksik gruplarda olan olası çiftleri (%22,78) ve diğer olası çiftleri (%77,22) gösterir. [Notebook 04, `926ce095` hücresi](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=926ce095)
 5. **Eşleşme Yolları (A, B, C, D Mimarisi):**
-   - **Yol A:** Tek bileşenli ürünlerde 7 haneli ATC köprüsü (%62,1 bileşen, %90,9 ürün hacmi).
+   - **Yol A:** Tek bileşenli ürünlerde 7 haneli ATC köprüsü.
    - **Yol B:** Kombine ürünlerde RapidFuzz ile metin ayrıştırma (%2,1 bileşen, %1,4 ürün hacmi).
    - **Yol C:** Türkçe morfolojik/kimyasal 38 kural tabanlı çeviri köprüsü (107 bileşen, %6,2 ürün hacmi).
    - **Yol D:** Otomatik kurallarla çözülemeyen 898 bileşen için uzman incelemesi ve harici veritabanı entegrasyonu.
@@ -143,7 +143,7 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 ### 💡 Çıktıdan Ne Anlamam Lazım?
 - **Ne Görüyorsun?:** Bileşen bazında eşleşmenin **%61,6'sı (1.887 / 3.065)** doğrudan Yol A (Tekli ATC) üzerinden çözülürken, ürün hacminde Yol A'nın kapsadığı hacim **23.353'e (%72,9)** ulaşmaktadır. Kişi C'nin eklediği 24 adet Yol D bileşeni ise **1.455 ürünlük** yüksek bir klinik hacmi doğrudan DDInter'a bağlamıştır.
 - **En Önemli Sayı:** Eşleşmeyen 892 bileşen (%29,1) bulunmasına rağmen, bu bileşenlerin büyük kısmı düşük hacimli veya tekil kayıtlardır; portföyün ezici çoğunluğu Yol A, C ve D köprüleriyle çözülmüştür.
-- **Projeye Etkisi:** Tek başına Yol A ve Yol B köprülerinin yüksek ürün kapsamı (%91,5) sistemin ilk sürüm için klinik güvenilirlikle çalışacağını gösterirken; karmaşık kimyasal metin madenciliğine (Yol C/D) yalnızca 898 tekil bileşen ve 2.142 ürünlük dar bir portföy bırakarak projenin minimum efor ve maksimum doğrulukla tamamlanmasını sağlamıştır.
+- **Tablo 10 hesabı:** Yol A ve B’nin ürün hacimleri 23.353 + 420 = 23.773. Bunlar toplam 32.047’nin %74,18’idir. Payda etken madde bazındaki ürün sayılarının toplamıdır. Benzersiz ürün kapsamı için barkod düzeyinde ayrı sayım gerekir.
 
 **🎤 Sunum Notu (Jüriye Ne Söylenecek?):**
 > *"Bileşen olarak henüz eşleşmemiş görünen 892 madde olsa da, piyasadaki ilaçların ezici çoğunluğu Yol A, C ve Kişi C'nin Yol D çalışmasıyla çözülmüştür. Yol D ile eklenen sadece 24 kritik bileşen, 1.455 ürünlük devasa bir pazar payını sisteme kazandırmıştır."*
