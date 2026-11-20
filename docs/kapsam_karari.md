@@ -33,3 +33,12 @@ Bu doküman, DDI karar destek sisteminin hedef kitlesini netleştirmek amacıyla
 
 2. **İkinci Faz (Genişleme) — Eczacı / Sağlık Profesyoneli Modu:**
    - Sistem ve yerel veri tabanı olgunlaştığında arayüze "Profesyonel / Eczacı Modu" geçişi eklenerek; 86 etkileşim tipinin farmakolojik mekanizmaları, CYP enzim inhibisyonu/indüksiyonu detayları, alternatif etken madde önerileri ve çoklu reçete etkileşim matrisi sağlık çalışanlarının kullanımına açılacaktır.
+
+---
+
+## 3. Şartname Kriterleri ve "%70 Kapsama Hedefi" Hakkında Ortak Karar (Kişi A, B, C Mutabakatı)
+
+1. **Şartname Değerlendirmesi:** Disiplinlerarası Proje Şartname PDF'inde ve ikinci hafta çalışma planında "%70 kapsama hedefi" şeklinde katı bir sayısal baraj yer almamaktadır. Şartname gereksinimleri; veri bütünlüğü, etken madde ayrıştırma tutarlılığı ve klinik karar destek çıktılarının izlenebilirliği üzerine kuruludur.
+2. **Literatür Eşiği ve Gerçek Kapsama:** Kişi B'nin EDA raporunda anılan %70 oranı, ilaç etkileşim veri tabanları literatüründeki genel kabul görmüş fiili bir referans değerdir.
+3. **Mevcut Sistem Başarısı:** Sistemimiz Kişi A'nın Kural 8 çözümleri, Kişi B'nin eşleştirme boru hattı ve Kişi C'nin Yol D (Elle Eşleme) doğrulamaları sayesinde Türkiye portföyünde **%80,6 genel kapsama (en az bir bileşeni çözülen ürün oranı)** ve **%75,1 tam kapsama (sıfır kayıpla tüm bileşenleri çözülen ürün oranı)** düzeyine ulaşmıştır.
+4. **Ortak Karar:** Toplantı ve danışman değerlendirmelerinde bu oran bir şartname açığı değil; projenin literatür eşiğinin üzerine çıktığının somut bir başarı kanıtı olarak sunulacaktır.

@@ -4,7 +4,7 @@
 - **Görev:** İP1 — `farkli_grup` sınıfından 20 ürünün incelenmesi[cite: 31, 33]
 - **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme[cite: 31, 33]
 - **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
-- **İnceleme Kapsamı:** Notebook 01'de `farkli_grup` sınıfından çekilen 20 ürünün TİTCK ve SKRS kaynaklarındaki barkod, ürün adı, etkin madde ve ATC kodlarının karşılaştırılması
+- **İnceleme Kapsamı:** `notebooks/01_titck_temizlik.ipynb` `[In[10]: Bölüm 9]` kod hücresinde `farkli_grup` sınıfından çekilen 20 ürünün TİTCK ve SKRS kaynaklarındaki barkod, ürün adı, etkin madde ve ATC kodlarının karşılaştırılması
 
 ---
 
@@ -22,7 +22,7 @@ Proje yönergesindeki Kural 8 doğrultusunda ve danışman kararıyla yürürlü
 
 ## 2. Notebook 01'den Alınan 20 Ürünün İnceleme Tablosu
 
-Aşağıdaki tablo, `notebooks/01_titck_temizlik.ipynb` (Hücre 19) çıktısındaki `farkli_grup` sınıfından listelenen 20 ürünün detaylı klinik ve sınıflandırma incelemesini içermektedir:
+Aşağıdaki tablo, `notebooks/01_titck_temizlik.ipynb` (In[10]: Bölüm 9) çıktısındaki `farkli_grup` sınıfından listelenen 20 ürünün detaylı klinik ve sınıflandırma incelemesini içermektedir:
 
 | # | Barkod | Ürün Adı | Etkin Madde / Ham Metin | TİTCK ATC | SKRS ATC | İnceleme ve Çelişki Nedeni | Güncellenmiş Kural 8 Kararı |
 |---|---|---|---|---|---|---|---|
@@ -91,4 +91,4 @@ Bu üç kayıt için Kural 8 uyarınca TİTCK kodunun korunmasını ve `atc_celi
 
 Rystiggo (`L04AG16` → `L04AL02`, 2026), Saphnelo (`L04AA51` → `L04AG11`, 2024), Zeposia’nın iki kaydı (`L04AA38` → `L04AE02`, 2024) ve Tofanzi (`L04AA29` → `L04AF01`, 2024) için kod geçişlerini ve yıllarını resmî listeden doğruladım. [WHO ATC değişiklik listesi](https://atcddd.fhi.no/atc_ddd_alterations__cumulative/atc_alterations/)
 
-Notebook 01, 14 Ekim 2026 tarihli TİTCK ve SKRS çalışma kitaplarıyla yeniden çalıştırıldı. Yukarıdaki beş ürünün tamamında `atc_final` yeni kodu taşıdı, `atc_celiski = 0` ve `atc_who_guncellendi = 1` olarak doğrulandı. Portföy sayıları Notebook 01’in `c8_atc_celiski` ve `c10_save_summary` hücre çıktılarından alınmıştır. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)
+Notebook 01, 14 Ekim 2026 tarihli TİTCK ve SKRS çalışma kitaplarıyla yeniden çalıştırıldı. Yukarıdaki beş ürünün tamamında `atc_final` yeni kodu taşıdı, `atc_celiski = 0` ve `atc_who_guncellendi = 1` olarak doğrulandı. Portföy sayıları Notebook 01’in `c8_atc_celiski` (In[9]) ve `c10_save_summary` (In[11]) kod hücre çıktılarından alınmıştır. [Notebook 01](../notebooks/01_titck_temizlik.ipynb)

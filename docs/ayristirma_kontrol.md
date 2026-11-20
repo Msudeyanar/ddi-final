@@ -3,7 +3,7 @@
 - **Proje:** Türkiye'deki ilaç verilerinin TİTCK Ruhsatlı İlaçlar Listesi ve SKRS E-Reçete Listesi üzerinden birleştirilmesi[cite: 31]
 - **Görev:** İP2 — Kombine ürünlerden rastgele 50 kaydın ayrıştırma doğruluğunun incelenmesi[cite: 34, 38]
 - **Sorumlular:** Kişi A ve Kişi C — Ortak inceleme[cite: 34, 38]
-- **Örneklem Yöntemi:** `notebooks/02_etken_ayristirma.ipynb` üzerinden `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün[cite: 34]
+- **Örneklem Yöntemi:** `notebooks/02_etken_ayristirma.ipynb` `[In[5]: Bölüm 4]` kod hücresi üzerinden `df_kombine.sample(n=50, random_state=42)` ile çekilen 50 gerçek kombine ürün[cite: 34]
 - **İnceleme Tarihi:** 20 Ekim 2026 (Güncellendi: Kasım 2026)
 
 ---
@@ -67,7 +67,7 @@
 
 ## 2. Doğruluk İstatistiği ve Gerçekçi Değerlendirme
 
-Notebook 02 tarafından rastgele seçilen (`sample(n=50, random_state=42)`) 50 kombine ürünün bağımsız klinik ve algoritmik inceleme sonuçları:
+Notebook 02 (`In[5]`: Bölüm 4) tarafından rastgele seçilen (`sample(n=50, random_state=42)`) 50 kombine ürünün bağımsız klinik ve algoritmik inceleme sonuçları:
 
 - **Toplam İncelenen Gerçek Kombine Ürün:** 50
 - **Tam Başarılı Ayrıştırma:** **40 ürün (%80.0)**
