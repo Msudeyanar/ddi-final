@@ -62,28 +62,24 @@
 - **Gözlem:** TİTCK ham tablosunda çok az sayıda (yaklaşık 6 ürün) etken madde metninin içine rakamsal doz ve birim yazılmıştır (`vitamin a palmitat 20.000 iu/ml`, `kolistimetat sodyum 4.500.000 iu` vb.).
 - **Toplantıda Sorulacak Soru / Karar Önerisi:** Bu tür uç vakalar Yol D (Elle Eşleme) sürecine mi bırakılmalıdır, yoksa `src/normalize.py` içine kontrollü bir dozaj temizleme kuralı mı eklenmelidir?
 
-### 13. BENORAL (İP2 3/50) — Ürün Bazlı Ayrıştırma Düzeltmesi
-- **Ürün:** BENORAL 250 MG/250 MG FİLM TABLET
+### 13. BENORAL (İP2 3/50) — Yol D Manuel Eşleme Kontrolü
+
 - **Barkod:** `8699527093866`
-- **Mevcut sorun:** TİTCK ham verisindeki `vitamin b1 in combination with vitamin b6 and/or vitamin b12` ifadesi bir ATC kategori açıklamasıdır. Ayrıştırma sonucunda `vitamin b1 in combination with vitamin b6` ve `or vitamin b12` şeklinde hatalı kayıtlar oluşmuştur.
-- **Doğrulanan etken maddeler:** Tiamin hidroklorür (B1, 250 mg) ve piridoksin hidroklorür (B6, 250 mg).
-- **Normalleştirilmiş bileşenler:** `tiamin`, `piridoksin`.
-- **Yol D kontrolü:** `piridoksin` → `pyridoxine` (`DDInter1549`) eşleşmesi mevcut. `tiamin` kaydı eşleşmemiş durumdadır; mevcut eşleme raporunda DDInter karşılığı bulunamadığı belirtilmiştir.
-- **İP2 değerlendirmesi:** `Hatalı` olarak korunmalıdır; ürün düzeyinde düzeltme henüz uygulanmamıştır.
-- **Yapılacak işlem:** BENORAL barkoduna özel bileşen düzeltmesi hazırlanmalı ve `urun_etken.csv` çıktısına uygulanmalıdır. Genel ATC kategori ifadesi tek bir etken maddeye eşlenmemelidir.
-- **Durum:** İncelendi — ürün bazlı düzeltme bekliyor.
+- **İP2 sonucu:** Hatalı. WHO kategori açıklaması gerçek bileşenlere doğru ayrıştırılamamıştır.
+- **Doğrulanan bileşenler:** Tiamin hidroklorür ve piridoksin hidroklorür.
+- **Yol D durumu:** `main` dalındaki `config/yol_d_urun_esleme.csv` dosyasında iki bileşen de kayıtlıdır.
+- **Tiamin hidroklorür:** PubChem CID `6202`; yerel DDInter karşılığı bulunamamıştır.
+- **Piridoksin hidroklorür:** PubChem CID `6019`; `DDInter1549`.
+- **Metodolojik karar:** İP2 ayrıştırma motoruna barkod bazlı istisna eklenmeyecek, İP2 değerlendirmesi değiştirilmeyecektir.
+- **Durum:** Manuel ürün eşlemesi mevcut. İP2 hata kaydı korunuyor.
 
-
-### 14. MON.MIBI (İP2 13/50) — Ürün Bazlı Ayrıştırma Düzeltmesi
+### 14. MON.MIBI (İP2 13/50) — Yol D Manuel Eşleme Kontrolü
 
 - **Barkod:** `8698923793516`
-- **Sorun:** Tek bir koordinasyon bileşiği yanlışlıkla `tetrakis bakir` ve `tetrafloroborat` olarak iki parçaya ayrılmıştır.
-- **Doğrulanan etkin madde:** Tetrakis (2-metoksi izobutil izonitril) bakır (I) tetrafloroborat.
-- **İngilizce karşılığı:** Sestamibi.
-- **Doğru bileşen sayısı:** 1.
-- **Yol D kontrolü:** Her iki hatalı parça CSV dosyasında `eslesmedi` durumundadır.
-- **DDInter:** Doğrulanmış eşleşme bulunmadığından kimlik atanmamıştır.
-- **Önerilen düzeltme:** `8698923793516` barkoduna özel tek bileşenli ayrıştırma uygulanmalıdır.
-- **İP2 değerlendirmesi:** Hatalı olarak korunmalıdır; gerçek veri düzeltmesi henüz uygulanmamıştır.
-- **Kaynak:** https://www.curiumpharma.com.tr/assets/images/products/MIBI_Kit.pdf
-- **Durum:** Klinik/ürün bilgisi doğrulandı, ürün bazlı düzeltme bekliyor.
+- **İP2 sonucu:** Hatalı. Tek bir koordinasyon bileşiği iki ayrı bileşene bölünmüştür.
+- **Doğrulanan bileşik:** Tetrakis (2-metoksi izobutil izonitril) bakır(I) tetrafloroborat.
+- **Yol D durumu:** `main` dalındaki `config/yol_d_urun_esleme.csv` dosyasında tek bileşen olarak kayıtlıdır.
+- **PubChem CID:** `178203811`.
+- **DDInter:** Yerel DDInter karşılığı bulunamamıştır.
+- **Metodolojik karar:** İP2 motoruna barkod bazlı istisna eklenmeyecek, İP2 değerlendirmesi değiştirilmeyecektir.
+- **Durum:** Manuel ürün eşlemesi mevcut. İP2 hata kaydı korunuyor.
