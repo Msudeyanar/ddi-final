@@ -82,7 +82,7 @@ Notebook 02 (`In[5]`: Bölüm 4) tarafından rastgele seçilen (`sample(n=50, ra
 
 - **Tam Başarılı Ayrıştırma (40/50):** **%80.0** (%95 Wilson Güven Aralığı: **%67.0 – %88.8**)
 - **Kısmi Başarılılar Dahil (44/50):** **%88.0** (%95 Wilson Güven Aralığı: **%76.2 – %94.4**)
-> *(Not: Kapsam dışı 4 B05 elektrolit solüsyonu hariç tutulduğunda klinik portföy başarısı: 36/46 = **%78.3** [%64.4 – %87.7] Tam Doğru; 40/46 = **%87.0** [%74.3 – %93.9] Kısmi Dahildir).*
+> *(Not: Kural 4 şartnamesi uyarınca kapsam dışı bırakılan 5+ bileşenli 4 B05 elektrolit solüsyonu [Isolyte-M, Biofleks, PF K-Camine, İzolen-P] hariç tutulduğunda klinik portföy başarısı: 36/46 = **%78.3** [%64.4 – %87.7] Tam Doğru; 40/46 = **%87.0** [%74.3 – %93.9] Kısmi Dahildir).*
 
 ---
 
