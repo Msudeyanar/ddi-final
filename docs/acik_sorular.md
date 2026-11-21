@@ -72,3 +72,18 @@
 - **İP2 değerlendirmesi:** `Hatalı` olarak korunmalıdır; ürün düzeyinde düzeltme henüz uygulanmamıştır.
 - **Yapılacak işlem:** BENORAL barkoduna özel bileşen düzeltmesi hazırlanmalı ve `urun_etken.csv` çıktısına uygulanmalıdır. Genel ATC kategori ifadesi tek bir etken maddeye eşlenmemelidir.
 - **Durum:** İncelendi — ürün bazlı düzeltme bekliyor.
+
+
+### 14. MON.MIBI (İP2 13/50) — Ürün Bazlı Ayrıştırma Düzeltmesi
+
+- **Barkod:** `8698923793516`
+- **Sorun:** Tek bir koordinasyon bileşiği yanlışlıkla `tetrakis bakir` ve `tetrafloroborat` olarak iki parçaya ayrılmıştır.
+- **Doğrulanan etkin madde:** Tetrakis (2-metoksi izobutil izonitril) bakır (I) tetrafloroborat.
+- **İngilizce karşılığı:** Sestamibi.
+- **Doğru bileşen sayısı:** 1.
+- **Yol D kontrolü:** Her iki hatalı parça CSV dosyasında `eslesmedi` durumundadır.
+- **DDInter:** Doğrulanmış eşleşme bulunmadığından kimlik atanmamıştır.
+- **Önerilen düzeltme:** `8698923793516` barkoduna özel tek bileşenli ayrıştırma uygulanmalıdır.
+- **İP2 değerlendirmesi:** Hatalı olarak korunmalıdır; gerçek veri düzeltmesi henüz uygulanmamıştır.
+- **Kaynak:** https://www.curiumpharma.com.tr/assets/images/products/MIBI_Kit.pdf
+- **Durum:** Klinik/ürün bilgisi doğrulandı, ürün bazlı düzeltme bekliyor.
