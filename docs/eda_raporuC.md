@@ -28,9 +28,9 @@ Kaynak: [Notebook 07](../notebooks/07_eda_tdc.ipynb) kayıtlı çıktıları. A�
 ### T04 (In [10]): İlaçların SMILES Karakter Uzunluğu Dağılımı
 - **Ne görülüyor:** Moleküllerin neredeyse tamamının küçük molekül yapısında olduğu ve SMILES uzunluklarının 1.000 karakterin altında kaldığı görülmektedir.
 - **En önemli sayı:** 1.000 karakter sınırını aşan yalnızca 1 adet ilaç bulunmaktadır.
-- **Projeye etkisi:** Beş farklı seed ile elde edilen S0, S1 ve S2 çift sayıları, model değerlendirme protokolünü planlamak için başlangıç verisi sağlar. Nihai bölme yöntemi ve sonuçların değişkenliği ayrıca doğrulanmalıdır.
+- **Projeye etkisi:** SMILES dizileri için maksimum uzunluk belirlenirken 1.000 karakteri aşan kayıt ayrıca incelenmeli; bilgi kaybı ve modelin bellek gereksinimi birlikte değerlendirilmelidir.
 
 ### T06 (In [11]): Cold-Start S0 / S1 / S2 Bölme Protokolü Test Çifti Dağılımı
 - **Ne görülüyor:** İlaç kimlikleri %80 eğitim, %10 doğrulama ve %10 test gruplarına ayrılmıştır. Beş farklı seed ile S0 için eğitim ilaçları arasındaki çiftlerin %10'u, S1 için eğitim-test ilaç çiftleri ve S2 için iki test ilacı arasındaki çiftler sayılmıştır.
 - **En önemli sayı:** S0 test kümesinde ortalama 12,267, S1'de 30,370 ve en zor senaryo olan S2'de 1,848 çift oluşmaktadır.
-- **Projeye etkisi:** 3. haftadaki model test protokolü bu standart sapması düşük ve tekrarlanabilir sayılar referans alınarak kurgulanacaktır.
+- **Projeye etkisi:** Beş farklı seed ile elde edilen S0, S1 ve S2 çift sayıları, model değerlendirme protokolünü planlamak için başlangıç verisi sağlar. Nihai bölme yöntemi ve sonuçların değişkenliği ayrıca doğrulanmalıdır.
