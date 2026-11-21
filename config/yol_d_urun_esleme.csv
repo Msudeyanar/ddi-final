@@ -20,7 +20,7 @@
 "8699625960336","PENTAXİM","7","İnaktif poliovirüs tip 3","","","yerel_ddinter_karsiligi_bulunamadi","https://vapris.vvkt.lt/vvkt-web/public/medications/view/14527","",""
 "8699625960336","PENTAXİM","8","Tetanoz proteinine konjuge Hib polisakkaridi","","","yerel_ddinter_karsiligi_bulunamadi","https://vapris.vvkt.lt/vvkt-web/public/medications/view/14527","",""
 "8699514094227","POLIVIT C","1","B1 vitamini","","","yerel_ddinter_karsiligi_bulunamadi","https://pdf.ilacprospektusu.com/16073-polivit-c-film-tablet-kub.pdf","",""
-"8699514094227","POLIVIT C","2","B2 vitamini (riboflavin)","","493570","yerel_ddinter_karsiligi_bulunamadi","https://pdf.ilacprospektusu.com/16073-polivit-c-film-tablet-kub.pdf","https://pubchem.ncbi.nlm.nih.gov/compound/493570",""
+"8699514094227","POLIVIT C","2","B2 vitamini (riboflavin)","","493570","yerel_ddinter_karsiligi_bulunamadi","https://pdf.ilacprospektusu.com/16073-polivit-c-film-tablet-kub.pdf","https://pubchem.ncbi.nlm.nih.gov/compound/493570","Yerel ddinter_ilac.csv dosyasında riboflavin ve vitamin B2 adlarıyla eşleşme bulunamadı. PubChem CID 493570 riboflavin olarak doğrulandı. Uygun DDInter karşılığı bulunamadığından DDInter ID atanmadı."
 "8699514094227","POLIVIT C","3","B6 vitamini (piridoksin)","DDInter1549","","ana_madde","https://pdf.ilacprospektusu.com/16073-polivit-c-film-tablet-kub.pdf","",""
 "8699514094227","POLIVIT C","4","B12 vitamini","","","kimyasal_form_bekliyor","https://pdf.ilacprospektusu.com/16073-polivit-c-film-tablet-kub.pdf","",""
 "8699514094227","POLIVIT C","5","C vitamini (askorbik asit)","DDInter124","","dogrulandi","https://pdf.ilacprospektusu.com/16073-polivit-c-film-tablet-kub.pdf","",""
