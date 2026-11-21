@@ -14,7 +14,7 @@
 
 ## DDI-Ben Tablo 4: seçilmiş etkileşim tipi skorları
 
-Aşağıdaki değerler DDI-Ben makalesinin Tablo 4’ünde verilen DrugBank S1 sonuçlarından aktarılmıştır. Bunlar **tek bir etkileşim tipine** ait skorlardır; genel F1 veya tüm veri kümesindeki ortalama başarı olarak yorumlanmamalıdır. **[KAYNAK KONTROLÜ — TAMAMLANMADI]** Bu üç satırın metrik başlığı, DDI-Ben’in özgün Tablo 4 başlığından bu dosya hazırlanırken bağımsız biçimde teyit edilemedi. Başlık doğrulanana kadar sayılar yalnızca “raporlanan skor” olarak anılmalı; bunları F1, accuracy veya başka bir metrik diye adlandırmayın.
+Aşağıdaki değerler DDI-Ben makalesinin Tablo 4'ünde verilen DrugBank S1 sonuçlarından aktarılmıştır. Bunlar tek tek etkileşim türlerine ait sonuçlardır; genel model başarısı olarak yorumlanmamalıdır. Makalenin Bölüm 4.3'ünde DrugBank için birincil değerlendirme metriği F1 olarak tanımlanmıştır. Ancak Tablo 4'ün başlığında bu değerlerin metrik türü ayrıca açıkça belirtilmediğinden, tabloda “raporlanan skor” ifadesi korunmuştur. Kaynak: [Özgün Tablo 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC12579548/#btaf569-T4).
 
 | Yöntem | DDI tipi | Rastgele ilaç bölmesi | Kümeye dayalı bölme | Mutlak fark (puan) |
 |---|---:|---:|---:|---:|
