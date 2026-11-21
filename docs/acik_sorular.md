@@ -61,3 +61,14 @@
 ### 12. Dozaj ve Birim Kalıntıları İçeren Bileşenler ve Yol D Kapsamı
 - **Gözlem:** TİTCK ham tablosunda çok az sayıda (yaklaşık 6 ürün) etken madde metninin içine rakamsal doz ve birim yazılmıştır (`vitamin a palmitat 20.000 iu/ml`, `kolistimetat sodyum 4.500.000 iu` vb.).
 - **Toplantıda Sorulacak Soru / Karar Önerisi:** Bu tür uç vakalar Yol D (Elle Eşleme) sürecine mi bırakılmalıdır, yoksa `src/normalize.py` içine kontrollü bir dozaj temizleme kuralı mı eklenmelidir?
+
+### 13. BENORAL (İP2 3/50) — Ürün Bazlı Ayrıştırma Düzeltmesi
+- **Ürün:** BENORAL 250 MG/250 MG FİLM TABLET
+- **Barkod:** `8699527093866`
+- **Mevcut sorun:** TİTCK ham verisindeki `vitamin b1 in combination with vitamin b6 and/or vitamin b12` ifadesi bir ATC kategori açıklamasıdır. Ayrıştırma sonucunda `vitamin b1 in combination with vitamin b6` ve `or vitamin b12` şeklinde hatalı kayıtlar oluşmuştur.
+- **Doğrulanan etken maddeler:** Tiamin hidroklorür (B1, 250 mg) ve piridoksin hidroklorür (B6, 250 mg).
+- **Normalleştirilmiş bileşenler:** `tiamin`, `piridoksin`.
+- **Yol D kontrolü:** `piridoksin` → `pyridoxine` (`DDInter1549`) eşleşmesi mevcut. `tiamin` kaydı eşleşmemiş durumdadır; mevcut eşleme raporunda DDInter karşılığı bulunamadığı belirtilmiştir.
+- **İP2 değerlendirmesi:** `Hatalı` olarak korunmalıdır; ürün düzeyinde düzeltme henüz uygulanmamıştır.
+- **Yapılacak işlem:** BENORAL barkoduna özel bileşen düzeltmesi hazırlanmalı ve `urun_etken.csv` çıktısına uygulanmalıdır. Genel ATC kategori ifadesi tek bir etken maddeye eşlenmemelidir.
+- **Durum:** İncelendi — ürün bazlı düzeltme bekliyor.
