@@ -43,7 +43,7 @@ Test çiftleri:
 
 #### İlaç adının tanınması: Arveles
 
-!\[Drugs.com – Arveles marka adıyla arama](images/sekil01.png)
+![Drugs.com – Arveles marka adıyla arama](images/sekil01.png)
 
 *Şekil 1. Drugs.com – Arveles marka adıyla arama*
 
@@ -53,7 +53,7 @@ Drugs.com üzerinde “Arveles” marka adıyla arama yapılmıştır. Araç, il
 
 #### Etken madde adının tanınması: Deksketoprofen
 
-!\[Drugs.com – Deksketoprofen etken madde araması](images/sekil02.png)
+![Drugs.com – Deksketoprofen etken madde araması](images/sekil02.png)
 
 *Şekil 2. Drugs.com – Deksketoprofen etken madde araması*
 
@@ -63,7 +63,7 @@ Drugs.com üzerinde “Deksketoprofen” etken madde adıyla arama yapılmışt�
 
 #### Etken madde adının eşleşme durumu: Deksketoprofen trometamol
 
-!\[Drugs.com – Deksketoprofen trometamol araması](images/sekil03.png)
+![Drugs.com – Deksketoprofen trometamol araması](images/sekil03.png)
 
 *Şekil 3. Drugs.com – Deksketoprofen trometamol araması*
 
@@ -73,7 +73,7 @@ Drugs.com üzerinde “Deksketoprofen trometamol” adıyla arama yapılmıştı
 
 #### İlaç adının tanınması: Klacid
 
-!\[Drugs.com – Klacid marka adıyla arama](images/sekil04.png)
+![Drugs.com – Klacid marka adıyla arama](images/sekil04.png)
 
 *Şekil 4. Drugs.com – Klacid marka adıyla arama*
 
@@ -83,11 +83,11 @@ Drugs.com üzerinde “Klacid” marka adıyla arama yapılmıştır. Araç, bu 
 
 #### Etken madde adının tanınması: Klaritromisin
 
-!\[Drugs.com – Klaritromisin (clarithromycin) araması](images/sekil05.png)
+![Drugs.com – Klaritromisin (clarithromycin) araması](images/sekil05.png)
 
 *Şekil 5. Drugs.com – Klaritromisin (clarithromycin) araması*
 
-!\[Drugs.com – Klaritromisin etkileşim sayfası](images/sekil06.png)
+![Drugs.com – Klaritromisin etkileşim sayfası](images/sekil06.png)
 
 *Şekil 6. Drugs.com – Klaritromisin etkileşim sayfası*
 
@@ -99,11 +99,11 @@ Araç ayrıca kolit, hepatotoksisite, böbrek fonksiyon bozukluğu, miyastenia g
 
 #### İlaç çifti: Coumadin (varfarin) + klaritromisin
 
-!\[Drugs.com – Coumadin (warfarin) + klaritromisin etkileşim raporu](images/sekil07.png)
+![Drugs.com – Coumadin (warfarin) + klaritromisin etkileşim raporu](images/sekil07.png)
 
 *Şekil 7. Drugs.com – Coumadin (warfarin) + klaritromisin etkileşim raporu*
 
-!\[Drugs.com – Ek uyarılar (hastalık, yiyecek/yaşam tarzı)](images/sekil08.png)
+![Drugs.com – Ek uyarılar (hastalık, yiyecek/yaşam tarzı)](images/sekil08.png)
 
 *Şekil 8. Drugs.com – Ek uyarılar (hastalık, yiyecek/yaşam tarzı)*
 
@@ -115,7 +115,7 @@ Drugs.com üzerinde Coumadin (warfarin) ve klaritromisin birlikte kontrol edilmi
 
 #### İlaç çifti: Arveles (deksketoprofen) + Coumadin (warfarin)
 
-!\[Drugs.com – Deksketoprofen + Coumadin araması](images/sekil09.png)
+![Drugs.com – Deksketoprofen + Coumadin araması](images/sekil09.png)
 
 *Şekil 9. Drugs.com – Deksketoprofen + Coumadin araması*
 
@@ -125,7 +125,7 @@ Drugs.com üzerinde deksketoprofen etken maddesiyle arama yapılmıştır. Araç
 
 #### İlaç çifti: Arveles (deksketoprofen) + Klacid (klaritromisin)
 
-!\[Drugs.com – Arveles + Klacid araması](images/sekil10.png)
+![Drugs.com – Arveles + Klacid araması](images/sekil10.png)
 
 *Şekil 10. Drugs.com – Arveles + Klacid araması*
 
@@ -139,7 +139,7 @@ Drugs.com üzerinde Arveles marka adıyla arama yapılmıştır. Araç, Arveles�
 
 #### İlaç adının tanınması: Arveles
 
-!\[Medscape – Arveles marka adıyla arama](images/sekil11.png)
+![Medscape – Arveles marka adıyla arama](images/sekil11.png)
 
 *Şekil 11. Medscape – Arveles marka adıyla arama*
 
@@ -149,7 +149,7 @@ Medscape İlaç Etkileşim Kontrolü aracında “Arveles” marka adıyla arama
 
 #### Etken madde adının tanınması: Deksketoprofen
 
-!\[Medscape – Dexketoprofen etken madde araması](images/sekil12.png)
+![Medscape – Dexketoprofen etken madde araması](images/sekil12.png)
 
 *Şekil 12. Medscape – Dexketoprofen etken madde araması*
 
@@ -159,7 +159,7 @@ Medscape İlaç Etkileşim Kontrolü aracında “dexketoprofen” etken madde a
 
 #### İlaç adının tanınması: Coumadin (varfarin)
 
-!\[Medscape – Coumadin araması (varfarin eşleşmesi)](images/sekil13.png)
+![Medscape – Coumadin araması (varfarin eşleşmesi)](images/sekil13.png)
 
 *Şekil 13. Medscape – Coumadin araması (varfarin eşleşmesi)*
 
@@ -169,7 +169,7 @@ Medscape üzerinde “Coumadin” araması yapılmıştır. Araç, “varfarin�
 
 #### Medscape: Coumadin (varfarin) + klaritromisin
 
-!\[Medscape – Varfarin + klaritromisin etkileşim sonucu](images/sekil14.png)
+![Medscape – Varfarin + klaritromisin etkileşim sonucu](images/sekil14.png)
 
 *Şekil 14. Medscape – Varfarin + klaritromisin etkileşim sonucu*
 
@@ -181,7 +181,7 @@ Medscape açıklamasına göre klaritromisin, varfarinin düzeyini veya etkisini
 
 #### Medscape: Dexketoprofen + Coumadin (varfarin)
 
-!\[Medscape – Dexketoprofen + varfarin kontrolü](images/sekil15.png)
+![Medscape – Dexketoprofen + varfarin kontrolü](images/sekil15.png)
 
 *Şekil 15. Medscape – Dexketoprofen + varfarin kontrolü*
 
@@ -191,7 +191,7 @@ Medscape Etkileşim Denetleyicisi’nde dexketoprofen adı aranmıştır. Araç,
 
 #### Medscape: Arveles + Coumadin (varfarin)
 
-!\[Medscape – Arveles + varfarin kontrolü](images/sekil16.png)
+![Medscape – Arveles + varfarin kontrolü](images/sekil16.png)
 
 *Şekil 16. Medscape – Arveles + varfarin kontrolü*
 
@@ -203,11 +203,11 @@ Medscape Etkileşim Denetleyicisi’nde Arveles adı aranmıştır. Araç, bu ad
 
 #### WebMD: Arveles + Coumadin (varfarin)
 
-!\[WebMD – Arveles + Coumadin kontrolü (1. arama)](images/sekil17.png)
+![WebMD – Arveles + Coumadin kontrolü (1. arama)](images/sekil17.png)
 
 *Şekil 17. WebMD – Arveles + Coumadin kontrolü (1. arama)*
 
-!\[WebMD – Arveles + varfarin kontrolü (2. arama)](images/sekil18.png)
+![WebMD – Arveles + varfarin kontrolü (2. arama)](images/sekil18.png)
 
 *Şekil 18. WebMD – Arveles + varfarin kontrolü (2. arama)*
 
@@ -217,7 +217,7 @@ WebMD Drug Interaction Checker üzerinde Arveles ve Coumadin ilaç çifti kontro
 
 #### WebMD: Coumadin (varfarin) + Klacid (klaritromisin) – marka adlarıyla
 
-!\[WebMD – Coumadin + Klacid (marka adlarıyla) kontrolü](images/sekil19.png)
+![WebMD – Coumadin + Klacid (marka adlarıyla) kontrolü](images/sekil19.png)
 
 *Şekil 19. WebMD – Coumadin + Klacid (marka adlarıyla) kontrolü*
 
@@ -227,7 +227,7 @@ WebMD Drug Interaction Checker üzerinde Coumadin ve Klacid ilaç çifti kontrol
 
 #### WebMD: Varfarin + klaritromisin – etken madde adlarıyla
 
-!\[WebMD – Varfarin + klaritromisin (etken madde adlarıyla): 2 etkileşim bulundu](images/sekil20.png)
+![WebMD – Varfarin + klaritromisin (etken madde adlarıyla): 2 etkileşim bulundu](images/sekil20.png)
 
 *Şekil 20. WebMD – Varfarin + klaritromisin (etken madde adlarıyla): 2 etkileşim bulundu*
 
@@ -237,7 +237,7 @@ WebMD İlaç Etkileşim Kontrol Aracı’nda marka adları yerine etken madde ad
 
 #### WebMD: Dexketoprofen + Coumadin (varfarin)
 
-!\[WebMD – Dexketoprofen + warfarin kontrolü](images/sekil21.png)
+![WebMD – Dexketoprofen + warfarin kontrolü](images/sekil21.png)
 
 *Şekil 21. WebMD – Dexketoprofen + warfarin kontrolü*
 
@@ -253,7 +253,7 @@ RxMediaPharma üzerinden ilaç etkileşim kontrolleri gerçekleştirilmek istenm
 
 ### 4.5 BNF (British National Formulary)
 
-!\[BNF / NICE – Erişim kısıtlaması bildirimi](images/sekil22.png)
+![BNF / NICE – Erişim kısıtlaması bildirimi](images/sekil22.png)
 
 *Şekil 22. BNF / NICE – Erişim kısıtlaması bildirimi*
 
