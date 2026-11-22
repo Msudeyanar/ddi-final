@@ -124,7 +124,21 @@ Bu senaryoda hem DDInter kataloğunda bulunmayan bir molekül (`Arveles`: Dekske
 
 ---
 
-## 5. Olası Sorular ve Cevaplar
+## 5. Senaryo 4: Yol D Doğrulama ve Belge Bekleyen Ürün Senaryosu (BEDOXINAL, BENORAL, POLIVIT C)
+
+Yol D entegrasyonu kapsamında manuel etken madde eşleştirmesi ve ürün belgesi doğrulama süreçleri test edilmiştir:
+1. **BEDOXINAL (Bileşen Doğrulaması Bekleniyor):** Resmî ruhsat/KÜB belgesi henüz doğrulanmamış ürünlerde sistem ham otomatik ayrıştırmadaki hatalı parçalara geri dönmemekte; kullanıcıya açıkça `Bileşen doğrulaması bekleniyor` uyarısı üretmektedir.
+2. **BENORAL ve POLIVIT C (Yol D Aktif Eşleşme):** Farklı ambalaj boyutlarında (BENORAL 30/50 tablet, POLIVIT C 30/500/1000 tablet) Yol D manuel eşleştirmeleri tüm ambalaj boyutlarına genişletilmiş ve DDInter eşleşmeleri (`DDInter1549`, `DDInter124`, `DDInter1289`, `DDInter771`) doğrulanmıştır.
+
+| urun_1 | urun_2 | etken_1 | etken_2 | durum | siddet | Doğrulama |
+|:---|:---|:---|:---|:---:|:---:|:---:|
+| BEDOXINAL 50 TABLET | WARFMADIN 10 MG TABLET | Bileşen doğrulaması bekleniyor | warfarin | **Bileşen doğrulaması bekleniyor** | - | Yol D Kuralı |
+| BENORAL 250 MG/250 MG (30 ADET) | KLACID 500 MG FİLM KAPLI TABLET | Piridoksin hidroklorür | clarithromycin | **Kayıt bulunamadı** | - | Yol D Eşleşmesi |
+| POLIVIT C FİLM TABLET (1000 ADET) | WARFMADIN 10 MG TABLET | C vitamini (askorbik asit) | warfarin | **Etkileşim Var** | **Minor** | Yol D Eşleşmesi |
+
+---
+
+## 6. Olası Sorular ve Cevaplar
 
 | Hoca Ne Sorabilir? | Vereceğin Net ve Güvenli Cevap | Doğrulama Hücresi |
 |:---|:---|:---:|
