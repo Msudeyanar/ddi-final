@@ -60,6 +60,7 @@ class EtkilesimMotoru:
         self.df_etken_madde: Optional[pd.DataFrame] = None
         self.df_etkilesim: Optional[pd.DataFrame] = None
         self._etkilesim_dict: dict[tuple[str, str], dict[str, Any]] = {}
+        self._belge_bekleyen_barkodlar: set[str] = set()
         self._yukle()
         self._yol_d_bilesenleri = self._yol_d_yukle(
             yol_d_path if yol_d_path is not None else BASE_DIR / "config" / "yol_d_urun_esleme.csv"
@@ -133,6 +134,19 @@ class EtkilesimMotoru:
             return {}
 
         kararlar = pd.read_csv(path, dtype=str, keep_default_na=False)
+
+        # 1. Belge bekleyen ürünleri tespit et (Yol D: urun_belgesi_bekliyor)
+        bekleyen = kararlar[kararlar["durum"] == "urun_belgesi_bekliyor"].copy()
+        for satir in bekleyen.itertuples(index=False):
+            if satir.barkod:
+                self._belge_bekleyen_barkodlar.add(str(satir.barkod).strip())
+            if satir.urun:
+                k = katla(satir.urun)
+                eslesen = self.df_urun[self.df_urun["urun_adi_katlanmis"].str.startswith(k)]
+                for b in eslesen["barkod"].dropna():
+                    self._belge_bekleyen_barkodlar.add(str(int(b)))
+
+        # 2. Aktif Yol D kararlarını yükle
         aktif = kararlar[kararlar["durum"] != "urun_belgesi_bekliyor"].copy()
         aktif["sira"] = aktif["sira"].astype(int)
         if aktif.duplicated(["barkod", "sira"]).any():
@@ -145,7 +159,8 @@ class EtkilesimMotoru:
         }
         bilesenler = {}
         for barkod, grup in aktif.sort_values("sira").groupby("barkod"):
-            bilesenler[barkod] = [
+            urun_adi_yol = grup["urun"].iloc[0] if "urun" in grup.columns else ""
+            comp_list = [
                 {
                     "bilesen_tr": satir.bilesen,
                     "ad_en": None,
@@ -157,6 +172,21 @@ class EtkilesimMotoru:
                 }
                 for satir in grup.itertuples(index=False)
             ]
+            bilesenler[barkod] = comp_list
+
+            # Ambalaj boyutu varyantlarına da yay (örn. BENORAL 30 ve 50 tablet, POLIVIT C 30, 500, 1000 tablet)
+            if urun_adi_yol:
+                k = katla(urun_adi_yol)
+                eslesen = self.df_urun[self.df_urun["urun_adi_katlanmis"].str.startswith(k)]
+                for _, r in eslesen.iterrows():
+                    if pd.notna(r["barkod"]):
+                        var_barkod = str(int(r["barkod"]))
+                        if var_barkod not in bilesenler:
+                            bilesenler[var_barkod] = [
+                                dict(c, atc_ana=urun_atcleri.get(var_barkod, c["atc_ana"]))
+                                for c in comp_list
+                            ]
+
         return bilesenler
 
     def urun_bul(self, sorgu: str) -> dict[str, Any]:
@@ -224,21 +254,38 @@ class EtkilesimMotoru:
 
         bilesen_adlari = self._barkod_bilesen_map.get(barkod, [])
         barkod_anahtari = str(int(barkod)) if pd.notna(barkod) else ""
-        bilesen_detaylari = self._yol_d_bilesenleri.get(barkod_anahtari, [])
 
-        for b_tr in ([] if bilesen_detaylari else bilesen_adlari):
-            meta = self._etken_meta_map.get(
-                b_tr,
+        # Yol D Belge Doğrulaması Bekleyen Ürün Kontrolü (Hatalı otomatik ayrıştırma yerine)
+        if barkod_anahtari in self._belge_bekleyen_barkodlar:
+            bilesen_detaylari = [
                 {
-                    "bilesen_tr": b_tr,
+                    "bilesen_tr": "Bileşen doğrulaması bekleniyor",
                     "ad_en": None,
                     "atc": None,
                     "atc_ana": None,
                     "ddinter_id": None,
-                    "yol": "eslesmedi",
-                },
-            )
-            bilesen_detaylari.append(meta)
+                    "yol": "bekliyor",
+                    "durum": "urun_belgesi_bekliyor",
+                }
+            ]
+        else:
+            yol_d_kayitlari = self._yol_d_bilesenleri.get(barkod_anahtari, [])
+            bilesen_detaylari = [dict(c) for c in yol_d_kayitlari]
+
+            if not bilesen_detaylari:
+                for b_tr in bilesen_adlari:
+                    meta = self._etken_meta_map.get(
+                        b_tr,
+                        {
+                            "bilesen_tr": b_tr,
+                            "ad_en": None,
+                            "atc": None,
+                            "atc_ana": None,
+                            "ddinter_id": None,
+                            "yol": "eslesmedi",
+                        },
+                    )
+                    bilesen_detaylari.append(meta)
 
         return {
             "girdi": sorgu,
@@ -300,6 +347,37 @@ class EtkilesimMotoru:
                     "siddet": "-",
                     "kaynak_dosyalar": "-",
                     "aciklama": "Ürünün bileşen ayrıştırma tablosunda karşılığı bulunamadı.",
+                }
+            )
+            return sonuclar
+
+        # Kontrol: Belge doğrulaması bekleyen ürün kontrolü (Yol D: urun_belgesi_bekliyor)
+        bekleyen_urunler = []
+        if any(c.get("bilesen_tr") == "Bileşen doğrulaması bekleniyor" or c.get("durum") == "urun_belgesi_bekliyor" for c in bilesenler_1):
+            bekleyen_urunler.append(urun_info_1["urun_adi"])
+        if any(c.get("bilesen_tr") == "Bileşen doğrulaması bekleniyor" or c.get("durum") == "urun_belgesi_bekliyor" for c in bilesenler_2):
+            bekleyen_urunler.append(urun_info_2["urun_adi"])
+
+        if bekleyen_urunler:
+            def _format_etken(bilesenler):
+                if any(c.get("bilesen_tr") == "Bileşen doğrulaması bekleniyor" or c.get("durum") == "urun_belgesi_bekliyor" for c in bilesenler):
+                    return "Bileşen doğrulaması bekleniyor"
+                adlar = [c.get("ad_en") or c["bilesen_tr"] for c in bilesenler]
+                return ", ".join(adlar)
+
+            sonuclar.append(
+                {
+                    "urun_1": urun_info_1["urun_adi"],
+                    "urun_2": urun_info_2["urun_adi"],
+                    "etken_1": _format_etken(bilesenler_1),
+                    "etken_2": _format_etken(bilesenler_2),
+                    "atc_gruplari": "-",
+                    "ddinter_id_1": "-",
+                    "ddinter_id_2": "-",
+                    "durum": "Bileşen doğrulaması bekleniyor",
+                    "siddet": "-",
+                    "kaynak_dosyalar": "-",
+                    "aciklama": f"Şu ürün(ler) için resmî ürün belgesi/KÜB doğrulaması beklenmektedir (Yol D): {', '.join(bekleyen_urunler)}.",
                 }
             )
             return sonuclar
@@ -481,3 +559,9 @@ if __name__ == "__main__":
     print("=" * 80)
     df3 = etkilesim_kontrol(["Arveles", "Parol", "Cordarone"])
     print(df3[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet", "aciklama"]])
+
+    print("\n" + "=" * 80)
+    print("SENARYO 4: Yol D Doğrulama ve Belge Bekleyen Ürün Senaryosu (BEDOXINAL, BENORAL, POLIVIT C, Warfmadin)")
+    print("=" * 80)
+    df4 = etkilesim_kontrol(["BEDOXINAL", "BENORAL", "POLIVIT C", "Warfmadin"])
+    print(df4[["urun_1", "urun_2", "etken_1", "etken_2", "ddinter_id_1", "ddinter_id_2", "durum", "siddet", "aciklama"]])
