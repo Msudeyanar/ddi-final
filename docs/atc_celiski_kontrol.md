@@ -71,9 +71,9 @@ Bu ölümcül veri hataları, **"SKRS kodu her zaman günceldir" varsayımının
 
 ## 4. Sonuç ve Mutabakat
 
-1. Notebook 01'den gelen 20 ürünün incelemesi sonucunda 5 ürünün WHO güncellemesi olduğu doğrulanmış ve yeni kod seçilerek çelişki kaldırılmıştır (`atc_celiski = 0`, `atc_who_guncellendi = 1`). Kalan 15 ürün ise SKRS veri giriş hataları (Admiraz, ATOMINEX, Nimejel Plus), endikasyon/kombinasyon farklılıkları veya TİTCK yazım hatası (`DO3AX`) nedeniyle resmî Ruhsatlı kodda korunmuş ve çelişki olarak (`atc_celiski = 1`) işaretlenmiştir.
-2. Tüm portföyde 369 çelişkinin **167 adedi WHO kuralıyla çözülmüş**, kalan **202 ürün ise güvenli tarafta kalınarak `atc_celiski = 1` ile işaretlenmiş** ve Yol A köprüsünden çıkarılmıştır.
-3. İP1 kalite kriterleri ve Kural 8 çalışma mantığı pilot incelemede doğrulanmış; pilot dışında 187 çelişki kalmıştır. [Notebook 01, nihai sayım](../notebooks/01_titck_temizlik.ipynb#cell-id=c10_save_summary).
+1. Notebook 01'den gelen 20 ürünün incelemesi sonucunda 5 ürünün WHO güncellemesi olduğu doğrulanmış ve yeni kod seçilerek çelişki kaldırılmıştır (`atc_celiski = 0`, `atc_who_guncellendi = 1`). Kalan 15 ürün ise SKRS veri giriş hataları (Admiraz, ATOMINEX, Nimejel Plus) ve endikasyon/kombinasyon farklılıkları nedeniyle resmî Ruhsatlı kodda korunmuş ve çelişki olarak (`atc_celiski = 1`) işaretlenmiştir.
+2. Tüm portföyde çift kaynaklı uyuşmazlıklardan **167 adedi Kural 8 (WHO) ile çözülmüştür**. Danışman kararı (Açık Soru 16a) uyarınca SKRS'de karşılığı olmayan **154 tek kaynaklı ürün** de (89 Pregabalin, 16 Gabapentin vb.) uluslararası köprü tutarlılığı için yeni WHO koduna güncellenmiş ve toplam WHO güncellemesi **321** ürüne ulaşmıştır (`atc_ruhsat` orijinal haliyle korunmuştur).
+3. TİTCK kaynaklı CONTUBEL (`DO3AX`) karakter hatası, Danışman kararı (Açık Soru 17a) uyarınca TEKNAZOL örneğindeki gibi `atc_kaynak_hatasi_duzeltildi = 1` bayrağı ile resmî `D03AX` koduna düzeltilmiş; böylece portföydeki kalan gerçek çelişki sayısı **201**'e inmiştir. [Notebook 01, nihai sayım](../notebooks/01_titck_temizlik.ipynb#cell-id=c10_save_summary).
 
 
 ---
