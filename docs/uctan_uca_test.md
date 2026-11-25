@@ -138,18 +138,6 @@ Yol D entegrasyonu kapsamında manuel etken madde eşleştirmesi ve ürün belge
 
 ---
 
-## 6. Olası Sorular ve Cevaplar
-
-| Hoca Ne Sorabilir? | Vereceğin Net ve Güvenli Cevap | Doğrulama Hücresi |
-|:---|:---|:---:|
-| **1. "Arveles ile Warfmadin arasındaki etkileşimi sistem neden bulamadı?"** | Arveles'in etken maddesi *Deksketoprofen*'dir. Deksketoprofen Türkiye'de ve Avrupa'da çok yaygın bir molekül olmasına rağmen küresel DDInter kataloğunda tekil molekül olarak yer almamakta, sadece ana rasematı olan *Ketoprofen* bulunmaktadır. Sistemimiz varsayım yapmayıp veritabanında olmadığı için `DDInter'da Yok` uyarısı verdi. | (NB04 Hücre [12]) |
-| **2. "Coumadin yerine neden Warfmadin ile test yapıldı?"** | Sağlık Bakanlığı ham verileri incelendiğinde `Coumadin` markasının TİTCK ruhsatlı güncel ürün listesinde yer almadığı, SKRS Pasif Ürünler Listesi'nde bulunduğu görülmüştür (5 mg 2022'de, 10 mg 2023'te pasife alınmıştır). Sistem yapay alias kuralları kullanmadan dürüstçe `Ürün Bulunamadı` demiştir. Ruhsatlı aktif varfarin ürünü olan `Warfmadin` ile klinik test gerçekleştirilmiş ve **Major** etkileşim yakalanmıştır. | (NB04 Hücre [10], [11] ve [12]) |
-| **3. "Augmentin senaryosunda neyi kanıtladınız?"** | Augmentin kombine bir formülasyondur (Amoksisilin + Klavulanik Asit). Sistemimiz barkod üzerinden bunu iki ayrı bileşene ayırdı ve diğer iki ilaçla kartezyen eşleyerek $(2 \times 1) + (2 \times 1) + (1 \times 1) = 5$ çift üretti. Amoksisilin–Klaritromisin arasındaki **Minor** etkileşimi başarıyla yakaladı. | (NB04 Hücre [13]) |
-| **4. "Parol ve Cordarone ikisi de DDInter'da varken neden sonuç çıkmadı?"** | DDInter 14 ATC grubundan sadece 8'i için dosya sunuyor. Parol **N (Sinir)** grubunda, Cordarone ise **C (Kardiyovasküler)** grubundadır. İki ilacın da indirme dosyası olmadığı için indirilen tablolarda yer alamazlar. Sistemimiz bunu `Eksik Grup (Olası Kayıp)` olarak etiketleyerek kayıp analizi modelimizi sahada ispatlamıştır. | (NB04 Hücre [14]) |
-| **5. "Drugs.com, Medscape ve WebMD ile karşılaştırdığınızda ne gördünüz?"** | Araçlar şiddet konusunda anlaşmamaktadır: Drugs.com Varfarin–Klaritromisin etkileşimini **Major** olarak sınıflandırırken (Şekil 7), Medscape **Önemli – Yakından Takip Edin** (Şekil 14) ve WebMD **Yakından takip edin** (Şekil 20) şeklinde klinik takip kategorisinde vermektedir. Ayrıca Deksketoprofen hiçbir küresel araç tarafından (ABD pazarı odaklı oldukları için) tanınamamıştır (Şekil 9, 15, 21). | (Şekil 7, 9, 10, 14, 15, 20, 21) |
-
----
-
 ## 6. Hafta Sonu Teslim Kontrol Listesi Uygunluğu
 
 - [x] **İP7 Fonksiyonu:** `etkilesim_kontrol` fonksiyonu genel arama kurallarıyla yazıldı ve test edildi (`src/etkilesim_kontrol.py`).
