@@ -9,9 +9,9 @@
 
 > **Kapsam hunisi yeniden sayımı.** Kapsam hunisindeki 22.417 / 16.841 / 18.066 tarihsel rapor değerleridir. Yerel `urun.csv` üzerinden `kapsam_disi=0` olan 22.883 benzersiz barkod seçildi. İlgili `urun_etken` ve `etken_madde` çıktıları `bilesen_tr` üzerinden karşılaştırılıp dolu `ddinter_id` alanları sayıldı. Yerel ara veride 15.999 barkodun tüm bileşenleri, 17.568 barkodun en az bir bileşeni eşleşti. Yol D motor çıktısında sayılar sırasıyla 16.000 ve 17.570. Tarihsel huni, bu iki veri sürümüyle yeniden üretilemedi.
 
-> **Tarihsel E10 kaynağı.** [Arşiv grafiği](IP6_Tarihsel_E10.png) 22.417 kapsam içi ürün, 20.760 tüm bileşenleri İngilizce adlı ürün, 18.066 en az bir DDInter eşleşmeli ürün ve 16.841 tüm bileşenleri eşleşen ürün gösteriyor. Arşiv Notebook 06’nın 15. hücresi (`In [7]`) yalnızca kapsam içi ruhsatlı ürünlerden bileşen kaydı bulunan barkodları sayıyor. Bu hesap eldeki iki CSV setiyle tekrar çalıştırıldı ve grafikteki dört değer birlikte yeniden üretilemedi. Tablo 12 güncel yerel sayımı gösterir.
+> **Tarihsel E10 kaynağı.** [Arşiv grafiği](IP6_Tarihsel_E10.png) 22.417 kapsam içi ürün, 20.760 tüm bileşenleri İngilizce adlı ürün, 18.066 en az bir DDInter eşleşmeli ürün ve 16.841 tüm bileşenleri eşleşen ürün gösteriyor. Arşiv Notebook 06’nın 15. hücresi (`In [7]`) yalnızca kapsam içi ruhsatlı ürünlerden bileşen kaydı bulunan barkodları sayıyor. Bu hesap eldeki iki CSV setiyle tekrar çalıştırıldı ve grafikteki dört değer birlikte yeniden üretilemedi. Tablo 12, E10 yönteminin yerel `ddi-veri/interim` dosyalarıyla yeniden sayımını gösterir.
 
-> **Aynı E10 yöntemiyle yeniden hesap.** 20 Kasım tarihli `ddi-veri-20261120T174422Z-1-001.zip` arşivindeki üç CSV, Notebook 06’nın ruhsatlı ve kapsam içi barkod filtresiyle işlendi. Bileşen kaydı olan 22.417 barkodun 20.697’sinde tüm bileşenlerin İngilizce adı vardı. 17.373’ünde en az bir, 15.811’inde tüm bileşenler DDInter kimliğiyle eşleşti. Tablo 12 farklı bir kapsam tanımı kullanır.
+> **Aynı E10 yöntemiyle yeniden hesap.** 20 Kasım tarihli `ddi-veri-20261120T174422Z-1-001.zip` arşivindeki üç CSV, Notebook 06’nın ruhsatlı ve kapsam içi barkod filtresiyle işlendi. Bileşen kaydı olan 22.417 barkodun 20.697’sinde tüm bileşenlerin İngilizce adı vardı. 17.373’ünde en az bir, 15.811’inde tüm bileşenler DDInter kimliğiyle eşleşti. Tablo 12, E10 yönteminin `ddi-veri/interim` dosyalarıyla elde edilen sonucunu gösterir.
 
 ---
 
@@ -22,7 +22,7 @@
 | **E05** | [En Sık 30 Etken Madde](#1-grafik-e05-en-sık-kullanılan-30-etken-madde-ve-ddinter-durumu) | En yaygın 30 molekülün 26'sı (%86,7) DDInter'da tanımlı; Yol C elektrolitleri bağladı | (NB06 Hücre [4]) |
 | **E08** | [Eşleşme Yolları (Yol A, B, C, D)](#2-grafik-e08-eşleşme-yolları-ve-kapsama-dağılımı) | Yol A tek başına Türkiye'deki tekil etken maddelerin %62,12'sini çözdü | (NB06 Hücre [5]) |
 | **E09** | [14 ATC Grubunda DDInter Kapsamı](#3-grafik-e09-14-atc-ana-grubunda-ddinter-kapsama-oranı-ve-eksik-gruplar-en-önemli-grafik) | Kanser (%84,9) ve Sinir (%71,8) çok yüksek; eksik 6 grup turuncu çizgili | (NB06 Hücre [6]) |
-| **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | Portföyün %75,2'sinde (16.855 ürün) sıfır kayıpla tam etkileşim kontrolü | (NB06 Hücre [7]) |
+| **E10** | [Kullanıcı Arama Kapsam Hunisi](#4-grafik-e10-kullanıcı-arama-ve-entegrasyon-kapsam-hunisi) | 15.194 üründe (%67,62) tüm bileşenler DDInter kimliğiyle eşleşti | [NB06 E10](../notebooks/06_eda_ddinter.ipynb#L1465) |
 | **D01** | [DDInter Şiddet Dağılımı (Kural 9)](#5-grafik-d01-ddinter-şiddet-dağılımı-ham-vs-kural-9) | 62.148 mükerrer çift elendi; 160.235 net çiftte sıfır çelişki sağlandı | (NB04 Hücre [5] ve [6], NB06 Hücre [8]) |
 | **D02** | [Kaynak Dosya Bazında Şiddet Dağılımı](#6-grafik-d02-kaynak-dosyalara-göre-tekrarsız-çift-ve-şiddet-dağılımı) | En büyük hacim L (Kanser) ve A (Sindirim); en yüksek Major risk L'de (%24,3) | (NB06 Hücre [9]) |
 | **D03** | [İlaç Başına Eş Sayısı (Derece Dağılımı)](#7-grafik-d03-ilaç-başına-farklı-eş-sayısı-dağılımı-derece-analizi) | Sağa çarpık dağılım: Ortalama 165,28 eş, medyan 125,0 eş, zirve 910 eş | (NB04 Hücre [6], NB06 Hücre [10]) |
@@ -236,27 +236,16 @@ Bu çalışma, Türkiye ilaç pazarında ruhsatlı tüm tıbbi ürünlerin etken
 
 #### Tablo 12. Yerel veride barkod düzeyinde eşleşme
 
-#### Tablo 12: Kullanıcı Arama Kapsam Hunisi Aşamaları (NB06 Hücre [7])
+Kaynak [Notebook 06, E10 hesaplama hücresi (`In [18]`)](../notebooks/06_eda_ddinter.ipynb#L1465). Hesap, yerel `ddi-veri/interim` klasöründeki `urun.csv`, `urun_etken.csv` ve `etken_madde.csv` dosyalarıyla yeniden üretildi. Payda, bileşen kaydı bulunan kapsam içi ruhsatlı ürünlerin benzersiz barkod sayısıdır.
 
-| Huni Aşaması | Aşama Tanımı / Kriter | Kapsanan Ürün Sayısı | Kapsama Oranı (%) | Aşama İçi Korunma Oranı (%) | Doğrulama Hücresi |
-|:---|:---|---:|:---|:---|:---:|
-| **1. Kapsam İçi Ruhsatlı Ürünler** | TİTCK ruhsatlı ve kapsam dışı olmayan ilaçlar | 22,417 | %100.00 | %100.00 | (NB06 Hücre [7]) |
-| **2. Tüm Bileşenleri İngilizce Adlı** | İstisnasız tüm bileşenleri İngilizce'ye çevrilenler | 20,777 | %92.68 | %92.68 | (NB06 Hücre [7]) |
-| **3. En Az Bir Bileşeni DDInter'da** | En az bir etken maddesi DDInter kimliğine eşleşenler | 18,080 | %80.65 | %87.02 | (NB06 Hücre [7]) |
-| **4. Tüm Bileşenleri DDInter'da** | Tüm bileşenleri DDInter'da olanlar (Tam Çözüm) | 16,855 | %75.19 | %93.22 | (NB06 Hücre [7]) |
+| Ölçüt | Ürün sayısı | Payda içindeki oran |
+|:---|---:|---:|
+| Kapsam içi, bileşen kaydı bulunan ruhsatlı ürünler | 22.469 | %100,00 |
+| Tüm bileşenleri İngilizce adlı | 20.035 | %89,17 |
+| En az bir bileşeni DDInter kimliğiyle eşleşen | 17.187 | %76,49 |
+| Tüm bileşenleri DDInter kimliğiyle eşleşen | 15.194 | %67,62 |
 
-#### 📌 Grafik E10 Metodolojik ve Analitik Değerlendirmesi:
-
-### 📌 Kod Ne İşe Yarıyor?
-- Kullanıcının reçete sorgulama sürecini 4 aşamalı bir huni olarak modeller (NB06 Hücre [7]):
-  - 1. Aşama: TİTCK ruhsatlı kapsam içi tüm ürünler (22.417 ürün)
-  - 2. Aşama: Tüm bileşenlerinin normalize İngilizce adı bulunan ürünler (20.777 ürün)
-  - 3. Aşama: En az bir bileşeni DDInter'da eşleşen ürünler (18.080 ürün)
-  - 4. Aşama: Tüm bileşenleri DDInter'da eşleşip tam etkileşim kontrolü yapılabilen ürünler (16.855 ürün)
-
-### 💡 Çıktıdan Ne Anlamam Lazım?
-- **Ne Görüyorsun?:** Kapsam içi 22.417 ruhsatlı ilacın **18.080'inde (%80,7)** en az bir bileşen DDInter kütüphanesinde tanımlı olup; **16.855 üründe (%75,2)** tüm etken maddeler eksiksiz DDInter karşılığına sahiptir (NB06 Hücre [7]).
-- **En Önemli Sayı:** Huninin ilk aşamasından son aşamasına geçerken yaşanan toplam ürün kaybı **5.562 üründür (%24,81)**; en büyük korunma %93,22 ile Aşama 3'ten Aşama 4'e geçişte gerçekleşmektedir (NB06 Hücre [7]).
+[Güncel E10 grafiği](../figs/E10_kapsam_hunisi.png)
 
 ---
 

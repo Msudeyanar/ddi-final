@@ -5,7 +5,7 @@
 > **İlgili Görev:** İP7 – Uçtan Uca Test (*Veri Birleştirme Planı*, Sayfa 7–8, 11, 22; *3 Kişilik Görev Dağılımı*, Sayfa 6–7)  
 > **Test Edilen Motor:** `src/etkilesim_kontrol.py`  
 > **Test Edilen Notebook:** `notebooks/04_ddinter_birlestirme.ipynb` (Bölüm 10, NB04 Hücre [10]–[15])  
-> **Doğrulama Durumu:** ✅ Zorunlu Senaryolar, 14 İkili Çift, Sıfır Hata (Tüm Testler Başarılı - NB04 Hücre [15])
+> **Doğrulama Durumu:** ✅ Zorunlu Senaryolar, 14 İkili Çift, Sıfır Hata (Tüm Testler Başarılı - [NB04 In [13]](../notebooks/04_ddinter_birlestirme.ipynb#cell-id=f7e3f999))
 
 ---
 
